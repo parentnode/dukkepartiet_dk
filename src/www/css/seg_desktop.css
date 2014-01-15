@@ -1,0 +1,74 @@
+* {font-family: Arial, Verdana, sans-serif; color: #000000;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+html {height: 100%;}
+body {background: #ffffff; margin: 0; height: 100%; overflow-y: scroll; overflow-x: hidden;}
+
+
+/* BASE */
+h1, h2, h3, h4, h5, h6, p, ul, li, dl, dd, dt {padding: 0; margin: 0;}
+h1, h2, h3, h4, h5, h6, p, li, dd, dt, span, a {line-height: 1em; font-weight: normal;}
+
+ul {list-style: none;}
+a {text-decoration: none; cursor: pointer;}
+
+img {border: 0; display: block;}
+form, fieldset, label, input, select, textarea {padding: 0; margin: 0; font-weight: normal;}
+fieldset {border: none;}
+input, select, textarea {font-size: 14px;}
+input, textarea {outline: none;}
+
+#page {position: relative; width: 100%; min-height: 100%; margin: 0 auto; }
+
+a, span {font-size: inherit; font-family: inherit; color: inherit; font-weight: inherit; text-transform: inherit;}
+
+h1 {}
+h2 {line-height: 1.25em; padding-bottom: 7px; padding-top: 7px;}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+p {line-height: 1.38em; padding: 0 0 20px;} 
+
+ul {font-size: 0;}
+li {display: inline-block; vertical-align: top;}
+
+dl {font-size: 0;} 
+dd, 
+dt {font-weight: bold; display: inline-block; vertical-align: top;}
+
+
+#page #header {background: #00027a url('/img/header.jpg') top center no-repeat; height:249px;}
+#page #content #intro {background: #00027a url('/img/intro.jpg') top center no-repeat; height:646px;}
+#page #content #aktivistiske {background: #00027a url('/img/aktivistiske.jpg') top center no-repeat; height:733px;}
+#page #content #kandidater {background: #d50b00 url('/img/kandidater.jpg') top center no-repeat; height:876px;}
+#page #content #manifest {background: #d50b00 url('/img/manifest.jpg') top center no-repeat; height:691px;}
+#page #content #folkets_stemme {background: #00027a url('/img/folkets_stemme.jpg') top center no-repeat; height:804px;}
+#page #content #debatten {background: #00027a url('/img/debatten.jpg') top center no-repeat; height:1151px;}
+#page #content #om_os {background: #d50b00 url('/img/om_os.jpg') top center no-repeat; height:1310px;}
+#page #content #kontakt {background: #d50b00 url('/img/kontakt.jpg') top center no-repeat; height:756px;}
+
+
+#page #content #intro,
+#page #content #aktivistiske,
+#page #content #kandidater,
+#page #content #manifest,
+#page #content #folkets_stemme,
+#page #content #debatten,
+#page #content #om_os,
+#page #content #kontakt {width: 100%; display: inline-block; vertical-align: top;}
+
+/* TEMPORARY HIDE CONTENT */
+#page #content h1, 
+#page #content h2, 
+#page #content h3, 
+#page #content h4, 
+#page #content p, 
+#page #content img {display: none;}
+
+#navigation {height:250px; background-color: yellow;}
+#navigation ul {font-size: 12px;}
+#navigation ul li {display: inline-block; vertical-align: top; display: block; padding: 6px 0}
