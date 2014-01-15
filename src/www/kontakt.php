@@ -1,31 +1,31 @@
-<?php include 'www.header.php'; ?>
+<?php
+$access_item = false;
+if(isset($read_access) && $read_access) {
+	return;
+}
 
-				<!-- KONTAKT -->
-				<div id="kontakt" class="">
-					<div class="gmap">
-						<!-- ADD MAP -->
-						<!-- UI to be decided -->
-					</div>
+include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
-					<div class="col">
-						<h4>Dukke Partiet</h4>
-						<p>Wildersgade 64</p>
-						<p>1408 København K</p>
-						<p><a href="mailto:info@dukkepartiet.dk">info@dukkepartiet.dk</a></p>
-					</div>
+$action = $page->actions();
 
-					<div class="col">
-						<h4>Mere info</h4>
-						<p><a href="http://google.com">Presse</a></p>
-						<p><a href="http://google.com">Samarbejdspartnere</a></p>
-					</div>
 
-					<div class="col">
-						<h4>Social</h4>
-						<p><a href="http://facebook.com">Facebook</a></p>
-						<p><a href="http://twitter.com">Twitter</a></p>
-						<p><a href="http://instagram.com">Instagram</a></p>
-					</div>
-				</div>
-				
-<?php include 'www.footer.php'; ?>
+$page->bodyClass("kontakt");
+$page->pageTitle("Dukke Partiet - Kontakt");
+
+// list
+if(!$action) {
+
+	$page->header();
+	$page->template("pages/kontakt.php");
+	$page->footer();
+
+}
+else {
+
+	$page->header();
+	$page->template("pages/404.php");
+	$page->footer();
+
+}
+
+?>

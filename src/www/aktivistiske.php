@@ -1,25 +1,31 @@
-<?php include 'www.header.php'; ?>
+<?php
+$access_item = false;
+if(isset($read_access) && $read_access) {
+	return;
+}
 
-				<!-- AKTIVISTISKE -->
-				<div id="aktivistiske" class="">
-					<ul class="slideshow">
-						<li>
-							<img src="/img/img.jpg" />
-						</li>
-						<li>
-							<img src="/img/img.jpg" />
-						</li>
-						<li>
-							<img src="/img/img.jpg" />
-						</li>
-						<li>
-							<img src="/img/img.jpg" />
-						</li>
-					</ul>
-					<ul class="actions">
-						<li class="next">Næste</li>
-						<li class="previous">Forrige</li>
-					</ul>
-				</div>
+include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
-<?php include 'www.footer.php'; ?>
+$action = $page->actions();
+
+
+$page->bodyClass("aktivistiske");
+$page->pageTitle("Dukke Partiet - Aktivistiske");
+
+// list
+if(!$action) {
+
+	$page->header();
+	$page->template("pages/aktivistiske.php");
+	$page->footer();
+
+}
+else {
+
+	$page->header();
+	$page->template("pages/404.php");
+	$page->footer();
+
+}
+
+?>

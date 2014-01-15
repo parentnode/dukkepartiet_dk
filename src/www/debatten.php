@@ -1,37 +1,31 @@
-<?php include 'www.header.php'; ?>
+<?php
+$access_item = false;
+if(isset($read_access) && $read_access) {
+	return;
+}
 
-				<!-- DEBATTEN -->
-				<div id="debatten" class="">
-					<h2>Debatten</h2>
-					<h3>Hastah dit tweet #DP for at være med i debatten.</h3>
-					<ul class="actions">
-						<li>Skriv her</li>
-					</ul>
+include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
-					<ul class="twitter_feed">
-						<li class="tweet">
-							<h4>@pede</h4>
-							<p>Lorem ipsum, stuff from twitter.</p>
-						</li>
-						<li class="tweet">
-							<h4>@pede</h4>
-							<p>Lorem ipsum, stuff from twitter.</p>
-						</li>
-						<li class="tweet">
-							<h4>@pede</h4>
-							<p>Lorem ipsum, stuff from twitter.</p>
-						</li>
-						<li class="tweet">
-							<h4>@pede</h4>
-							<p>Lorem ipsum, stuff from twitter.</p>
-						</li>
-						<li class="tweet">
-							<h4>@pede</h4>
-							<p>Lorem ipsum, stuff from twitter.</p>
-						</li>
-						<!-- Make three columns -->
-						<!-- Lazy load more -->
-					</ul>
-				</div>
+$action = $page->actions();
 
-<?php include 'www.footer.php'; ?>
+
+$page->bodyClass("debatten");
+$page->pageTitle("Dukke Partiet - Debatten");
+
+// list
+if(!$action) {
+
+	$page->header();
+	$page->template("pages/debatten.php");
+	$page->footer();
+
+}
+else {
+
+	$page->header();
+	$page->template("pages/404.php");
+	$page->footer();
+
+}
+
+?>

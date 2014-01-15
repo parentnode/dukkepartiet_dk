@@ -1,4 +1,4 @@
-<?php include 'www.header.php'; ?>
+			<div class="scene">
 
 				<!-- INTRODUCTION -->
 				<div id="intro" class="">
@@ -10,4 +10,4 @@
 					</ul>
 				</div>
 
-<?php include 'www.footer.php'; ?>
+			</div>

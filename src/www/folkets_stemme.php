@@ -1,14 +1,31 @@
-<?php include 'www.header.php'; ?>
+<?php
+$access_item = false;
+if(isset($read_access) && $read_access) {
+	return;
+}
 
-				<!-- Folkets Stemme -->
-				<div id="folkets_stemme" class="">
-					<h2>Folkets stemme</h2>
-					<p class="col">Det moderne demokratis deka- dence og gradvise sammenfald med totalitære stater i post- demokratiske spektakulære sam- fund er formodentlig grundlagt i den apori, som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig</p>
-					<p class="col">Det moderne demokratis deka- dence og gradvise sammenfald med totalitære stater i post- demokratiske spektakulære sam- fund er formodentlig grundlagt i den apori, som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig</p>
+include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
-					<div class="din_tale">
-						<!-- FLASH WEBCAM STUFF HERE? preferably no flash... -->
-					</div>
-				</div>
+$action = $page->actions();
 
-<?php include 'www.footer.php'; ?>
+
+$page->bodyClass("folkets_stemme");
+$page->pageTitle("Dukke Partiet - Folkets Stemme");
+
+// list
+if(!$action) {
+
+	$page->header();
+	$page->template("pages/folkets_stemme.php");
+	$page->footer();
+
+}
+else {
+
+	$page->header();
+	$page->template("pages/404.php");
+	$page->footer();
+
+}
+
+?>

@@ -1,42 +1,31 @@
-<?php include 'www.header.php'; ?>
+<?php
+$access_item = false;
+if(isset($read_access) && $read_access) {
+	return;
+}
 
-				<!-- KANDIDATER -->
-				<div id="kandidater" class="">
-					<h2>Kandidater</h2>
-					<p class="col">
-						Det moderne demokratis deka- dence og gradvise sammenfald med totalitære stater i post- demokratiske spektakulære sam- fund er formodentlig grundlagt i den apori, som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig
-					</p>
-					<p class="col">
-						Det moderne demokratis deka- dence og gradvise sammenfald med totalitære stater i post- demokratiske spektakulære sam- fund er formodentlig grundlagt i den apori, som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig
-					</p>
-					<p class="col">
-						Det moderne demokratis deka- dence og gradvise sammenfald med totalitære stater i post- demokratiske spektakulære sam- fund er formodentlig grundlagt i den apori, som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig
-					</p>
-					<p class="col">
-						Det moderne demokratis deka- dence og gradvise sammenfald med totalitære stater i post- demokratiske spektakulære sam- fund er formodentlig grundlagt i den apori, som kendetegner det moderne demokratis begyndelse og som gennem en hemmelig
-					</p>
+include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
-					<ul class="people">
-						<li>
-							<img src="/img/person.jpg" />
-							<h4>Hr. Peter Jensen</h4>
-							<p>Din demokratiske stemme i folketinget</p>
-						</li>
-						<li>
-							<img src="/img/person.jpg" />
-							<h4>Hr. Peter Jensen</h4>
-							<p>Din demokratiske stemme i folketinget</p>
-						</li>
-						<li>
-							<img src="/img/person.jpg" />
-							<h4>Hr. Peter Jensen</h4>
-							<p>Din demokratiske stemme i folketinget</p>
-						</li>
-						<li>
-							<img src="/img/person.jpg" />
-							<h4>Hr. Peter Jensen</h4>
-							<p>Din demokratiske stemme i folketinget</p>
-						</li>
-					</ul>
-				</div>
-<?php include 'www.footer.php'; ?>
+$action = $page->actions();
+
+
+$page->bodyClass("kandidater");
+$page->pageTitle("Dukke Partiet - Kandidater");
+
+// list
+if(!$action) {
+
+	$page->header();
+	$page->template("pages/kandidater.php");
+	$page->footer();
+
+}
+else {
+
+	$page->header();
+	$page->template("pages/404.php");
+	$page->footer();
+
+}
+
+?>
