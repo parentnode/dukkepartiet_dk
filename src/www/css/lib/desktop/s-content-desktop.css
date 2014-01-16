@@ -1,0 +1,15 @@
+#content {position: relative;}
+
+#content .scene {position: relative;}
+#content .scene .link {cursor: pointer;}
+
+
+
+/* FOOTER */
+#footer {position: relative;}
+
+/* ERROR MESSAGE 404 */
+.error #content .scene {}
+.error #content .scene > h1 {font-size: 7rem; padding: 70px 80px 10px 83px;}
+.error #content .scene > h2 {font-size: 1.5rem; padding: 20px 80px 10px 83px;}
+.error #content .scene > p {padding: 20px 20px 10px 83px; max-width: 480px;}

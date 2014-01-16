@@ -1,0 +1,32 @@
+
+#header {background: #00027a url('/img/header.jpg') top center no-repeat; height:249px;}
+#header #navigation {background-color: yellow; position: fixed; top:0; width: 100%; z-index: 10;}
+#header #navigation ul {font-size: 12px;}
+#header #navigation ul li {display: inline-block; vertical-align: top; padding: 6px 10px;}
+
+#content #intro {background: #00027a url('/img/intro.jpg') top center no-repeat; height:646px;}
+#content #aktivistiske {background: #00027a url('/img/aktivistiske.jpg') top center no-repeat; height:733px;}
+#content #kandidater {background: #d50b00 url('/img/kandidater.jpg') top center no-repeat; height:876px;}
+#content #manifest {background: #d50b00 url('/img/manifest.jpg') top center no-repeat; height:691px;}
+#content #folkets_stemme {background: #00027a url('/img/folkets_stemme.jpg') top center no-repeat; height:804px;}
+#content #debatten {background: #00027a url('/img/debatten.jpg') top center no-repeat; height:1151px;}
+#content #om_os {background: #d50b00 url('/img/om_os.jpg') top center no-repeat; height:1310px;}
+#content #kontakt {background: #d50b00 url('/img/kontakt.jpg') top center no-repeat; height:756px;}
+
+
+#content #intro,
+#content #aktivistiske,
+#content #kandidater,
+#content #manifest,
+#content #folkets_stemme,
+#content #debatten,
+#content #om_os,
+#content #kontakt {width: 100%; display: inline-block; vertical-align: top;}
+
+/* TEMPORARY HIDE CONTENT */
+#content h1, 
+#content h2, 
+#content h3, 
+#content h4, 
+#content p, 
+#content img {display: none;}

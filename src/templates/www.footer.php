@@ -1,7 +1,6 @@
 			
 			</div>
-
-
+			
 			<div id="navigation">
 				<ul>
 					<li><a href="/">Home</a></li>

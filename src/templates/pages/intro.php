@@ -1,4 +1,4 @@
-			<div class="scene">
+			<div class="scene i:front">
 
 				<!-- INTRODUCTION -->
 				<div id="intro" class="">

@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<!-- (c) & (p) e-types.com, 2013 //-->
-		<!-- All material protected by copyrightlaws, as if you didnt know //-->
-		<title>Dukke Partiet</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
+<html lang="<?= $this->language() ?>">
+<head>
+	<!-- (c) & (p) e-types.com, 2013 //-->
+	<!-- All material protected by copyrightlaws, as if you didnt know //-->
+	<title><?= $this->pageTitle() ?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="viewport" content="initial-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-		<meta name="viewport" content="initial-scale=1, user-scalable=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<? if(Session::value("dev")) { ?>
+	<link type="text/css" rel="stylesheet" media="all" href="/css/lib/seg_<?= $this->segment() ?>_include.css" />
+	<script type="text/javascript" src="/js/lib/seg_<?= $this->segment() ?>_include.js"></script>
+<? } else { ?>
+	<link type="text/css" rel="stylesheet" media="all" href="/css/seg_<?= $this->segment() ?>.css" />
+	<script type="text/javascript" src="/js/seg_<?= $this->segment() ?>.js"></script>
+<? } ?>
+</head>
 
-		<? if(isset($_GET["dev"])) { ?>
-		<script type="text/javascript" src="http://devices.dearapi.com/js-include?dev=1"></script>
-		<? } else { ?>
-		<script type="text/javascript" src="http://devices.dearapi.com/js-include"></script>
-		<? } ?>
-		
+<body<?= HTML::attribute("class", $this->bodyClass()) ?>>
 
+<div id="page" class="i:page">
+	<div id="header">
+		<ul class="servicenavigation">
+			<li class="keynav navigation nofollow"><a href="#navigation">To navigation</a></li>
+			<li class="contact"><a href="/contact">Contact</a></li>
+		</ul>
+	</div>
 
-	</head>
-	<body>
-		<div id="page" class=""> <!--INIT: i:page -->
-
-			<div id="header">
-				<ul class="servicenavigation">
-					<li class="keynav navigation nofollow"><a href="#navigation">To navigation</a></li>
-					<!--li class="contact"><a href="#contact">Contact</a></li-->
-				</ul>
-			</div>
-
-			<div id="content">
+	<div id="content">
