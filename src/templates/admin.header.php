@@ -14,10 +14,10 @@
 	<meta http-equiv="imagetoolbar" content="no" />
 <? if(Session::value("dev")) { ?>
 	<link type="text/css" rel="stylesheet" media="all" href="/css/admin/lib/seg_<?= $this->segment() ?>_include.css" />
-	<script type="text/javascript" src="/js/admin/lib/seg_<?= $this->segment() ?>_include.js"></script>
+	<script type="text/javascript" src="/admin/js/lib/seg_<?= $this->segment() ?>_include.js"></script>
 <? } else { ?>
 	<link type="text/css" rel="stylesheet" media="all" href="/css/admin/seg_<?= $this->segment() ?>.css" />
-	<script type="text/javascript" src="/js/admin/seg_<?= $this->segment() ?>.js"></script>
+	<script type="text/javascript" src="/admin/js/seg_<?= $this->segment() ?>.js"></script>
 <? } ?>
 
 </head>

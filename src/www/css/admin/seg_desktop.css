@@ -6,9 +6,9 @@
 /*s-fonts.css*/
 @font-face {
 	font-family: 'OpenSansRegular';
-	src: url('/css/dearcss/src/fonts/opensans-regular-webfont.woff') format('woff'),
-		 url('/css/dearcss/src/fonts/opensans-regular-webfont.ttf') format('truetype'),
-		 url('/css/dearcss/src/fonts/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+	src: url('/janitor/fonts/opensans-regular-webfont.woff') format('woff'),
+		 url('/janitor/fonts/opensans-regular-webfont.ttf') format('truetype'),
+		 url('/janitor/fonts/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -164,7 +164,7 @@ input, select, textarea {font-size: 14px;}
 #content .field input.default,
 #content .field select.default,
 #content .field textarea.default {color: #aaaaaa;}
-#content .field.required .indicator {position: absolute; top: 4px; left: 420px; width: 25px; height: 25px; background: transparent url(/css/dearcss/src/img/bg_icons.png) no-repeat 0 -292px;}
+#content .field.required .indicator {position: absolute; top: 4px; left: 420px; width: 25px; height: 25px; background: transparent url(/janitor/img/bg_icons.png) no-repeat 0 -292px;}
 #content .field.text.required .indicator {background-position: 0 -296px;}
 #content .field.radio_buttons.required input,
 #content .field.checkbox.required input,
@@ -281,7 +281,7 @@ input, select, textarea {font-size: 14px;}
 #content .defaultList .all_items div.filter .field label {display: inline-block; vertical-align: top; padding: 3px 4px; color: #aaaaaa;}
 #content .defaultList .all_items div.filter input {width: 100px; height: 16px; font-size: 12px;}
 #content .defaultList ul.sortable > li.item h3 {padding-left: 60px;}
-#content .defaultList ul.sortable > li.item div.drag {width: 30px; height: 30px; position: absolute; top: 8px; left: 20px; background: transparent url(/css/dearcss/src/img/bg_icons2.png) no-repeat 10px -445px; cursor: move;}
+#content .defaultList ul.sortable > li.item div.drag {width: 30px; height: 30px; position: absolute; top: 8px; left: 20px; background: transparent url(/janitor/img/bg_icons2.png) no-repeat 10px -445px; cursor: move;}
 
 
 /*s-default_edit.css*/
@@ -312,10 +312,10 @@ input, select, textarea {font-size: 14px;}
 #content .scene.defaultEdit > div.media ul.media li {margin: 0 10px; position: relative; text-align: center;}
 #content .scene.defaultEdit > div.media ul.media li h4 {padding: 0 0 5px;}
 #content .scene.defaultEdit > div.media ul.media li.image {}
-#content .scene.defaultEdit > div.media ul.media li.audio {width: 50px; height: 70px; background: transparent url(/css/dearcss/src/img/bg_bn_play_medium.png) no-repeat 0px 20px;}
+#content .scene.defaultEdit > div.media ul.media li.audio {width: 50px; height: 70px; background: transparent url(/janitor/img/bg_bn_play_medium.png) no-repeat 0px 20px;}
 #content .scene.defaultEdit > div.media ul.media li.audio.playing {background-position: 0 -80px;}
 #content .scene.defaultEdit > div.media ul.media li.audio a {display: block; text-indent: -9999px;}
-#content .scene.defaultEdit > div.media ul.media li.video {background: transparent url(/css/dearcss/src/img/bg_bn_play_medium.png) no-repeat center 40px;}
+#content .scene.defaultEdit > div.media ul.media li.video {background: transparent url(/janitor/img/bg_bn_play_medium.png) no-repeat center 40px;}
 #content .scene.defaultEdit > div.media ul.media li.video a {display: none;}
 
 
