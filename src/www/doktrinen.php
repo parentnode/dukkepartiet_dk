@@ -9,14 +9,14 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 $action = $page->actions();
 
 
-$page->bodyClass("folkets_stemme");
-$page->pageTitle("Dukke Partiet - Folkets Stemme");
+$page->bodyClass("doktrinen");
+$page->pageTitle("Dukke Partiet - Doktrinen");
 
 // list
 if(!$action) {
 
 	$page->header();
-	$page->template("pages/folkets_stemme.php");
+	$page->template("pages/doktrinen.php");
 	$page->footer();
 
 }

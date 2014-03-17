@@ -1,32 +1,81 @@
+/*
+font-family:'HelveticaNeueW01-UltLt';
+font-family:'HelveticaNeueW02-55Roma';
+font-family:'HelveticaNeueW01-85Heav';
+font-family:'HelveticaNeueW01-86Heav';
+font-family:'HelveticaNeueW01-95Blac';
+font-family:'HelveticaNeueW01-76Bold';
+*/
 
-#header {background: #00027a url('/img/header.jpg') top center no-repeat; height:249px;}
-#header #navigation {background-color: yellow; position: fixed; top:0; width: 100%; z-index: 10;}
-#header #navigation ul {font-size: 12px;}
-#header #navigation ul li {display: inline-block; vertical-align: top; padding: 6px 10px;}
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
 
-#content #intro {background: #00027a url('/img/intro.jpg') top center no-repeat; height:646px;}
-#content #aktivistiske {background: #00027a url('/img/aktivistiske.jpg') top center no-repeat; height:733px;}
-#content #kandidater {background: #d50b00 url('/img/kandidater.jpg') top center no-repeat; height:876px;}
-#content #manifest {background: #d50b00 url('/img/manifest.jpg') top center no-repeat; height:691px;}
-#content #folkets_stemme {background: #00027a url('/img/folkets_stemme.jpg') top center no-repeat; height:804px;}
-#content #debatten {background: #00027a url('/img/debatten.jpg') top center no-repeat; height:1151px;}
-#content #om_os {background: #d50b00 url('/img/om_os.jpg') top center no-repeat; height:1310px;}
-#content #kontakt {background: #d50b00 url('/img/kontakt.jpg') top center no-repeat; height:756px;}
+#header #navigation {background: #ee191b url("/img/gx_logo_small.png") no-repeat 20px 24px; position: fixed; top:0; width: 100%; z-index: 99; border-bottom:1px solid pink;}
+#header #navigation ul.primary {text-align: center; overflow: hidden; height:0px;}
+#header #navigation ul.primary li {width:200px; margin:16px 20px 20px 20px;}
+#header #navigation ul.primary li h6 {font-size: 50px; font-family:'HelveticaNeueW01-76Bold'; color:#00027a; text-align: left; margin:0 0 20px 10px;}
+#header #navigation ul.primary li ul.subjects li {text-align: left; margin:10px 0;}
+#header #navigation ul.primary li ul.subjects li a {padding: 8px 10px; font-family:'HelveticaNeueW01-76Bold'; font-size: 16px; text-transform: uppercase; color: #00027a;}
+#header #navigation ul.primary li ul.subjects li a:hover {background-color:#00027a; color:#ee191b;}
 
+#header #navigation ul.servicenavigation {margin:16px auto; text-align: center;}
+#header #navigation ul.servicenavigation li {}
+#header #navigation ul.servicenavigation li a {display:block; padding:8px 16px; margin:0 6px; border:2px solid #00027a; color:#00027a; font-family:'HelveticaNeueW01-76Bold'; font-size: 12px;}
+#header #navigation ul.servicenavigation li a:hover {background-color:#00027a; color:#ee191b;}
+
+#header #navigation .nav_icon {background: url("/img/gx_nav_icon.png") no-repeat center center; width:20px; height:15px; position: absolute; padding:24px 18px; right:10px; top:0px; cursor: pointer;}
+
+
+#content .scene {border-bottom:1px solid cyan;}
+/*#content .scene div {width:940px; margin:0 auto; border-left:1px solid grey; border-right:1px solid grey;}*/
+#content .scene div.intro,
+#content .scene div.kandidaterne,
+#content .scene div.events,
+#content .scene div.tweets,
+#content .scene div.doktrinen,
+#content .scene div.about {width:940px; margin:0 auto; border-left:1px solid grey; border-right:1px solid grey;}
 
 #content #intro,
-#content #aktivistiske,
-#content #kandidater,
-#content #manifest,
-#content #folkets_stemme,
-#content #debatten,
-#content #om_os,
-#content #kontakt {width: 100%; display: inline-block; vertical-align: top;}
+#content #kandidaterne,
+#content #events,
+#content #video,
+#content #doktrinen,
+#content #tal_til_os,
+#content #tweets,
+#content #about {width: 100%; display: inline-block; vertical-align: top; }
 
-/* TEMPORARY HIDE CONTENT */
+#content #kandidaterne,
+#content #video,
+#content #tal_til_os,
+#content #about {background-color:#00027a; color:#ee191b;}
+
+#content #kandidaterne h2,
+#content #video h2,
+#content #tal_til_os h2 {background-color:#00027a; color:#ee191b;}
+
+#content #intro,
+#content #events,
+#content #doktrinen,
+#content #tweets {background-color:#ee191b; color:#00027a;}
+
+#content #intro h2,
+#content #events h2,
+#content #doktrinen h2,
+#content #tweets h2 {background-color:#ee191b; color:#00027a;}
+
+
+/* TEMPORARY HIDE CONTENT 
 #content h1, 
 #content h2, 
 #content h3, 
 #content h4, 
 #content p, 
 #content img {display: none;}
+*/
+#content .scene h2 {
+	font-family:'HelveticaNeueW01-85Heav';
+	text-transform: uppercase;
+	font-size:50px;
+}

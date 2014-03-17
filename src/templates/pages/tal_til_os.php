@@ -1,7 +1,7 @@
-			<div class="scene">
+			<div class="scene" id="tal_til_os">
 
-				<!-- DEBATTEN -->
-				<div id="debatten" class="">
+				<!-- Tal til os -->
+				<div class="tal_til_os">
 					<h2>Debatten</h2>
 					<h3>Hastah dit tweet #DP for at være med i debatten.</h3>
 					<ul class="actions">

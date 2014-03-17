@@ -1,0 +1,17 @@
+/* ------------------------------------  OPRÅB ------------------------------------ */
+
+#content .scene#tweets {font-size: 0; padding-bottom:40px;}
+#content .scene#tweets h2 {text-align: center; margin-top:60px; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#tweets h3 {text-align: center; margin:10px 0; color: #00027a; font-size:20px; text-transform: uppercase;}
+#content .scene#tweets h3 strong {color: #00027a; font-family:'HelveticaNeueW01-95Blac'; font-weight: normal;}
+/*#content .scene#tweets ul.tweets {display:block; width:100%; font-size: 1rem; height:600px;}
+#content .scene#tweets ul.tweets li.tweet {position: absolute; padding:0;}*/
+
+#content .scene#tweets ul.tweets {font-size:1rem; width: 286px; display: inline-block; vertical-align: top; margin-top:40px;}
+#content .scene#tweets ul.tweets.first {margin-right:40px;}
+#content .scene#tweets ul.tweets.last {margin-left:40px;}
+
+#content .scene#tweets ul.tweets li.tweet {}
+
+#content .scene#tweets ul.tweets li.tweet h4 {margin-bottom:10px; color: #00027a; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#tweets ul.tweets li.tweet p {font-size:0.9rem; color: #00027a;}

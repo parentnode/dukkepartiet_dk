@@ -9,14 +9,14 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 $action = $page->actions();
 
 
-$page->bodyClass("debatten");
-$page->pageTitle("Dukke Partiet - Debatten");
+$page->bodyClass("tweets");
+$page->pageTitle("Dukke Partiet - Opråd");
 
 // list
 if(!$action) {
 
 	$page->header();
-	$page->template("pages/debatten.php");
+	$page->template("pages/tweets.php");
 	$page->footer();
 
 }

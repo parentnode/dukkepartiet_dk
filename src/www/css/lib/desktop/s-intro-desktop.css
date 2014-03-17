@@ -1,0 +1,13 @@
+#content .scene#intro {}
+#content .scene#intro h2 {text-align: center; margin:100px 0 200px 0; font-size: 76px; font-family:'HelveticaNeueW01-86Heav';}
+
+#content .scene#intro .logo {background: url('/img/gx_logo_large.png') no-repeat top left; margin:40px auto; width:368px; height:174px;}
+#content .scene#intro ul {margin:40px auto; text-align: center;}
+#content .scene#intro ul li {font-size: 1rem;}
+#content .scene#intro ul li a {padding:18px 28px; border:2px solid #00027a; margin:0 10px; color:#00027a; font-family:'HelveticaNeueW01-76Bold'; font-size: 16px;}
+
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+#content .scene#intro ul li a:hover {background-color: #00027a; color:#ee191b; border-color:#ee191b;}

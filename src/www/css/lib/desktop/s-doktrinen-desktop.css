@@ -1,0 +1,24 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#content .scene#doktrinen {}
+#content .scene#doktrinen h2 {text-align: center; margin:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
+
+
+#content .scene#doktrinen ul.slides {display:block; width:100%; font-size: 1rem; height:400px;}
+/*#content .scene#doktrinen ul.slides li.slide {height:740px; width:100%; background: #00027a url('/img/video.jpg') no-repeat center center;}*/
+#content .scene#doktrinen ul.slides li.slide {position: absolute; width:740px; text-align:center; padding:100px 100px 10px 100px;}
+
+#content .scene#doktrinen ul.slides li.slide p {display: inline; background-color:#00027a; padding:4px;
+	font-size: 30px;color: #ee191b; font-family:'HelveticaNeueW01-86Heav'; line-height: 50px;
+	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
+}
+
+#content .scene#doktrinen ul.actions {font-size: 1rem;}
+#content .scene#doktrinen ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
+#content .scene#doktrinen ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+
+#content .scene#doktrinen ul.indexes {font-size: 1rem; margin:0 auto;}
+#content .scene#doktrinen ul.indexes li.index {margin:10px; padding:10px; background: green; cursor: pointer;}

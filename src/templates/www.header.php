@@ -18,6 +18,7 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/css/seg_<?= $this->segment() ?>.css" />
 	<script type="text/javascript" src="/js/seg_<?= $this->segment() ?>.js"></script>
 <? } ?>
+	<script type="text/javascript" src="http://fast.fonts.net/jsapi/e1e7a590-3717-4301-a3ea-e2abb030f634.js"></script>
 </head>
 
 <body<?= HTML::attribute("class", $this->bodyClass()) ?>>
@@ -26,7 +27,6 @@
 	<div id="header">
 		<ul class="servicenavigation">
 			<li class="keynav navigation nofollow"><a href="#navigation">To navigation</a></li>
-			<li class="contact"><a href="/contact">Contact</a></li>
 		</ul>
 	</div>
 
