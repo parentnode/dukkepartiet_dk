@@ -1,4 +1,4 @@
-Util.Objects["doktrinen"] = new function() {
+Util.Objects["doctrines"] = new function() {
 	this.init = function(scene) {
 
 		// resize scene

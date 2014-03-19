@@ -12,11 +12,14 @@ include_once("class/system/output.class.php");
 $action = $page->actions();
 
 $IC = new Item();
+$itemtype = "event";
+
+$model = $IC->typeObject($itemtype);
 $output = new Output();
 
 
-$page->bodyClass("tags");
-$page->pageTitle("Tags");
+$page->bodyClass($itemtype);
+$page->pageTitle("Events");
 
 
 if(is_array($action) && count($action)) {
@@ -24,9 +27,9 @@ if(is_array($action) && count($action)) {
 	if(preg_match("/[a-zA-Z]+/", $action[0])) {
 
 		// check if custom function exists on User class
-		if($IC && method_exists($IC, $action[0])) {
+		if($model && method_exists($model, $action[0])) {
 
-			$output->screen($IC->$action[0]($action));
+			$output->screen($model->$action[0]($action));
 			exit();
 		}
 	}
@@ -36,16 +39,25 @@ if(is_array($action) && count($action)) {
 	if(count($action) == 1 && $action[0] == "list") {
 
 		$page->header(array("type" => "admin"));
-		$page->template("admin/tag/list.php");
+		$page->template("admin/".$itemtype."/list.php");
 		$page->footer(array("type" => "admin"));
 		exit();
 
 	}
-	// EDIT ITEM
+	// NEW ITEM
+	else if(count($action) == 1 && $action[0] == "new") {
+
+		$page->header(array("type" => "admin"));
+		$page->template("admin/".$itemtype."/new.php");
+		$page->footer(array("type" => "admin"));
+		exit();
+
+	}
+	// NEW ITEM
 	else if(count($action) == 2 && $action[0] == "edit") {
 	
 		$page->header(array("type" => "admin"));
-		$page->template("admin/tag/edit.php");
+		$page->template("admin/".$itemtype."/edit.php");
 		$page->footer(array("type" => "admin"));
 		exit();
 	

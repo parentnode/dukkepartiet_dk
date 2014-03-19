@@ -1,0 +1,17 @@
+/* DOCTRINE */
+#content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
+
+
+/* EVENT */
+#content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
+#content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
+
+
+/* NAVIGATION */
+body.slogan #navigation .slogan a,
+body.action #navigation .action a,
+body.doctrine #navigation .doctrine a,
+
+body.candidate #navigation .candidate a,
+body.event #navigation .event a,
+body.tags #navigation .tags a {padding-left: 35px; color: #ffffff;}
