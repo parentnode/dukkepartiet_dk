@@ -27,10 +27,34 @@ Util.Objects["front"] = new function() {
 			this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
 			u.ae(this, this.servicenavigation)
 
+			this.loadSloganImages();
 			this.loadPages();
 			page.cN.ready();
 		}
 
+		scene.loadSloganImages = function() {
+
+			this.nodes = u.qsa("ul.items li.item", this);
+
+			var i, node;
+			for (i = 0; node = this.nodes[i]; i++) {
+				//u.bug("slogan image node:  " + node);
+
+				node._image_available = u.cv(node, "image_id");
+				u.bug("_image_available:  " + node._image_available);
+
+				// if image
+				if(node._image_available) {
+					// src
+					//node._image_src = "/logo/940/" + node._image_available + "." + node._image_format;
+					node._image_src = "/images/" + node._image_available + "/960x.png";
+
+					// add image
+					node._image_mask = u.ie(node, "div", {"class":"image"});
+					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
+				}
+			}
+		}
 
 		scene.loadPages = function() {
 								

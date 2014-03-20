@@ -13,10 +13,10 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 		<ul class="items">
 <?			foreach($items as $item): 
 				$item = $IC->extendItem($item); ?>
-			<li class="item item_id:<?= $item["item_id"] ?>">
+			<li class="item image_id:<?= $item["item_id"] ?>">
 				<h3><?= $item["name"] ?></h3>
-				<!--p><?= $item["paragraph"] ?></p-->
-				<a href="<?= $item["link"] ?>"><?= $item["video_link"] ?></a>
+				<p><?= $item["description"] ?></p>
+				<a href="<?= $item["link"] ?>"><?= $item["link"] ?></a>
 			</li>
 <?			endforeach; ?>
 			<li class="more"><a href="http://youtube.com">flere film her</a></li>

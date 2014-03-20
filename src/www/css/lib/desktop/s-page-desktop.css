@@ -28,6 +28,7 @@ input, textarea {outline: none;}
 
 
 #page {position: relative;}
+#mti_wfs_colophon {display: none!important;}
 
 a, span {font-size: inherit; font-family: inherit; color: inherit; text-transform: inherit;}
 

@@ -11,7 +11,8 @@
 
 			</div>
 
-			<div id="footer">
+			<!-- footer bg from js -->
+			<div class="blue" id="footer">
 				<!-- Move to fixed menu -->
 				<ul class="servicenavigation">
 					<li class="help_us"><a href="">Hjælp os</a></li>
@@ -39,7 +40,7 @@
 							<p>1112 KBH K.</p>
 							<p><a href="mailto:kontakt@dukkepartiet.dk"></a>kontakt@dukkepartiet.dk</p>
 						</li>
-						<li class="contact">
+						<li class="contact press">
 							<h4>Presskontakt</h4>
 							<h5>Have Kommunikation A/S</h5>
 							<p>Carit Etlars Vej 3</p>

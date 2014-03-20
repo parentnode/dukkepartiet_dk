@@ -12,14 +12,15 @@ blue: #00027a;
 red:  #ee191b;
 */
 
-#content .scene.front {}
+#content .scene.front {padding:200px 0 60px; height:660px;}
 /*#content .scene.front h2 {text-align: center; margin:60px auto 60px; font-size: 55px; font-family:'HelveticaNeueW01-86Heav';}*/
 #content .scene.front h2 {color: #00027a;}
+#content .scene.front .logo {margin:0 auto -30px; background: url("/img/gx_logo_front.png") no-repeat center center; height: 192px;}
 
+#content .scene.front ul.items {display:block; width:100%; font-size: 1rem; }
+#content .scene.front ul.items li.item {text-align:center; padding:20px; text-indent: -9999px; }
+#content .scene.front ul.items li.item img {margin: 0 auto;}
 
-#content .scene.front ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
-#content .scene.front ul.items li.item {text-align:center; padding:20px;}
-#content .scene.front ul.items li.item img {display: none;}
 
 #content .scene.front ul.actions {font-size: 1rem;}
 #content .scene.front ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
@@ -27,3 +28,6 @@ red:  #ee191b;
 
 #content .scene.front ul.indexes {font-size: 1rem; margin:0 auto;}
 #content .scene.front ul.indexes li.index {margin:10px; padding:10px; background: green; cursor: pointer;}
+
+#content .scene .next,
+#content .scene .previous {top:60%;}

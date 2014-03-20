@@ -33,7 +33,7 @@ Util.Objects["carousel"] = new function() {
 
 			var i, node;
 			for(i = 0; node = this.slides[i]; i++) {
-				u.bug("node: " + node.innerHTML)
+				
 				// list._index = u.ae(list._indexes, "li", {"class": "index", "html": i+1})
 				// list._index._id = i;
 				// u.e.click(list._index);

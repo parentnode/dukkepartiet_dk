@@ -1,0 +1,38 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#footer {padding: 100px 0 60px; width: 100%;}
+#footer.red {background-color:#ee191b; }
+#footer.blue {background-color:#00027a; }
+
+#footer .social {display: none;}
+
+/*#content .scene.doctrines h2 {text-align: center; margin:60px auto 60px; font-size: 55px; font-family:'HelveticaNeueW01-86Heav';}*/
+#footer .about {width:740px; margin:0 auto;}
+#footer .about p {text-align: center; font-size: 26px; font-family:'HelveticaNeueW01-86Heav'; color: #ee191b;}
+#footer .about ul.contacts {display:block; width:100%; font-size: 1rem; height:200px;}
+#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:360px;}
+#footer .about ul.contacts li.contact .press {border: 1px solid #000;}
+#footer .about ul.contacts li.contact h4 {color: #ee191b; padding-bottom: 4px;}
+#footer .about ul.contacts li.contact h5 {font-size:20px; padding-bottom: 24px; text-transform: uppercase; color: #ee191b; font-family:'HelveticaNeueW01-86Heav';}
+#footer .about ul.contacts li.contact p {font-family:'HelveticaNeueW02-55Roma'; color: #ee191b; font-size: 14px; line-height: 1em; padding-bottom: 4px;}
+#footer .about ul.contacts li.contact p a {font-family:'HelveticaNeueW01-86Heav'; color: #ee191b;}
+
+
+
+/*
+#content .about.doctrines h2 {color: #00027a;}
+
+#content .scene.doctrines ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
+#content .scene.doctrines ul.items li.item {text-align:center; padding:20px; margin:0 auto; width:740px; height: 300px; background-color: #ee191b; }
+
+#content .scene.doctrines ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
+	font-size: 30px;color: #ee191b; font-family:'HelveticaNeueW01-86Heav'; line-height: 50px;
+	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
+}
+*/
+
+/*#content .scene.doctrines ul.indexes {font-size: 1rem; margin:0 auto;}
+#content .scene.doctrines ul.indexes li.index {margin:10px; padding:10px; background: green; cursor: pointer;}*/
