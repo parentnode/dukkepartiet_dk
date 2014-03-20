@@ -1,7 +1,26 @@
 #content {position: relative;}
 
-#content .scene {position: relative; margin:0 auto; width:960px;}
-#content .scene .link {cursor: pointer;}
+#content .scene {position: relative; width:100%; border-bottom:1px solid #000;}
+
+#content .scene h2 {
+	text-align: center;
+	padding: 100px 0 60px 0;
+	font-family:'HelveticaNeueW01-85Heav';
+	text-transform: uppercase;
+	font-size:55px;
+	color: #00027a;
+}
+
+
+/* background colors */
+#content .scene.red,
+#content .scene.doctrines {
+	background-color: #ee191b;
+}
+#content .scene.blue,
+#content .scene.actions {
+	background-color: #00027a;
+}
 
 
 

@@ -1,0 +1,28 @@
+/*
+font-family:'HelveticaNeueW01-UltLt';
+font-family:'HelveticaNeueW02-55Roma';
+font-family:'HelveticaNeueW01-85Heav';
+font-family:'HelveticaNeueW01-86Heav';
+font-family:'HelveticaNeueW01-95Blac';
+font-family:'HelveticaNeueW01-76Bold';
+*/
+
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#content .scene.front {}
+#content .scene.front h2 {text-align: center; margin:60px auto 60px; font-size: 55px; font-family:'HelveticaNeueW01-86Heav';}
+
+
+#content .scene.front ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
+#content .scene.front ul.items li.item {text-align:center; padding:20px;}
+#content .scene.front ul.items li.item img {display: none;}
+
+#content .scene.front ul.actions {font-size: 1rem;}
+#content .scene.front ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
+#content .scene.front ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+
+#content .scene.front ul.indexes {font-size: 1rem; margin:0 auto;}
+#content .scene.front ul.indexes li.index {margin:10px; padding:10px; background: green; cursor: pointer;}

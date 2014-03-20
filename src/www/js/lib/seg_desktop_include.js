@@ -2,7 +2,7 @@ document.write('<script type="text/javascript" src="/js/manipulator/v0_7_5/full/
 
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-page-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-front-desktop.js"></script>');
-document.write('<script type="text/javascript" src="/js/lib/desktop/i-doctrines-desktop.js"></script>');
+document.write('<script type="text/javascript" src="/js/lib/desktop/i-carousel-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-events-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-tweets-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-about-desktop.js"></script>');

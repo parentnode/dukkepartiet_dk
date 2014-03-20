@@ -27,16 +27,11 @@ Util.Objects["front"] = new function() {
 			this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
 			u.ae(this, this.servicenavigation)
 
-			// init slogans
-			this.initSlogans();
-
 			this.loadPages();
 			page.cN.ready();
 		}
 
-		scene.initSlogans = function() {
-			
-		}
+
 		scene.loadPages = function() {
 								
 			// content received

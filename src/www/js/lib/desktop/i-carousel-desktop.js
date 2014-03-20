@@ -19,20 +19,18 @@ Util.Objects["carousel"] = new function() {
 //			u.bug("list.ready:" + u.nodeId(this));
 			
 			//u.bug("doctrines");
-			
-			this.slide = u.qs('ul.items', list);
-			this.slides = u.qsa('li.item', list.slide);
+			this.slides = u.qsa('li.item', this);
 			this.current_slide_num = 0;
-			this.current_node = list.slides[0];
+			this.current_node = this.slides[0];
 			this.next_node;
 			
-			list._previous = u.qs('ul.actions li.next', list.container);
-			list._next = u.qs('ul.actions li.previous', list.container);
+			this._previous = u.qs('ul.actions li.next', this);
+			this._next = u.qs('ul.actions li.previous', this);
 			//list._indexes = u.ae(list.container, "ul", {"class": "indexes"});
 
 			var i, node;
-			for(i = 0; node = list.slides[i]; i++) {
-
+			for(i = 0; node = this.slides[i]; i++) {
+				u.bug("node: " + node.innerHTML)
 				// list._index = u.ae(list._indexes, "li", {"class": "index", "html": i+1})
 				// list._index._id = i;
 				// u.e.click(list._index);
@@ -43,9 +41,9 @@ Util.Objects["carousel"] = new function() {
 				// }
 
 				// // CLICK
-				u.e.click(list._next);
-				u.e.click(list._previous);
-				list._next.clicked = list._previous.clicked = function(event) {
+				u.e.click(this._next);
+				u.e.click(this._previous);
+				this._next.clicked = this._previous.clicked = function(event) {
 
 					if (u.hc(event.target, "next")) {
 						if (list.current_slide_num == list.slides.length-1) {
