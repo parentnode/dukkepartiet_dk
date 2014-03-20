@@ -874,7 +874,8 @@ u.e.drag = function(node, boundaries, settings) {
 				case "strict"			: node.drag_strict			= settings[argument]; break;
 				case "elastica"			: node.drag_elastica		= Number(settings[argument]); break;
 				case "dropout"			: node.drag_dropout			= settings[argument]; break;
-				case "show_bounds"		: node.show_bounds			= settings[argument]; break;				case "vertical_lock"	: node.vertical_lock		= settings[argument]; break;
+				case "show_bounds"		: node.show_bounds			= settings[argument]; break; 
+				case "vertical_lock"	: node.vertical_lock		= settings[argument]; break;
 				case "horizontal_lock"	: node.horizontal_lock		= settings[argument]; break;
 				case "callback_picked"	: node.callback_picked		= settings[argument]; break;
 				case "callback_moved"	: node.callback_moved		= settings[argument]; break;
@@ -2255,7 +2256,16 @@ Util.period = function(format, time) {
 	}
 	var tokens = /y|n|o|O|w|W|c|d|e|D|g|h|H|l|m|M|r|s|S|t|T|u|U/g;
 	var chars = new Object();
-	chars.y = 0;	chars.n = 0;	chars.o = (chars.n > 9 ? "" : "0") + chars.n;	chars.O = 0;	chars.w = 0;	chars.W = 0;	chars.c = 0;	chars.d = 0;	chars.e = 0;	chars.D = Math.floor(((seconds/60)/60)/24);
+	chars.y = 0; 
+	chars.n = 0; 
+	chars.o = (chars.n > 9 ? "" : "0") + chars.n; 
+	chars.O = 0; 
+	chars.w = 0; 
+	chars.W = 0; 
+	chars.c = 0; 
+	chars.d = 0; 
+	chars.e = 0; 
+	chars.D = Math.floor(((seconds/60)/60)/24);
 	chars.g = Math.floor((seconds/60)/60)%24;
 	chars.h = (chars.g > 9 ? "" : "0") + chars.g;
 	chars.H = Math.floor((seconds/60)/60);
@@ -2707,642 +2717,450 @@ Util.getVar = function(param, url) {
 }
 
 
-/*i-page.js*/
+/*i-page-desktop.js*/
 u.bug_console_only = true;
 Util.Objects["page"] = new function() {
 	this.init = function(page) {
-		if(u.hc(page, "i:page")) {
 			page.hN = u.qs("#header");
 			page.cN = u.qs("#content");
 			page.nN = u.qs("#navigation");
 			page.nN = u.ie(page.hN, page.nN);
 			page.fN = u.qs("#footer");
 			page.resized = function() {
-				var calc_width = u.browserW();
-				if(page.intro && typeof(page.intro.resized) == "function" && page.intro.parentNode) {
-					page.intro.resized();
-				}
-				if(page.cN && page.cN.scene && typeof(page.cN.scene.resized) == "function") {
-					page.cN.scene.resized();
-				}
-				if(u.hc(page.nN, "open") && page.hN.overlay) {
-					u.a.setHeight(page.hN.overlay, u.browserH());
-				}
-				if(calc_width < 700) {
-					u.ac(document.body, "static");
-				}
-				else {
-					u.rc(document.body, "static");
-				}
-				if(calc_width < 500 && typeof(page.switchToMobile) == "function") {
-					page.switchToMobile();
-				}
-				else if(calc_width > 500 && typeof(page.switchToMobileOutdated) == "function") {
-					page.switchToMobileOutdated();
-				}
 			}
-			page.switchToMobile = function() {
-				this.switchToMobileSwitch = this.switchToMobile;
-				this.switchToMobile = false;
-				this.mobileSwitch = u.ae(document.body, "div", {"id":"mobile_switch"});
-				u.a.setOpacity(this.mobileSwitch, 0);
-				u.ae(this.mobileSwitch, "h1", {"html":"Hello curious"});
-				u.ae(this.mobileSwitch, "p", {"html":"If you are looking for a mobile version of this site, using an actual mobile phone is a really good idea."});
-				u.ae(this.mobileSwitch, "p", {"html":"We care about our endusers. They are the reason we build websites. We'd rather give them the best possible experience, than build something which showcases well in an internal meeting."});
-				u.ae(this.mobileSwitch, "p", {"html":"If you want to know more about our method, feel free to give us a call, +45 3325 4500."});
-				u.a.transition(this.mobileSwitch, "all 0.5s ease-in-out");
-				u.a.setOpacity(this.mobileSwitch, 1);
-				this.switchToMobileOutdated = function() {
-					page.switchToMobile = page.switchToMobileSwitch;
-					page.switchToMobileOutdated = false;
-					this.mobileSwitch.transitioned = function() {
-						u.a.transition(this, "none");
-						this.parentNode.removeChild(this);
-					}
-					u.a.transition(this.mobileSwitch, "all 0.3s ease-in-out");
-					u.a.setOpacity(this.mobileSwitch, 0);
-				}
-			}
-			page.scrolled = function() {
-				if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
-					page.cN.scene.scrolled();
-				}
-			}
+			page.scrolled = function() {}
 			page.ready = function() {
-				if(!this.intro) {
-					this.cN.ready();
-					page.hN.transitioned = function() {
-						u.a.transition(this, "none");
-					}
-					u.a.transition(page.hN, "all 0.3s ease-in-out");
-					u.a.setOpacity(page.hN, 1);
-				}
 				if(!u.hc(this, "ready")) {
-					this.top_offset = parseInt(u.gcs(this, "margin-top"));
 					u.addClass(this, "ready");
-					u.a.transition(this, "none");
-					u.a.setOpacity(this, 1);
 					u.e.addEvent(window, "resize", page.resized);
 					u.e.addEvent(window, "scroll", page.scrolled);
 					this.resized();
-					this.cN.scene = u.qs(".scene", this.cN);
-					u.navigation(page);
-					page.initNavigation();
+					this.initNavigation();
 				}
 			}
 			page.cN.ready = function() {
-				if(!page.intro && u.hc(page, "ready") && u.hc(this, "ready") && u.hc(this.scene, "ready")) {
-					var destroying = false;
-					var scenes = u.qsa(".scene", this);
-						for(i = 0; scene = scenes[i]; i++) {
-							if(scene != this.scene){
-								if(typeof(scene.destroy) == "function") {
-									destroying = true;
-									scene.destroy();
-								}
-								else {
-								}
-							}
-						}
-					if(!destroying && this.scene && !this.scene.built && typeof(this.scene.build) == "function") {
-						window.scrollTo(0, 0);
-						this.scene.built = true;
-						this.scene.build();
-					}
-				}
-			}
-			page.cN.navigate = function(url) {
-				this.response = function(response) {
-					u.setClass(document.body, response.body_class);
-					document.title = response.head_title;
-					this.scene = u.qs(".scene", response);
-					this.scene = u.ae(this, this.scene);
-					u.init(this);
-				}
-				u.request(this, u.h.getCleanHash(url));
-			}
-			page.cN.cleanScenes = function() {
-				while(u.qsa(".scene", this).length > 1) {
-					var scene = u.qs(".scene", this);
-					scene.parentNode.removeChild(scene);
-				}
+				u.bug("page.cN ready:" + page.intro + ", " + u.hc(page, "ready") + ", " + u.hc(this, "ready"));
 			}
 			page.initNavigation = function() {
-				page.hN.mover = function() {
-					this.transitioned = function() {
+				this.primary = u.qs("ul.primary", page.nN);
+				this.servicenavigation = u.qs("ul.servicenavigation", page.fN).cloneNode(true);
+				u.ae(this.nN, this.servicenavigation)
+				this.nav_icon = u.ae(this.nN, "div", {"class": "nav_icon"});
+				u.e.click(this.nav_icon);
+				this.nav_icon.clicked = function(event) {
+					page.primary.transitioned = function() {
 						u.a.transition(this, "none");
 					}
-					u.a.transition(this, "all 0.2s linear");
-					u.as(this, "backgroundColor", "rgba(255, 255, 255, 0.9)");
-				}
-				page.hN.mout = function() {
-					this.transitioned = function() {
-						u.a.transition(this, "none");
-					}
-					u.a.transition(this, "all 0.2s linear");
-					u.as(this, "backgroundColor", "rgba(255, 255, 255, 0)");
-				}
-				if(u.e.event_pref == "mouse") {
-					page.hN.onmouseover = page.hN.mover;
-					page.hN.onmouseout = page.hN.mout; 
-				}
-				else {
-					u.e.addStartEvent(page.hN, page.hN.mover);
-					u.e.addEndEvent(page.hN, page.hN.mout);
-				}
-				page.hN.overlay = u.ae(page.hN, "div", {"class":"navigation_overlay"});
-				u.e.click(page.hN.overlay);
-				page.hN.overlay.clicked = function() {
-					page.navController(page.hN.overlay._for);
-				}
-				var i, node;
-				this.nav_nodes = u.qsa("li", this.hN);
-				for(i = 0; node = this.nav_nodes[i]; i++) {
-					node.submenu = u.qs(".submenu", node);
-					u.ce(node);
-					if(u.hc(node, "projects")) {
-						u.ac(node, "disabled");
-					}
-					else {
-						if(!u.hc(node.parentNode, "subjects")) {
-							if(u.e.event_pref == "mouse") {
-								node.onmouseover = function() {
-									this.transitioned = function() {
-										u.a.transition(this, "none");
-									}
-									u.a.transition(this, "all 0.2s linaer");
-									if(u.hc(this, "etypes")) {
-										u.as(this, "color", "rgba(24, 76, 27, 1)");
-									}
-									else if(u.hc(this, "daily")) {
-										u.as(this, "color", "rgba(0, 32, 124, 1)");
-									}
-									else {
-										u.as(this, "color", "rgba(0, 0, 0, 0.7)");
-									}
-								}
-								node.onmouseout = function() {
-									if(!u.hc(this, "open")) {
-										this.transitioned = function() {
-											u.a.transition(this, "none");
-										}
-										u.a.transition(this, "all 0.2s linaer");
-										u.as(this, "color", "rgba(0, 0, 0, 0.4)");
-									}
-								}
-							}
-						}
-						if(node.submenu) {
-							node.submenu.nodes = u.qsa("li", node.submenu);
-							if(u.e.event_pref == "mouse") {
-								var j, sub;
-								for(j = 0; sub = node.submenu.nodes[j]; j++) {
-									sub.onmouseover = function() {
-										this.transitioned = function() {
-											u.a.transition(this, "none");
-										}
-										u.a.transition(this, "all 0.2s linaer");
-										u.ac(this, "over");
-									}
-									sub.onmouseout = function() {
-										this.transitioned = function() {
-											u.a.transition(this, "none");
-										}
-										u.a.transition(this, "all 0.2s linaer");
-										u.rc(this, "over");
-									}
-								}
-							}
-						}
-						node.clicked = function(event) {
-							u.e.kill(event);
-							page.navController(this);
-						}
+					if (u.hc(page.primary, "open")) {
+						u.a.transition(page.primary, "all 0.25s ease-out");
+						u.a.setHeight(page.primary, 0);
+						u.rc(page.primary, "open");
+					} else {
+						u.ac(page.primary, "open");
+						u.a.transition(page.primary, "all 0.3s ease-in-out");
+						u.a.setHeight(page.primary, 240);
 					}
 				}
-			}
-			page.navController = function(node) {
-				var i, node, subject;
-				var open_node = u.qs(".open", this.nN);
-				this.hN.overlay._for = false;
-				if(!open_node && node.submenu) {
-					this.hN.overlay._for = node;
-					this.showNavOverlay();
-				}
-				else if(open_node && (!node.submenu || node == open_node)) {
-					this.hN.overlay._for = false;
-					this.hideNavSubmenu(open_node);
-				}
- 				else if(open_node && node != open_node && node.submenu) {
-					this.hN.overlay._for = node;
-					this.hideNavSubmenu(open_node);
-				}
-				if(!node.submenu) {
-					page.navigate(node.url, page.nN);
-				}
-			}
-			page.showNavOverlay = function() {
-				u.ac(this.nN, "open");
-				u.a.transition(this.hN.overlay, "none");
-				u.a.setHeight(this.hN.overlay, u.browserH());
-				this.hN.overlay.transitioned = function() {
-					u.a.transition(this, "none");
-					page.showNavSubmenu(this._for);
-				}
-				if(u.gcs(this.hN.overlay, "opacity") != 1) {
-					u.a.transition(this.hN.overlay, "all 0.5s ease-in");
-					u.a.setOpacity(this.hN.overlay, 1);
-				}
-				else {
-					this.hN.overlay.transitioned();
-				}
-			}
-			page.hideNavOverlay = function() {
-				u.rc(page.nN, "open");
-				page.hN.overlay.transitioned = function() {
-					u.a.setHeight(this, 0);
-				}
-				if(u.gcs(page.hN.overlay, "opacity") != 0) {
-					u.a.transition(this.hN.overlay, "all 0.5s ease-in");
-					u.a.setOpacity(this.hN.overlay, 0);
-				}
-				else {
-					this.hN.overlay.transitioned();
-				}
-			}
-			page.showNavSubmenu = function(node) {
-				u.ac(node, "open");
-				u.a.transition(node.submenu, "none");
-				u.a.setOpacity(node.submenu, 0);
-				for(i = 0; subject = node.submenu.nodes[i]; i++) {
-					u.a.transition(subject, "none");
-					u.a.setOpacity(subject, 0);
-				}
-				u.as(node.submenu, "display", "block");
-				node.submenu.transitioned = function(event) {
-					u.a.transition(this, "none");
-				}
-				u.a.transition(node.submenu, "all 0.5s ease-in-out");
-				u.a.setOpacity(node.submenu, 1);
-				var i, sub, delay;
-				for(i = 0; sub = node.submenu.nodes[i]; i++) {
-					sub.transitioned = function() {
-						u.a.transition(this, "none");
-					}
-					delay = 200*i;
-					u.a.transition(sub, "all 0.3s ease-in-out "+delay+"ms");
-					u.a.setOpacity(sub, 1);
-				}
-			}
-			page.hideNavSubmenu = function(node) {
-				u.rc(node, "open");
-				node.onmouseout();
-				node.submenu.transitioned = function(event) {
-					u.a.transition(this, "none");
-					u.as(this, "display", "none");
-					if(page.hN.overlay._for) {
-						page.showNavSubmenu(page.hN.overlay._for);
-					}
-					else {
-						page.hideNavOverlay();
-					}
-				}
-				if(u.gcs(node.submenu, "opacity") != 0) {
-					u.a.transition(node.submenu, "all 0.3s ease-in-out");
-					u.a.setOpacity(node.submenu, 0);
-				}
-				else {
-					node.submenu.transitioned();
-				}
-			}
-			page.cN.isUnderFold = function() {
-				if(this.scene.gridmaster && this.scene.gridmaster.nodes) {
-					var i, node, fold_detection;
-					var browser_height = u.browserH();
-					var scroll_y = u.scrollY();
-					var scene_height = this.scene.offsetHeight;
-					this.scene._fold_top = (browser_height * this.scene._fold_offset) + scroll_y;
-					this.scene._fold_bottom = browser_height + scroll_y;
-					this.scene._fold_height = this.scene._fold_bottom - this.scene._fold_top;
-					for(i = 0; node = this.scene.gridmaster.nodes[i]; i++) {
-						if(node._offset_below_fold || node.gm_video) {
-							if(node._fold_detection < this.scene._fold_top || (node._row != undefined && node._row === 0)) {
-								if(!node._above_fold) {
-									node._above_fold = true;
-									node._unfolding = false;
-									node._below_fold = false;
-									if(node.gm_video) {
-										node.gm_video.play();
-									}
-									u.a.translate(node, 0, 0);
-									u.a.removeTransform(node);
-								}
-							}
-							else if(node._fold_detection > this.scene._fold_top && node._fold_detection < this.scene._fold_bottom) {
-								if(!node._unfolding) {
-									node._unfolding = true;
-									node._above_fold = false;
-									node._below_fold = false;
-									if(node.gm_video) {
-										node.gm_video.play();
-									}
-								}
-								var unfold_progress = (node._fold_detection - this.scene._fold_top) / (this.scene._fold_height);
-								var test = page.easeIn(unfold_progress)
-								var unfold_padding = Math.round(node._offset_below_fold*test);
-									if(unfold_padding != node._y) {
-										u.a.translate(node, 0, unfold_padding);
-									}
-							}
-							else if(node._fold_detection > this.scene._fold_bottom) {
-								if((node._unfolding || node._above_fold) && !node._below_fold) {
-									node._below_fold = true;
-									node._unfolding = false;
-									node._above_fold = false;
-									if(node.gm_video) {
-										node.gm_video.pause();
-									}
-									u.a.translate(node, 0, node._offset_below_fold);
-								}
-							}
-						}
-					}
-				}
-				page.offsetHeight;
-			}
-			page.easeOut = function(t) {
-				return 1 - Math.pow(1 - t/1, 5);
-			}
-			page.easeIn = function(t) {
-				return Math.pow(t/1, 4);
-			}
-			page.footerInTransition = function() {
-				this.fN.transitioned = function() {
-					u.a.transition(this, "none");
-					u.as(this, "height", "auto");
-				}
-				u.a.transition(this.fN, "none");
-				u.a.setOpacity(this.fN, 0);
-			}
-			page.initIntro = function() {
-				page.intro = u.ae(document.body, "div", {"id":"intro"});
-				u.ac(document.body, "intro");
-				u.e.click(page.intro);
-				page.intro.clicked = function() {
-					u.t.resetTimer(page.intro.t_intro);
-					this.transitioned = function() {
-						this.parentNode.removeChild(this);
-						u.t.resetTimer(this.t_close);
-						page.intro = false;
-						page.ready();
-					}
-					u.a.transition(this, "all 0.5s ease-in");
-					u.a.setOpacity(this, 0);
-				}
-				page.intro.t_intro = u.t.setTimer(page.intro, page.intro.clicked, 4000);
-				page.intro.transitioned = function() {
-					u.a.transition(this, "none");
-					var h1 = u.ae(this, "h1", {"html":"We are e-Types,<br>e-Types Daily and Playtype.<br><br>This is just the beginning."})
-					h1.typedin = u.ae(this, "div", {"class":"typedin", "html":'Typed in Nationale Regular & DemiBold – available from <a target="_blank" href="http://playtype.com/font/nationale">Playtype</a>'});
-					h1.transitioned = function() {
-						u.a.transition(this.typedin, "all 0.5s ease-in");
-						u.a.setOpacity(this.typedin, 1);
-						u.a.transition(this, "none");
-					}
-					u.a.setOpacity(h1, 0);
-					u.a.transition(h1, "all 0.5s ease-in");
-					u.a.setOpacity(h1, 1);
-				}
-				var scale = u.textscalers["intro"];
-				u.textscaler(page.intro, scale);
-				u.a.transition(page.intro, "all 0.5s ease-in");
-				u.a.setOpacity(page.intro, 1);
-			}
-			if(!location.hash) {
-				page.initIntro();
 			}
 			page.ready();
-		}
 	}
 }
-function static_init() {
-	u.o.page.init(u.qs("#page"));
-}
-u.e.addDOMReadyEvent(static_init);
+u.e.addDOMReadyEvent(u.init);
 
 
-/*i-front.js*/
+/*i-front-desktop.js*/
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
-		scene._fold_offset = 0.5;
 		scene.resized = function() {
-			var width = u.browserW();
-			if(this._range && ((this._range.min && width < this._range.min) || (this._range.max && width > this._range.max))) {
-				this.reBuild();
-			}
-			if(this.gridmaster && this.gridmaster.nodes && this.gridmaster.nodes.length) {
-				var i, node;
-				for(i = 0; node = this.gridmaster.nodes[i]; i++) {
-					if(node._bottom) {
-						node._fold_detection = u.absY(node._heading);
-					}
-					else {
-						node._fold_detection = u.absY(node);
-					}
-				}
-				page.cN.isUnderFold();
-			}
-			this.offsetHeight;
 		}
 		scene.scrolled = function() {
-			page.cN.isUnderFold();
-		}
-		scene.reBuild = function() {
-			if(!this._rebuilding) {
-				this._rebuilding = true;
-				this.gridmaster.transitioned = function() {
-					u.a.transition(this, "none");
-					this.scene.build();
-					this.scene._rebuilding = false;
-				}
-				this.list.scene = this;
-				u.a.transition(this.gridmaster, "all 0.5s ease-in");
-				u.a.setOpacity(this.gridmaster, 0);
-			}
 		}
 		scene.ready = function() {
-			var scale = u.textscalers["front"];
-			u.textscaler(this, scale);
-			this._gridtype = u.eitherOr(u.cv(this, "gridtype"), "default");
-			this.list = u.qs(".news", this);
-			this.gridmaster = u.gridMaster(this.list, {"selector":"li.news", "video_controls":true});
-			this.gridmaster.scene = scene;
-			this.gridmaster.prepareNode = function(node) {
-				node._item_id = u.cv(node, "item_id");
-				node._offset_below_fold = u.eitherOr(node.gm_grid_node.offset_below_fold, 0);
-				node._proportion_name = node.gm_grid_proportion < 1 ? "portrait" : (node.gm_grid_proportion > 1 ? "landscape" : "square");
-				node._image_margin = u.eitherOr(node.gm_grid_node.image_margin, 0);
-				node._text_margin = u.eitherOr(node.gm_grid_node.text_margin, "0 15px");
-				node._text_width = u.eitherOr(node.gm_grid_node.text_width, "auto");
-				node._bottom = u.hc(node, "bottom") ? true : false;
-				node._video_available = u.cv(node, "v_"+node._proportion_name.substring(0,2));
-				node._image_available = u.cv(node, "i_"+node._proportion_name.substring(0,2));
-				if(node._image_available) {
-					node.gm_image_src = "/images/"+node._item_id+"/"+node._proportion_name+"/"+Math.ceil((node.gm_grid_width * this.scene._range.max_image) * 1.5)+"x."+node._image_available;
-				}
-				if(node._video_available) {
-					node.gm_video_src = "/videos/"+node._item_id+"/video_"+node._proportion_name+"/"+Math.ceil(node.gm_grid_width * this.scene._range.max_image)+"x."+node._video_available;
-				}
-				if(node._bottom) {
-					node._text_mask = u.ae(node, "div", {"class":"text"});
-					node.gm_media_mask = u.ae(node, "div", {"class":"media"});
-				}
-				else {
-					node.gm_media_mask = u.ae(node, "div", {"class":"media"});
-					node._text_mask = u.ae(node, "div", {"class":"text"});
-				}
-				u.as(node.gm_media_mask, "margin", node._image_margin, false);
-				u.as(node._text_mask, "margin", node._text_margin, false);
-				u.as(node._text_mask, "width", node._text_width+"%", false);
-				node._info = u.qs(".info", node);
-				node._heading = u.qs("h2", node);
-				node._article = u.qs(".article", node);
-				u.ae(node._text_mask, node._info);
-				u.ae(node._text_mask, node._heading);
-				u.ae(node._text_mask, node._article);
-				return node;
-			}
-			this.gridmaster.buildNode = function(node) {
-				u.ce(node);
-				if(node.url) {
-					node.clicked = function() {
-						if(this.url.match(/\/article\//)) {
-							u.deleteCookie("news_scope");
-						}
-						page.navigate(this.url, this)
-					}
-				}
-				var links = u.qsa("p a", node);
-				if(links) {
-					var i, link;
-					for(i = 0; link = links[i]; i++) {
-						u.ce(link);
-						link.clicked = function(event) {
-							u.e.kill(event);
-							if(!this.target) {
-								page.navigate(this.url, this);
-							}
-							else {
-								window.open(this.url);
-							}
-						}
-					}
-				}
-			}
-			this.gridmaster.nodeRendered = function(node) {
-				if(node.gm_video) {
-					node.gm_video.ended = function() {
-						this.play();
-					}
-				}
-			}
-			u.ac(this, "ready");
-			u.ac(page.cN, "ready");
+			u.ie(this, "div", {"class": "logo"});
+			this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
+			u.ae(this, this.servicenavigation)
+			this.loadPages();
 			page.cN.ready();
 		}
-		scene.build = function() {
-			u.a.transition(this, "none");
-			u.a.setOpacity(this, 1);
-			var i, current_width = u.browserW();
-			for(i in u.grids) {
-				this._range = u.grids[i];
-				if((!this._range.max || this._range.max >= current_width) && (!this._range.min || this._range.min <= current_width)) {
-					break;
-				}
-			}
+		scene.loadPages = function() {
 			this.response = function(response) {
-				if(response && response.isJSON) {
-					this.grid = response;
-				}
-				else {
-					this.grid = this._range["default"];
-				}
-				this.gridmaster.prepare(this.grid);
-				u.a.setOpacity(this.gridmaster, 1);
-				this.resized();
-				if(this._gridtype == "combined") {
-					if(!this._h1) {
-						this._h1 = u.qs("h1", this);
-						this._h2 = u.qs("h2", this);
-						this._h1.transitioned = function() {
-							u.a.transition(this, "none");
-						}
-						u.a.transition(this._h1, "all 0.5s ease-in-out");
-						u.a.setOpacity(this._h1, 1);
-						this._h2.transitioned = function() {
-							u.a.transition(this, "none");
-						}
-						u.a.transition(this._h2, "all 1.5s ease-in-out");
-						u.a.setOpacity(this._h2, 1);
-						this.deco = u.ae(this, "div", {"class":"deco"});
-						this.decoReady = function(queue) {
-							u.ae(this.deco, "img", {"src":queue[0]._image.src})
-							u.a.transition(this.deco, "all 1s ease-in-out");
-							u.a.setOpacity(this.deco, 1);
-							this.gridmaster.build();
-							this.resized();
-						}
-						u.preloader(scene, ["/img/desktop/front_coke.jpg"], {"callback":scene.decoReady});
-					}
-					else {
-						scene.gridmaster.build();
-						scene.resized();
-					}
-				}
-				u.a.transition(page.fN, "none");
-				u.a.setOpacity(page.fN, 1);
+				this.scene = u.qs(".scene", response);
+				this.scene = u.ae(page.cN, this.scene);
+				u.init(this);
 			}
-			if(this._range[this._gridtype]) {
-				var grid_file = this._range[this._gridtype][u.random(0, this._range[this._gridtype].length-1)];
-				u.request(this, "/js/grids/"+grid_file);
-			}
-			else {
-				this.response(false);
-			}
-		}
-		scene.destroy = function() {
-			this.destroy = null;
-			this.finalizeDestruction = function() {
-				page.footerInTransition();
-				this.parentNode.removeChild(this);
-				page.cN.ready();
-			}
-			if(this._h1) {
-				u.a.transition(this.deco, "all 0.2s linear");
-				u.a.setOpacity(this.deco, 0);
-				u.a.transition(this._h1, "all 0.4s linear");
-				u.a.setOpacity(this._h1, 0);
-				u.a.transition(this._h2, "all 0.6s linear");
-				u.a.setOpacity(this._h2, 0);
-				var i, node, node_y, j = 0;
-				var calc_height = u.browserH();
-				var scroll_offset = u.scrollY();
-				var delay = 150;
-				for(i = 0; node = this.gridmaster.nodes[i]; i++) {
-					node_y = u.absY(node);
-					if(node_y + node.offsetHeight > scroll_offset && node_y < scroll_offset + calc_height) {
-						j++;
-						u.a.transition(node, "all "+delay+"ms linear "+(j*delay)+"ms");
-						u.a.setOpacity(node, 0);
-					}
-				}
-				u.t.setTimer(this, this.finalizeDestruction, (j*delay) + 200);
-			}
-			else {
-				this.finalizeDestruction();
+			var sections = ["/doktriner"];
+			var i;
+			for (i = 0; section = sections[i]; i++) {
+				u.request(this, u.h.getCleanHash(section));
 			}
 		}
 		scene.ready();
 	}
 }
 
+
+/*i-carousel-desktop.js*/
+Util.Objects["carousel"] = new function() {
+	this.init = function(list) {
+		list.resized = function() {
+		}
+		list.scrolled = function() {
+		}
+		list.ready = function() {
+			this.container = u.we(this, "div", {"class": "container"})
+			this.slides = u.qsa('li.item', this);
+			this.current_slide_num = 0;
+			this.current_node = this.slides[0];
+			this.next_node;
+			this._previous = u.ae(this.container, "div", {"class": "next", "html": "Næste"});
+			this._next = u.ae(this.container, "div", {"class": "previous", "html": "Forrige"});
+			var i, node;
+			for(i = 0; node = this.slides[i]; i++) {
+				u.bug("node: " + node.innerHTML)
+				// 
+				u.e.click(this._next);
+				u.e.click(this._previous);
+				this._next.clicked = this._previous.clicked = function(event) {
+					if (u.hc(event.target, "next")) {
+						if (list.current_slide_num == list.slides.length-1) {
+							list.current_slide_num = 0;	
+						} else {
+							list.current_slide_num++;
+						}
+						list.hide(list.current_node);
+						list.show(list.slides[list.current_slide_num]);
+					}
+					if (u.hc(event.target, "previous")) {
+						if (list.current_slide_num != 0) {
+							list.current_slide_num--;
+						} else {
+							list.current_slide_num = list.slides.length-1;
+						}
+						list.hide(list.current_node);
+						list.show(list.slides[list.current_slide_num]);
+					}
+				}
+				if (i == 0) {
+					u.as(node, "display", "block");
+				} else {
+					u.as(node, "display", "none");
+				}
+			}
+		}
+		list.hide = function(node) {
+			u.as(node, "display", "none");
+		}
+		list.show = function(node) {
+			u.as(node, "display", "block");
+			list.current_node = node;
+			// 	
+			// 	
+			// 	
+			// 
+		}
+		list.ready();
+	}
+}
+
+/*i-events-desktop.js*/
+Util.Objects["events"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("events");
+			scene.container = u.qs(".events", scene);
+			scene.slide = u.qs('ul.slides', scene.container);
+			scene.slides = u.qsa('li.slide', scene.slide);
+			scene.current_slide_num = 0;
+			scene.current_node = scene.slides[0];
+			scene.next_node;
+			scene._previous = u.qs('ul.actions li.next', scene);
+			scene._next = u.qs('ul.actions li.previous', scene);
+			var i, node;
+			for(i = 0; node = scene.slides[i]; i++) {
+				u.e.click(scene._next);
+				u.e.click(scene._previous);
+				scene._next.clicked = scene._previous.clicked = function(event) {
+					u.bug("click");
+					if (u.hc(event.target, "next")) {
+						if (scene.current_slide_num == scene.slides.length-1) {
+							scene.current_slide_num = 0;	
+						} else {
+							scene.current_slide_num++;
+						}
+						scene.show(scene.slides[scene.current_slide_num]);					
+					}
+					if (u.hc(event.target, "previous")) {
+						if (scene.current_slide_num != 0) {
+							scene.current_slide_num--;
+						} else {
+							scene.current_slide_num = scene.slides.length-1;
+						}
+						scene.show(scene.slides[scene.current_slide_num]);
+					}
+				}
+				if (i == 0) {
+					u.a.setOpacity(node, 1);
+				} else {
+					u.a.setOpacity(node, 0);
+				}
+			}
+			u.bug(page.cN);
+			page.cN.ready();
+		}
+		scene.show = function(node) {
+			u.bug("show node: " + node);
+			this.current_node.transitioned = function() {
+				u.a.transition(this, "none");
+				u.a.transition(node, "all 500ms ease-in-out");
+				u.a.setOpacity(node, 1);
+				scene.current_node = node;
+			}
+			u.a.transition(this.current_node, "all 500ms ease-in-out");
+			u.a.setOpacity(this.current_node, 0);
+		}
+		scene.ready();
+	}
+}
+
+/*i-tweets-desktop.js*/
+Util.Objects["tweets"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("tweets");
+			this.wrapper = u.qs("div.tweets", this);
+			this.col1 = u.qs("ul.tweets", this.wrapper);
+			u.ac(this.col1, "first");
+			this.col2 = u.ae(this.wrapper, "ul", {"class": "tweets"});
+			this.col3 = u.ae(this.wrapper, "ul", {"class": "tweets last"});
+			this.tweets = u.qsa("li.tweet", this.col1);
+			var i, node;
+			for(i = 0; node = this.tweets[i]; i++) {
+				if (i%3 == 0) {
+				} else if (i%3 == 1) {
+					u.ae(this.col2, node);
+				} else if (i%3 == 2) {
+					u.ae(this.col3, node);
+				}
+			}
+			u.bug(page.cN);
+			page.cN.ready();
+		}
+		scene.ready();
+	}
+}
+
+/*i-about-desktop.js*/
+Util.Objects["about"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("about");
+			this.loadMapsAPI();
+			u.bug(page.cN);
+			page.cN.ready();
+		}
+    	scene.loadMapsAPI = function() {
+			u.bug("loadMapsAPI");
+			var id = u.randomString();
+			u.ac(this, id);
+			var script = document.createElement("script");
+  			script.type = "text/javascript";
+  			script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&" + "callback=map_" + id;
+  			document.body.appendChild(script);
+  			eval('window["map_' + id + '"] = function() {u.qs(".'+id+'").mapsApiReady();}');
+		}
+		scene.mapsApiReady = function() {
+			u.bug("maps loaded!!");
+			this.gmap = u.ae(this, "div", {"class": "gmap"});
+			this.overlay = u.ae(this, "div", {"class": "overlay"});
+			var mapOptions = {
+				zoom: 8,
+				center: new google.maps.LatLng(55.674026, 12.570235),
+				//center: myLatLng, 
+				zoom: 16,
+				mapTypeControl: false,
+				panControl: false,
+				zoomControl: true,
+				scrollwheel: false,
+				zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.SMALL
+				},
+				mapTypeControlOptions: {
+					mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+				}
+			};
+			var styles = [
+				{
+					stylers: [
+						{ hue: "#00027a" },
+						{ saturation: +20 }
+					]
+				},{
+					featureType: "road",
+					elementType: "geometry",
+					stylers: [
+						{ lightness: 100 },
+						{ visibility: "simplified" }
+					]
+				},{
+					featureType: "road",
+					elementType: "labels",
+					stylers: [
+						{ visibility: "off" }
+					]
+				}
+			];
+			var map = new google.maps.Map(this.gmap, mapOptions);
+			map.setOptions({styles: styles});
+		}
+		scene.ready();
+	}
+}
+
+/*i-video-desktop.js*/
+Util.Objects["video"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+			u.bug("width: " + u.browserWidth());
+			u.bug("height: " + (u.browserWidth()/16)*9)
+			u.as(scene.current_node, "height", (u.browserWidth()/16)*9 + "px", true);
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("events");
+			scene.container = u.qs(".events", scene);
+			scene.slide = u.qs('ul.slides', scene.container);
+			scene.slides = u.qsa('li.slide', scene.slide);
+			scene.current_slide_num = 0;
+			scene.current_node = scene.slides[0];
+			scene.next_node;
+			scene._previous = u.qs('ul.actions li.next', scene);
+			scene._next = u.qs('ul.actions li.previous', scene);
+			var i, node;
+			for(i = 0; node = scene.slides[i]; i++) {
+				u.e.click(scene._next);
+				u.e.click(scene._previous);
+				scene._next.clicked = scene._previous.clicked = function(event) {
+					u.bug("click");
+					if (u.hc(event.target, "next")) {
+						if (scene.current_slide_num == scene.slides.length-1) {
+							scene.current_slide_num = 0;	
+						} else {
+							scene.current_slide_num++;
+						}
+					}
+					if (u.hc(event.target, "previous")) {
+						if (scene.current_slide_num != 0) {
+							scene.current_slide_num--;
+						} else {
+							scene.current_slide_num = scene.slides.length-1;
+						}
+					}
+					scene.show(scene.slides[scene.current_slide_num]);
+				}
+				if (i == 0) {
+					u.a.setOpacity(node, 1);
+				} else {
+					u.a.setOpacity(node, 0);
+				}
+			}
+			u.bug(page.cN);
+			page.cN.ready();
+			this.resized();
+			u.e.addEvent(window, "resize", this.resized);
+		}
+		scene.show = function(node) {
+			u.bug("show node: " + node);
+			this.current_node.transitioned = function() {
+				u.a.transition(this, "none");
+				u.a.transition(node, "all 500ms ease-in-out");
+				u.a.setOpacity(node, 1);
+				scene.current_node = node;
+			}
+			u.a.transition(this.current_node, "all 500ms ease-in-out");
+			u.a.setOpacity(this.current_node, 0);
+		}
+		var youtubeArr = ["JtH68PJIQLE", "mMXPk0znusU", "UK-lGSYKaaM", "31AFfyPXUKQ", "Gd_vcEHlKSk", "1J9l3O1jmrg"];
+		var num = 1;
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		var player1;
+		window.onYouTubePlayerAPIReady = function() {
+			player1 = new YT.Player('player1', {
+				playerVars: {
+					'autoplay': 0,
+					'controls': 0,
+					'autohide':1,
+					'showinfo': 0,
+					'loop': 1,
+					'rel': 0,
+					'wmode': 'transparent',
+					'enablejsapi': 1,
+					'html5': 1, 
+					'modestbranding': 1
+				},
+				videoId: youtubeArr[0],
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange,
+					'onError': onPlayerError
+				}
+			});
+		}
+		var onPlayerReady = function (event) {
+			u.bug("onPlayerReady");
+		}
+		var onPlayerStateChange = function(event) {
+			var statement = event.target.getPlayerState();
+			switch (statement) {
+				case -1:
+					u.bug("player state: Unstarted " + event.target.getPlayerState());
+					break;
+				case 0:
+					u.bug("player state: ended " + event.target.getPlayerState());
+					playNextVideo(player1, youtubeArr);
+					break;
+				case 1:
+					u.bug("player state: playing " + event.target.getPlayerState());
+					break;
+				case 2:
+					u.bug("player state: paused " + event.target.getPlayerState());
+					break;
+				case 3:
+					u.bug("player state: buffering " + event.target.getPlayerState());
+					break;
+				case 5:
+					u.bug("player state: video cued " + event.target.getPlayerState());
+					break;
+			}
+		}
+		var onPlayerError = function(event) {
+			u.bug("onPlayerError: " + event.data);
+			if (event.data == 5) {
+				u.bug("error code 5: incompatible HTML5 video. Probably the fucking ad.")
+			}
+		}
+		var playNextVideo = function(player, arr) {
+			u.bug(num + "    : " + arr[num]);
+			player.loadVideoById(arr[num], 0, "hd720");
+			player.playVideo();
+			num++;
+			if (num == arr.length) {num = 0;}
+		}
+		scene.ready();
+	}
+}

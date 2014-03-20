@@ -876,7 +876,8 @@ u.e.drag = function(node, boundaries, settings) {
 				case "strict"			: node.drag_strict			= settings[argument]; break;
 				case "elastica"			: node.drag_elastica		= Number(settings[argument]); break;
 				case "dropout"			: node.drag_dropout			= settings[argument]; break;
-				case "show_bounds"		: node.show_bounds			= settings[argument]; break;				case "vertical_lock"	: node.vertical_lock		= settings[argument]; break;
+				case "show_bounds"		: node.show_bounds			= settings[argument]; break; 
+				case "vertical_lock"	: node.vertical_lock		= settings[argument]; break;
 				case "horizontal_lock"	: node.horizontal_lock		= settings[argument]; break;
 				case "callback_picked"	: node.callback_picked		= settings[argument]; break;
 				case "callback_moved"	: node.callback_moved		= settings[argument]; break;
@@ -2257,7 +2258,16 @@ Util.period = function(format, time) {
 	}
 	var tokens = /y|n|o|O|w|W|c|d|e|D|g|h|H|l|m|M|r|s|S|t|T|u|U/g;
 	var chars = new Object();
-	chars.y = 0;	chars.n = 0;	chars.o = (chars.n > 9 ? "" : "0") + chars.n;	chars.O = 0;	chars.w = 0;	chars.W = 0;	chars.c = 0;	chars.d = 0;	chars.e = 0;	chars.D = Math.floor(((seconds/60)/60)/24);
+	chars.y = 0; 
+	chars.n = 0; 
+	chars.o = (chars.n > 9 ? "" : "0") + chars.n; 
+	chars.O = 0; 
+	chars.w = 0; 
+	chars.W = 0; 
+	chars.c = 0; 
+	chars.d = 0; 
+	chars.e = 0; 
+	chars.D = Math.floor(((seconds/60)/60)/24);
 	chars.g = Math.floor((seconds/60)/60)%24;
 	chars.h = (chars.g > 9 ? "" : "0") + chars.g;
 	chars.H = Math.floor((seconds/60)/60);
@@ -2711,6 +2721,7 @@ Util.getVar = function(param, url) {
 
 /*beta-u-navigation.js*/
 u.navigation = function(page, options) {
+	// 
 	page._nav_path = page._nav_path ? page._nav_path : "/";
 	page._nav_history = page._nav_history ? page._nav_history : [];
 	page._navigate = function() {
@@ -2878,7 +2889,8 @@ Util.Sort = u.s = new function() {
 					if(node != this.list.dragged && node != this.list.tN) {
 						if(this.list.list_type == "vertical") {
 							var o_top = u.absY(node);
-							var o_height = node.offsetHeight;						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
+							var o_height = node.offsetHeight; 
+						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
 								if(o_top < d_center_y && o_top + (o_height/2) > d_center_y) {
 									this.list.insertBefore(this.list.tN, node);
 								}
@@ -2952,7 +2964,9 @@ Util.Sort = u.s = new function() {
 }
 u.sortable = function(node, options) {
 	var callback;
-	var draggables;	var targets;	var sources;
+	var draggables;	
+	var targets;	
+	var sources;
 	if(typeof(options) == "object") {
 		var argument;
 		for(argument in options) {
@@ -2964,7 +2978,7 @@ u.sortable = function(node, options) {
 		}
 	}
 	node._sortablepick = function(event) {
-		u.bug("pick:" + u.nodeId(this) + "; "+ u.nodeId(this.d_node));
+		u.bug("pick:" + u.nodeId(this) + "; "+ u.nodeId(this.d_node) + ";" + u.nodeId(this.d_node.node));
 		if(!this.d_node.node._sorting_disabled) {
 			u.e.kill(event);
 			if(!this.d_node.node._dragged) {
@@ -2985,6 +2999,18 @@ u.sortable = function(node, options) {
 				u.bug("now dragging:" + u.nodeId(d_node));
 				u.as(d_node, "width", u.actualWidth(d_node) + "px");
 				u.as(d_node, "opacity", d_node.start_opacity - 0.3);
+	// 			
+	// 			
+	// 
+	// 
+	// 			
+	// 			
+	// 
+	// 
+	// 			
+	// 			
+	// 
+	// 			
 				if(typeof(d_node.node.picked) == "function") {
 					d_node.node.picked(event);
 				}
@@ -3028,7 +3054,8 @@ u.sortable = function(node, options) {
 					if(node != this.list.dragged && node != this.list.tN) {
 						if(this.list.list_type == "vertical") {
 							var o_top = u.absY(node);
-							var o_height = node.offsetHeight;						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
+							var o_height = node.offsetHeight; 
+						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
 								if(o_top < d_center_y && o_top + (o_height/2) > d_center_y) {
 									this.list.insertBefore(this.list.tN, node);
 								}
@@ -3139,6 +3166,7 @@ u.sortable = function(node, options) {
 /*beta-u-video.js*/
 Util.videoPlayer = function(_options) {
 	var player;
+	// 
 		player = document.createElement("div");
 		u.ac(player, "videoplayer");
 	player.ff_skip = 2;
@@ -3465,6 +3493,24 @@ u.e.addDOMReadyEvent(u.init)
 
 
 /*i-form.js*/
+Util.Objects["addPrices"] = new function() {
+	this.init = function(div) {
+		var form = u.qs("form", div);
+		u.f.init(form);
+		var i, field, actions;
+		form.submitted = function(event) {
+			this.response = function(response) {
+				if(response.cms_status == "success") {
+					location.reload();
+				}
+				else {
+					alert(response.cms_message[0]);
+				}
+			}
+			u.request(this, this.action, {"method":"post", "params":u.f.getParams(this)});
+		}
+	}
+}
 Util.Objects["formAddPrices"] = new function() {
 	this.init = function(form) {
 		u.f.init(form);
@@ -3552,27 +3598,119 @@ Util.Objects["addMedia"] = new function() {
 /*i-defaultlist.js*/
 Util.Objects["defaultList"] = new function() {
 	this.init = function(div) {
-		u.bug("init defaultList")
+		u.bug("init defaultList 22")
 		var i, node;
 		div.list = u.qs("ul.items", div);
+		if(!div.list) {
+			div.list = u.ae(div, "ul", {"class":"items"});
+		}
 		div.nodes = u.qsa("li.item", div);
-		for(i = 0; node = div.nodes[i]; i++) {
+		div.scrolled = function() {
+			var scroll_y = u.scrollY()
+			var browser_h = u.browserH();
+			var i, node, abs_y;
+			for(i = 0; node = this.nodes[i]; i++) {
+				abs_y = u.absY(node);
+				if(!node._ready && abs_y - 200 < scroll_y+browser_h && abs_y + 200 > scroll_y) {
+					this.buildNode(node);
+				}
+			}
+		}
+		div._scrollHandler = function() {
+			var div = u.qs(".scrollingListHandler");
+			u.t.resetTimer(div.t_scroll);
+			div.scrolled();
+		}
+		u.ac(div, "scrollingListHandler");
+		u.e.addEvent(window, "scroll", div._scrollHandler);
+		div.buildNode = function(node) {
+			u.bug("build node")
 			node._item_id = u.cv(node, "item_id");
 			node._variant = u.cv(node, "variant");
+			node._actions = u.qsa(".actions li", node);
+			var i, action, form, bn_detele;
+			for(i = 0; action = node._actions[i]; i++) {
+				if(!action.childNodes.length) {
+					if(u.hc(action, "status")) {
+						form = u.f.addForm(action, {"action":"/admin/cms/disable/"+node._item_id, "class":"disable"});
+						u.f.addAction(form, {"value":"Disable", "class":"button status"});
+						u.f.init(form);
+						form.submitted = function() {
+							this.response = function(response) {
+								page.notify(response.cms_message);
+								if(response.cms_status == "success") {
+									u.ac(this.parentNode, "disabled");
+									u.rc(this.parentNode, "enabled");
+								}
+							}
+							u.request(this, this.action);
+						}
+						form = u.f.addForm(action, {"action":"/admin/cms/enable/"+node._item_id, "class":"enable"});
+						u.f.addAction(form, {"value":"Enable", "class":"button status"});
+						u.f.init(form);
+						form.submitted = function() {
+							this.response = function(response) {
+								page.notify(response.cms_message);
+								if(response.cms_status == "success") {
+									u.rc(this.parentNode, "disabled");
+									u.ac(this.parentNode, "enabled");
+								}
+							}
+							u.request(this, this.action);
+						}
+					}
+					else if(u.hc(action, "delete")) {
+						form = u.f.addForm(action, {"action":"/admin/cms/delete/"+node._item_id, "class":"delete"});
+						form.node = node;
+						bn_delete = u.f.addAction(form, {"value":"Delete", "class":"button delete", "name":"delete"});
+						u.f.init(form);
+						form.restore = function(event) {
+							this.actions["delete"].value = "Delete";
+							u.rc(this.actions["delete"], "confirm");
+						}
+						form.submitted = function() {
+							if(!u.hc(this.actions["delete"], "confirm")) {
+								u.ac(this.actions["delete"], "confirm");
+								this.actions["delete"].value = "Confirm";
+								this.t_confirm = u.t.setTimer(this, this.restore, 3000);
+							}
+							else {
+								u.t.resetTimer(this.t_confirm);
+								this.response = function(response) {
+									page.notify(response.cms_message);
+									if(response.cms_status == "success") {
+										if(response.cms_object && response.cms_object.constraint_error) {
+											this.value = "Delete";
+											u.ac(this, "disabled");
+										}
+										else {
+											this.node.parentNode.removeChild(this.node);
+										}
+									}
+								}
+								u.request(this, this.action);
+							}
+						}
+					}
+				}
+			}
 			node._image = u.cv(node, "image");
 			node._width = u.cv(node, "width");
 			node._height = u.cv(node, "height");
 			if(node._image && node._width && node._height) {
 				u.ac(node, "image");
-				u.as(node, "backgroundImage", "url(/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x"+node._height+"."+node._image+")");
+				node._image_src = "/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x"+node._height+"."+node._image;
 			}
 			else if(node._image && node._width) {
 				u.ac(node, "image");
-				u.as(node, "backgroundImage", "url(/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x."+node._image+")");
+				node._image_src = "/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x."+node._image;
 			}
 			else if(node._image && node._height) {
 				u.ac(node, "image");
-				u.as(node, "backgroundImage", "url(/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+"x"+node._height+"."+node._image+")");
+				node._image_src = "/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+"x"+node._height+"."+node._image;
+			}
+			if(node._image_src) {
+				u.as(node, "backgroundImage", "url("+node._image_src+")");
 			}
 			node._audio = u.cv(node, "audio");
 			if(node._audio) {
@@ -3601,6 +3739,7 @@ Util.Objects["defaultList"] = new function() {
 			node._video = u.cv(node, "video");
 			if(node._video) {
 			}
+			node._ready = true;
 		}
 		if(u.hc(div, "taggable")) {
 			u.bug("init taggable")
@@ -3726,6 +3865,7 @@ Util.Objects["defaultList"] = new function() {
 			}
 			div._filter._input.onkeyup = function() {
 				this._div.t_filter = u.t.setTimer(this._div, this._div.filter, 500);
+				u.ac(this._div._filter, "filtering");
 			}
 			div.filter = function() {
 				var i, node;
@@ -3740,6 +3880,8 @@ Util.Objects["defaultList"] = new function() {
 						}
 					}
 				}
+				u.rc(this._filter, "filtering");
+				this.scrolled();
 			}
 		}
 		if(u.hc(div, "sortable")) {
@@ -3757,6 +3899,7 @@ Util.Objects["defaultList"] = new function() {
 				u.request(this, url);
 			}
 		}
+		div.scrolled();
 	}
 }
 
@@ -3764,6 +3907,7 @@ Util.Objects["defaultList"] = new function() {
 /*i-defaultedit.js*/
 Util.Objects["defaultEdit"] = new function() {
 	this.init = function(div) {
+		div._item_id = u.cv(div, "item_id");
 		var form = u.qs("form", div);
 		u.f.init(form);
 		form.actions["cancel"].clicked = function(event) {
@@ -3771,12 +3915,7 @@ Util.Objects["defaultEdit"] = new function() {
 		}
 		form.submitted = function(iN) {
 			this.response = function(response) {
-				if(response.cms_status == "success") {
-					location.href = this.actions["cancel"].url;
-				}
-				else {
-					alert(response.cms_message[0]);
-				}
+				page.notify(response.cms_message);
 			}
 			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
 		}
@@ -3872,6 +4011,7 @@ Util.Objects["defaultTags"] = new function() {
 					context = this._tags._alltags[tag].context;
 					value = this._tags._alltags[tag].value.replace(/ & /, " &amp; ");
 					if(usedtags && usedtags[context] && usedtags[context][value]) {
+	// 					
 						tag_node = usedtags[context][value];
 					}
 					else {
@@ -3926,12 +4066,7 @@ Util.Objects["formDefaultNew"] = new function() {
 					location.href = this.actions["cancel"].url.replace("\/list", "/edit/"+response.cms_object.item_id);
 				}
 				else if(response.cms_message) {
-					if(typeof(page.notify) == "function") {
-						page.notify(response.cms_message);
-					}
-					else {
-						alert(response.cms_message[0]);
-					}
+					page.notify(response.cms_message);
 				}
 			}
 			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
@@ -3988,10 +4123,17 @@ Util.Objects["formDefaultDelete"] = new function() {
 					u.t.resetTimer(this.t_confirm);
 					this.response = function(response) {
 						if(response.cms_status == "success") {
-							location.reload();
+							if(response.cms_object && response.cms_object.constraint_error) {
+								page.notify(response.cms_message);
+								this.value = "Delete";
+								u.ac(this, "disabled");
+							}
+							else {
+								location.reload();
+							}
 						}
 						else {
-							alert(response.cms_message[0]);
+							page.notify(response.cms_message);
 						}
 					}
 					u.request(this, this.form.action, {"method":"post", "params" : u.f.getParams(this.form)});
@@ -4043,186 +4185,9 @@ u.notifier = function(node) {
 		else if(typeof(message) == "string") {
 			output = u.ae(this.notifications, "div", {"class":class_name, "html":message});
 		}
-		u.t.setTimer(this.notifications, this.notifications.hide, 2000);
+		u.t.setTimer(this.notifications, this.notifications.hide, 3500);
 	}
 }
 
 
-
-/*i-form.js*/
-Util.Objects["video"] = new function() {
-	this.init = function(li) {
-		u.ce(li);
-		li.clicked = function() {
-			if(!this.videoplayer) {
-				this.videoplayer = u.videoPlayer();
-				u.ae(this, this.videoplayer);
-			}
-			if(!u.hc(this, "playing")) {
-				this.videoplayer.loadAndPlay(this.url);
-				u.ac(this, "playing");
-			}
-			else {
-				this.videoplayer.stop();
-				u.rc(this, "playing");
-			}
-		}
-	}
-}
-Util.Objects["curatedList"] = new function() {
-	this.init = function(scene) {
-		scene.nodes = u.qsa("li.page", scene);
-		var i, node;
-		for(i = 0; node = scene.nodes[i]; i++) {
-			node.bn_enable = u.qs(".status", node);
-			if(node.bn_enable) {
-				u.ce(node.bn_enable);
-				node.bn_enable.clicked = function() {
-					this.response = function(response) {
-						if(response.cms_status == "success") {
-							location.reload();
-						}
-						else {
-							alert(response.message);
-						}
-					}
-					u.request(this, this.url);
-				}
-			}
-			node.bn_delete = u.qs(".delete", node);
-			if(node.bn_delete) {
-				node.bn_delete.a = u.qs("a", node.bn_delete);
-				u.ce(node.bn_delete);
-				node.bn_delete.restore = function(event) {
-					this.a.innerHTML = "Delete";
-					u.rc(this.a, "confirm");
-				}
-				node.bn_delete.clicked = function(event) {
-					u.e.kill(event);
-					if(!u.hc(this.a, "confirm")) {
-						u.ac(this.a, "confirm");
-						this.a.innerHTML = "Confirm";
-						this.t_confirm = u.t.setTimer(this, this.restore, 3000);
-					}
-					else {
-						u.t.resetTimer(this.t_confirm);
-						this.response = function(response) {
-							if(response.cms_status == "success") {
-								location.reload();
-							}
-							else {
-								alert(response.message);
-							}
-						}
-						u.request(this, this.url);
-					}
-				}
-			}
-		}
-		scene.curated_lists = u.qsa(".pages ul.news", scene);
-		var list, j;
-		for(i = 0; list = scene.curated_lists[i]; i++) {
-			u.s.sortable(list);
-			list.picked = function(event) {
-				u.bug(u.nodeId(event.target.node))
-			}
-			list.dropped = function(event) {
-				this.response = function(response) {
-					if(response.cms_status == "success") {
-					}
-					else {
-						alert(response.message);
-					}
-				}
-				var new_order = "";
-				this.nodes = u.qsa("li.draggable", this);
-				for(i = 0; node = this.nodes[i]; i++) {
-					if(u.cv(node, "item_id")) {
-						new_order += "/"+u.cv(node, "item_id");
-					}
-				}
-				u.request(this, "/admin/cms/curatedpage/"+u.cv(this, "item_id")+"/updateCuration"+new_order)
-			}
-			list.nodes = u.qsa("li.draggable", list);
-			for(j = 0; node = list.nodes[j]; j++) {
-				u.as(node, "backgroundImage", "url(/images/"+u.cv(node, "item_id")+"/landscape/x50."+u.cv(node, "format")+")");
-			}
-		}
-		var news_items = u.qsa(".all_items .items li.item", scene);
-		for(i = 0; node = news_items[i]; i++) {
-			node.scene = scene;
-			u.as(node, "backgroundImage", "url(/images/"+u.cv(node, "item_id")+"/landscape/x50."+u.cv(node, "format")+")");
-			u.e.click(node);
-			node.moved = function(event) {
-				u.e.kill(event);
-				this.scene._news_clone = u.ae(document.body, "div", {"class":"news_clone", "html":this.innerHTML});
-				u.as(this.scene._news_clone, "height", u.gcs(this, "height"));
-				u.as(this.scene._news_clone, "width", u.gcs(this, "width"));
-				u.as(this.scene._news_clone, "padding", u.gcs(this, "padding"));
-				u.as(this.scene._news_clone, "margin", u.gcs(this, "margin"));
-				u.as(this.scene._news_clone, "backgroundImage", u.gcs(this, "background-image"));
-				u.as(this.scene._news_clone, "position", "absolute");
-				u.as(this.scene._news_clone, "left", u.absX(this)+"px");
-				u.as(this.scene._news_clone, "top", u.absY(this)+"px");
-				this.scene._news_clone.offset_x = u.absX(this) - u.eventX(event);
-				this.scene._news_clone.offset_y = u.absY(this) - u.eventY(event);
-				this.scene._dragged_news = this;
-				document.body.scene = this.scene;
-				u.e.addMoveEvent(document.body, this.scene._news_drag);
-				u.e.addEndEvent(document.body, this.scene._news_drop);
-			}
-		}
-		scene._news_drag = function(event) {
-			var left = (u.eventX(event) + this.scene._news_clone.offset_x);
-			var top = (u.eventY(event) + this.scene._news_clone.offset_y);
-			u.as(this.scene._news_clone, "left", left+"px");
-			u.as(this.scene._news_clone, "top", top+"px");
-			var i, list;
-			for(i = 0; list = this.scene.curated_lists[i]; i++) {
-				if(
-					u.eventX(event) > u.absX(list) && 
-					u.eventX(event) < u.absX(list)+list.offsetWidth && 
-					u.eventY(event) > u.absY(list) && 
-					u.eventY(event) < u.absY(list)+list.offsetHeight
-				) {
-					u.ac(list, "activetarget");
-				}
-				else {
-					u.rc(list, "activetarget");
-				}
-			}
-		}
-		scene._news_drop = function(event) {
-			u.e.removeMoveEvent(document.body, this.scene._news_drag);
-			u.e.removeEndEvent(document.body, this.scene._news_drop);
-			var i, list;
-			for(i = 0; list = this.scene.curated_lists[i]; i++) {
-				if(
-					u.eventX(event) > u.absX(list) && 
-					u.eventX(event) < u.absX(list)+list.offsetWidth && 
-					u.eventY(event) > u.absY(list) && 
-					u.eventY(event) < u.absY(list)+list.offsetHeight
-				) {
-					this.scene.response = function(response) {
-						if(response.cms_status == "success") {
-							location.reload();
-						}
-						else {
-							page.notify(response.cms_message, {"class":"error"});
-						}
-					}
-					u.request(this.scene, "/admin/cms/curatedpage/"+u.cv(list, "item_id")+"/addToCuration/"+u.cv(this.scene._dragged_news, "item_id"))
-					u.rc(list, "activetarget");
-				}
-				else {
-					u.rc(list, "activetarget");
-				}
-			}
-			this.scene._news_clone.parentNode.removeChild(this.scene._news_clone);
-			this.scene._news_clone = false;
-			this.scene._dragged_news = false;
-			this.scene = false;
-		}
-	}
-}
 

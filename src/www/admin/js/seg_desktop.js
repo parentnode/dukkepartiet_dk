@@ -876,7 +876,8 @@ u.e.drag = function(node, boundaries, settings) {
 				case "strict"			: node.drag_strict			= settings[argument]; break;
 				case "elastica"			: node.drag_elastica		= Number(settings[argument]); break;
 				case "dropout"			: node.drag_dropout			= settings[argument]; break;
-				case "show_bounds"		: node.show_bounds			= settings[argument]; break;				case "vertical_lock"	: node.vertical_lock		= settings[argument]; break;
+				case "show_bounds"		: node.show_bounds			= settings[argument]; break; 
+				case "vertical_lock"	: node.vertical_lock		= settings[argument]; break;
 				case "horizontal_lock"	: node.horizontal_lock		= settings[argument]; break;
 				case "callback_picked"	: node.callback_picked		= settings[argument]; break;
 				case "callback_moved"	: node.callback_moved		= settings[argument]; break;
@@ -2257,7 +2258,16 @@ Util.period = function(format, time) {
 	}
 	var tokens = /y|n|o|O|w|W|c|d|e|D|g|h|H|l|m|M|r|s|S|t|T|u|U/g;
 	var chars = new Object();
-	chars.y = 0;	chars.n = 0;	chars.o = (chars.n > 9 ? "" : "0") + chars.n;	chars.O = 0;	chars.w = 0;	chars.W = 0;	chars.c = 0;	chars.d = 0;	chars.e = 0;	chars.D = Math.floor(((seconds/60)/60)/24);
+	chars.y = 0; 
+	chars.n = 0; 
+	chars.o = (chars.n > 9 ? "" : "0") + chars.n; 
+	chars.O = 0; 
+	chars.w = 0; 
+	chars.W = 0; 
+	chars.c = 0; 
+	chars.d = 0; 
+	chars.e = 0; 
+	chars.D = Math.floor(((seconds/60)/60)/24);
 	chars.g = Math.floor((seconds/60)/60)%24;
 	chars.h = (chars.g > 9 ? "" : "0") + chars.g;
 	chars.H = Math.floor((seconds/60)/60);
@@ -2709,8 +2719,973 @@ Util.getVar = function(param, url) {
 }
 
 
+/*u-form.js*/
+Util.Form = u.f = new function() {
+	this.customInit = {};
+	this.customValidate = {};
+	this.customSend = {};
+	this.init = function(form, settings) {
+		var i, j, field, action, input;
+		form.form_send = "params";
+		form.ignore_inputs = "ignoreinput";
+		if(typeof(settings) == "object") {
+			var argument;
+			for(argument in settings) {
+				switch(argument) {
+					case "ignore_inputs"	: form.ignore_inputs	= settings[argument]; break;
+					case "form_send"		: form.form_send		= settings[argument]; break;
+				}
+			}
+		}
+		form.onsubmit = function(event) {return false;}
+		form.setAttribute("novalidate", "novalidate");
+		form._submit = this._submit;
+		form.fields = {};
+		form.tab_order = [];
+		form.actions = {};
+		var fields = u.qsa(".field", form);
+		for(i = 0; field = fields[i]; i++) {
+			var abbr = u.qs("abbr", field);
+			if(abbr) {
+				abbr.parentNode.removeChild(abbr);
+			}
+			var error_message = field.getAttribute("data-error");
+			if(error_message) {
+				u.ae(field, "div", {"class":"error", "html":error_message})
+			}
+			field._indicator = u.ae(field, "div", {"class":"indicator"});
+			field._label = u.qs("label", field);
+			field._help = u.qs(".help", field);
+			field._hint = u.qs(".hint", field);
+			field._error = u.qs(".error", field);
+			var not_initialized = true;
+			var custom_init;
+			for(custom_init in this.customInit) {
+				if(field.className.match(custom_init)) {
+					this.customInit[custom_init](field);
+					not_initialized = false;
+				}
+			}
+			if(not_initialized) {
+				if(u.hc(field, "string|email|tel|number|integer|password")) {
+					field._input = u.qs("input", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+				else if(u.hc(field, "text")) {
+					field._input = u.qs("textarea", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+				else if(u.hc(field, "select")) {
+					field._input = u.qs("select", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+				else if(u.hc(field, "checkbox|boolean")) {
+					field._input = u.qs("input[type=checkbox]", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+				else if(u.hc(field, "radio|radio_buttons")) {
+					field._input = u.qsa("input", field);
+					for(j = 0; input = field._input[j]; j++) {
+						input.field = field;
+						this.formIndex(form, input);
+					}
+				}
+				else if(u.hc(field, "date|datetime")) {
+					field._input = u.qsa("select,input", field);
+					for(j = 0; input = field._input[j]; j++) {
+						input.field = field;
+						this.formIndex(form, input);
+					}
+				}
+				else if(u.hc(field, "tags")) {
+					field._input = u.qs("input", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+				else if(u.hc(field, "prices")) {
+					field._input = u.qs("input", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+				else if(u.hc(field, "files")) {
+					field._input = u.qs("input", field);
+					field._input.field = field;
+					this.formIndex(form, field._input);
+				}
+			}
+		}
+		var hidden_fields = u.qsa("input[type=hidden]", form);
+		for(i = 0; hidden_field = hidden_fields[i]; i++) {
+			if(!form.fields[hidden_field.name]) {
+				form.fields[hidden_field.name] = hidden_field;
+				hidden_field.val = this._value;
+			}
+		}
+		var actions = u.qsa(".actions li, .actions", form);
+		for(i = 0; action = actions[i]; i++) {
+			action._input = u.qs("input,a", action);
+			if(action._input.type && action._input.type == "submit") {
+				action._input.onclick = function(event) {
+					u.e.kill(event ? event : window.event);
+				}
+			}
+			u.ce(action._input);
+			action._input.clicked = function(event) {
+				u.e.kill(event);
+				if(!u.hc(this, "disabled")) {
+					if(this.type && this.type.match(/submit/i)) {
+						this.form._submit_button = this;
+						this.form._submit_input = false;
+						this.form._submit(event, this);
+					}
+				}
+			}
+			this.buttonOnEnter(action._input);
+			this.activateButton(action._input);
+			var action_name = action._input.name ? action._input.name : action.className;
+				form.actions[action_name] = action._input;
+			if(typeof(u.k) == "object" && u.hc(action._input, "key:[a-z0-9]+")) {
+				u.k.addKey(u.cv(action._input, "key"), action._input);
+			}
+		}
+		if(!actions.length) {
+			var p_ul = u.pn(form, "ul");
+			if(u.hc(p_ul, "actions")) {
+				u.bug("valid pure button form found")
+				var input = u.qs("input,a", form);
+				if(input.type && input.type == "submit") {
+					input.onclick = function(event) {
+						u.e.kill(event ? event : window.event);
+					}
+				}
+				u.ce(input);
+				input.clicked = function(event) {
+					u.e.kill(event);
+					if(!u.hc(this, "disabled")) {
+						if(this.type && this.type.match(/submit/i)) {
+							this.form._submit_button = this;
+							this.form._submit_input = false;
+							this.form._submit(event, this);
+						}
+					}
+				}
+				this.buttonOnEnter(input);
+				this.activateButton(input);
+				if(input.name) {
+					form.actions[input.name] = input;
+				}
+				if(typeof(u.k) == "object" && u.hc(input, "key:[a-z0-9]+")) {
+					u.k.addKey(u.cv(input, "key"), input);
+				}
+			}
+		}
+	}
+	this._value = function(value) {
+		if(value !== undefined) {
+			this.value = value;
+			u.f.validate(this);
+		}
+		return this.value;
+	}
+	this._value_radio = function(value) {
+		if(value) {
+			for(i = 0; option = this.form[this.name][i]; i++) {
+				if(option.value == value) {
+					option.checked = true;
+					u.f.validate(this);
+				}
+			}
+		}
+		else {
+			var i, option;
+			for(i = 0; option = this.form[this.name][i]; i++) {
+				if(option.checked) {
+					return option.value;
+				}
+			}
+		}
+		return false;
+	}
+	this._value_checkbox = function(value) {
+		if(value) {
+			this.checked = true
+			u.f.validate(this);
+		}
+		else {
+			if(this.checked) {
+				return this.value;
+			}
+		}
+		return false;
+	}
+	this._value_select = function(value) {
+		if(value !== undefined) {
+			var i, option;
+			for(i = 0; option = this.options[i]; i++) {
+				if(option.value == value) {
+					this.selectedIndex = i;
+					u.f.validate(this);
+					return i;
+				}
+			}
+			return false;
+		}
+		else {
+			return this.options[this.selectedIndex].value;
+		}
+	}
+	this.inputOnEnter = function(node) {
+		node.keyPressed = function(event) {
+			if(this.nodeName.match(/input/i) && (event.keyCode == 40 || event.keyCode == 38)) {
+				this._submit_disabled = true;
+			}
+			else if(this.nodeName.match(/input/i) && this._submit_disabled && (
+				event.keyCode == 46 || 
+				(event.keyCode == 39 && u.browser("firefox")) || 
+				(event.keyCode == 37 && u.browser("firefox")) || 
+				event.keyCode == 27 || 
+				event.keyCode == 13 || 
+				event.keyCode == 9 ||
+				event.keyCode == 8
+			)) {
+				this._submit_disabled = false;
+			}
+			else if(event.keyCode == 13 && !this._submit_disabled) {
+				u.e.kill(event);
+				this.blur();
+				this.form.submitInput = this;
+				this.form.submitButton = false;
+				this.form._submit(event, this);
+			}
+		}
+		u.e.addEvent(node, "keydown", node.keyPressed);
+	}
+	this.buttonOnEnter = function(node) {
+		node.keyPressed = function(event) {
+			if(event.keyCode == 13 && !u.hc(this, "disabled")) {
+				u.e.kill(event);
+				this.form.submit_input = false;
+				this.form.submit_button = this;
+				this.form._submit(event);
+			}
+		}
+		u.e.addEvent(node, "keydown", node.keyPressed);
+	}
+	this.formIndex = function(form, iN) {
+		iN.tab_index = form.tab_order.length;
+		form.tab_order[iN.tab_index] = iN;
+		if(iN.field && iN.name) {
+			form.fields[iN.name] = iN;
+			if(iN.nodeName.match(/input/i) && iN.type && iN.type.match(/text|email|tel|number|password|datetime|date/)) {
+				iN.val = this._value;
+				u.e.addEvent(iN, "keyup", this._updated);
+				u.e.addEvent(iN, "change", this._changed);
+				this.inputOnEnter(iN);
+			}
+			else if(iN.nodeName.match(/textarea/i)) {
+				iN.val = this._value;
+				u.e.addEvent(iN, "keyup", this._updated);
+				u.e.addEvent(iN, "change", this._changed);
+				if(u.hc(iN.field, "autoexpand")) {
+					var current_height = parseInt(u.gcs(iN, "height"));
+					u.bug(current_height + "," + iN.scrollHeight);
+					var current_value = iN.val();
+					iN.val("");
+					u.bug(current_height + "," + iN.scrollHeight);
+					u.as(iN, "overflow", "hidden");
+					u.bug(current_height + "," + iN.scrollHeight);
+					iN.autoexpand_offset = 0;
+					if(parseInt(u.gcs(iN, "height")) != iN.scrollHeight) {
+						iN.autoexpand_offset = iN.scrollHeight - parseInt(u.gcs(iN, "height"));
+					}
+					iN.val(current_value);
+					iN.setHeight = function() {
+						var textarea_height = parseInt(u.gcs(this, "height"));
+						if(this.val()) {
+							if(u.browser("webkit")) {
+								if(this.scrollHeight - this.autoexpand_offset > textarea_height) {
+									u.a.setHeight(this, this.scrollHeight);
+								}
+							}
+							else if(u.browser("opera") || u.browser("explorer")) {
+								if(this.scrollHeight > textarea_height) {
+									u.a.setHeight(this, this.scrollHeight);
+								}
+							}
+							else {
+								u.a.setHeight(this, this.scrollHeight);
+							}
+						}
+					}
+					u.e.addEvent(iN, "keyup", iN.setHeight);
+					iN.setHeight();
+				}
+			}
+			else if(iN.nodeName.match(/select/i)) {
+				iN.val = this._value_select;
+				u.e.addEvent(iN, "change", this._updated);
+				u.e.addEvent(iN, "keyup", this._updated);
+				u.e.addEvent(iN, "change", this._changed);
+			}
+			else if(iN.type && iN.type.match(/checkbox/)) {
+				iN.val = this._value_checkbox;
+				if(u.browser("explorer", "<=8")) {
+					iN.pre_state = iN.checked;
+					iN._changed = u.f._changed;
+					iN._updated = u.f._updated;
+					iN._clicked = function(event) {
+						if(this.checked != this.pre_state) {
+							this._changed(window.event);
+							this._updated(window.event);
+						}
+						this.pre_state = this.checked;
+					}
+					u.e.addEvent(iN, "click", iN._clicked);
+				}
+				else {
+					u.e.addEvent(iN, "change", this._updated);
+					u.e.addEvent(iN, "change", this._changed);
+				}
+				this.inputOnEnter(iN);
+			}
+			else if(iN.type && iN.type.match(/radio/)) {
+				iN.val = this._value_radio;
+				if(u.browser("explorer", "<=8")) {
+					iN.pre_state = iN.checked;
+					iN._changed = u.f._changed;
+					iN._updated = u.f._updated;
+					iN._clicked = function(event) {
+						var i, input;
+						if(this.checked != this.pre_state) {
+							this._changed(window.event);
+							this._updated(window.event);
+						}
+						for(i = 0; input = this.field._input[i]; i++) {
+							input.pre_state = input.checked;
+						}
+					}
+					u.e.addEvent(iN, "click", iN._clicked);
+				}
+				else {
+					u.e.addEvent(iN, "change", this._updated);
+					u.e.addEvent(iN, "change", this._changed);
+				}
+				this.inputOnEnter(iN);
+			}
+			else if(iN.type && iN.type.match(/file/)) {
+				iN.val = function(value) {
+					if(value !== undefined) {
+						alert('adding values manually to input type="file" is not supported')
+					}
+					else {
+						var i, file, files = [];
+						for(i = 0; file = this.files[i]; i++) {
+							files.push(file);
+						}
+						return files.join(",");
+					}
+				}
+				u.e.addEvent(iN, "keyup", this._updated);
+				u.e.addEvent(iN, "change", this._changed);
+			}
+			this.activateField(iN);
+			this.validate(iN);
+		}
+	}
+	this._changed = function(event) {
+		this.used = true;
+		if(typeof(this.changed) == "function") {
+			this.changed(this);
+		}
+		if(typeof(this.form.changed) == "function") {
+			this.form.changed(this);
+		}
+	}
+	this._updated = function(event) {
+		if(event.keyCode != 9 && event.keyCode != 13 && event.keyCode != 16 && event.keyCode != 17 && event.keyCode != 18) {
+			if(this.used || u.hc(this.field, "error")) {
+				u.f.validate(this);
+			}
+			if(typeof(this.updated) == "function") {
+				this.updated(this);
+			}
+			if(typeof(this.form.updated) == "function") {
+				this.form.updated(this);
+			}
+		}
+	}
+	this._validate = function() {
+		u.f.validate(this);
+	}
+	this._submit = function(event, iN) {
+		for(name in this.fields) {
+			if(this.fields[name].field) {
+				this.fields[name].used = true;
+				u.f.validate(this.fields[name]);
+			}
+		}
+		if(u.qs(".field.error", this)) {
+			if(typeof(this.validationFailed) == "function") {
+				this.validationFailed();
+			}
+		}
+		else {
+			if(typeof(this.submitted) == "function") {
+				this.submitted(iN);
+			}
+			else {
+				this.submit();
+			}
+		}
+	}
+	this._focus = function(event) {
+		this.field.focused = true;
+		u.ac(this.field, "focus");
+		u.ac(this, "focus");
+		u.as(this.field, "zIndex", 99);
+		if(this.field._help) {
+			u.as(this.field._help, "top", ((this.offsetTop + this.offsetHeight/2 + 2) - (this.field._help.offsetHeight/2)) + "px")
+		}
+		if(typeof(this.focused) == "function") {
+			this.focused();
+		}
+		if(typeof(this.form.focused) == "function") {
+			this.form.focused(this);
+		}
+	}
+	this._blur = function(event) {
+		this.field.focused = false;
+		u.rc(this.field, "focus");
+		u.rc(this, "focus");
+		u.as(this.field, "zIndex", 90);
+		if(this.field._help) {
+			u.as(this.field._help, "top", ((this.offsetTop + this.offsetHeight/2 + 2) - (this.field._help.offsetHeight/2)) + "px")
+		}
+		this.used = true;
+		if(typeof(this.blurred) == "function") {
+			this.blurred();
+		}
+		if(typeof(this.form.blurred) == "function") {
+			this.form.blurred(this);
+		}
+	}
+	this._button_focus = function(event) {
+		u.ac(this, "focus");
+		if(typeof(this.focused) == "function") {
+			this.focused();
+		}
+		if(typeof(this.form.focused) == "function") {
+			this.form.focused(this);
+		}
+	}
+	this._button_blur = function(event) {
+		u.rc(this, "focus");
+		if(typeof(this.blurred) == "function") {
+			this.blurred();
+		}
+		if(typeof(this.form.blurred) == "function") {
+			this.form.blurred(this);
+		}
+	}
+	this._default_value_focus = function() {
+		u.rc(this, "default");
+		if(this.val() == this.default_value) {
+			this.val("");
+		}
+	}
+	this._default_value_blur = function() {
+		if(this.val() == "") {
+			u.ac(this, "default");
+			this.val(this.default_value);
+		}
+	}
+	this.activateField = function(iN) {
+		u.e.addEvent(iN, "focus", this._focus);
+		u.e.addEvent(iN, "blur", this._blur);
+		u.e.addEvent(iN, "blur", this._validate);
+		if(iN.form.labelstyle || u.hc(iN.form, "labelstyle:[a-z]+")) {
+			iN.form.labelstyle = iN.form.labelstyle ? iN.form.labelstyle : u.cv(iN.form, "labelstyle");
+			if(iN.form.labelstyle == "inject" && (!iN.type || !iN.type.match(/file|radio|checkbox/))) {
+				iN.default_value = iN.field._label.innerHTML;
+				u.e.addEvent(iN, "focus", this._default_value_focus);
+				u.e.addEvent(iN, "blur", this._default_value_blur);
+				if(iN.val() == "") {
+					iN.val(iN.default_value);
+					u.ac(iN, "default");
+				}
+			}
+		}
+	}
+	this.activateButton = function(button) {
+		u.e.addEvent(button, "focus", this._button_focus);
+		u.e.addEvent(button, "blur", this._button_blur);
+	}
+ 	this.isDefault = function(iN) {
+		if(iN.default_value && iN.val() == iN.default_value) {
+			return true;
+		}
+		return false;
+	}
+	this.fieldError = function(iN) {
+		u.rc(iN, "correct");
+		u.rc(iN.field, "correct");
+		if(iN.used || !this.isDefault(iN) && iN.val()) {
+			u.ac(iN, "error");
+			u.ac(iN.field, "error");
+			if(iN.field._help) {
+				u.as(iN.field._help, "top", ((iN.offsetTop + iN.offsetHeight/2 + 2) - (iN.field._help.offsetHeight/2)) + "px")
+			}
+			if(typeof(iN.validationFailed) == "function") {
+				iN.validationFailed();
+			}
+		}
+	}
+	this.fieldCorrect = function(iN) {
+		if(!this.isDefault(iN) && iN.val()) {
+			u.ac(iN, "correct");
+			u.ac(iN.field, "correct");
+			u.rc(iN, "error");
+			u.rc(iN.field, "error");
+		}
+		else {
+			u.rc(iN, "correct");
+			u.rc(iN.field, "correct");
+			u.rc(iN, "error");
+			u.rc(iN.field, "error");
+		}
+	}
+	this.validate = function(iN) {
+		var min, max, pattern;
+		var not_validated = true;
+		if(!u.hc(iN.field, "required") && (iN.val() == "" || this.isDefault(iN))) {
+			this.fieldCorrect(iN);
+			return true;
+		}
+		else if(u.hc(iN.field, "required") && (iN.val() == "" || this.isDefault(iN))) {
+			this.fieldError(iN);
+			return false;
+		}
+		var custom_validate;
+		for(custom_validate in u.f.customValidate) {
+			if(u.hc(iN.field, custom_validate)) {
+				u.f.customValidate[custom_validate](iN);
+				not_validated = false;
+			}
+		}
+		if(not_validated) {
+			if(u.hc(iN.field, "password")) {
+				min = Number(u.cv(iN.field, "min"));
+				max = Number(u.cv(iN.field, "max"));
+				min = min ? min : 8;
+				max = max ? max : 20;
+				pattern = iN.getAttribute("pattern");
+				if(
+					iN.val().length >= min && 
+					iN.val().length <= max && 
+					(!pattern || iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "number")) {
+				min = Number(u.cv(iN.field, "min"));
+				max = Number(u.cv(iN.field, "max"));
+				min = min ? min : 0;
+				max = max ? max : 99999999999999999999999999999;
+				pattern = iN.getAttribute("pattern");
+				if(
+					!isNaN(iN.val()) && 
+					iN.val() >= min && 
+					iN.val() <= max && 
+					(!pattern || iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "integer")) {
+				min = Number(u.cv(iN.field, "min"));
+				max = Number(u.cv(iN.field, "max"));
+				min = min ? min : 0;
+				max = max ? max : 99999999999999999999999999999;
+				pattern = iN.getAttribute("pattern");
+				if(
+					!isNaN(iN.val()) && 
+					Math.round(iN.val()) == iN.val() && 
+					iN.val() >= min && 
+					iN.val() <= max && 
+					(!pattern || iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "tel")) {
+				pattern = iN.getAttribute("pattern");
+				if(
+					!pattern && iN.val().match(/^([\+0-9\-\.\s\(\)]){5,18}$/) ||
+					(pattern && iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "email")) {
+				if(
+					!pattern && iN.val().match(/^([^<>\\\/%$])+\@([^<>\\\/%$])+\.([^<>\\\/%$]{2,20})$/) ||
+					(pattern && iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "text")) {
+				min = Number(u.cv(iN.field, "min"));
+				max = Number(u.cv(iN.field, "max"));
+				min = min ? min : 1;
+				max = max ? max : 10000000;
+				pattern = iN.getAttribute("pattern");
+				if(
+					iN.val().length >= min && 
+					iN.val().length <= max && 
+					(!pattern || iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "select")) {
+				if(iN.val()) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "checkbox|boolean|radio|radio_buttons")) {
+				if(iN.val()) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "string")) {
+				min = Number(u.cv(iN.field, "min"));
+				max = Number(u.cv(iN.field, "max"));
+				min = min ? min : 1;
+				max = max ? max : 255;
+				pattern = iN.getAttribute("pattern");
+				if(
+					iN.val().length >= min &&
+					iN.val().length <= max && 
+					(!pattern || iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "date")) {
+				pattern = iN.getAttribute("pattern");
+				if(
+					!pattern && iN.val().match(/^([\d]{4}[\-\/\ ]{1}[\d]{2}[\-\/\ ][\d]{2})$/) ||
+					(pattern && iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "datetime")) {
+				pattern = iN.getAttribute("pattern");
+				if(
+					!pattern && iN.val().match(/^([\d]{4}[\-\/\ ]{1}[\d]{2}[\-\/\ ][\d]{2} [\d]{2}[\-\/\ \:]{1}[\d]{2}[\-\/\ \:]{0,1}[\d]{0,2})$/) ||
+					(pattern && iN.val().match(pattern))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "tags")) {
+				if(
+					!pattern && iN.val().match(/\:/) ||
+					(pattern && iN.val().match("^"+pattern+"$"))
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "prices")) {
+				if(
+					!isNaN(iN.val())
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+			else if(u.hc(iN.field, "files")) {
+				if(
+					1
+				) {
+					this.fieldCorrect(iN);
+				}
+				else {
+					this.fieldError(iN);
+				}
+			}
+		}
+		if(u.hc(iN.field, "error")) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	this.getParams = function(form, settings) {
+		var send_as = "params";
+		var ignore_inputs = "ignoreinput";
+		if(typeof(settings) == "object") {
+			var argument;
+			for(argument in settings) {
+				switch(argument) {
+					case "ignore_inputs"	: ignore_inputs		= settings[argument]; break;
+					case "send_as"			: send_as			= settings[argument]; break;
+				}
+			}
+		}
+		var i, input, select, textarea, param;
+			var params = new Object();
+		if(form._submit_button && form._submit_button.name) {
+			params[form._submit_button.name] = form._submit_button.value;
+		}
+		var inputs = u.qsa("input", form);
+		var selects = u.qsa("select", form)
+		var textareas = u.qsa("textarea", form)
+		for(i = 0; input = inputs[i]; i++) {
+			if(!u.hc(input, ignore_inputs)) {
+				if((input.type == "checkbox" || input.type == "radio") && input.checked) {
+					if(!this.isDefault(input)) {
+						params[input.name] = input.value;
+					}
+				}
+				else if(input.type == "file") {
+					if(!this.isDefault(input)) {
+						params[input.name] = input.value;
+					}
+				}
+				else if(!input.type.match(/button|submit|reset|file|checkbox|radio/i)) {
+					if(!this.isDefault(input)) {
+						params[input.name] = input.value;
+					}
+				}
+			}
+		}
+		for(i = 0; select = selects[i]; i++) {
+			if(!u.hc(select, ignore_inputs)) {
+				if(!this.isDefault(select)) {
+					params[select.name] = select.options[select.selectedIndex].value;
+				}
+			}
+		}
+		for(i = 0; textarea = textareas[i]; i++) {
+			if(!u.hc(textarea, ignore_inputs)) {
+				if(!this.isDefault(textarea)) {
+					params[textarea.name] = textarea.value;
+				}
+			}
+		}
+		if(send_as && typeof(this.customSend[send_as]) == "function") {
+			return this.customSend[send_as](params, form);
+		}
+		else if(send_as == "json") {
+			return u.f.convertNamesToJsonObject(params);
+		}
+		else if(send_as == "object") {
+			return params;
+		}
+		else {
+			var string = "";
+			for(param in params) {
+					string += (string ? "&" : "") + param + "=" + encodeURIComponent(params[param]);
+			}
+			return string;
+		}
+	}
+}
+u.f.convertNamesToJsonObject = function(params) {
+ 	var indexes, root, indexes_exsists, param;
+	var object = new Object();
+	for(param in params) {
+	 	indexes_exsists = param.match(/\[/);
+		if(indexes_exsists) {
+			root = param.split("[")[0];
+			indexes = param.replace(root, "");
+			if(typeof(object[root]) == "undefined") {
+				object[root] = new Object();
+			}
+			object[root] = this.recurseName(object[root], indexes, params[param]);
+		}
+		else {
+			object[param] = params[param];
+		}
+	}
+	return object;
+}
+u.f.recurseName = function(object, indexes, value) {
+	var index = indexes.match(/\[([a-zA-Z0-9\-\_]+)\]/);
+	var current_index = index[1];
+	indexes = indexes.replace(index[0], "");
+ 	if(indexes.match(/\[/)) {
+		if(object.length !== undefined) {
+			var i;
+			var added = false;
+			for(i = 0; i < object.length; i++) {
+				for(exsiting_index in object[i]) {
+					if(exsiting_index == current_index) {
+						object[i][exsiting_index] = this.recurseName(object[i][exsiting_index], indexes, value);
+						added = true;
+					}
+				}
+			}
+			if(!added) {
+				temp = new Object();
+				temp[current_index] = new Object();
+				temp[current_index] = this.recurseName(temp[current_index], indexes, value);
+				object.push(temp);
+			}
+		}
+		else if(typeof(object[current_index]) != "undefined") {
+			object[current_index] = this.recurseName(object[current_index], indexes, value);
+		}
+		else {
+			object[current_index] = new Object();
+			object[current_index] = this.recurseName(object[current_index], indexes, value);
+		}
+	}
+	else {
+		object[current_index] = value;
+	}
+	return object;
+}
+u.f.addForm = function(node, settings) {
+	var form_name = "js_form";
+	var form_action = "#";
+	var form_method = "post";
+	var form_class = "";
+	if(typeof(settings) == "object") {
+		var argument;
+		for(argument in settings) {
+			switch(argument) {
+				case "name"			: form_name				= settings[argument]; break;
+				case "action"		: form_action			= settings[argument]; break;
+				case "method"		: form_method			= settings[argument]; break;
+				case "class"		: form_class			= settings[argument]; break;
+			}
+		}
+	}
+	var form = u.ae(node, "form", {"class":form_class, "name": form_name, "action":form_action, "method":form_method});
+	return form;
+}
+u.f.addFieldset = function(node) {
+	return u.ae(node, "fieldset");
+}
+u.f.addField = function(node, settings) {
+	var field_type = "string";
+	var field_label = "Value";
+	var field_name = "js_name";
+	var field_value = "";
+	var field_class = "";
+	if(typeof(settings) == "object") {
+		var argument;
+		for(argument in settings) {
+			switch(argument) {
+				case "type"			: field_type			= settings[argument]; break;
+				case "label"		: field_label			= settings[argument]; break;
+				case "name"			: field_name			= settings[argument]; break;
+				case "value"		: field_value			= settings[argument]; break;
+				case "class"		: field_class			= settings[argument]; break;
+			}
+		}
+	}
+	var input_id = "input_"+field_type+"_"+field_name;
+	var field = u.ae(node, "div", {"class":"field "+field_type+" "+field_class});
+	if(field_type == "string") {
+		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
+		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":"text"});
+	}
+	else if(field_type == "email" || field_type == "number" || field_type == "tel") {
+		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
+		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":field_type});
+	}
+	else if(field_type == "select") {
+		u.bug("Select not implemented yet")
+	}
+	else {
+		u.bug("input type not implemented yet")
+	}
+	return field;
+}
+u.f.addAction = function(node, settings) {
+	var action_type = "submit";
+	var action_name = "js_name";
+	var action_value = "";
+	var action_class = "";
+	if(typeof(settings) == "object") {
+		var argument;
+		for(argument in settings) {
+			switch(argument) {
+				case "type"			: action_type			= settings[argument]; break;
+				case "name"			: action_name			= settings[argument]; break;
+				case "value"		: action_value			= settings[argument]; break;
+				case "class"		: action_class			= settings[argument]; break;
+			}
+		}
+	}
+	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, "ul");
+	if(!u.hc(p_ul, "actions")) {
+		p_ul = u.ae(node, "ul", {"class":"actions"});
+	}
+	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, "li");
+	if(p_ul != p_li.parentNode) {
+		p_li = u.ae(p_ul, "li", {"class":action_name});
+	}
+	else {
+		p_li = node;
+	}
+	var action = u.ae(p_li, "input", {"type":action_type, "class":action_class, "value":action_value, "name":action_name})
+	return action;
+}
+
+
 /*beta-u-navigation.js*/
 u.navigation = function(page, options) {
+	// 
 	page._nav_path = page._nav_path ? page._nav_path : "/";
 	page._nav_history = page._nav_history ? page._nav_history : [];
 	page._navigate = function() {
@@ -2878,7 +3853,8 @@ Util.Sort = u.s = new function() {
 					if(node != this.list.dragged && node != this.list.tN) {
 						if(this.list.list_type == "vertical") {
 							var o_top = u.absY(node);
-							var o_height = node.offsetHeight;						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
+							var o_height = node.offsetHeight; 
+						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
 								if(o_top < d_center_y && o_top + (o_height/2) > d_center_y) {
 									this.list.insertBefore(this.list.tN, node);
 								}
@@ -2952,7 +3928,9 @@ Util.Sort = u.s = new function() {
 }
 u.sortable = function(node, options) {
 	var callback;
-	var draggables;	var targets;	var sources;
+	var draggables;	
+	var targets;	
+	var sources;
 	if(typeof(options) == "object") {
 		var argument;
 		for(argument in options) {
@@ -2964,7 +3942,7 @@ u.sortable = function(node, options) {
 		}
 	}
 	node._sortablepick = function(event) {
-		u.bug("pick:" + u.nodeId(this) + "; "+ u.nodeId(this.d_node));
+		u.bug("pick:" + u.nodeId(this) + "; "+ u.nodeId(this.d_node) + ";" + u.nodeId(this.d_node.node));
 		if(!this.d_node.node._sorting_disabled) {
 			u.e.kill(event);
 			if(!this.d_node.node._dragged) {
@@ -2985,6 +3963,18 @@ u.sortable = function(node, options) {
 				u.bug("now dragging:" + u.nodeId(d_node));
 				u.as(d_node, "width", u.actualWidth(d_node) + "px");
 				u.as(d_node, "opacity", d_node.start_opacity - 0.3);
+	// 			
+	// 			
+	// 
+	// 
+	// 			
+	// 			
+	// 
+	// 
+	// 			
+	// 			
+	// 
+	// 			
 				if(typeof(d_node.node.picked) == "function") {
 					d_node.node.picked(event);
 				}
@@ -3028,7 +4018,8 @@ u.sortable = function(node, options) {
 					if(node != this.list.dragged && node != this.list.tN) {
 						if(this.list.list_type == "vertical") {
 							var o_top = u.absY(node);
-							var o_height = node.offsetHeight;						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
+							var o_height = node.offsetHeight; 
+						 	if(o_top < d_center_y && (o_top + o_height) > d_center_y) {
 								if(o_top < d_center_y && o_top + (o_height/2) > d_center_y) {
 									this.list.insertBefore(this.list.tN, node);
 								}
@@ -3136,9 +4127,105 @@ u.sortable = function(node, options) {
 }
 
 
+/*beta-u-audio.js*/
+Util.audioPlayer = function(node) {
+	var player;
+	if(node) {
+		player = u.ae(node, "div", {"class":"audioplayer"});
+	}
+	else {
+		player = document.createElement("div");
+		u.ac(player, "audioplayer");
+	}
+	player.audio = u.ae(player, "audio");
+	player.audio.controls = false;
+	if(typeof(player.audio.play) == "function") {
+		player.load = function(src) {
+			if(this.playing) {
+				this.stop();
+			}
+			if(src) {
+				this.audio.src = this.correctSource(src);
+				this.audio.load();
+			}
+		}
+		player.play = function(position) {
+			this.playing = true;
+			position = position ? position : 0;
+			if(this.audio.src) {
+				this.audio.play();
+			}
+		}
+		player.loadAndPlay = function(src, position) {
+			this.load(src);
+			this.play(position);
+		}
+		player.pause = function() {
+			this.playing = false;
+			this.audio.pause();
+		}
+		player.stop = function() {
+			this.pause();
+		}
+		player._loadstart = function(event) {
+			u.removeClass(this.parentNode, "ready")
+			u.addClass(this.parentNode, "loading");
+		}
+		u.e.addEvent(player.audio, "loadstart", player._loadstart);
+		player._canplaythrough = function(event) {
+			u.removeClass(this.parentNode, "loading")
+			u.addClass(this.parentNode, "ready");
+		}
+		u.e.addEvent(player.audio, "canplaythrough", player._canplaythrough);
+		player._loadeddata = function(event) {
+			this.parentNode.videoLoaded = true;
+			if(typeof(this.parentNode.loadeddata) == "function") {
+				this.parentNode.loadeddata(event);
+			}
+		}
+		u.e.addEvent(player.audio, "loadeddata", player._loadeddata);
+		player._ended = function(event) {
+			u.rc(this, "playing|paused");
+			if(typeof(this.parentNode.ended) == "function") {
+				this.parentNode.ended(event);
+			}
+		}
+		u.e.addEvent(player.audio, "ended", player._ended);
+		player._loadedmetadata = function(event) {
+			u.bug("1", "loadedmetadata:duration:" + this.duration);
+			u.bug("1", "loadedmetadata:currentTime:" + this.currentTime);
+		}
+	}
+	else if(typeof(u.audioPlayerFallback) == "function") {
+		player.removeChild(player.video);
+		player = u.audioPlayerFallback(player);
+	}
+	else {
+		player.load = function() {}
+		player.play = function() {}
+		player.loadAndPlay = function() {}
+		player.pause = function() {}
+		player.stop = function() {}
+	}
+	player.correctSource = function(src) {
+		src = src.replace(/.mp3|.ogg|.wav/, "");
+		if(this.audio.canPlayType("audio/mpeg")) {
+			return src+".mp3";
+		}
+		else if(this.audio.canPlayType("audio/ogg")) {
+			return src+".ogg";
+		}
+		else {
+			return src+".wav";
+		}
+	}
+	return player;
+}
+
 /*beta-u-video.js*/
 Util.videoPlayer = function(_options) {
 	var player;
+	// 
 		player = document.createElement("div");
 		u.ac(player, "videoplayer");
 	player.ff_skip = 2;
@@ -3465,6 +4552,24 @@ u.e.addDOMReadyEvent(u.init)
 
 
 /*i-form.js*/
+Util.Objects["addPrices"] = new function() {
+	this.init = function(div) {
+		var form = u.qs("form", div);
+		u.f.init(form);
+		var i, field, actions;
+		form.submitted = function(event) {
+			this.response = function(response) {
+				if(response.cms_status == "success") {
+					location.reload();
+				}
+				else {
+					alert(response.cms_message[0]);
+				}
+			}
+			u.request(this, this.action, {"method":"post", "params":u.f.getParams(this)});
+		}
+	}
+}
 Util.Objects["formAddPrices"] = new function() {
 	this.init = function(form) {
 		u.f.init(form);
@@ -3552,27 +4657,119 @@ Util.Objects["addMedia"] = new function() {
 /*i-defaultlist.js*/
 Util.Objects["defaultList"] = new function() {
 	this.init = function(div) {
-		u.bug("init defaultList")
+		u.bug("init defaultList 22")
 		var i, node;
 		div.list = u.qs("ul.items", div);
+		if(!div.list) {
+			div.list = u.ae(div, "ul", {"class":"items"});
+		}
 		div.nodes = u.qsa("li.item", div);
-		for(i = 0; node = div.nodes[i]; i++) {
+		div.scrolled = function() {
+			var scroll_y = u.scrollY()
+			var browser_h = u.browserH();
+			var i, node, abs_y;
+			for(i = 0; node = this.nodes[i]; i++) {
+				abs_y = u.absY(node);
+				if(!node._ready && abs_y - 200 < scroll_y+browser_h && abs_y + 200 > scroll_y) {
+					this.buildNode(node);
+				}
+			}
+		}
+		div._scrollHandler = function() {
+			var div = u.qs(".scrollingListHandler");
+			u.t.resetTimer(div.t_scroll);
+			div.scrolled();
+		}
+		u.ac(div, "scrollingListHandler");
+		u.e.addEvent(window, "scroll", div._scrollHandler);
+		div.buildNode = function(node) {
+			u.bug("build node")
 			node._item_id = u.cv(node, "item_id");
 			node._variant = u.cv(node, "variant");
+			node._actions = u.qsa(".actions li", node);
+			var i, action, form, bn_detele;
+			for(i = 0; action = node._actions[i]; i++) {
+				if(!action.childNodes.length) {
+					if(u.hc(action, "status")) {
+						form = u.f.addForm(action, {"action":"/admin/cms/disable/"+node._item_id, "class":"disable"});
+						u.f.addAction(form, {"value":"Disable", "class":"button status"});
+						u.f.init(form);
+						form.submitted = function() {
+							this.response = function(response) {
+								page.notify(response.cms_message);
+								if(response.cms_status == "success") {
+									u.ac(this.parentNode, "disabled");
+									u.rc(this.parentNode, "enabled");
+								}
+							}
+							u.request(this, this.action);
+						}
+						form = u.f.addForm(action, {"action":"/admin/cms/enable/"+node._item_id, "class":"enable"});
+						u.f.addAction(form, {"value":"Enable", "class":"button status"});
+						u.f.init(form);
+						form.submitted = function() {
+							this.response = function(response) {
+								page.notify(response.cms_message);
+								if(response.cms_status == "success") {
+									u.rc(this.parentNode, "disabled");
+									u.ac(this.parentNode, "enabled");
+								}
+							}
+							u.request(this, this.action);
+						}
+					}
+					else if(u.hc(action, "delete")) {
+						form = u.f.addForm(action, {"action":"/admin/cms/delete/"+node._item_id, "class":"delete"});
+						form.node = node;
+						bn_delete = u.f.addAction(form, {"value":"Delete", "class":"button delete", "name":"delete"});
+						u.f.init(form);
+						form.restore = function(event) {
+							this.actions["delete"].value = "Delete";
+							u.rc(this.actions["delete"], "confirm");
+						}
+						form.submitted = function() {
+							if(!u.hc(this.actions["delete"], "confirm")) {
+								u.ac(this.actions["delete"], "confirm");
+								this.actions["delete"].value = "Confirm";
+								this.t_confirm = u.t.setTimer(this, this.restore, 3000);
+							}
+							else {
+								u.t.resetTimer(this.t_confirm);
+								this.response = function(response) {
+									page.notify(response.cms_message);
+									if(response.cms_status == "success") {
+										if(response.cms_object && response.cms_object.constraint_error) {
+											this.value = "Delete";
+											u.ac(this, "disabled");
+										}
+										else {
+											this.node.parentNode.removeChild(this.node);
+										}
+									}
+								}
+								u.request(this, this.action);
+							}
+						}
+					}
+				}
+			}
 			node._image = u.cv(node, "image");
 			node._width = u.cv(node, "width");
 			node._height = u.cv(node, "height");
 			if(node._image && node._width && node._height) {
 				u.ac(node, "image");
-				u.as(node, "backgroundImage", "url(/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x"+node._height+"."+node._image+")");
+				node._image_src = "/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x"+node._height+"."+node._image;
 			}
 			else if(node._image && node._width) {
 				u.ac(node, "image");
-				u.as(node, "backgroundImage", "url(/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x."+node._image+")");
+				node._image_src = "/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+node._width+"x."+node._image;
 			}
 			else if(node._image && node._height) {
 				u.ac(node, "image");
-				u.as(node, "backgroundImage", "url(/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+"x"+node._height+"."+node._image+")");
+				node._image_src = "/images/"+node._item_id+"/"+(node._variant ? node._variant+"/" : "")+"x"+node._height+"."+node._image;
+			}
+			if(node._image_src) {
+				u.as(node, "backgroundImage", "url("+node._image_src+")");
 			}
 			node._audio = u.cv(node, "audio");
 			if(node._audio) {
@@ -3601,6 +4798,7 @@ Util.Objects["defaultList"] = new function() {
 			node._video = u.cv(node, "video");
 			if(node._video) {
 			}
+			node._ready = true;
 		}
 		if(u.hc(div, "taggable")) {
 			u.bug("init taggable")
@@ -3726,6 +4924,7 @@ Util.Objects["defaultList"] = new function() {
 			}
 			div._filter._input.onkeyup = function() {
 				this._div.t_filter = u.t.setTimer(this._div, this._div.filter, 500);
+				u.ac(this._div._filter, "filtering");
 			}
 			div.filter = function() {
 				var i, node;
@@ -3740,6 +4939,8 @@ Util.Objects["defaultList"] = new function() {
 						}
 					}
 				}
+				u.rc(this._filter, "filtering");
+				this.scrolled();
 			}
 		}
 		if(u.hc(div, "sortable")) {
@@ -3757,6 +4958,7 @@ Util.Objects["defaultList"] = new function() {
 				u.request(this, url);
 			}
 		}
+		div.scrolled();
 	}
 }
 
@@ -3764,6 +4966,7 @@ Util.Objects["defaultList"] = new function() {
 /*i-defaultedit.js*/
 Util.Objects["defaultEdit"] = new function() {
 	this.init = function(div) {
+		div._item_id = u.cv(div, "item_id");
 		var form = u.qs("form", div);
 		u.f.init(form);
 		form.actions["cancel"].clicked = function(event) {
@@ -3771,14 +4974,45 @@ Util.Objects["defaultEdit"] = new function() {
 		}
 		form.submitted = function(iN) {
 			this.response = function(response) {
-				if(response.cms_status == "success") {
-					location.href = this.actions["cancel"].url;
-				}
-				else {
-					alert(response.cms_message[0]);
-				}
+				page.notify(response.cms_message);
 			}
 			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
+		}
+	}
+}
+
+/*i-defaulteditstatus.js*/
+Util.Objects["defaultEditStatus"] = new function() {
+	this.init = function(div) {
+		div._item_id = u.cv(div, "item_id");
+		var li_status = u.qs("li.status");
+		if(li_status) {
+			form = u.f.addForm(li_status, {"action":"/admin/cms/disable/"+div._item_id, "class":"disable"});
+			u.f.addAction(form, {"value":"Disable", "class":"button status"});
+			u.f.init(form);
+			form.submitted = function() {
+				this.response = function(response) {
+					page.notify(response.cms_message);
+					if(response.cms_status == "success") {
+						u.ac(this.parentNode, "disabled");
+						u.rc(this.parentNode, "enabled");
+					}
+				}
+				u.request(this, this.action);
+			}
+			form = u.f.addForm(li_status, {"action":"/admin/cms/enable/"+div._item_id, "class":"enable"});
+			u.f.addAction(form, {"value":"Enable", "class":"button status"});
+			u.f.init(form);
+			form.submitted = function() {
+				this.response = function(response) {
+					page.notify(response.cms_message);
+					if(response.cms_status == "success") {
+						u.rc(this.parentNode, "disabled");
+						u.ac(this.parentNode, "enabled");
+					}
+				}
+				u.request(this, this.action);
+			}
 		}
 	}
 }
@@ -3872,6 +5106,7 @@ Util.Objects["defaultTags"] = new function() {
 					context = this._tags._alltags[tag].context;
 					value = this._tags._alltags[tag].value.replace(/ & /, " &amp; ");
 					if(usedtags && usedtags[context] && usedtags[context][value]) {
+	// 					
 						tag_node = usedtags[context][value];
 					}
 					else {
@@ -3926,12 +5161,7 @@ Util.Objects["formDefaultNew"] = new function() {
 					location.href = this.actions["cancel"].url.replace("\/list", "/edit/"+response.cms_object.item_id);
 				}
 				else if(response.cms_message) {
-					if(typeof(page.notify) == "function") {
-						page.notify(response.cms_message);
-					}
-					else {
-						alert(response.cms_message[0]);
-					}
+					page.notify(response.cms_message);
 				}
 			}
 			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
@@ -3988,15 +5218,68 @@ Util.Objects["formDefaultDelete"] = new function() {
 					u.t.resetTimer(this.t_confirm);
 					this.response = function(response) {
 						if(response.cms_status == "success") {
-							location.reload();
+							if(response.cms_object && response.cms_object.constraint_error) {
+								page.notify(response.cms_message);
+								this.value = "Delete";
+								u.ac(this, "disabled");
+							}
+							else {
+								location.reload();
+							}
 						}
 						else {
-							alert(response.cms_message[0]);
+							page.notify(response.cms_message);
 						}
 					}
 					u.request(this, this.form.action, {"method":"post", "params" : u.f.getParams(this.form)});
 				}
 			}
+		}
+	}
+}
+
+/*i-users.js*/
+Util.Objects["usernames"] = new function() {
+	this.init = function(div) {
+		u.bug("div usernames")
+		var form = u.qs("form", div);
+		u.f.init(form);
+		form.submitted = function(iN) {
+			this.response = function(response) {
+				page.notify(response.cms_message);
+			}
+			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
+		}
+	}
+}
+Util.Objects["password"] = new function() {
+	this.init = function(div) {
+		var form = u.qs("form", div);
+		u.f.init(form);
+		form.submitted = function(iN) {
+			this.response = function(response) {
+				page.notify(response.cms_message);
+			}
+			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
+		}
+	}
+}
+Util.Objects["formAddressNew"] = new function() {
+	this.init = function(form) {
+		u.f.init(form);
+		form.actions["cancel"].clicked = function(event) {
+			location.href = this.url;
+		}
+		form.submitted = function(iN) {
+			this.response = function(response) {
+				if(response.cms_status == "success" && response.cms_object) {
+					location.href = this.actions["cancel"].url.replace("\/list", "/edit/"+response.cms_object.item_id);
+				}
+				else if(response.cms_message) {
+					page.notify(response.cms_message);
+				}
+			}
+			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
 		}
 	}
 }
@@ -4043,186 +5326,9 @@ u.notifier = function(node) {
 		else if(typeof(message) == "string") {
 			output = u.ae(this.notifications, "div", {"class":class_name, "html":message});
 		}
-		u.t.setTimer(this.notifications, this.notifications.hide, 2000);
+		u.t.setTimer(this.notifications, this.notifications.hide, 3500);
 	}
 }
 
 
-
-/*i-form.js*/
-Util.Objects["video"] = new function() {
-	this.init = function(li) {
-		u.ce(li);
-		li.clicked = function() {
-			if(!this.videoplayer) {
-				this.videoplayer = u.videoPlayer();
-				u.ae(this, this.videoplayer);
-			}
-			if(!u.hc(this, "playing")) {
-				this.videoplayer.loadAndPlay(this.url);
-				u.ac(this, "playing");
-			}
-			else {
-				this.videoplayer.stop();
-				u.rc(this, "playing");
-			}
-		}
-	}
-}
-Util.Objects["curatedList"] = new function() {
-	this.init = function(scene) {
-		scene.nodes = u.qsa("li.page", scene);
-		var i, node;
-		for(i = 0; node = scene.nodes[i]; i++) {
-			node.bn_enable = u.qs(".status", node);
-			if(node.bn_enable) {
-				u.ce(node.bn_enable);
-				node.bn_enable.clicked = function() {
-					this.response = function(response) {
-						if(response.cms_status == "success") {
-							location.reload();
-						}
-						else {
-							alert(response.message);
-						}
-					}
-					u.request(this, this.url);
-				}
-			}
-			node.bn_delete = u.qs(".delete", node);
-			if(node.bn_delete) {
-				node.bn_delete.a = u.qs("a", node.bn_delete);
-				u.ce(node.bn_delete);
-				node.bn_delete.restore = function(event) {
-					this.a.innerHTML = "Delete";
-					u.rc(this.a, "confirm");
-				}
-				node.bn_delete.clicked = function(event) {
-					u.e.kill(event);
-					if(!u.hc(this.a, "confirm")) {
-						u.ac(this.a, "confirm");
-						this.a.innerHTML = "Confirm";
-						this.t_confirm = u.t.setTimer(this, this.restore, 3000);
-					}
-					else {
-						u.t.resetTimer(this.t_confirm);
-						this.response = function(response) {
-							if(response.cms_status == "success") {
-								location.reload();
-							}
-							else {
-								alert(response.message);
-							}
-						}
-						u.request(this, this.url);
-					}
-				}
-			}
-		}
-		scene.curated_lists = u.qsa(".pages ul.news", scene);
-		var list, j;
-		for(i = 0; list = scene.curated_lists[i]; i++) {
-			u.s.sortable(list);
-			list.picked = function(event) {
-				u.bug(u.nodeId(event.target.node))
-			}
-			list.dropped = function(event) {
-				this.response = function(response) {
-					if(response.cms_status == "success") {
-					}
-					else {
-						alert(response.message);
-					}
-				}
-				var new_order = "";
-				this.nodes = u.qsa("li.draggable", this);
-				for(i = 0; node = this.nodes[i]; i++) {
-					if(u.cv(node, "item_id")) {
-						new_order += "/"+u.cv(node, "item_id");
-					}
-				}
-				u.request(this, "/admin/cms/curatedpage/"+u.cv(this, "item_id")+"/updateCuration"+new_order)
-			}
-			list.nodes = u.qsa("li.draggable", list);
-			for(j = 0; node = list.nodes[j]; j++) {
-				u.as(node, "backgroundImage", "url(/images/"+u.cv(node, "item_id")+"/landscape/x50."+u.cv(node, "format")+")");
-			}
-		}
-		var news_items = u.qsa(".all_items .items li.item", scene);
-		for(i = 0; node = news_items[i]; i++) {
-			node.scene = scene;
-			u.as(node, "backgroundImage", "url(/images/"+u.cv(node, "item_id")+"/landscape/x50."+u.cv(node, "format")+")");
-			u.e.click(node);
-			node.moved = function(event) {
-				u.e.kill(event);
-				this.scene._news_clone = u.ae(document.body, "div", {"class":"news_clone", "html":this.innerHTML});
-				u.as(this.scene._news_clone, "height", u.gcs(this, "height"));
-				u.as(this.scene._news_clone, "width", u.gcs(this, "width"));
-				u.as(this.scene._news_clone, "padding", u.gcs(this, "padding"));
-				u.as(this.scene._news_clone, "margin", u.gcs(this, "margin"));
-				u.as(this.scene._news_clone, "backgroundImage", u.gcs(this, "background-image"));
-				u.as(this.scene._news_clone, "position", "absolute");
-				u.as(this.scene._news_clone, "left", u.absX(this)+"px");
-				u.as(this.scene._news_clone, "top", u.absY(this)+"px");
-				this.scene._news_clone.offset_x = u.absX(this) - u.eventX(event);
-				this.scene._news_clone.offset_y = u.absY(this) - u.eventY(event);
-				this.scene._dragged_news = this;
-				document.body.scene = this.scene;
-				u.e.addMoveEvent(document.body, this.scene._news_drag);
-				u.e.addEndEvent(document.body, this.scene._news_drop);
-			}
-		}
-		scene._news_drag = function(event) {
-			var left = (u.eventX(event) + this.scene._news_clone.offset_x);
-			var top = (u.eventY(event) + this.scene._news_clone.offset_y);
-			u.as(this.scene._news_clone, "left", left+"px");
-			u.as(this.scene._news_clone, "top", top+"px");
-			var i, list;
-			for(i = 0; list = this.scene.curated_lists[i]; i++) {
-				if(
-					u.eventX(event) > u.absX(list) && 
-					u.eventX(event) < u.absX(list)+list.offsetWidth && 
-					u.eventY(event) > u.absY(list) && 
-					u.eventY(event) < u.absY(list)+list.offsetHeight
-				) {
-					u.ac(list, "activetarget");
-				}
-				else {
-					u.rc(list, "activetarget");
-				}
-			}
-		}
-		scene._news_drop = function(event) {
-			u.e.removeMoveEvent(document.body, this.scene._news_drag);
-			u.e.removeEndEvent(document.body, this.scene._news_drop);
-			var i, list;
-			for(i = 0; list = this.scene.curated_lists[i]; i++) {
-				if(
-					u.eventX(event) > u.absX(list) && 
-					u.eventX(event) < u.absX(list)+list.offsetWidth && 
-					u.eventY(event) > u.absY(list) && 
-					u.eventY(event) < u.absY(list)+list.offsetHeight
-				) {
-					this.scene.response = function(response) {
-						if(response.cms_status == "success") {
-							location.reload();
-						}
-						else {
-							page.notify(response.cms_message, {"class":"error"});
-						}
-					}
-					u.request(this.scene, "/admin/cms/curatedpage/"+u.cv(list, "item_id")+"/addToCuration/"+u.cv(this.scene._dragged_news, "item_id"))
-					u.rc(list, "activetarget");
-				}
-				else {
-					u.rc(list, "activetarget");
-				}
-			}
-			this.scene._news_clone.parentNode.removeChild(this.scene._news_clone);
-			this.scene._news_clone = false;
-			this.scene._dragged_news = false;
-			this.scene = false;
-		}
-	}
-}
 
