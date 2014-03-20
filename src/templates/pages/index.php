@@ -16,10 +16,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 		<li class="item item_id:<?= $item["item_id"] ?>"><?= $item["name"] ?></li>
 <?		endforeach; ?>
 	</ul>
-	<ul class="actions">
-		<li class="next">Næste</li>
-		<li class="previous">Forrige</li>
-	</ul>
+	
 <?	endif; ?>
 
 	<!--ul class="actions">

@@ -25,6 +25,8 @@ $item_id = $item["id"];
 
 			<fieldset>
 				<?= $model->input("name", array("value" => $item["name"])) ?>
+				<?= $model->input("link", array("value" => $item["link"])) ?>
+				<?= $model->input("description", array("class" => "autoexpand", "value" => $item["description"])) ?>
 			</fieldset>
 
 			<ul class="actions">
@@ -33,6 +35,34 @@ $item_id = $item["id"];
 			</ul>
 
 		</form>
+	</div>
+
+	<h2>Media</h2>
+	<div class="media i:addMedia">
+		<p>Image must be jpg or png.</p>
+
+		<form action="/admin/cms/update/<?= $item_id ?>" class="i:formAddMedia labelstyle:inject" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<?= $model->input("files") ?>
+			</fieldset>
+
+			<ul class="actions">
+				<li class="save"><input type="submit" value="Add image" class="button primary" /></li>
+			</ul>
+
+		</form>
+
+		<ul class="media">
+			<li class="image">
+				<h4>Image</h4>
+<?		if($item["files"]): ?>
+				<img src="/images/<?= $item["id"] ?>/160x.<?= $item["files"] ?>">
+<?		else: ?>
+				<img src="/images/0/missing/160x.png">
+<?		endif; ?>
+			</li>
+		</ul>
+
 	</div>
 
 </div>

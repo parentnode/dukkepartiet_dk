@@ -48,7 +48,7 @@ Util.Objects["front"] = new function() {
 				u.init(this);
 			}
 
-			var sections = ["/doktriner"];
+			var sections = ["/aktioner", "/doktriner", ];
 			//var sections = ["/aktioner", "/events", "/doktriner", "/tweets", "/about"];
 			
 			// request new content

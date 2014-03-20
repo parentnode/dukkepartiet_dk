@@ -15,6 +15,8 @@ global $model;
 
 		<fieldset>
 			<?= $model->input("name") ?>
+			<?= $model->input("link") ?>
+			<?= $model->input("description", array("class" => "autoexpand")) ?>
 		</fieldset>
 
 		<ul class="actions">

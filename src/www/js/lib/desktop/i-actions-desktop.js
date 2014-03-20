@@ -1,4 +1,4 @@
-Util.Objects["video"] = new function() {
+Util.Objects["actions"] = new function() {
 	this.init = function(scene) {
 
 		// resize scene
@@ -243,7 +243,7 @@ Util.Objects["video"] = new function() {
 
     	
 		// callback to scene ready
-		scene.ready();
+		//scene.ready();
 
 	}
 }

@@ -7,23 +7,26 @@ $itemtype = "action";
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "position ASC"));
 ?>
 <div class="scene i:action action">
-
-	<div class="action">
+	<h2>Aktioner</h2>
 
 <?		if($items): ?>
 		<ul class="items">
 <?			foreach($items as $item): 
 				$item = $IC->extendItem($item); ?>
-			<li class="item">
-				<a href="<?= $item["name"] ?>"><?= $item["name"] ?></a>
+			<li class="item item_id:<?= $item["item_id"] ?>">
+				<h3><?= $item["name"] ?></h3>
+				<!--p><?= $item["paragraph"] ?></p-->
+				<a href="<?= $item["link"] ?>"><?= $item["video_link"] ?></a>
 			</li>
 <?			endforeach; ?>
+			<li class="more"><a href="http://youtube.com">flere film her</a></li>
 		</ul>
 <?		endif; ?>
 	</div>
 
 
-	<!-- Video -->
+
+	<!-- Video
 	<div class="video">
 		<h2>Video</h2>
 		<ul class="slides">
@@ -47,5 +50,6 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 		</ul>
 
 	</div>
+	 -->
 
 </div>

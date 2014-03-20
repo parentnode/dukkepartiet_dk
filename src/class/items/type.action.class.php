@@ -15,11 +15,29 @@ class TypeAction extends Model {
 	*/
 	function __construct() {
 
-		$this->db = SITE_DB.".item_doctrine";
-
+		$this->db = SITE_DB.".item_action";
 
 		// Name
 		$this->addToModel("name", array(
+			"type" => "string",
+			"label" => "Name",
+			"required" => true,
+			"unique" => $this->db,
+			"hint_message" => "Every slogan deserves a name - just write a few words, which uniquely identifies the slogan", 
+			"error_message" => "Name must be filled out"
+		));
+
+		// Description
+		$this->addToModel("description", array(
+			"type" => "text",
+			"label" => "Description",
+			"required" => true,
+			"hint_message" => "Describe the event",
+			"error_message" => "Description must be filled out"
+		));
+
+		// Link  - youtube
+		$this->addToModel("link", array(
 			"type" => "string",
 			"label" => "Youtube url",
 			"pattern" => "http\:\/\/www.youtube.com\/watch\?v\=[a-zA-Z0-9_-]+",
@@ -27,6 +45,16 @@ class TypeAction extends Model {
 			"unique" => $this->db,
 			"hint_message" => "Write a valid Youtube url - Should look like this: http://www.youtube.com/watch?v=[VIDEO_ID]", 
 			"error_message" => "Name must be correct Youtube url like: http://www.youtube.com/watch?v=[VIDEO_ID]"
+		));
+
+		// Files
+		$this->addToModel("files", array(
+			"type" => "files",
+			"label" => "Add media here",
+			"max" => 1,
+			"allowed_formats" => "png,jpg",
+			"hint_message" => "Add slogan images here. Use png or jpg.",
+			"error_message" => "Image does not fit requirements."
 		));
 
 		// Tags
