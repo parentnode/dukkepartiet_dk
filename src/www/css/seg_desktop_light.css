@@ -22,6 +22,7 @@ fieldset {border: none;}
 input, select, textarea {font-size: 14px;}
 input, textarea {outline: none;}
 #page {position: relative;}
+#mti_wfs_colophon {display: none!important;}
 a, span {font-size: inherit; font-family: inherit; color: inherit; text-transform: inherit;}
 h1 {
 	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;

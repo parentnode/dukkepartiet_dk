@@ -2779,8 +2779,22 @@ Util.Objects["front"] = new function() {
 			u.ie(this, "div", {"class": "logo"});
 			this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
 			u.ae(this, this.servicenavigation)
+			this.loadSloganImages();
 			this.loadPages();
 			page.cN.ready();
+		}
+		scene.loadSloganImages = function() {
+			this.nodes = u.qsa("ul.items li.item", this);
+			var i, node;
+			for (i = 0; node = this.nodes[i]; i++) {
+				node._image_available = u.cv(node, "image_id");
+				u.bug("_image_available:  " + node._image_available);
+				if(node._image_available) {
+					node._image_src = "/images/" + node._image_available + "/960x.png";
+					node._image_mask = u.ie(node, "div", {"class":"image"});
+					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
+				}
+			}
 		}
 		scene.loadPages = function() {
 			this.response = function(response) {
@@ -2816,7 +2830,6 @@ Util.Objects["carousel"] = new function() {
 			this._next = u.ae(this.container, "div", {"class": "previous", "html": "Forrige"});
 			var i, node;
 			for(i = 0; node = this.slides[i]; i++) {
-				u.bug("node: " + node.innerHTML)
 				// 
 				u.e.click(this._next);
 				u.e.click(this._previous);
@@ -3029,4 +3042,28 @@ Util.Objects["about"] = new function() {
 }
 
 /*i-action-desktop.js*/
-
+Util.Objects["action"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("action");
+			page.cN.ready();
+			this.nodes = u.qsa("ul.items li.item", this);
+			var i, node;
+			for (i = 0; node = this.nodes[i]; i++) {
+				u.bug("node" + node);
+				node._image_available = u.cv(node, "image_id");
+				if(node._image_available) {
+					node._image_src = "/images/" + node._image_available + "/300x.jpg";
+					node._image_mask = u.ie(node, "div", {"class":"image"});
+					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
+					node._play_bn = u.ae(node._image_mask, "div", {"class":"play_bn", "html": "<p>Play</p>"});
+				}
+			}
+		}
+		scene.ready();
+	}
+}
