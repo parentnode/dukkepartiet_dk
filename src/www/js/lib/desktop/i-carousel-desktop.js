@@ -19,13 +19,16 @@ Util.Objects["carousel"] = new function() {
 //			u.bug("list.ready:" + u.nodeId(this));
 			
 			//u.bug("doctrines");
+			this.container = u.we(this, "div", {"class": "container"})
 			this.slides = u.qsa('li.item', this);
 			this.current_slide_num = 0;
 			this.current_node = this.slides[0];
 			this.next_node;
 			
-			this._previous = u.qs('ul.actions li.next', this);
-			this._next = u.qs('ul.actions li.previous', this);
+			this._previous = u.ae(this.container, "div", {"class": "next", "html": "Næste"});
+			this._next = u.ae(this.container, "div", {"class": "previous", "html": "Forrige"});
+			// u.qs('ul.actions li.previous', this);
+			// this._next = u.qs('ul.actions li.next', this);
 			//list._indexes = u.ae(list.container, "ul", {"class": "indexes"});
 
 			var i, node;

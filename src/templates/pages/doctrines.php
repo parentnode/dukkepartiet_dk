@@ -22,8 +22,8 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 	</ul>
 <?	endif; ?>
 
-	<ul class="actions">
+	<!--ul class="actions">
 		<li class="next">Næste</li>
 		<li class="previous">Forrige</li>
-	</ul>	
+	</ul-->	
 </div>
