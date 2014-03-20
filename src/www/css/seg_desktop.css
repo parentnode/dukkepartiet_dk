@@ -2,22 +2,6 @@
 /*seg_desktop_include.css*/
 
 /*s-fonts.css*/
-@font-face {
-	font-family: 'Nationale DemiBold';
-	src: url('/css/fonts/Nationale-DemiBold.woff') format('woff'),
-		 url('/css/fonts/Nationale-DemiBold.ttf') format('truetype'),
-		 url('/css/fonts/Nationale-DemiBold.svg#f474d1189e72373340fe5bad92cb7394') format('svg');
-	font-weight: normal;
-	font-style: 400;
-}
-@font-face {
-	font-family: 'Nationale Regular';
-	src: url('/css/fonts/Nationale-Regular.woff') format('woff'),
-		 url('/css/fonts/Nationale-Regular.ttf') format('truetype'),
-		 url('/css/fonts/Nationale-Regular.svg#2322dcd60970b145ddd0fffb7e508234') format('svg');
-	font-weight: normal;
-	font-style: 400;
-}
 
 
 /*s-page-desktop.css*/
@@ -67,10 +51,155 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 
 /*s-content-desktop.css*/
 #content {position: relative;}
-#content .scene {position: relative;}
-#content .scene .link {cursor: pointer;}
+#content .scene {position: relative; width:100%; border-bottom:1px solid #000;}
+#content .scene h2 {
+	text-align: center;
+	padding: 100px 0 60px 0;
+	font-family:'HelveticaNeueW01-85Heav';
+	text-transform: uppercase;
+	font-size:55px;
+	color: #00027a;
+}
+#content .scene.red,
+#content .scene.doctrines {
+	background-color: #ee191b;
+}
+#content .scene.blue,
+#content .scene.actions {
+	background-color: #00027a;
+}
 #footer {position: relative;}
 .error #content .scene {}
 .error #content .scene > h1 {font-size: 7rem; padding: 70px 80px 10px 83px;}
 .error #content .scene > h2 {font-size: 1.5rem; padding: 20px 80px 10px 83px;}
 .error #content .scene > p {padding: 20px 20px 10px 83px; max-width: 480px;}
+
+/*s-front-desktop.css*/
+#content .scene.front {}
+#content .scene.front h2 {text-align: center; margin:60px auto 60px; font-size: 55px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.front ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
+#content .scene.front ul.items li.item {text-align:center; padding:20px;}
+#content .scene.front ul.items li.item img {display: none;}
+#content .scene.front ul.actions {font-size: 1rem;}
+#content .scene.front ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
+#content .scene.front ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+#content .scene.front ul.indexes {font-size: 1rem; margin:0 auto;}
+#content .scene.front ul.indexes li.index {margin:10px; padding:10px; background: green; cursor: pointer;}
+
+
+/*s-intro-desktop.css*/
+#content .scene#intro {}
+#content .scene#intro h2 {text-align: center; margin:100px 0 200px 0; font-size: 76px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#intro .logo {background: url('/img/gx_logo_large.png') no-repeat top left; margin:40px auto; width:368px; height:174px;}
+#content .scene#intro ul {margin:40px auto; text-align: center;}
+#content .scene#intro ul li {font-size: 1rem;}
+#content .scene#intro ul li a {padding:18px 28px; border:2px solid #00027a; margin:0 10px; color:#00027a; font-family:'HelveticaNeueW01-76Bold'; font-size: 16px;}
+#content .scene#intro ul li a:hover {background-color: #00027a; color:#ee191b; border-color:#ee191b;}
+
+
+/*s-kandidaterne-desktop.css*/
+#content .scene#kandidaterne {}
+#content .scene#kandidaterne h2 {text-align: center; margin:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#kandidaterne ul.people {margin:60px 0; }
+#content .scene#kandidaterne ul.people li.person {width:50%; overflow: hidden; vertical-align: top;}
+#content .scene#kandidaterne ul.people li.person .wrapper {position: relative; width:240px; height:340px;}
+#content .scene#kandidaterne ul.people li.one {height:520px; }
+#content .scene#kandidaterne ul.people li.one .wrapper {}
+#content .scene#kandidaterne ul.people li.one .wrapper .actions {position:relative; top:-90px; left:130px;}
+#content .scene#kandidaterne ul.people li.two {height:780px;}
+#content .scene#kandidaterne ul.people li.two .wrapper {top:260px; left:160px;}
+#content .scene#kandidaterne ul.people li.two .wrapper .actions {position:relative; top:-90px; left:130px;}
+#content .scene#kandidaterne ul.people li.three {height:340px; margin-top: -280px;}
+#content .scene#kandidaterne ul.people li.three .wrapper {left:140px;}
+#content .scene#kandidaterne ul.people li.three .wrapper .actions {position:relative; top:-90px; left:130px;}
+#content .scene#kandidaterne ul.people li.four {height:380px;}
+#content .scene#kandidaterne ul.people li.four .wrapper {}
+#content .scene#kandidaterne ul.people li.four .wrapper .actions {position:relative; top:-90px; left:130px;}
+#content .scene#kandidaterne ul.people li.person .details {position: fixed; left:50%; width: 50%; height: 100%; top:56px; background-color: #ee191b; z-index: 99;}
+#content .scene#kandidaterne ul.people li.person .details img {margin: 40px auto;}
+#content .scene#kandidaterne ul.people li.person .details h3 {font-size: 44px;}
+#content .scene#kandidaterne ul.people li.person .details h4 {font-size: 24px;}
+#content .scene#kandidaterne ul.people li.person .details p {font-size: 16px;}
+#content .scene#kandidaterne ul.people li.person .details ul.facts {}
+#content .scene#kandidaterne ul.people li.person .details ul.facts li {font-size: 14px;}
+#content .scene#kandidaterne ul.people li.person .details h3,
+#content .scene#kandidaterne ul.people li.person .details h4,
+#content .scene#kandidaterne ul.people li.person .details p,
+#content .scene#kandidaterne ul.people li.person .details ul.facts,
+#content .scene#kandidaterne ul.people li.person .details ul.facts li {color:#00027a; width:440px; margin: 0 auto;}
+#content .scene#kandidaterne ul.people li.person .details {display: none;}
+#content .scene#kandidaterne ul ul.actions {font-size: 1rem; }
+#content .scene#kandidaterne ul ul.actions li a {display:block;  padding:12px 28px; border:2px solid #ee191b; margin:0 10px; color:#ee191b; font-family:'HelveticaNeueW01-76Bold'; font-size: 16px;}
+#content .scene#kandidaterne ul ul.actions li a:hover {background-color: #ee191b; color:#00027a;}
+
+
+/*s-video-desktop.css*/
+#content .scene#video {}
+#content .scene#video h2 {display: none;}
+#content .scene#video ul.slides {display:block; width:100%;}
+#content .scene#video ul.slides li.slide {width:100%; background: #00027a url('/img/video.jpg') no-repeat top left; background-size: 100% 100%}
+#content .scene#video ul.slides li.slide .youtube {width:100%; height:100%;}
+#content .scene#video ul.actions {font-size: 1rem;}
+#content .scene#video ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
+#content .scene#video ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+
+/*s-doctrines-desktop.css*/
+#content .scene.doctrines {}
+#content .scene.doctrines ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
+#content .scene.doctrines ul.items li.item {text-align:center; padding:20px; margin:0 auto; width:720px; height: 300px; background-color: #ee191b; }
+#content .scene.doctrines ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
+	font-size: 30px;color: #ee191b; font-family:'HelveticaNeueW01-86Heav'; line-height: 50px;
+	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
+}
+#content .scene.doctrines .next,
+#content .scene.doctrines .previous {position:absolute; width:100px; height:20px; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;}
+#content .scene.doctrines .next {right: 0;
+	-webkit-transform:rotate(90deg);
+  	   -moz-transform:rotate(90deg);
+  	    -ms-transform:rotate(90deg);
+}
+#content .scene.doctrines .previous {left: 0; 
+	-webkit-transform:rotate(-90deg);
+  	   -moz-transform:rotate(-90deg);
+  	    -ms-transform:rotate(-90deg);
+}
+
+
+/*s-events-desktop.css*/
+#content .scene.events h2 {text-align: center; margin:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.events ul.slides {display:block; width:100%; font-size: 1rem; height:600px;}
+#content .scene.events ul.slides li.slide {position: absolute; padding:0;}
+#content .scene.events ul li ul.events {font-size:1rem; }
+#content .scene.events ul li ul.events li.event {width: 230px; margin: 10px; padding:18px 28px; border: 2px solid #00027a;}
+#content .scene.events ul li ul.events li.event h3 {margin-bottom:10px; color: #00027a;}
+#content .scene.events ul li ul.events li.event p {font-size:0.9rem; color: #00027a;}
+#content .scene.events ul.actions {font-size: 1rem;}
+#content .scene.events ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
+#content .scene.events ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+
+/*s-tweets-desktop.css*/
+#content .scene#tweets {font-size: 0; padding-bottom:40px;}
+#content .scene#tweets h2 {text-align: center; margin-top:60px; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#tweets h3 {text-align: center; margin:10px 0; color: #00027a; font-size:20px; text-transform: uppercase;}
+#content .scene#tweets h3 strong {color: #00027a; font-family:'HelveticaNeueW01-95Blac'; font-weight: normal;}
+#content .scene#tweets ul.tweets {font-size:1rem; width: 286px; display: inline-block; vertical-align: top; margin-top:40px;}
+#content .scene#tweets ul.tweets.first {margin-right:40px;}
+#content .scene#tweets ul.tweets.last {margin-left:40px;}
+#content .scene#tweets ul.tweets li.tweet {}
+#content .scene#tweets ul.tweets li.tweet h4 {margin-bottom:10px; color: #00027a; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#tweets ul.tweets li.tweet p {font-size:0.9rem; color: #00027a;}
+
+
+/*s-about-desktop.css*/
+#content .scene#about {padding-bottom:40px; background-color: #00027a;}
+#content .scene#about .about {position:relative; z-index:10;}
+#content .scene#about .about h2 {text-align: center; margin:60px 0 40px; color:#ee191b; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene#about .about p {margin:0 auto; text-align: center; width:640px;
+	font-size:18px; color: #ee191b; font-family:'HelveticaNeueW01-86Heav'; text-transform: uppercase; 
+}
+#content .scene#about .about p.adress {font-size:14px; text-transform: none; }
+#content .scene#about .about p a {padding:4px; color: #ee191b;}
+#content .scene#about .about p a:hover {color: #00027a; background-color: #ee191b;}
+#content .scene#about .overlay,
+#content .scene#about .gmap {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+#content .scene#about .overlay {background-color: rgba(0, 0, 122, 0.8);}

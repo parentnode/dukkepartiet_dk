@@ -136,11 +136,11 @@ input, select, textarea {font-size: 14px;}
 #content .field textarea {width: 372px; height: 200px; overflow: auto; padding: 6px 0 2px 6px; }
 #content .field textarea.autoexpand {width: 366px; padding: 6px 6px 2px; overflow: hidden;}
 #content .field.checkbox,
-#content .field.boolean {padding-left: 238px}
+#content .field.boolean {}
 #content .field.checkbox input,
-#content .field.boolean input {display: inline-block; vertical-align: top; width: auto; height: auto; padding: 0; margin: 9px 10px 0 0; border: 0;}
+#content .field.boolean input {display: inline-block; vertical-align: top; width: auto; height: auto; padding: 0; margin: 0 10px 0 3px; border: 0;}
 #content .field.checkbox label,
-#content .field.boolean label {text-align: left; width: auto; padding-right: 20px; padding-left: 0;}
+#content .field.boolean label {width: auto; display: inline-block; vertical-align: top;}
 #content .field.radio_buttons {}
 #content .field.radio_buttons div.item {display: inline-block; vertical-align: top;}
 #content .field.radio_buttons div.item input {width: auto; height: auto; padding: 0; margin: 9px 10px 0 0; border: 0;}
@@ -160,7 +160,7 @@ input, select, textarea {font-size: 14px;}
 #content .field.focus textarea {border: 3px solid #5c5c5c;}
 #content .field.radio_buttons.focus input,
 #content .field.checkbox.focus input,
-#content .field.boolean.focus input {margin: 9px 10px 0 0; border: none;}
+#content .field.boolean.focus input {margin: 0px 10px 0 3px; border: none;}
 #content .field input.default,
 #content .field select.default,
 #content .field textarea.default {color: #aaaaaa;}
@@ -182,9 +182,9 @@ input, select, textarea {font-size: 14px;}
 #content .field.error textarea {border: 3px solid #f8c9bb;}
 #content .field.radio_buttons.error input,
 #content .field.checkbox.error input,
-#content .field.boolean.error input {margin: 9px 10px 0 0; border: none;}
-#content ul.actions {padding: 0 25px; text-align: right;}
-#content ul.actions li {width: auto; height: auto; display: inline-block; padding: 0 0 10px 10px ; vertical-align: top;}
+#content .field.boolean.error input {margin: 0px 10px 0 3px; border: none;}
+#content ul.actions {padding: 0 25px;}
+#content ul.actions li {width: auto; height: auto; display: inline-block; padding: 0 5px 10px; vertical-align: top;}
 #content ul.actions input.button {width: auto; height: 26px; padding: 3px 12px;}
 @media all and (-webkit-min-device-pixel-ratio:0) {#content ul.actions input.button {padding-bottom: 5px;}}
 #content ul.actions a.button {display: block; text-decoration: none; height: 14px; padding: 5px 12px 7px;}
@@ -201,8 +201,10 @@ input, select, textarea {font-size: 14px;}
 #content ul.actions input.button.secondary:hover,
 #content ul.actions a.button.secondary:hover {background-color: #fed76e;}
 #content ul.actions li.status input.button {font-size: 0; height: 26px; width: 26px;}
-#content ul.actions li.status input.button[value=Disable] {background-color: #f4f5f5; border-left: 3px solid #64ad8e; border-top: 3px solid #64ad8e; border-right: 30px solid #64ad8e; border-bottom: 3px solid #64ad8e;}
-#content ul.actions li.status input.button[value=Enable] {background-color: #f4f5f5; border-right: 3px solid #8c9399; border-top: 3px solid #8c9399; border-left: 30px solid #8c9399; border-bottom: 3px solid #8c9399;}
+#content ul.actions li.status form.disable input.button {background-color: #f4f5f5; border-left: 3px solid #64ad8e; border-top: 3px solid #64ad8e; border-right: 30px solid #64ad8e; border-bottom: 3px solid #64ad8e;}
+#content ul.actions li.status form.enable input.button {background-color: #f4f5f5; border-right: 3px solid #8c9399; border-top: 3px solid #8c9399; border-left: 30px solid #8c9399; border-bottom: 3px solid #8c9399;}
+#content ul.actions li.status.enabled form.enable {display: none;}
+#content ul.actions li.status.disabled form.disable {display: none;}
 #content form input.button.delete.confirm {color: #ffffff; background-color: #df0000;}
 #content form input.button.delete.confirm:hover {}
 #content form input.button.disabled,
@@ -217,7 +219,7 @@ input, select, textarea {font-size: 14px;}
 
 
 /*s-notifications.css*/
-#notifications {z-index: 1001; position: fixed; right: 0; top: 0; border-left: 1px solid #888888; border-bottom: 1px solid #888888; background-color: #b0b0b0;}
+#notifications {z-index: 1001; position: fixed; right: 0; top: 0; border-left: 1px solid #888888; border-bottom: 1px solid #888888; background-color: #b0b0b0; max-width: 300px;}
 #notifications div {padding: 10px 65px 10px 15px;}
 #notifications .notice {color: #333333;}
 #notifications .error {color: #df0000;}
@@ -234,10 +236,9 @@ input, select, textarea {font-size: 14px;}
 #content div.tags fieldset {display: inline-block; vertical-align: top;}
 #content div.tags fieldset .field {padding-right: 12px;}
 #content div.tags fieldset .field input[type=text] {width: 262px;}
-#content div.tags .actions {display: inline-block; padding: 0;}
+#content div.tags .actions {display: inline-block; vertical-align: top; padding: 0;}
 #content div.tags .actions li {padding-left: 0;}
 #content div.tags .actions li input {margin-top: 4px;}
-#content div.tags .actions {display: inline-block; vertical-align: top; padding-left: 0;}
 #content .addtags ul.tags li {cursor: pointer;}
 #content .addtags ul.tags li:hover,
 #content .addtags ul.tags li.add:hover {background-color: #df0000;}
@@ -254,8 +255,76 @@ input, select, textarea {font-size: 14px;}
 #content .scene.tagEdit ul.tag_items li {display: block; padding: 2px 0;}
 #content .scene.tagEdit ul.tag_items dt {display: none;}
 #content .scene.tagEdit ul.tag_items dd.name {font-weight: bold; padding: 0 15px 0 0;}
+#content .scene.tagEdit ul.tag_items dd.name a {font-weight: bold;}
 #content .scene.tagEdit ul.tag_items dd.itemtype:after {content: "/";}
 
+
+/*s-shop.css*/
+#content .defaultList.cartList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.cartList ul.items > li ul.products {display: none;}
+#content .defaultView.cartView ul.products {padding: 0 30px;}
+#content .defaultView.cartView ul.products li {display: block;}
+#content .defaultList.orderList ul.items > li dl.details {padding: 3px 30px 16px; display: block;}
+#content .defaultList.orderList ul.items > li dl.details dt {display: none;}
+#content .defaultList.orderList ul.items > li dl.details dd.name,
+#content .defaultList.orderList ul.items > li dl.details dd.price {display: none;}
+#content .defaultList.orderList ul.items > li dl.details dd.email:after {content: ",\00a0";}
+#content .defaultView.orderView dl.list {padding-top: 3px;}
+#content .defaultView.orderView dl.list dt {width: 200px;}
+#content .defaultView.orderView dl.list dt:after {content: ":";}
+#content .defaultView.orderView dl.list dd {width: 370px; margin: 0 30px 0 0;}
+#content .defaultView.orderView ul.list {padding-top: 3px;}
+#content .defaultView.orderView ul.list li {display: block; overflow: hidden; border-bottom: 1px solid #dedede;}
+#content .defaultView.orderView ul.list li span {display: inline-block; vertical-align: top; padding: 9px 15px 0 0;}
+#content .defaultView.orderView ul.list li span.title {width: 400px; padding-bottom: 9px; word-wrap: break-word;}
+#content .defaultView.orderView ul.list li span.price_piece {width: 200px;}
+#content .defaultView.orderView ul.list li span.price {float: right; padding-right: 0px;}
+
+
+/*s-user.css*/
+#content .defaultEdit.userEdit > .actions li.delete {position: absolute; right: 20px; top: 91px;}
+#content .defaultEdit.userEdit .views {}
+#content .defaultEdit.userEdit .views li {padding: 15px 30px; border-right: 1px solid #dedede;}
+#content .defaultEdit.userEdit .views li a {text-decoration: none;}
+#content .defaultEdit.userEdit .views li.selected {background-color: #dedede; color: #aaaaaa;}
+#content .defaultEdit.userEdit > div.status {
+	border-top: 1px solid #dedede;
+	border-bottom: 1px solid #dedede;
+}
+#content .defaultEdit.userEdit > div.status .actions {
+	padding: 0;
+}
+#content .defaultEdit.userEdit > div.status .actions li.status {display: block; 
+	padding: 10px 0px; 
+	text-align: right;
+}
+#content .defaultEdit.userEdit > div.status .actions li.status form {display: inline-block; vertical-align: top; padding-right: 30px;}
+#content .defaultEdit.userEdit > div.status .actions li.status form h3 {padding-top: 5px; padding-bottom: 0; font-size: 13px;}
+#content .defaultEdit.userEdit > div.status .actions li.status.disabled {background: orange;}
+#content .defaultEdit.userEdit > div.status .actions li.status.disabled form.disable {display: none;}
+#content .defaultEdit.userEdit > div.status .actions li.status.enabled form.enable {display: none;}
+#content .scene.userEdit > .actions {}
+#content .scene.userEdit > div.status .actions li.status h3 {display: inline-block; vertical-align: top;}
+#content .scene.userEdit > div.status .actions li.status input {display: inline-block; vertical-align: top;}
+#content .scene.userEdit > div.usernames {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
+#content .scene.userEdit > div.usernames {}
+#content .scene.userEdit > div.usernames .actions {text-align: left;}
+#content .scene.userEdit > div.usernames .actions li {padding: 0 5px 10px;}
+#content .scene.userEdit > div.password {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
+#content .scene.userEdit > div.password .actions {text-align: left;}
+#content .scene.userEdit > div.password .actions li {padding: 0 5px 10px;}
+#content .scene.userEdit > div.newsletters {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
+#content .scene.userEdit > div.addresses {padding: 0; border-bottom: 1px solid #dedede;}
+#content .scene.userEdit > div.addresses ul.addresses {padding: 0 30px;}
+#content .scene.userEdit > div.addresses ul.addresses > li {display: inline-block; vertical-align: top; width: 250px; margin-right: 30px; height: 120px; padding: 20px 0; border-top: 1px solid #dedede; position: relative;}
+#content .scene.userEdit > div.addresses ul.addresses > li h3 {padding: 0 0 5px;}
+#content .scene.userEdit > div.addresses ul.addresses > li .actions {position: absolute; top: 20px; right: 0; padding: 0;}
+#content .scene.userEdit > div.addresses ul.addresses > li .actions li {padding-left: 0;}
+#content .defaultList.userList .userGroups {}
+#content .defaultList.userList .userGroups li {padding: 15px 30px; border-right: 1px solid #dedede;}
+#content .defaultList.userList .userGroups li a {text-decoration: none;}
+#content .defaultList.userList .userGroups li.selected {background-color: #dedede; color: #aaaaaa;}
+#content .scene.defaultNew.userAddress > form {padding: 0;}
 
 /*s-default_list.css*/
 #content .defaultList .all_items > h2,
@@ -277,25 +346,37 @@ input, select, textarea {font-size: 14px;}
 #content .defaultList ul.items > li .actions {position: absolute; top: 0px; padding: 0; right: 20px;}
 #content .defaultList ul.items > li .actions li {padding: 10px 0 10px 10px;}
 #content .defaultList .all_items div.filter {text-align: right; padding: 10px 20px; background: #dedede; border-bottom: 1px solid #dedede;}
+#content .defaultList .all_items div.filter.filtering {background: red;}
 #content .defaultList .all_items div.filter .field {padding: 0;}
 #content .defaultList .all_items div.filter .field label {display: inline-block; vertical-align: top; padding: 3px 4px; color: #aaaaaa;}
 #content .defaultList .all_items div.filter input {width: 100px; height: 16px; font-size: 12px;}
-#content .defaultList ul.sortable > li.item h3 {padding-left: 60px;}
-#content .defaultList ul.sortable > li.item div.drag {width: 30px; height: 30px; position: absolute; top: 8px; left: 20px; background: transparent url(/janitor/img/bg_icons2.png) no-repeat 10px -445px; cursor: move;}
+#content .defaultList .sortable ul.items > li.item h3 {padding-left: 60px;}
+#content .defaultList .sortable ul.items > li.item div.drag {width: 30px; height: 30px; position: absolute; top: 8px; left: 20px; background: transparent url(/janitor/img/bg_icons2.png) no-repeat 10px -440px; cursor: move;}
+#content .defaultList .sortable ul.items > li.item ul.tags {padding-left: 55px;}
 
 
 /*s-default_edit.css*/
+#content .scene.defaultEdit > div.status {border-bottom: 1px solid #dedede;}
+#content .scene.defaultEdit > div.status .actions {padding: 0;}
+#content .scene.defaultEdit > div.status .actions li.status {display: block; padding: 10px 0px; text-align: right;}
+#content .scene.defaultEdit > div.status .actions li.status form {display: inline-block; vertical-align: top; padding-right: 30px;}
+#content .scene.defaultEdit > div.status .actions li.status form h3 {padding-top: 5px; padding-bottom: 0; font-size: 13px;}
+#content .scene.defaultEdit > div.status .actions li.status.disabled {background: orange;}
+#content .scene.defaultEdit > div.status .actions li.status.disabled form.disable {display: none;}
+#content .scene.defaultEdit > div.status .actions li.status.enabled form.enable {display: none;}
+#content .scene.defaultEdit > div.status .actions li.status h3 {display: inline-block; vertical-align: top;}
+#content .scene.defaultEdit > div.status .actions li.status input {display: inline-block; vertical-align: top;}
 #content .scene.defaultEdit > div.item {padding: 20px 0;}
 #content .scene.defaultEdit > div.item .actions {text-align: left;}
 #content .scene.defaultEdit > div.item .actions li {padding: 0 5px 10px;}
 #content .scene.defaultEdit > div.prices {padding: 20px 0;}
 #content .scene.defaultEdit > div.prices .field input[type=text] {width: 262px;}
-#content .scene.defaultEdit > div.prices .field .actions {display: inline-block; padding: 0;}
-#content .scene.defaultEdit > div.prices .field .actions li {padding-bottom: 0;}
-#content .scene.defaultEdit > div.prices .field .actions li.save input {width: 90px;}
-#content .scene.defaultEdit > div.prices .field.focus .actions li.save input,
-#content .scene.defaultEdit > div.prices .field.error .actions li.save input {margin: 2px;}
-#content .scene.defaultEdit > div.prices ul.prices {margin: 0 auto; width: 380px; padding: 0 10px;}
+#content .scene.defaultEdit > div.prices fieldset {display: inline-block; vertical-align: top;}
+#content .scene.defaultEdit > div.prices fieldset .field {padding-right: 12px;}
+#content .scene.defaultEdit > div.prices .actions {display: inline-block; vertical-align: top; padding: 0;}
+#content .scene.defaultEdit > div.prices .actions li {padding-left: 0;}
+#content .scene.defaultEdit > div.prices .actions li input {margin-top: 4px;}
+#content .scene.defaultEdit > div.prices ul.prices {padding: 0 30px;}
 #content .scene.defaultEdit > div.prices ul.prices li {font-size: 0; display: block; padding-bottom: 3px;}
 #content .scene.defaultEdit > div.prices ul.prices li h3 {display: inline-block; vertical-align: top; padding: 0 5px 0 0; line-height: 20px;}
 #content .scene.defaultEdit > div.prices ul.prices li form {display: inline-block; vertical-align: top;}
@@ -327,88 +408,15 @@ input, select, textarea {font-size: 14px;}
 
 
 /*s-content.css*/
-#content .newsList ul.items > li {min-height: 100px; padding-left: 160px;}
-#content .newsList ul.items > li dl {display: block; padding: 2px 30px;}
-#content .newsList ul.items > li dl dt {display: none;}
-#content .scene.defaultEdit > div.media ul.media li.portrait {width: 76px; height: 100px;}
-#content .scene.defaultEdit > div.media ul.media li.square {width: 100px; height: 100px;}
-#content .scene.defaultEdit > div.media ul.media li.landscape {width: 160px; height: 100px;}
-#content form #short_description {height: 75px;}
-#content form #news_article {height: 275px;}
-#content .curatedList ul.pages {}
-#content .curatedList ul.pages > li {width: 33.3333%; position: relative; border-right: 1px solid #dedede; margin-right: -1px; border-bottom: 1px solid #dedede; margin-bottom: -1px;}
-#content .curatedList ul.pages > li h3 {padding: 40px 0 20px; text-align: center; border-bottom: 1px solid #dedede;}
-#content .curatedList div.enabled_items h2 {padding-top: 40px;}
-#content .curatedList ul.pages > li .actions {background-color: rgba(220,220,220,0.7); opacity: 0; position: absolute; top: 0px; width: 100%; padding: 0; right: 0;}
-#content .curatedList ul.pages > li:hover .actions {opacity: 1;}
-#content .curatedList ul.pages > li .actions li {padding: 10px 10px 10px 0;}
-#content .curatedList ul.pages ul.news.activetarget {background-color: rgba(100,100,100,0.5);}
-#content .curatedList ul.pages li.news {height: 50px; display: block; border-bottom: 1px solid #dedede; background-repeat: no-repeat; background-position: top left;}
-#content .curatedList ul.pages li.news:hover {background-color: #edf0f2;}
-#content .curatedList ul.pages li.news h4 {padding: 16px 0 0 100px;}
-#content .curatedList ul.pages li.news.draggable {cursor: move;}
-#content .curatedList ul.pages li.news.empty {padding: 5px 10px; height: 40px; border: none;}
-#content .curatedList ul.pages li.news.empty .target {height: 26px; border: 2px dashed #dedede; text-align: center; color: #dedede; padding-top: 10px;}
-#content .curatedList ul.items {border-top: 1px solid #dedede;}
-#content .curatedList ul.items > li {height: 50px; background-repeat: no-repeat; background-position: top left;
-	display: inline-block; vertical-align: top; width: 25%; overflow: hidden; border-right: 1px solid #dedede; margin-right: -1px;
-}
-#content .curatedList ul.items > li.item {cursor: move;}
-#content .curatedList ul.items > li h3 {padding: 16px 20px 0 100px; font-size: 12px;}
-#content .curatedList ul.items > li ul.tags {display: none;}
-#content .curatedList * {
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	user-select: none;
-}
-.news_clone .tags {display: none;}
-.news_clone {background-color: rgba(255,255,255,0.7); background-repeat: no-repeat; border: 1px solid #999999; background-position: top left;}
-.news_clone h3 {padding: 16px 0 0 100px;}
-#content .defaultList .sortable li.item h2 {padding-left: 60px;}
-#content .defaultList li.item div.drag {width: 30px; height: 30px; position: absolute; top: 8px; left: 20px; background: transparent url(/img/admin/bg_icons.png) no-repeat 10px -445px; cursor: move;}
-body.news #navigation .news a,
-body.curatedpage #navigation .curatedåage a,
-body.person #navigation .person a,
-body.project #navigation .project a,
+#content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
+#content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
+body.slogan #navigation .slogan a,
+body.action #navigation .action a,
+body.doctrine #navigation .doctrine a,
+body.candidate #navigation .candidate a,
+body.event #navigation .event a,
 body.tags #navigation .tags a {padding-left: 35px; color: #ffffff;}
-
-
-/*s-projects.css*/
-#content .projectList ul.items > li dl.info {padding: 0 30px;}
-#content .projectList ul.items > li dl.info dt {display: none;}
-#content .projectList ul.items > li dl.info dd.published_at {display: none;}
-#content .defaultList.slideEdit h2 {border: none;}
-#content .defaultList.slidesList li h2 {display: inline-block; width: 200px;}
-#content .defaultList.slidesList li .class {display: inline-block; min-width: 100px;}
-#content .defaultList.slidesList li .layers {display: inline-block; min-width: 100px;}
-#content form.update_image_layer .field,
-#content form.update_video_layer .field {display: inline-block;vertical-align: top;}
-#content form.update_layer .field.files {padding: 0; margin: 0 0 15px 30px; width: 100px; height: 100px; border: 1px solid #dedede; background-color: transparent; background-position: top center; background-repeat: no-repeat; cursor: pointer;}
-#content form.update_layer .field.files input {width: 100px; height: 100px; padding: 0; opacity: 0; cursor: pointer;}
-#content form.update_video_layer .field.files {}
-#content form.update_video_layer .field.files .videoplayer {position: absolute; top: 0; left: 0; z-index: 4;}
-#content form.update_video_layer .field.files input {position: absolute; top: 0; left: 0; z-index: 5;}
-#content form.update_layer .radio_buttons {font-size: 0; padding: 4px 2px 4px 4px; width: 50px;}
-#content form.update_layer .radio_buttons .item {width: 15px; height: 15px; display: inline-block; vertical-align: top; opacity: 0.4; background: transparent url(/img/admin/bg_icons.png) no-repeat 0 0;}
-#content form.update_layer .radio_buttons .item:hover,
-#content form.update_layer .radio_buttons .item.checked {opacity: 1;}
-#content form.update_layer .radio_buttons .item input {width: 15px; height: 15px; padding: 5px; margin: 0; opacity: 0; cursor: pointer;}
-#content form.update_layer .radio_buttons .item.centercenter {background-position: 0 0;}
-#content form.update_layer .radio_buttons .item.centertop {background-position: 0 -50px;}
-#content form.update_layer .radio_buttons .item.rightcenter {background-position: 0 -100px;}
-#content form.update_layer .radio_buttons .item.centerbottom {background-position: 0 -25px;}
-#content form.update_layer .radio_buttons .item.leftcenter {background-position: 0 -75px;}
-#content form.update_layer .radio_buttons .item.lefttop {background-position: 0 -125px;}
-#content form.update_layer .radio_buttons .item.righttop {background-position: 0 -150px;}
-#content form.update_layer .radio_buttons .item.rightbottom {background-position: 0 -175px;}
-#content form.update_layer .radio_buttons .item.leftbottom {background-position: 0 -200px;}
-#content form.update_layer .radio_buttons .item.noscale {background-position: 0 0;}
-#content form.update_layer .radio_buttons .item.fit {background-position: 0 -300px;}
-#content form.update_layer .radio_buttons .item.fill {background-position: 0 -275px;}
-#content form.update_layer .radio_buttons .item.fitwidth {background-position: 0 -250px;}
-#content form.update_layer .radio_buttons .item.fitheight {background-position: 0 -225px;}
-#content form.update_layer .radio_buttons .item.repeat {background-position: 0 -375px;}
-#content form.update_layer .radio_buttons .item.repeatx {background-position: 0 -325px;}
-#content form.update_layer .radio_buttons .item.repeaty {background-position: 0 -350px;}
-#content form.update_layer .radio_buttons .item.norepeat {background-position: 0 -400px;}
 
