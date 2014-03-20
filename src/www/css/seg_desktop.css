@@ -58,15 +58,33 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 	font-family:'HelveticaNeueW01-85Heav';
 	text-transform: uppercase;
 	font-size:55px;
-	color: #00027a;
 }
 #content .scene.red,
-#content .scene.doctrines {
+#content .scene.doctrines,
+#content .scene.front {
 	background-color: #ee191b;
 }
 #content .scene.blue,
-#content .scene.actions {
+#content .scene.action {
 	background-color: #00027a;
+}
+#content .scene .next,
+#content .scene .previous {position:absolute; width:100px; height:20px; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+#content .scene .next {right: 0;
+	-webkit-transform:rotate(90deg);
+  	   -moz-transform:rotate(90deg);
+  	    -ms-transform:rotate(90deg);
+}
+#content .scene .previous {left: 0; 
+	-webkit-transform:rotate(-90deg);
+  	   -moz-transform:rotate(-90deg);
+  	    -ms-transform:rotate(-90deg);
 }
 #footer {position: relative;}
 .error #content .scene {}
@@ -76,7 +94,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 
 /*s-front-desktop.css*/
 #content .scene.front {}
-#content .scene.front h2 {text-align: center; margin:60px auto 60px; font-size: 55px; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.front h2 {color: #00027a;}
 #content .scene.front ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
 #content .scene.front ul.items li.item {text-align:center; padding:20px;}
 #content .scene.front ul.items li.item img {display: none;}
@@ -133,35 +151,22 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene#kandidaterne ul ul.actions li a:hover {background-color: #ee191b; color:#00027a;}
 
 
-/*s-video-desktop.css*/
-#content .scene#video {}
-#content .scene#video h2 {display: none;}
-#content .scene#video ul.slides {display:block; width:100%;}
-#content .scene#video ul.slides li.slide {width:100%; background: #00027a url('/img/video.jpg') no-repeat top left; background-size: 100% 100%}
-#content .scene#video ul.slides li.slide .youtube {width:100%; height:100%;}
-#content .scene#video ul.actions {font-size: 1rem;}
-#content .scene#video ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
-#content .scene#video ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+/*s-actions-desktop.css*/
+#content .scene.action {}
+#content .scene.action h2 {color: #ee191b;}
+#content .scene.action ul.items {width:960px; margin:0 auto;}
+#content .scene.action ul.items li.item {display:inline-block; vertical-align:top; width:200px; background: #00027a url('/img/video.jpg') no-repeat top left; 0% 100%}
+#content .scene.action ul.items li.more {background:yellow;}
+#content .scene.action ul.items li.item .youtube {width:100%; height:100%;}
 
 /*s-doctrines-desktop.css*/
 #content .scene.doctrines {}
+#content .scene.doctrines h2 {color: #00027a;}
 #content .scene.doctrines ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
-#content .scene.doctrines ul.items li.item {text-align:center; padding:20px; margin:0 auto; width:720px; height: 300px; background-color: #ee191b; }
+#content .scene.doctrines ul.items li.item {text-align:center; padding:20px; margin:0 auto; width:740px; height: 300px; background-color: #ee191b; }
 #content .scene.doctrines ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
 	font-size: 30px;color: #ee191b; font-family:'HelveticaNeueW01-86Heav'; line-height: 50px;
 	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
-}
-#content .scene.doctrines .next,
-#content .scene.doctrines .previous {position:absolute; width:100px; height:20px; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;}
-#content .scene.doctrines .next {right: 0;
-	-webkit-transform:rotate(90deg);
-  	   -moz-transform:rotate(90deg);
-  	    -ms-transform:rotate(90deg);
-}
-#content .scene.doctrines .previous {left: 0; 
-	-webkit-transform:rotate(-90deg);
-  	   -moz-transform:rotate(-90deg);
-  	    -ms-transform:rotate(-90deg);
 }
 
 
