@@ -117,7 +117,7 @@ Util.Objects["page"] = new function() {
 				}
 
 				//var sections = ["/tal_til_os"]
-				var sections = ["/video", "/kandidaterne", "/events", "/doktrinen", "/tweets", "/about"];
+				var sections = ["/video", "/kandidaterne", "/events", "/doktriner", "/tweets", "/about"];
 				//var sections = ["/video"];
 				
 				// request new content

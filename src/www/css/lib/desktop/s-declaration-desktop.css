@@ -1,0 +1,38 @@
+#content .scene.declaration {width: 840px; height: 600px; margin: 0 auto;}
+#content .scene.declaration div.form {width: 840px; height: 305px; overflow: hidden; position: relative;
+	background: transparent url(/img/temp_standardvaelgererklaering_2480.png) no-repeat left -388px;
+	background-size: 100% auto;
+}
+
+#content .scene.declaration div.form div {position: absolute; overflow: hidden;}
+#content .scene.declaration div.name {left: 85px; top: 132px;}
+#content .scene.declaration div.address1 {left: 85px; top: 165px;}
+#content .scene.declaration div.address2 {left: 85px; top: 197px;}
+#content .scene.declaration div.postal {left: 130px; top: 227px;}
+#content .scene.declaration div.postal span {float: left; padding: 0 15px 0 0;}
+#content .scene.declaration div.city {left: 220px; top: 227px;}
+#content .scene.declaration div.municipality {left: 520px; top: 179px;}
+#content .scene.declaration div.cpr_1 {left: 428px; top: 152px;}
+#content .scene.declaration div.cpr_1 span {float: left; padding: 0 21px 0 0;}
+#content .scene.declaration div.cpr_2 {left: 634px; top: 152px;}
+#content .scene.declaration div.cpr_2 span {float: left; padding: 0 21px 0 0;}
+
+#content .scene.declaration ul.actions {position: absolute; top: 500px; left: 85px;}
+
+#content .scene.declaration ul.tools {position: absolute; top: 325px; right: 85px;}
+#content .scene.declaration ul.tools li {font-size: 12px; display: inline-block; vertical-align: top; padding: 0 0 0 20px;}
+
+#content .scene.declaration canvas.date {position: absolute; top: 257px; left: 73px; width: 133px; height: 27px; border: 1px solid black; margin: 1px;}
+#content .scene.declaration canvas.signature {position: absolute; top: 242px; left: 310px; width: 250px; height: 50px; border: 1px solid black; margin: 1px;}
+
+#content .scene.declaration canvas.date.selected {border: 2px solid red; margin: 0;}
+#content .scene.declaration canvas.signature.selected {border: 2px solid red; margin: 0;}
+
+
+#content .scene.declaration div.input h2 {display: block; font-size: 20px; padding: 10px 0 0 33px;}
+#content .scene.declaration canvas.canvas_input {
+	position: absolute; top: 340px; left: 30px; width: 750px; height: 150px; 
+	border: 1px solid black;
+}
+
+#content .scene.declaration canvas.canvas_input.date {background: transparent url(/img/temp_standardvaelgererklaering_2480.png) no-repeat -418px -3650px; background-size: 632% auto;}
