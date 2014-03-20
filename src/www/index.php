@@ -16,7 +16,7 @@ $page->pageTitle("Dukke Partiet");
 if(!$action) {
 
 	$page->header();
-	$page->template("pages/intro.php");
+	$page->template("pages/index.php");
 	$page->footer();
 
 }

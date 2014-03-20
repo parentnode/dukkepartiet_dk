@@ -9,14 +9,14 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 $action = $page->actions();
 
 
-$page->bodyClass("kandidaterne");
+$page->bodyClass("candidates");
 $page->pageTitle("Dukke Partiet - Kandidaterne");
 
 // list
 if(!$action) {
 
 	$page->header();
-	$page->template("pages/kandidaterne.php");
+	$page->template("pages/candidates.php");
 	$page->footer();
 
 }

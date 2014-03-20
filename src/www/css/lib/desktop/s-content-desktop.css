@@ -1,6 +1,6 @@
 #content {position: relative;}
 
-#content .scene {position: relative;}
+#content .scene {position: relative; margin:0 auto; width:960px;}
 #content .scene .link {cursor: pointer;}
 
 

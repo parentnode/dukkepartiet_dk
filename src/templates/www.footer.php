@@ -2,55 +2,52 @@
 			</div>
 			
 			<div id="navigation">
-				<!--
-				Sections:
-					- Intro 					(intro)								/intro
-					- Kanditaterne 				(text variant -> open sidebar)		/kandidaterne
-					- Mød kandidaterne 			(event calender + slider)			/mod_kandidaterne
-					- Video 					(video + slider)					/video
-					- Doktrinen					(text + slider)						/doktrinen
-					- Tal til os 				(instagram)							/tal_til_os
-					- Opråb						(tweets)							/oprab
-					- Om partiet				(text)								/om_partiet
-
-					- Hjælp os i folketinget 	(form: sign)						/
-					- Meld dig ind				(form: newsletter)					/nyhedsbrev
-					- Støt partiet 				(form: money form)					/stot_partiet
-				-->
 				<ul class="primary">
-					<li>
-						<h6>Möd os</h6>
-						<ul class="subjects">
-							<li><a href="#kandidater">Kandidater</a></li>
-							<li><a href="#kalender">Kalender</a></li>
-							<li><a href="#videor">Videor</a></li>
-						</ul>
-					</li>
-					<li>
-						<h6>Deltag</h6>
-						<ul class="subjects">
-							<li><a href="#atl_til_os">Tal til os</a></li>
-							<li><a href="#oprab">Opråb</a></li>
-						</ul>
-					</li>
-					<li>
-						<h6>Om os</h6>
-						<ul class="subjects">
-							<li><a href="#doktriner">Doktriner</a></li>
-							<li><a href="#lovforslag">Lovforslag</a></li>
-							<li><a href="#kontakt">Kontakt os</a></li>
-						</ul>
-					</li>
+					
+					<li><a href="/">Forside</a></li>
+					<li><a href="/kandidater">Kandidater</a></li>
+					<li><a href="/kalender">Kalender</a></li>
 				</ul>
 
 			</div>
 
 			<div id="footer">
+				<!-- Move to fixed menu -->
 				<ul class="servicenavigation">
-					<li class="button"><a href="">Hjælp os i foketinget</a></li>
-					<li class="button"><a href="">Meld dig ind</a></li>
-					<li class="button"><a href="">Støt partiet</a></li>
+					<li class="help_us"><a href="">Hjælp os</a></li>
+					<li class="support_us"><a href="">Støt os</a></li>
 				</ul>
+
+				<!-- Move to menu overlay -->
+				<div class="social">
+					<ul>
+						<li class="facebook"><a href="http://facebook.com">facebook</a></li>
+						<li class="youtube"><a href="http://youtube.com">youtube</a></li>
+						<li class="twitter"><a href="http://twitter.com">twitter</a></li>
+						<li class="instagram"><a href="http://instagram.com">instagram</a></li>
+					</ul>
+				</div>
+
+				<!-- Stay in footer -->
+				<div class="about">
+					<p>Dukkepartiet er et samlingspunkt for alle, der hverken kan eller vil stille sig tilfreds med den aktuelle udformning af det politiske landskab. Partiet består af en gruppe borgere, der ønsker at tage et opgør med vores demokratiforståelse. Et opgør, der skal udstille tomheden for derigennem at genstarte demokratiet.</p>
+					<ul class="contacts">
+						<li class="contact">
+							<h4>Kontakt os</h4>
+							<h5>Dukkepartiet</h5>
+							<p>Postbox 2030</p>
+							<p>1112 KBH K.</p>
+							<p><a href="mailto:kontakt@dukkepartiet.dk"></a>kontakt@dukkepartiet.dk</p>
+						</li>
+						<li class="contact">
+							<h4>Presskontakt</h4>
+							<h5>Have Kommunikation A/S</h5>
+							<p>Carit Etlars Vej 3</p>
+							<p>DK-1814 Frederiksberg C</p>
+							<p><a href="mailto:mail@have.dk">mail@have.dk</a>  (+45) 3325 2107</p>
+						</li>
+					</ul>
+				</div>
 			</div>
 
 		</div>

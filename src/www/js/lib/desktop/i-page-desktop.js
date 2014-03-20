@@ -47,7 +47,7 @@ Util.Objects["page"] = new function() {
 					// recalculate content height
 					this.resized();
 
-					this.loadPages();
+					// build navigation
 					this.initNavigation();
 
 				}
@@ -93,39 +93,7 @@ Util.Objects["page"] = new function() {
 				
 			}
 
-			page.loadPages = function() {
-								
-				// content received
-				this.response = function(response) {
-					//u.bug("navigate response:" + this.request_url + ", " + response.body_class)
-
-					// set body class
-					//u.setClass(document.body, response.body_class);
-					// set title
-					//document.title = response.head_title;
-
-					// get .scene content from response
-					this.scene = u.qs(".scene", response);
-
-					// move new scene out of sight
-					//u.a.translate(this.scene, this.offsetWidth, 0);
-					// append new scene to #content
-					this.scene = u.ae(page.cN, this.scene);
-
-					// init content - will callback to ready when done
-					u.init(this);
-				}
-
-				//var sections = ["/tal_til_os"]
-				var sections = ["/video", "/kandidaterne", "/events", "/doktriner", "/tweets", "/about"];
-				//var sections = ["/video"];
-				
-				// request new content
-				var i;
-				for (i = 0; section = sections[i]; i++) {
-					u.request(this, u.h.getCleanHash(section));
-				}
-			}
+			
 
 			// ready to start page builing process
 			page.ready();
