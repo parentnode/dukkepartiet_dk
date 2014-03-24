@@ -4,7 +4,7 @@ red:  #ee191b;
 */
 
 
-#content .scene.events h2 {color:#00027a;}
+#content .scene.events h1 {padding:100px 0 60px; color:#00027a;}
 
 #content .scene.events ul.items {display:block; width:960px; font-size: 0; margin: 0 auto;}
 #content .scene.events ul.items li.item {width:180px; padding:30px; text-align: center;}

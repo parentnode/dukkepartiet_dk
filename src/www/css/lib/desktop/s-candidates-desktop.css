@@ -1,8 +1,36 @@
 /*
-blue: #00027a;
+blue: #ee191b;
 red:  #ee191b;
 */
 
+#content .scene.candidates {}
+#content .scene.candidates h1 {color: #ee191b;}
+#content .scene.candidates h2 {}
+
+#content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
+#content .scene.candidates ul.items li.item {width: 300px; margin:0 10px; text-align: center;}
+
+
+#content .scene.candidates ul.items li.item h2 {color: #ee191b; font-size: 24px; padding:0 10px; }
+#content .scene.candidates ul.items li.item h4 {color: #ee191b;}
+#content .scene.candidates ul.items li.item p.link {display: inherit; font-family:'HelveticaNeueW01-86Heav'; font-size: 14px; }
+
+#content .scene.candidates ul.items li.item h3,
+#content .scene.candidates ul.items li.item p {display: none; color: #ee191b;}
+name area link
+
+/*#content .scene.candidates ul.items li.item h3 {color: #ee191b;}
+#content .scene.candidates ul.items li.item h4 {color: #ee191b;}
+#content .scene.candidates ul.items li.item p {color: #ee191b; font-family: Arial; font-size:14px; }*/
+
+
+
+
+
+
+
+
+/*
 #content .scene#kandidaterne {}
 #content .scene#kandidaterne h2 {text-align: center; margin:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
 
@@ -36,14 +64,14 @@ red:  #ee191b;
 #content .scene#kandidaterne ul.people li.person .details h4,
 #content .scene#kandidaterne ul.people li.person .details p,
 #content .scene#kandidaterne ul.people li.person .details ul.facts,
-#content .scene#kandidaterne ul.people li.person .details ul.facts li {color:#00027a; width:440px; margin: 0 auto;}
+#content .scene#kandidaterne ul.people li.person .details ul.facts li {color:#ee191b; width:440px; margin: 0 auto;}
 
-/* Show hide overlay */
+/* Show hide overlay 
 #content .scene#kandidaterne ul.people li.person .details {display: none;}
 #content .scene#kandidaterne ul ul.actions {font-size: 1rem; }
 #content .scene#kandidaterne ul ul.actions li a {display:block;  padding:12px 28px; border:2px solid #ee191b; margin:0 10px; color:#ee191b; font-family:'HelveticaNeueW01-76Bold'; font-size: 16px;}
-#content .scene#kandidaterne ul ul.actions li a:hover {background-color: #ee191b; color:#00027a;}
-
+#content .scene#kandidaterne ul ul.actions li a:hover {background-color: #ee191b; color:#ee191b;}
+*/
 
 
 

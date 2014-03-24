@@ -5,7 +5,7 @@
 				<ul class="primary">
 					
 					<li><a class="front" href="/">Forside</a></li>
-					<li><a class="candidates" href="/kandidater">Kandidater</a></li>
+					<li><a class="candidates" href="/kandidaterne">Kandidater</a></li>
 					<li><a class="events" href="/kalender">Kalender</a></li>
 				</ul>
 

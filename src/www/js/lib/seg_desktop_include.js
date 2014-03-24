@@ -7,6 +7,7 @@ document.write('<script type="text/javascript" src="/js/lib/desktop/i-events-des
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-tweets-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-about-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-action-desktop.js"></script>');
+document.write('<script type="text/javascript" src="/js/lib/desktop/i-candidates-desktop.js"></script>');
 
 // document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');
 // document.write('<script type="text/javascript" src="/js/manipulator/src/u-googleanalytics.js"></script>');

@@ -19,6 +19,8 @@ red:  #ee191b;
 /* SERVICE NAVIGATION */
 #header #navigation ul.servicenavigation {margin:16px auto 0; text-align: center;}
 #header #navigation ul.servicenavigation li a {display:block; width:100px; height:40px; margin: 0 10px;}
+#header #navigation ul.servicenavigation li.support_us a {background: #ee191b url("/img/bn_support_us_blue.png") no-repeat center center;}
+#header #navigation ul.servicenavigation li.help_us a {background: #ee191b url("/img/bn_help_us_blue.png") no-repeat center center;}
 #header.open #navigation ul.servicenavigation {display: none;}
 
 
@@ -35,8 +37,9 @@ red:  #ee191b;
 
 	/* red */
 #header #navigation.red .nav_icon {background: url("/img/gx_nav_icon_blue.png") no-repeat center center;}
-#header #navigation.red ul.servicenavigation li.help_us a {background:url("/img/bn_help_us_blue.png") no-repeat center center;}
-#header #navigation.red ul.servicenavigation li.support_us a {background:url("/img/bn_support_us_blue.png") no-repeat center center;}
+/*#header #navigation.red ul.servicenavigation li.help_us a {background-color: #ee191b;}
+#header #navigation.red ul.servicenavigation li.support_us a {background-color: #ee191b;}*/
+
 		/*open*/
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
@@ -50,8 +53,8 @@ red:  #ee191b;
 #header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
 	/* blue */
 #header #navigation.blue .nav_icon {background: url("/img/gx_nav_icon_red.png") no-repeat center center;}
-#header #navigation.blue ul.servicenavigation li.help_us a {background:url("/img/bn_help_us_red.png") no-repeat center center;}
-#header #navigation.blue ul.servicenavigation li.support_us a {background:url("/img/bn_support_us_red.png") no-repeat center center;}
+/*#header #navigation.blue ul.servicenavigation li.help_us a {background-color: #ee191b;}
+#header #navigation.blue ul.servicenavigation li.support_us a {background-color: #ee191b;}*/
 		/*open*/
 #header.open #navigation.blue {background: #ee191b;}
 #header.open #navigation.blue .nav_icon {background: url("/img/gx_nav_icon_blue.png") no-repeat center center;}

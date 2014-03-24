@@ -10,7 +10,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 
 	<!-- Mød kandidaterne -->
 	
-		<h2>Kalender</h2>
+		<h1>Kalender</h1>
 
 <?		if($items): ?>
 		<ul class="items">
