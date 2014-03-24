@@ -4,20 +4,18 @@ global $action;
 $IC = new Item();
 $itemtype = "event";
 
-$items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "published_at ASC"));
+$item = $IC->getCompleteItem(array("id" => $action[0]));
+$item_id = $item["id"];
 ?>
-<div class="scene i:events events red">
+<div class="scene events red">
 
 	<!-- Mød kandidaterne -->
 	
-		<h2>Kalender</h2>
+		<!--h2>Kalender</h2-->
 
-<?		if($items): ?>
 		<ul class="items">
-<?			foreach($items as $item): 
-				$item = $IC->extendItem($item); ?>
 			<li class="item">
-				<h3><a href="/kalender/<?= $item['item_id'] ?>"><?= $item["name"] ?></a></h3>
+				<h3><?= $item["name"] ?></h3>
 				<dl class="info">
 					<dt class="published_at">Tidspunkt</dt>
 					<!--dd class="published_at"><?= date("d.m.y h:i", strtotime($item["published_at"])) ?></dd-->
@@ -29,9 +27,8 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 					<p><?= $item["name"] ?></p>
 				</div>
 			</li>
-<?			endforeach; ?>
 		</ul>
-<?		endif; ?>
+
 
 	</div>
 </div>

@@ -3,10 +3,10 @@ blue: #00027a;
 red:  #ee191b;
 */
 
-#content .scene.action {height:990px;}
+#content .scene.action {}
 /*#content .scene#video h2 {text-align: center; margin:60px 0; font-size: 76px; font-family:'HelveticaNeueW01-86Heav';}*/
 #content .scene.action h2 {color: #ee191b;}
-#content .scene.action ul.items {width:960px; margin:0 auto;}
+#content .scene.action ul.items {width:960px; margin:0 auto 80px;}
 #content .scene.action ul.items li {display:inline-block; vertical-align:top; width:280px; height:300px; padding:10px; font-size: 1em; margin:0 20px 20px 0;}
 #content .scene.action ul.items li.item {background-color: #ee191b;}
 #content .scene.action ul.items li.item h3 {font-size:21px; font-family:'HelveticaNeueW02-55Roma'; color:#00027a; padding:10px 0; text-align: center;}

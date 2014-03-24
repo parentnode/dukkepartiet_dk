@@ -1,18 +1,26 @@
-/* ------------------------------------  MØD KANDIDATERNE ------------------------------------ */
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
 
-#content .scene.events h2 {text-align: center; margin:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
 
-#content .scene.events ul.slides {display:block; width:100%; font-size: 1rem; height:600px;}
-#content .scene.events ul.slides li.slide {position: absolute; padding:0;}
+#content .scene.events h2 {color:#00027a;}
 
-#content .scene.events ul li ul.events {font-size:1rem; }
+#content .scene.events ul.items {display:block; width:960px; font-size: 0; margin: 0 auto;}
+#content .scene.events ul.items li.item {width:180px; padding:30px; text-align: center;}
+#content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; font-family:'HelveticaNeueW01-76Bold'; text-transform: uppercase; padding-bottom:4px;}
+#content .scene.events ul.items li.item dl {}
+#content .scene.events ul.items li.item dl dt {display: none;}
+#content .scene.events ul.items li.item dl dd.published_at {font-size: 32px; color:#00027a; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.events ul.items li.item dl dd.location {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
+#content .scene.events ul.items li.item .description p {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
+
+/*#content .scene.events ul li ul.events {font-size:1rem; }
 #content .scene.events ul li ul.events li.event {width: 230px; margin: 10px; padding:18px 28px; border: 2px solid #00027a;}
-/*#content .scene#events ul li ul.events li.event:first-child {margin-left:-80px;}
-#content .scene#events ul li ul.events li.event:last-child {position:absolute;}*/
 
 #content .scene.events ul li ul.events li.event h3 {margin-bottom:10px; color: #00027a;}
 #content .scene.events ul li ul.events li.event p {font-size:0.9rem; color: #00027a;}
 
 #content .scene.events ul.actions {font-size: 1rem;}
 #content .scene.events ul.actions li.next { width:100px; background-color: green; cursor: pointer;}
-#content .scene.events ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}
+#content .scene.events ul.actions li.previous { width:100px; background-color: yellow; cursor: pointer;}*/

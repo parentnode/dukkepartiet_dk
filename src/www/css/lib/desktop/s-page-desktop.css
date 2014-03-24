@@ -26,14 +26,14 @@ fieldset {border: none;}
 input, select, textarea {font-size: 14px;}
 input, textarea {outline: none;}
 
-::selection {
-	background: #ee191b; /* Firefox */
+/*::selection {
+	background: #ee191b;
 	color:#00027a;
 }
 ::-moz-selection {
-	background: #ee191b; /* Firefox */
+	background: #ee191b;
 	color:#00027a;
-}
+}*/
 
 #page {position: relative;}
 /*#mti_wfs_colophon {display: none!important;}*/

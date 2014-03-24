@@ -4,9 +4,9 @@
 			<div id="navigation">
 				<ul class="primary">
 					
-					<li><a href="/">Forside</a></li>
-					<li><a href="/kandidater">Kandidater</a></li>
-					<li><a href="/kalender">Kalender</a></li>
+					<li><a class="front" href="/">Forside</a></li>
+					<li><a class="candidates" href="/kandidater">Kandidater</a></li>
+					<li><a class="events" href="/kalender">Kalender</a></li>
 				</ul>
 
 			</div>
@@ -14,8 +14,8 @@
 			<div id="footer" class="blue" >
 				<!-- Move to fixed menu -->
 				<ul class="servicenavigation">
-					<li class="help_us"><a href="">Hjælp os</a></li>
-					<li class="support_us"><a href="">Støt os</a></li>
+					<li class="help_us"><a href="/hjaelp_os">Hjælp os</a></li>
+					<li class="support_us"><a href="/stot_os">Støt os</a></li>
 				</ul>
 
 				<!-- Move to menu overlay -->
