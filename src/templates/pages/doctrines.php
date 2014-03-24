@@ -6,10 +6,10 @@ $itemtype = "doctrine";
 
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "position ASC"));
 ?>
-<div class="scene doctrines i:doctrines">
+<div class="scene doctrines i:doctrines red">
 
 	
-	<h2>Dukkedoktriner</h2>
+	<h2>Doktriner</h2>
 
 <?	if($items): ?>
 	<ul class="items i:carousel">

@@ -6,7 +6,7 @@ $itemtype = "slogan";
 
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "position ASC"));
 ?>
-<div class="scene front i:front">
+<div class="scene front i:front red">
 
 
 <?	if($items): ?>

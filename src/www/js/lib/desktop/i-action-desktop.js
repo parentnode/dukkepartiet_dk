@@ -25,8 +25,7 @@ Util.Objects["action"] = new function() {
 
 			var i, node;
 			for (i = 0; node = this.nodes[i]; i++) {
-				u.bug("node" + node);
-
+				
 				// u.ce(node);
 				// node.clicked = function() {
 				// 	location.href = this.url;

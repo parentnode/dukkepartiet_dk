@@ -27,11 +27,46 @@ Util.Objects["page"] = new function() {
 			}
 
 			// global scroll handler 
-			page.scrolled = function() {}
+			page.scrolled = function() {
+				//u.bug("y: " + )
+
+				var scroll_y = u.scrollY();
+				var browser_h = u.browserH();
+				var i, node;
+				//u.bug("boom: " + page.scenes);
+				for (i = 0; node = page.scenes[i]; i++) {
+					
+					abs_y = u.absY(node);
+
+					//if(abs_y - 200 < scroll_y && abs_y + 200 > scroll_y) {
+					if(abs_y-35 <= scroll_y && abs_y + browser_h > scroll_y) {
+
+						//u.bug("found: " +  node);
+							
+						// RED
+						if (u.hc(node, "red")) {
+							u.bug("red class 123");
+							u.ac(page.nN, "red");
+							u.rc(page.nN, "blue");
+						}
+						// BLUE
+						else {
+							u.bug("BLUE class");
+							u.ac(page.nN, "blue");
+							u.rc(page.nN, "red");
+						}
+
+					}
+					// remove 
+					else {
+						//u.rc(node, "active");
+					}
+				}
+			}
 
 			// Page is ready - called from several places, evaluates when page is ready to be shown
 			page.ready = function() {
-//				u.bug("page ready")
+				u.bug("page ready")
 
 				// page is ready to be shown - only initalize if not already shown
 				if(!u.hc(this, "ready")) {
@@ -39,25 +74,48 @@ Util.Objects["page"] = new function() {
 					// page is ready
 					u.addClass(this, "ready");
 
+					// build navigation
+					this.initNavigation();
+
+					// store scenes for scroll
+					this.scenes = u.qsa("#content .scene", this);
+
 					// set resize handler
 					u.e.addEvent(window, "resize", page.resized);
 					// set scroll handler
 					u.e.addEvent(window, "scroll", page.scrolled);
 
-					// recalculate content height
+					// resize / scroll straight away!
 					this.resized();
-
-					// build navigation
-					this.initNavigation();
-
+					this.scrolled();
 				}
 			}
 
 			// Content is ready - called from page.ready and scenes
 			page.cN.ready = function() {
-				u.bug("page.cN ready:" + page.intro + ", " + u.hc(page, "ready") + ", " + u.hc(this, "ready"));
+				u.bug("page.cN ready:" + u.hc(page, "ready") + ", " + u.hc(this, "ready"));
 				
 			}
+
+			// page.initScrollPoint = function() {
+
+			// 	this.scenes = u.qsa("#content .scene", this);
+			// 	var i, node;
+			// 	for (i = 0; node = this.scenes[i]; i++) {
+			// 		//u.bug("node: " + u.absY(node))
+
+			// 		if (!this.scrollPoint) {
+			// 			node.sceneY = 
+			// 			this.scrollPoint = {"sceneY": u.absY(node)};
+			// 		}
+			// 		// not undefined
+			// 		else {
+			// 			this.scrollPoint += {"sceneY": u.absY(node)};
+			// 		}
+			// 	}
+			// 	u.bug("scrollPoint:  " + this.scrollPoint)
+
+			// }
 
 			page.initNavigation = function() {
 				// get ul.primary
@@ -108,7 +166,7 @@ Util.Objects["page"] = new function() {
 			
 
 			// ready to start page builing process
-			page.ready();
+			//page.ready();
 
 		//}
 	}

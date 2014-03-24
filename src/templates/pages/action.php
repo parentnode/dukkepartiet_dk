@@ -6,7 +6,7 @@ $itemtype = "action";
 
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "position ASC"));
 ?>
-<div class="scene i:action action">
+<div class="scene i:action action blue">
 	<h2>Aktioner</h2>
 
 <?		if($items): ?>

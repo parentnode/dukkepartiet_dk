@@ -19,17 +19,26 @@ Util.Objects["front"] = new function() {
 
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
-
-			// add logo
-			u.ie(this, "div", {"class": "logo"});
 			
-			// duplicate servicenavigation to intro section
-			this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
-			u.ae(this, this.servicenavigation)
+			// after loading all scenes
+			//u.bug("booom: " + u.qsa(".scene", page.cN).length)
+			if (u.qsa(".scene", page.cN).length == 3) {
+				u.bug("DONE loading front")
+			
+				// add logo
+				u.ie(this, "div", {"class": "logo"});
+				
+				// duplicate servicenavigation to intro section
+				// this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
+				// u.ae(this, this.servicenavigation)
 
-			this.loadSloganImages();
-			this.loadPages();
-			page.cN.ready();
+				this.loadSloganImages();
+				
+
+				// after all scenes loaded
+				page.ready();
+			}
+			
 		}
 
 		scene.loadSloganImages = function() {
@@ -41,7 +50,7 @@ Util.Objects["front"] = new function() {
 				//u.bug("slogan image node:  " + node);
 
 				node._image_available = u.cv(node, "image_id");
-				u.bug("_image_available:  " + node._image_available);
+				//u.bug("_image_available:  " + node._image_available);
 
 				// if image
 				if(node._image_available) {
@@ -58,31 +67,41 @@ Util.Objects["front"] = new function() {
 
 		scene.loadPages = function() {
 								
-			// content received
-			this.response = function(response) {
-				//u.bug("navigate response:" + this.request_url + ", " + response.body_class)
 
-				// get .scene content from response
-				this.scene = u.qs(".scene", response);
-
-				// append new scene to #content
-				this.scene = u.ae(page.cN, this.scene);
-
-				// init content - will callback to ready when done
-				u.init(this);
-			}
-
-			var sections = ["/aktioner", "/doktriner", ];
+			this.sections = ["/aktioner", "/doktriner"];
 			//var sections = ["/aktioner", "/events", "/doktriner", "/tweets", "/about"];
 			
 			// request new content
-			var i;
-			for (i = 0; section = sections[i]; i++) {
-				u.request(this, u.h.getCleanHash(section));
+			var i, section, div;
+			for (i = 0; section = this.sections[i]; i++) {
+				//this.scene_divs[section] =  u.ae(this, "div");
+				
+				div = u.ae(page.cN, "div");
+
+				// content received
+				div.response = function(response) {
+					//u.bug("navigate response:" + this.request_url + ", " + response.body_class)
+
+					// get .scene content from response
+					var new_scene = u.qs(".scene", response);
+
+					// append new scene to #content
+					//scene = u.ae(this, this.scene);
+					this.innerHTML = new_scene.innerHTML;
+					u.ac(this, new_scene.className);
+					//u.ac(scene, "scene");
+
+					// init content - will callback to ready when done
+					u.init(this);
+
+					// ready callback
+					scene.ready();
+				}
+				u.request(div, u.h.getCleanHash(section));
 			}
 		}
 
-		scene.ready();
+		scene.loadPages();
 
 	}
 }

@@ -31,3 +31,12 @@ red:  #ee191b;
 
 #content .scene .next,
 #content .scene .previous {top:60%;}
+
+
+
+/* SERVICE NAVIGATION */
+#content .scene.front ul.servicenavigation {display: none;}
+/*#content .scene.front ul.servicenavigation {width:240px; left:50%; margin-left:-120px; position: absolute; bottom:40px;}
+#content .scene.front ul.servicenavigation li a {display:block; width:100px; height:40px; margin: 0 10px;}
+#content .scene.front ul.servicenavigation li.help_us a {background:url("/img/bn_support_us_blue.png") no-repeat center center;}
+#content .scene.front ul.servicenavigation li.support_us a {background:url("/img/bn_help_us_blue.png") no-repeat center center;}*/

@@ -11,8 +11,7 @@
 
 			</div>
 
-			<!-- footer bg from js -->
-			<div class="blue" id="footer">
+			<div id="footer" class="blue" >
 				<!-- Move to fixed menu -->
 				<ul class="servicenavigation">
 					<li class="help_us"><a href="">Hjælp os</a></li>
