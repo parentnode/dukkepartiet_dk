@@ -26,9 +26,17 @@ fieldset {border: none;}
 input, select, textarea {font-size: 14px;}
 input, textarea {outline: none;}
 
+::selection {
+	background: #ee191b; /* Firefox */
+	color:#00027a;
+}
+::-moz-selection {
+	background: #ee191b; /* Firefox */
+	color:#00027a;
+}
 
 #page {position: relative;}
-#mti_wfs_colophon {display: none!important;}
+/*#mti_wfs_colophon {display: none!important;}*/
 
 a, span {font-size: inherit; font-family: inherit; color: inherit; text-transform: inherit;}
 

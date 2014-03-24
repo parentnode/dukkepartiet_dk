@@ -67,6 +67,10 @@ Util.Objects["page"] = new function() {
 				this.servicenavigation = u.qs("ul.servicenavigation", page.fN).cloneNode(true);
 				u.ae(this.nN, this.servicenavigation)
 
+				// add social links to hrader
+				this.social = u.qs(".social", page.fN).cloneNode(true);
+				this.social = u.ae(this.nN, this.social)
+
 				// add menu icon
 				this.nav_icon = u.ae(this.nN, "div", {"class": "nav_icon"});
 				u.e.click(this.nav_icon);
@@ -74,20 +78,28 @@ Util.Objects["page"] = new function() {
 				// open/ close menu
 				this.nav_icon.clicked = function(event) {
 
-					page.primary.transitioned = function() {
-						u.a.transition(this, "none");
-					}
+					// page.primary.transitioned = function() {
+					// 	u.a.transition(this, "none");
+					// }
 
-					if (u.hc(page.primary, "open")) {
+					if (u.hc(page.hN, "open")) {
 						// remove class = close
-						u.a.transition(page.primary, "all 0.25s ease-out");
-						u.a.setHeight(page.primary, 0);
-						u.rc(page.primary, "open");
+						// u.a.transition(page.primary, "all 0.25s ease-out");
+						u.a.setHeight(page.nN, 0);
+						u.rc(page.hN, "open");
 					} else {
 						//add class = open
-						u.ac(page.primary, "open");
-						u.a.transition(page.primary, "all 0.3s ease-in-out");
-						u.a.setHeight(page.primary, 240);
+						u.ac(page.hN, "open");
+						u.bug(u.browserHeight()); // 526
+						//u.a.transition(page.primary, "all 0.3s ease-in-out");
+						u.a.setHeight(page.nN, u.browserHeight());
+						var height = u.browserHeight() - page.social.offsetHeight;
+						u.bug("height: " + page.social.offsetHeight);
+						var middle = (height/2) - (page.primary.offsetHeight/2);
+						u.bug("middle: " + middle);
+						
+						u.bug("page.primary.offsetHeight: " + page.primary.offsetHeight);
+						u.as(page.primary, "top", middle+"px");
 					}
 				}
 				

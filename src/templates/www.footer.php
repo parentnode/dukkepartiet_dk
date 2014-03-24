@@ -21,6 +21,7 @@
 
 				<!-- Move to menu overlay -->
 				<div class="social">
+					<h4>Følg Dukkepartiet</h4>
 					<ul>
 						<li class="facebook"><a href="http://facebook.com">facebook</a></li>
 						<li class="youtube"><a href="http://youtube.com">youtube</a></li>
