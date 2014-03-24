@@ -3057,3 +3057,29 @@ Util.Objects["action"] = new function() {
 		scene.ready();
 	}
 }
+
+/*i-candidates-desktop.js*/
+Util.Objects["candidates"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("candidates");
+			page.cN.ready();
+			this.nodes = u.qsa("ul.items li.item", this);
+			var i, node;
+			for (i = 0; node = this.nodes[i]; i++) {
+				node._image_available = u.cv(node, "image_id");
+				if(node._image_available) {
+					node._image_src = "/images/" + node._image_available + "/300x.jpg";
+					node._image_mask = u.ie(node, "div", {"class":"image"});
+					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
+					node._play_bn = u.ae(node._image_mask, "div", {"class":"play_bn", "html": "<p>Play</p>"});
+				}
+			}
+		}
+		scene.ready();
+	}
+}
