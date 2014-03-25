@@ -12,13 +12,11 @@ $items = $IC->getItems(array("count" => 1, "itemtype" => $itemtype, "status" => 
 $next = $IC->getNext($item_id, array("items" => $items));
 $prev = $IC->getPrev($item_id, array("items" => $items));
 ?>
-<div class="scene candidate i:candidates blue">
-
-	<h1>Kandidaterne</h1>
+<div class="scene candidates i:candidate blue">
 
 	<ul class="items">
 		<li class="item image_id:<?= $item["item_id"] ?>" itemscope itemtype="http://schema.org/Person">
-			<h2 itemprop="name"><a href="/kandidaterne/<?= $item['item_id'] ?>"><?= $item["name"] ?></a></h2>
+			<h2 itemprop="name"><?= $item["name"] ?></h2>
 			<h4><?= $item["area"] ?></h4>
 			<p class="link"><a href="<?= $item["link"] ?>"><?= $item["link"] ?></a></p>
 
@@ -28,13 +26,7 @@ $prev = $IC->getPrev($item_id, array("items" => $items));
 			<h3>Baggrund:</h3>
 			<p><?= $item["background"] ?></p>
 			
-
-			<ul class="actions">
-				<li class="button"><a href="<?= $item["link"] ?>"><?= $item["link"] ?></a></li>
-			</ul>
-
 		</li>
-
 	</ul>
 
 	<ul class="actions">
@@ -42,4 +34,5 @@ $prev = $IC->getPrev($item_id, array("items" => $items));
 <? if($next): ?><li class="next"><a href="/kandidaterne/<?= $next[0]["id"] ?>">Næste</a></li><? endif; ?>
 	</ul>
 
+	<div class="close"><a href="/kandidaterne">go back</a></div>
 </div>

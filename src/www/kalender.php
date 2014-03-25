@@ -12,11 +12,12 @@ $IC = new Item();
 $itemtype = "event";
 
 
-$page->bodyClass("events");
 $page->pageTitle("Dukke Partiet - Mød kandidaterne");
 
 // list
 if(!$action) {
+
+	$page->bodyClass("events");
 
 	$page->header();
 	$page->template("pages/events.php");
@@ -24,6 +25,8 @@ if(!$action) {
 
 }
 else {
+
+	$page->bodyClass("event");
 
 	$page->header();
 	$page->template("pages/event.php");

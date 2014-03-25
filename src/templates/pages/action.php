@@ -19,7 +19,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 				<a href="<?= $item["link"] ?>"><?= $item["link"] ?></a>
 			</li>
 <?			endforeach; ?>
-			<li class="more"><a href="http://youtube.com">flere film her</a></li>
+			<li class="more"><a href="http://youtube.com" target="_blank">flere film her</a></li>
 		</ul>
 <?		endif; ?>
 	</div>

@@ -17,12 +17,16 @@ $page->pageTitle("Dukke Partiet - Kandidaterne");
 // list
 if(!$action) {
 
+	$page->bodyClass("candidates");
+
 	$page->header();
 	$page->template("pages/candidates.php");
 	$page->footer();
 
 }
 else {
+
+	$page->bodyClass("candidate");
 
 	$page->header();
 	$page->template("pages/candidate.php");

@@ -1,4 +1,4 @@
-Util.Objects["events"] = new function() {
+Util.Objects["event"] = new function() {
 	this.init = function(scene) {
 
 		// resize scene
@@ -19,16 +19,15 @@ Util.Objects["events"] = new function() {
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
 			
-			u.bug("events");
+			u.bug("event!   " + u.browserHeight());
+
+			// scene height
+			u.as(this, "height", u.browserHeight()+"px");
+
+			// margin of item
+			this.ul = u.qs("ul.items li.item", this);
+			u.as(this.ul, "marginTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
 			
-			this.nodes = u.qsa("ul.items li.item", this);
-			var i, node;
-			for (i = 0; node = this.nodes[i]; i++) {
-				u.ce(node);
-				node.clicked = function() {
-					location.href = this.url;
-				}
-			}
 
 			// loaded!
 			page.ready();

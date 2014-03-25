@@ -19,18 +19,15 @@ Util.Objects["candidates"] = new function() {
 			
 			u.bug("candidates");
 			
-			page.ready();
-			page.cN.ready();
-
 			this.nodes = u.qsa("ul.items li.item", this);
 
 			var i, node;
 			for (i = 0; node = this.nodes[i]; i++) {
 				
-				// u.ce(node);
-				// node.clicked = function() {
-				// 	location.href = this.url;
-				// }
+				u.ce(node);
+				node.clicked = function() {
+					location.href = this.url;
+				}
 
 				node._image_available = u.cv(node, "image_id");
 
@@ -43,11 +40,13 @@ Util.Objects["candidates"] = new function() {
 					// add image
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
-					node._play_bn = u.ae(node._image_mask, "div", {"class":"play_bn", "html": "<p>Play</p>"});
 				}
 			}
 			//this.resized();
 			//u.e.addEvent(window, "resize", this.resized);
+
+			page.ready();
+			page.cN.ready();
 		}
 
     	

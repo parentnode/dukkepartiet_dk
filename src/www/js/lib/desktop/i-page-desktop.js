@@ -123,8 +123,6 @@ Util.Objects["page"] = new function() {
 				// set active class in menu
 				var i, node;
 				for (i = 0; node = this.primary.li[i]; i++) {
-					u.bug("body.className" + document.body.className);
-					u.bug("node.className" + node.className);
 					if (document.body.className == node.className) {
 						u.ac(node, "active");
 					}

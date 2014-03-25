@@ -26,11 +26,6 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 				<h3>Baggrund:</h3>
 				<p><?= $item["background"] ?></p>
 				
-
-				<ul class="actions">
-					<li class="button"><a href="<?= $item["link"] ?>"><?= $item["link"] ?></a></li>
-				</ul>
-
 			</li>
 <?			endforeach; ?>
 		</ul>

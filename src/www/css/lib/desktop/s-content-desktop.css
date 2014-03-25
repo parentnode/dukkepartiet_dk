@@ -16,7 +16,7 @@ font-family:'HelveticaNeueW01-76Bold';
 #content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
 #content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW01-85Heav'; text-transform: uppercase; font-size:55px;}
 #content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase;font-size:16px;}
-#content .scene h4 { text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase; font-size:16px;}
+#content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase; font-size:16px;}
 
 
 /* background colors */

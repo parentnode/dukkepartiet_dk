@@ -11,7 +11,7 @@
 
 			</div>
 
-			<div id="footer" class="blue" >
+			<div id="footer" class="i:footer" >
 				<!-- Move to fixed menu -->
 				<ul class="servicenavigation">
 					<li class="help_us"><a href="/hjaelp_os">Hjælp os</a></li>
@@ -38,7 +38,7 @@
 							<h5>Dukkepartiet</h5>
 							<p>Postbox 2030</p>
 							<p>1112 KBH K.</p>
-							<p><a href="mailto:kontakt@dukkepartiet.dk"></a>kontakt@dukkepartiet.dk</p>
+							<p><a href="mailto:kontakt@dukkepartiet.dk">kontakt@dukkepartiet.dk</a></p>
 						</li>
 						<li class="contact press">
 							<h4>Presskontakt</h4>
