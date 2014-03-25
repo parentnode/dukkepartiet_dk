@@ -55,7 +55,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
 #content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW01-85Heav'; text-transform: uppercase; font-size:55px;}
 #content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase;font-size:16px;}
-#content .scene h4 { text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase; font-size:16px;}
+#content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase; font-size:16px;}
 #content .scene.red,
 #content .scene.doctrines,
 #content .scene.front {
@@ -117,17 +117,27 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 
 
 /*s-candidates-desktop.css*/
-#content .scene.candidates {}
-#content .scene.candidates h1 {color: #ee191b;}
-#content .scene.candidates h2 {}
+#content .scene.candidates {padding:60px 0 60px;}
+#content .scene.candidates h1 {color:#ee191b;}
 #content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
-#content .scene.candidates ul.items li.item {width: 300px; margin:0 10px; text-align: center;}
+#content .scene.candidates ul.items li.item {width: 300px; margin:0 10px 70px 0; text-align: center; cursor: pointer;}
+#content .scene.candidates ul.items li.item:last-child {margin:0;}
+#content .scene.candidates ul.items li.item .image {width:220px; min-height:220px; padding:10px; background-color: red; margin: 0 auto 6px;}
+#content .scene.candidates ul.items li.item .image img {width:100%;}
 #content .scene.candidates ul.items li.item h2 {color: #ee191b; font-size: 24px; padding:0 10px; }
-#content .scene.candidates ul.items li.item h4 {color: #ee191b;}
+#content .scene.candidates ul.items li.item h4 {color: #ee191b; padding: 4px 0;}
 #content .scene.candidates ul.items li.item p.link {display: inherit; font-family:'HelveticaNeueW01-86Heav'; font-size: 14px; }
 #content .scene.candidates ul.items li.item h3,
-#content .scene.candidates ul.items li.item p {display: none; color: #ee191b;}
-name area link
+#content .scene.candidates ul.items li.item p {display: none; color: #ee191b; padding: 4px 0;}
+.candidate #content .scene.candidates {padding:0;}
+.candidate #content .scene.candidates ul.items li.item {width: 480px; margin: 0 0 0 240px; cursor: default;}
+.candidate #content .scene.candidates ul.items li.item h3 {display: block; color: #ee191b; padding:20px 0 4px;}
+.candidate #content .scene.candidates ul.items li.item p {display: block; color: #ee191b; font-size: 14px;}
+.candidate #content .scene.candidates .next,
+.candidate #content .scene.candidates .previous {top:50%; color: #ee191b; font-size: 16px;}
+.candidate #content .scene.candidates .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_red.png") no-repeat bottom left; text-indent: -9999px;}
+.candidate #page #header,
+.candidate #page #footer {display: none;}
 
 
 /*s-action-desktop.css*/
@@ -149,7 +159,7 @@ name area link
 	        user-select: none;
 }
 #content .scene.action ul.items li.item .image img {width: 100%; opacity: 0.6;}
-#content .scene.action ul.items li.more {background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; cursor: pointer; height: 300px;}
+#content .scene.action ul.items li.more a {display:block; background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; cursor: pointer; height: 300px;}
 #content .scene.action ul.items li.item .youtube {width:100%; height:100%;}
 
 /*s-doctrines-desktop.css*/
@@ -164,54 +174,76 @@ name area link
 
 
 /*s-events-desktop.css*/
-#content .scene.events h1 {padding:100px 0 60px; color:#00027a;}
+#content .scene.events {padding:60px 0 60px;}
+#content .scene.events h1 {color:#00027a;}
 #content .scene.events ul.items {display:block; width:960px; font-size: 0; margin: 0 auto;}
-#content .scene.events ul.items li.item {width:180px; padding:30px; text-align: center;}
+#content .scene.events ul.items li.item {width:220px; margin:0 10px 40px; text-align: center; cursor: pointer;}
 #content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; font-family:'HelveticaNeueW01-76Bold'; text-transform: uppercase; padding-bottom:4px;}
 #content .scene.events ul.items li.item dl {}
 #content .scene.events ul.items li.item dl dt {display: none;}
-#content .scene.events ul.items li.item dl dd.published_at {font-size: 32px; color:#00027a; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.events ul.items li.item dl dd {display:block;}
+#content .scene.events ul.items li.item dl dd.published_at {font-size: 36px; color:#00027a; font-family:'HelveticaNeueW01-86Heav'; padding-bottom:4px;}
 #content .scene.events ul.items li.item dl dd.location {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
-#content .scene.events ul.items li.item .description p {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
+#content .scene.events ul.items li.item .description {display: none;}
+.event #content .scene.events {padding:0;}
+.event #content .scene.events ul.items li.item {width: 480px; margin: 0 0 0 240px; cursor: default;}
+.event #content .scene.events ul.items li.item .description {display: block;}
+.event #content .scene.events ul.items li.item .description p {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
+.event #content .scene.events .next,
+.event #content .scene.events .previous {top:50%; color: #00027a; font-size: 16px;}
+.event #content .scene.events .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_blue.png") no-repeat bottom left; text-indent: -9999px;}
+.event #page #header,
+.event #page #footer {display: none;}
 
 
 /*s-footer-desktop.css*/
 #footer {padding: 100px 0 60px; width: 100%;}
-#footer.red {background-color:#ee191b; }
-#footer.blue {background-color:#00027a; }
 #footer .social {display: none;}
 #footer .about {width:740px; margin:0 auto;}
-#footer .about p {text-align: center; font-size: 26px; font-family:'HelveticaNeueW01-86Heav'; color: #ee191b;}
+#footer .about p {text-align: center; font-size: 26px; font-family:'HelveticaNeueW01-86Heav';}
 #footer .about ul.contacts {display:block; width:100%; font-size: 1rem; height:200px;}
 #footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:360px;}
-#footer .about ul.contacts li.contact .press {border: 1px solid #000;}
-#footer .about ul.contacts li.contact h4 {color: #ee191b; padding-bottom: 4px;}
-#footer .about ul.contacts li.contact h5 {font-size:20px; padding-bottom: 24px; text-transform: uppercase; color: #ee191b; font-family:'HelveticaNeueW01-86Heav';}
-#footer .about ul.contacts li.contact p {font-family:'HelveticaNeueW02-55Roma'; color: #ee191b; font-size: 14px; line-height: 1em; padding-bottom: 4px;}
-#footer .about ul.contacts li.contact p a {font-family:'HelveticaNeueW01-86Heav'; color: #ee191b;}
-
+#footer .about ul.contacts li.contact .press {}
+#footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
+#footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-86Heav';}
+#footer .about ul.contacts li.contact p {padding-bottom: 4px; font-size: 14px; line-height: 1em; font-family:'HelveticaNeueW02-55Roma';}
+#footer .about ul.contacts li.contact p a {font-family:'HelveticaNeueW01-86Heav'; padding:0 4px;}
+#footer.red {background-color:#ee191b; }
+#footer.red .about p {color: #00027a;}
+#footer.red .about ul.contacts li.contact * {color: #00027a;}
+#footer.red .about ul.contacts li.contact p a:hover {background-color: #00027a; color: #ee191b;}
+#footer.blue {background-color:#00027a; }
+#footer.blue .about p {color: #ee191b;}
+#footer.blue .about ul.contacts li.contact * {color: #ee191b;}
+#footer.blue .about ul.contacts li.contact p a:hover {background-color: #ee191b; color: #00027a;}
 
 /*s-header-desktop.css*/
 #header #navigation {position: fixed; top:0; width: 100%; z-index: 99;}
-#header #navigation .nav_icon {width:20px; height:15px; position: absolute; padding:24px 18px; right:10px; top:0px; cursor: pointer;}
+#header #navigation .nav_icon {width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer;  background-repeat:no-repeat; background-position: bottom left;
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
 #header #navigation ul.primary {display: none;}
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
 #header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW01-85Heav'; width:400px; display: block; margin:20px auto;}
 #header #navigation ul.servicenavigation {margin:16px auto 0; text-align: center;}
 #header #navigation ul.servicenavigation li a {display:block; width:100px; height:40px; margin: 0 10px;}
-#header #navigation ul.servicenavigation li.support_us a {background: #ee191b url("/img/bn_support_us_blue.png") no-repeat center center;}
-#header #navigation ul.servicenavigation li.help_us a {background: #ee191b url("/img/bn_help_us_blue.png") no-repeat center center;}
 #header.open #navigation ul.servicenavigation {display: none;}
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute;  bottom: 0; padding-bottom:20px; left: 50%; width: 220px; margin-left: -110px; }
 #header.open #navigation .social h4 {font-family:'HelveticaNeueW01-85Heav'; text-align:center; text-transform: uppercase; font-size: 16px;}
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; width: 24px; height:40px; margin:0 15px; background-repeat: no-repeat; background-position: bottom left;}
-#header #navigation.red .nav_icon {background: url("/img/gx_nav_icon_blue.png") no-repeat center center;}
+#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png");}
+#header #navigation.red ul.servicenavigation li.help_us a {background: #00027a url("/img/bn_help_us_red.png") no-repeat center center;}
+#header #navigation.red ul.servicenavigation li.support_us a {background: #00027a url("/img/bn_support_us_red.png") no-repeat center center;}
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
-#header.open #navigation.red .nav_icon {background: url("/img/gx_nav_icon_red.png") no-repeat center center;}
+#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png");}
 #header.open #navigation.red ul.primary li a.active,
 #header.open #navigation.red ul.primary li a:hover {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.red .social h4 {color:#ee191b;}
@@ -219,9 +251,11 @@ name area link
 #header.open #navigation.red .social ul li.youtube a {background-image: url("/img/bn_yt_red.png");}
 #header.open #navigation.red .social ul li.twitter a {background-image: url("/img/bn_tw_red.png");}
 #header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
-#header #navigation.blue .nav_icon {background: url("/img/gx_nav_icon_red.png") no-repeat center center;}
+#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png");}
+#header #navigation.blue ul.servicenavigation li.help_us a {background: #ee191b url("/img/bn_help_us_blue.png") no-repeat center center;}
+#header #navigation.blue ul.servicenavigation li.support_us a {background: #ee191b url("/img/bn_support_us_blue.png") no-repeat center center;}
 #header.open #navigation.blue {background: #ee191b;}
-#header.open #navigation.blue .nav_icon {background: url("/img/gx_nav_icon_blue.png") no-repeat center center;}
+#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png");}
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
 #header.open #navigation.blue ul.primary li a.active,
 #header.open #navigation.blue ul.primary li a:hover {background-color:#00027a; color:#ee191b;}

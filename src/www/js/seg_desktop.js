@@ -2717,6 +2717,132 @@ Util.getVar = function(param, url) {
 }
 
 
+/*u-image.js*/
+Util.Image = u.i = new function() {
+	this.load = function(node, src) {
+		var image = new Image();
+		image.node = node;
+		u.ac(node, "loading");
+	    u.e.addEvent(image, 'load', u.i._loaded);
+		u.e.addEvent(image, 'error', u.i._error);
+		image.src = src;
+	}
+	this._loaded = function(event) {
+		u.rc(this.node, "loading");
+		if(typeof(this.node.loaded) == "function") {
+			this.node.loaded(event);
+		}
+	}
+	this._error = function(event) {
+		u.rc(this.node, "loading");
+		u.ac(this.node, "error");
+		if(typeof(this.node.loaded) == "function" && typeof(this.node.failed) != "function") {
+			this.node.loaded(event);
+		}
+		else if(typeof(this.node.failed) == "function") {
+			this.node.failed(event);
+		}
+	}
+	this._progress = function(event) {
+		u.bug("progress")
+		if(typeof(this.node.progress) == "function") {
+			this.node.progress(event);
+		}
+	}
+	this._debug = function(event) {
+		u.bug("event:" + event.type);
+		u.xInObject(event);
+	}
+}
+
+
+/*beta-u-preloader.js*/
+u.preloader = function(node, files, options) {
+	var callback, callback_min_delay
+	if(typeof(options) == "object") {
+		var argument;
+		for(argument in options) {
+			switch(argument) {
+				case "callback"				: callback				= options[argument]; break;
+				case "callback_min_delay"	: callback_min_delay	= options[argument]; break;
+			}
+		}
+	}
+	if(!u._preloader_queue) {
+		u._preloader_queue = document.createElement("div");
+		u._preloader_processes = 0;
+		if(u.e && u.e.event_pref == "touch") {
+			u._preloader_max_processes = 1;
+		}
+		else {
+			u._preloader_max_processes = 1;
+		}
+	}
+	if(node && files) {
+		var entry, file;
+		var new_queue = u.ae(u._preloader_queue, "ul");
+		new_queue._callback = callback;
+		new_queue._node = node;
+		new_queue._files = files;
+		new_queue.nodes = new Array();
+		new_queue._start_time = new Date().getTime();
+		for(i = 0; file = files[i]; i++) {
+			entry = u.ae(new_queue, "li", {"class":"waiting"});
+			entry.i = i;
+			entry._queue = new_queue
+			entry._file = file;
+		}
+		u.ac(node, "waiting");
+		if(typeof(node.waiting) == "function") {
+			node.waiting();
+		}
+	}
+	u.queueLoader();
+	return u._preloader_queue;
+}
+u.queueLoader = function() {
+	if(u.qs("li.waiting", u._preloader_queue)) {
+		while(u._preloader_processes < u._preloader_max_processes) {
+			var next = u.qs("li.waiting", u._preloader_queue);
+			if(next) {
+				if(u.hc(next._queue._node, "waiting")) {
+					u.rc(next._queue._node, "waiting");
+					u.ac(next._queue._node, "loading");
+					if(typeof(next._queue._node.loading) == "function") {
+						next._node._queue.loading();
+					}
+				}
+				u._preloader_processes++;
+				u.rc(next, "waiting");
+				u.ac(next, "loading");
+				next.loaded = function(event) {
+					this._image = event.target;
+					this._queue.nodes[this.i] = this;
+					u.rc(this, "loading");
+					u.ac(this, "loaded");
+					u._preloader_processes--;
+					if(!u.qs("li.waiting,li.loading", this._queue)) {
+						u.rc(this._queue._node, "loading");
+						if(typeof(this._queue._callback) == "function") {
+							this._queue._node._callback = this._queue._callback;
+							this._queue._node._callback(this._queue.nodes);
+						}
+						else if(typeof(this._queue._node.loaded) == "function") {
+							this._queue._node.loaded(this._queue.nodes);
+						}
+					}
+					u.queueLoader();
+				}
+				u.i.load(next, next._file);
+			}
+			else {
+				break
+			}
+		}
+	}
+}
+
+
 /*i-page-desktop.js*/
 u.bug_console_only = true;
 Util.Objects["page"] = new function() {
@@ -2771,8 +2897,6 @@ Util.Objects["page"] = new function() {
 				this.primary.li = u.qsa("li a", this.primary);
 				var i, node;
 				for (i = 0; node = this.primary.li[i]; i++) {
-					u.bug("body.className" + document.body.className);
-					u.bug("node.className" + node.className);
 					if (document.body.className == node.className) {
 						u.ac(node, "active");
 					}
@@ -2923,6 +3047,14 @@ Util.Objects["events"] = new function() {
 		}
 		scene.ready = function() {
 			u.bug("events");
+			this.nodes = u.qsa("ul.items li.item", this);
+			var i, node;
+			for (i = 0; node = this.nodes[i]; i++) {
+				u.ce(node);
+				node.clicked = function() {
+					location.href = this.url;
+				}
+			}
 			page.ready();
 			page.cN.ready();
 		}
@@ -2930,31 +3062,19 @@ Util.Objects["events"] = new function() {
 	}
 }
 
-/*i-tweets-desktop.js*/
-Util.Objects["tweets"] = new function() {
+/*i-event-desktop.js*/
+Util.Objects["event"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			u.bug("tweets");
-			this.wrapper = u.qs("div.tweets", this);
-			this.col1 = u.qs("ul.tweets", this.wrapper);
-			u.ac(this.col1, "first");
-			this.col2 = u.ae(this.wrapper, "ul", {"class": "tweets"});
-			this.col3 = u.ae(this.wrapper, "ul", {"class": "tweets last"});
-			this.tweets = u.qsa("li.tweet", this.col1);
-			var i, node;
-			for(i = 0; node = this.tweets[i]; i++) {
-				if (i%3 == 0) {
-				} else if (i%3 == 1) {
-					u.ae(this.col2, node);
-				} else if (i%3 == 2) {
-					u.ae(this.col3, node);
-				}
-			}
-			u.bug(page.cN);
+			u.bug("event!   " + u.browserHeight());
+			u.as(this, "height", u.browserHeight()+"px");
+			this.ul = u.qs("ul.items li.item", this);
+			u.as(this.ul, "marginTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
+			page.ready();
 			page.cN.ready();
 		}
 		scene.ready();
@@ -3067,19 +3187,72 @@ Util.Objects["candidates"] = new function() {
 		}
 		scene.ready = function() {
 			u.bug("candidates");
-			page.cN.ready();
 			this.nodes = u.qsa("ul.items li.item", this);
 			var i, node;
 			for (i = 0; node = this.nodes[i]; i++) {
+				u.ce(node);
+				node.clicked = function() {
+					location.href = this.url;
+				}
 				node._image_available = u.cv(node, "image_id");
 				if(node._image_available) {
 					node._image_src = "/images/" + node._image_available + "/300x.jpg";
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
-					node._play_bn = u.ae(node._image_mask, "div", {"class":"play_bn", "html": "<p>Play</p>"});
 				}
+			}
+			page.ready();
+			page.cN.ready();
+		}
+		scene.ready();
+	}
+}
+
+/*i-candidate-desktop.js*/
+Util.Objects["candidate"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("candidate");
+			this.li = u.qs("ul.items li.item", this);
+			u.bug("height:  " + this.li.offsetHeight)
+			u.bug("u.browserHeight():  " + u.browserHeight())
+			this.li._image_available = u.cv(this.li, "image_id");
+			if(this.li._image_available) {
+				this.li._image_src = "/images/" + this.li._image_available + "/300x.jpg";
+				this.li._image_mask = u.ie(this.li, "div", {"class":"image"});
+				this.li.loaded = function(queue) {
+					this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
+					if (u.browserHeight() > this.offsetHeight) {
+						u.bug("CHECK  HEIGHT!!!    " + this.offsetHeight)
+						u.as(scene, "height", u.browserHeight()+"px");
+						u.as(this, "marginTop", (u.browserHeight()/2)-(this.offsetHeight/2) +"px");
+					} else {
+						u.as(this, "padding", "100px 0 60px");
+					}
+				}
+				u.preloader(this.li, [this.li._image_src]);
 			}
 		}
 		scene.ready();
+	}
+}
+
+/*i-footer-desktop.js*/
+Util.Objects["footer"] = new function() {
+	this.init = function(footer) {
+		footer.ready = function() {
+			u.bug("set footer color");
+			if (document.body.className == "candidates" || document.body.className == "candidate") {
+				u.ac(this, "red");
+			}
+			else {
+				u.ac(this, "blue");
+			}
+		}
+		footer.ready();
 	}
 }
