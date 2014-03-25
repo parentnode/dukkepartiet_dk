@@ -7,6 +7,8 @@ if(isset($read_access) && $read_access) {
 include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
 $action = $page->actions();
+$IC = new Item();
+$itemtype = "candidate";
 
 
 $page->bodyClass("candidates");

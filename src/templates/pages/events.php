@@ -1,8 +1,7 @@
 <?php
 global $action;
-
-$IC = new Item();
-$itemtype = "event";
+global $IC;
+global $itemtype;
 
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "published_at ASC"));
 ?>
@@ -20,7 +19,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 				<h3><a href="/kalender/<?= $item['item_id'] ?>"><?= $item["name"] ?></a></h3>
 				<dl class="info">
 					<dt class="published_at">Tidspunkt</dt>
-					<!--dd class="published_at"><?= date("d.m.y h:i", strtotime($item["published_at"])) ?></dd-->
+					<!--dd class="published_at"><?= date("d.m.y H:i", strtotime($item["published_at"])) ?></dd-->
 					<dd class="published_at"><?= date("d.m.y", strtotime($item["published_at"])) ?></dd>
 					<dt class="location">Sted</dt>
 					<dd class="location"><?= $item["location"] ?></dd>

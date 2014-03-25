@@ -17,3 +17,5 @@ red:  #ee191b;
 
 #content .scene.candidate ul.items li.item h3,
 #content .scene.candidate ul.items li.item p {display: none; color: #ee191b;}
+
+#content .scene.candidate ul.actions li {font-size: 13px;}

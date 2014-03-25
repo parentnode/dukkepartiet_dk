@@ -8,6 +8,8 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
 
 $action = $page->actions();
+$IC = new Item();
+$itemtype = "event";
 
 
 $page->bodyClass("events");

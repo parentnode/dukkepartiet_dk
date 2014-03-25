@@ -1,8 +1,7 @@
 <?php
 global $action;
-
-$IC = new Item();
-$itemtype = "candidate";
+global $IC;
+global $itemtype;
 
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => "published_at ASC"));
 ?>

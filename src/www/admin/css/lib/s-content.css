@@ -10,6 +10,10 @@
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
 
 
+/* CANDIDATE */
+#content .defaultList.candidateList ul.items > li h3 {padding-bottom: 16px;}
+
+
 /* EVENT */
 #content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
 #content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}

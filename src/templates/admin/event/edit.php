@@ -24,7 +24,7 @@ $item_id = $item["id"];
 		<form action="/admin/cms/update/<?= $item_id ?>" class="labelstyle:inject" method="post" enctype="multipart/form-data">
 
 			<fieldset>
-				<?= $model->input("published_at", array("value" => date("Y-m-d h:i", strtotime($item["published_at"])))) ?>
+				<?= $model->input("published_at", array("value" => date("Y-m-d H:i", strtotime($item["published_at"])))) ?>
 				<?= $model->input("name", array("value" => $item["name"])) ?>
 				<?= $model->input("description", array("class" => "autoexpand", "value" => $item["description"])) ?>
 				<?= $model->input("location", array("value" => $item["location"])) ?>

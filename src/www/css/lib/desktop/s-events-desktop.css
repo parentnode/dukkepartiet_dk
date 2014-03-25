@@ -15,6 +15,9 @@ red:  #ee191b;
 #content .scene.events ul.items li.item dl dd.location {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
 #content .scene.events ul.items li.item .description p {font-size: 16px; color:#00027a; font-family:'HelveticaNeueW02-55Roma';}
 
+
+#content .scene.events ul.actions li {font-size: 13px;}
+
 /*#content .scene.events ul li ul.events {font-size:1rem; }
 #content .scene.events ul li ul.events li.event {width: 230px; margin: 10px; padding:18px 28px; border: 2px solid #00027a;}
 

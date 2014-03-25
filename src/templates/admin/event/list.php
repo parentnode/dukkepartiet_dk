@@ -21,7 +21,7 @@ $all_items = $IC->getItems(array("itemtype" => $itemtype, "order" => "published_
 				<h3><?= $item["name"] ?></h3>
 				<dl class="info">
 					<dt class="published_at">Published at</dt>
-					<dd class="published_at"><?= date("Y-m-d h:i", strtotime($item["published_at"])) ?></dd>
+					<dd class="published_at"><?= date("Y-m-d H:i", strtotime($item["published_at"])) ?></dd>
 				</dl>
 
 				<ul class="actions">
