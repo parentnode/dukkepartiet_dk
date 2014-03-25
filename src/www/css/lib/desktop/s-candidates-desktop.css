@@ -4,7 +4,7 @@ red:  #ee191b;
 */
 
 #content .scene.candidates {}
-#content .scene.candidates h1 {color: #ee191b;}
+#content .scene.candidates h1 {color: #ee191b; padding:100px 0 60px;}
 #content .scene.candidates h2 {}
 
 #content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
@@ -17,7 +17,7 @@ red:  #ee191b;
 
 #content .scene.candidates ul.items li.item h3,
 #content .scene.candidates ul.items li.item p {display: none; color: #ee191b;}
-name area link
+
 
 /*#content .scene.candidates ul.items li.item h3 {color: #ee191b;}
 #content .scene.candidates ul.items li.item h4 {color: #ee191b;}

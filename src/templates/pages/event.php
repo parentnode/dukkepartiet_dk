@@ -9,10 +9,6 @@ $item_id = $item["id"];
 ?>
 <div class="scene events red">
 
-	<!-- Mød kandidaterne -->
-	
-		<!--h2>Kalender</h2-->
-
 		<ul class="items">
 			<li class="item">
 				<h3><?= $item["name"] ?></h3>

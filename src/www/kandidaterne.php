@@ -23,7 +23,7 @@ if(!$action) {
 else {
 
 	$page->header();
-	$page->template("pages/404.php");
+	$page->template("pages/candidate.php");
 	$page->footer();
 
 }

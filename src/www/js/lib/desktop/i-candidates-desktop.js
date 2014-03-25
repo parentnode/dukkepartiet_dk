@@ -19,6 +19,7 @@ Util.Objects["candidates"] = new function() {
 			
 			u.bug("candidates");
 			
+			page.ready();
 			page.cN.ready();
 
 			this.nodes = u.qsa("ul.items li.item", this);
