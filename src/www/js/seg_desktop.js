@@ -2976,7 +2976,7 @@ Util.Objects["front"] = new function() {
 			}
 		}
 		scene.loadPages = function() {
-			this.sections = ["/aktioner", "/doktriner"];
+			this.sections = ["/aktioner", "/program"];
 			var i, section, div;
 			for (i = 0; section = this.sections[i]; i++) {
 				div = u.ae(page.cN, "div");
