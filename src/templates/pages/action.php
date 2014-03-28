@@ -22,6 +22,13 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 			<li class="more"><a href="http://youtube.com" target="_blank">flere film her</a></li>
 		</ul>
 <?		endif; ?>
+		
+		<div class="youtube olle">
+
+			<div class="close"></div>
+			<div class="player"></div>
+
+		</div>
 	</div>
 
 

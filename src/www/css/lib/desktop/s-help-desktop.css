@@ -1,0 +1,30 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#content .scene.help {padding:0;}
+
+#content .scene.help .container {width: 460px; margin:0 auto; text-align: center;}
+#content .scene.help .container h2 {color: #00027a; font-size: 55px; padding:0 10px; }
+#content .scene.help .container dl {padding-top:70px;}
+#content .scene.help .container dl dt,
+#content .scene.help .container dl dd {display: block; color: #00027a; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.help .container dl dt {font-size: 24px; padding-bottom:10px;}
+#content .scene.help .container dl dd {font-size: 40px; padding-bottom:40px;}
+#content .scene.help .container p {color: #00027a;}
+#content .scene.help .container p.intro {font-size: 18px; padding:30px 0;}
+
+
+	/* menu/close_bn*/
+.help_us #content .scene.help .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_blue.png") no-repeat bottom left; text-indent: -9999px; z-index: 101;}
+	/* HIDE MENU & FOOTER */
+.help_us #page #footer {display: none;}
+.help_us #page #header #navigation .nav_icon {display: none;}
+.help_us #page #header #navigation ul.servicenavigation li.help_us a {background: #ee191b url("/img/bn_help_us_blue.png") no-repeat center center;}
+
+
+
+
+
+

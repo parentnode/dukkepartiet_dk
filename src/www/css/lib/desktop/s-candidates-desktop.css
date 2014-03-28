@@ -1,5 +1,5 @@
 /*
-blue: #ee191b;
+blue: #00027a;
 red:  #ee191b;
 */
 
@@ -7,10 +7,10 @@ red:  #ee191b;
 #content .scene.candidates h1 {color:#ee191b;}
 
 #content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
-#content .scene.candidates ul.items li.item {width: 300px; margin:0 10px 70px 0; text-align: center; cursor: pointer;}
+#content .scene.candidates ul.items li.item {width: 470px; margin:0 10px 70px 0; text-align: center; cursor: pointer;}
 #content .scene.candidates ul.items li.item:last-child {margin:0;}
 
-#content .scene.candidates ul.items li.item .image {width:220px; min-height:220px; padding:10px; background-color: red; margin: 0 auto 6px;}
+#content .scene.candidates ul.items li.item .image {width:390px; min-height:220px; padding:10px; background-color: red; margin: 0 auto 6px;}
 #content .scene.candidates ul.items li.item .image img {width:100%;}
 
 #content .scene.candidates ul.items li.item h2 {color: #ee191b; font-size: 24px; padding:0 10px; }

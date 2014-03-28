@@ -5,6 +5,10 @@ Util.Objects["front"] = new function() {
 		// resize scene
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
+			// slogan height
+			u.as(scene, "height", u.browserHeight()+"px");
+			var height = u.browserHeight() - scene.logo.offsetHeight - 100; // 100px bottom
+			u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
 
 			// refresh dom
 			//this.offsetHeight;
@@ -13,7 +17,18 @@ Util.Objects["front"] = new function() {
 		// check fold on scroll
 		scene.scrolled = function() {
 //			u.bug("scrolled")
-
+			var scroll_y = u.scrollY();
+			var browser_h = u.browserH();
+			if (scroll_y > browser_h) {
+				if (u.hc(page.hN, "no_logo")) {
+					u.rc(page.hN, "no_logo");
+				}
+			} else {
+				if (!u.hc(page.hN, "no_logo")) {
+					u.ac(page.hN, "no_logo");
+					u.bug("add logo");
+				}
+			}
 		}
 
 
@@ -23,17 +38,29 @@ Util.Objects["front"] = new function() {
 			// after loading all scenes
 			//u.bug("booom: " + u.qsa(".scene", page.cN).length)
 			if (u.qsa(".scene", page.cN).length == 3) {
-				u.bug("DONE loading front")
-			
+				
 				// add logo
-				u.ie(this, "div", {"class": "logo"});
+				this.logo = u.ie(this, "div", {"class": "logo"});
+
+				// slogan container
+				this.slogan = u.qs(".container", this);
 				
 				// duplicate servicenavigation to intro section
 				// this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
 				// u.ae(this, this.servicenavigation)
 
+				// load slogan
 				this.loadSloganImages();
 				
+				// set resize handler
+				u.e.addEvent(window, "resize", scene.resized);
+				// set scroll handler
+				u.e.addEvent(window, "scroll", scene.scrolled);
+
+				// resize / scroll straight away!
+				this.resized();
+				this.scrolled();
+
 
 				// after all scenes loaded
 				page.ready();
@@ -43,10 +70,14 @@ Util.Objects["front"] = new function() {
 
 		scene.loadSloganImages = function() {
 
-			this.nodes = u.qsa("ul.items li.item", this);
+			//this.slogan = u.qs(".container", this);
+			
+			
+			
+			this.slogans = u.qsa("ul.items li.item", this.slogan);
 
 			var i, node;
-			for (i = 0; node = this.nodes[i]; i++) {
+			for (i = 0; node = this.slogans[i]; i++) {
 				//u.bug("slogan image node:  " + node);
 
 				node._image_available = u.cv(node, "image_id");

@@ -40,7 +40,6 @@ Util.Objects["candidate"] = new function() {
 					this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
 
 					if (u.browserHeight() > this.offsetHeight) {
-						u.bug("CHECK  HEIGHT!!!    " + this.offsetHeight)
 						// scene height
 						u.as(scene, "height", u.browserHeight()+"px");
 

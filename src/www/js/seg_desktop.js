@@ -2933,21 +2933,40 @@ u.e.addDOMReadyEvent(u.init);
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
+			u.as(scene, "height", u.browserHeight()+"px");
+			var height = u.browserHeight() - scene.logo.offsetHeight - 100; 
+			u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
 		}
 		scene.scrolled = function() {
+			var scroll_y = u.scrollY();
+			var browser_h = u.browserH();
+			if (scroll_y > browser_h) {
+				if (u.hc(page.hN, "no_logo")) {
+					u.rc(page.hN, "no_logo");
+				}
+			} else {
+				if (!u.hc(page.hN, "no_logo")) {
+					u.ac(page.hN, "no_logo");
+					u.bug("add logo");
+				}
+			}
 		}
 		scene.ready = function() {
 			if (u.qsa(".scene", page.cN).length == 3) {
-				u.bug("DONE loading front")
-				u.ie(this, "div", {"class": "logo"});
+				this.logo = u.ie(this, "div", {"class": "logo"});
+				this.slogan = u.qs(".container", this);
 				this.loadSloganImages();
+				u.e.addEvent(window, "resize", scene.resized);
+				u.e.addEvent(window, "scroll", scene.scrolled);
+				this.resized();
+				this.scrolled();
 				page.ready();
 			}
 		}
 		scene.loadSloganImages = function() {
-			this.nodes = u.qsa("ul.items li.item", this);
+			this.slogans = u.qsa("ul.items li.item", this.slogan);
 			var i, node;
-			for (i = 0; node = this.nodes[i]; i++) {
+			for (i = 0; node = this.slogans[i]; i++) {
 				node._image_available = u.cv(node, "image_id");
 				if(node._image_available) {
 					node._image_src = "/images/" + node._image_available + "/960x.png";
@@ -3162,7 +3181,17 @@ Util.Objects["action"] = new function() {
 		scene.ready = function() {
 			u.bug("action");
 			page.cN.ready();
-			this.nodes = u.qsa("ul.items li.item", this);
+			this.ul = u.qs("ul.items", this)
+			this.nodes = u.qsa("ul.items li.item", this.ul);
+			this.video_container = u.qs(".youtube", this);
+			this.video_player = u.qs(".youtube .player", this);
+			this.video_close = u.qs(".youtube .close", this);
+			u.ce(this.video_close);
+			this.video_close.clicked = function(event) {
+				u.as(scene.video_container, "display", "none");
+				scene.video_player.innerHTML = "";
+				u.as(scene.ul, "opacity", "1");
+			}
 			var i, node;
 			for (i = 0; node = this.nodes[i]; i++) {
 				node._image_available = u.cv(node, "image_id");
@@ -3170,10 +3199,57 @@ Util.Objects["action"] = new function() {
 					node._image_src = "/images/" + node._image_available + "/300x.jpg";
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
-					node._play_bn = u.ae(node._image_mask, "div", {"class":"play_bn", "html": "<p>Play</p>"});
+					node.player_url = u.qs("a", node).href;
+					node.player_width = 720;
+					node.player_height = (node.player_width/16)*9;
+					if(node.player_url.match(/youtube/i)) {
+						var p_id = node.player_url.match(/watch\?v\=([a-zA-Z0-9_-]+)/);
+						if(p_id) {
+							node.player_id = p_id[1];
+							node.player_html = '<iframe width="' + node.player_width+ '" height="' + node.player_height + '" src="//www.youtube.com/embed/' + node.player_id + '?autoplay=1" frameborder="0" allowfullscreen></iframe>'
+							node._bn_play = u.ae(node._image_mask, "div", {"class":"play_bn", "html": "<p>Play</p>"});
+							node._bn_play.player_html = node.player_html;
+							u.ce(node._bn_play);
+							node._bn_play.clicked = function(event) {
+								u.as(scene.video_container, "display", "block");
+								scene.video_player.innerHTML = this.player_html;
+								u.as(scene.ul, "opacity", "0.5");
+							}
+						}
+					}
 				}
 			}
 		}
+		// 
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 		
+		// 				'html5': 1, 
+		// 				
+		// 			
+		// 
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 	
+		// 			
+		// 			
+		// 			
+		// 			
+		// 			
+		// 			
+		// 			
+		// 			
+		// 		// https:
 		scene.ready();
 	}
 }
@@ -3227,7 +3303,6 @@ Util.Objects["candidate"] = new function() {
 				this.li.loaded = function(queue) {
 					this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
 					if (u.browserHeight() > this.offsetHeight) {
-						u.bug("CHECK  HEIGHT!!!    " + this.offsetHeight)
 						u.as(scene, "height", u.browserHeight()+"px");
 						u.as(this, "marginTop", (u.browserHeight()/2)-(this.offsetHeight/2) +"px");
 					} else {
@@ -3236,6 +3311,44 @@ Util.Objects["candidate"] = new function() {
 				}
 				u.preloader(this.li, [this.li._image_src]);
 			}
+		}
+		scene.ready();
+	}
+}
+
+/*i-support-desktop.js*/
+Util.Objects["support"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("support   " + u.browserHeight());
+			u.as(this, "height", u.browserHeight()+"px");
+			this.ul = u.qs(".container", this);
+			u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
+			page.ready();
+			page.cN.ready();
+		}
+		scene.ready();
+	}
+}
+
+/*i-help-desktop.js*/
+Util.Objects["help"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("help   " + u.browserHeight());
+			u.as(this, "height", u.browserHeight()+"px");
+			this.ul = u.qs(".container", this);
+			u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
+			page.ready();
+			page.cN.ready();
 		}
 		scene.ready();
 	}
