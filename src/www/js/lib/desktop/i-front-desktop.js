@@ -99,7 +99,7 @@ Util.Objects["front"] = new function() {
 		scene.loadPages = function() {
 								
 
-			this.sections = ["/aktioner", "/doktriner"];
+			this.sections = ["/aktioner", "/program"];
 			//var sections = ["/aktioner", "/events", "/doktriner", "/tweets", "/about"];
 			
 			// request new content

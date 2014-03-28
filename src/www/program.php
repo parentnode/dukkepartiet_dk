@@ -10,14 +10,14 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 $action = $page->actions();
 
 
-$page->bodyClass("doctrines");
-$page->pageTitle("Dukke Partiet - Doktriner");
+$page->bodyClass("program");
+$page->pageTitle("Dukke Partiet - Program");
 
 // list
 if(!$action) {
 
 	$page->header();
-	$page->template("pages/doctrines.php");
+	$page->template("pages/program.php");
 	$page->footer();
 
 }

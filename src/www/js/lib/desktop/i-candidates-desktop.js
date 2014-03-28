@@ -35,7 +35,7 @@ Util.Objects["candidates"] = new function() {
 				if(node._image_available) {
 					// src
 					//node._image_src = "/logo/940/" + node._image_available + "." + node._image_format;
-					node._image_src = "/images/" + node._image_available + "/300x.jpg";
+					node._image_src = "/images/" + node._image_available + "/400x.jpg";
 
 					// add image
 					node._image_mask = u.ie(node, "div", {"class":"image"});

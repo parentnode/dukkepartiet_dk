@@ -3272,7 +3272,7 @@ Util.Objects["candidates"] = new function() {
 				}
 				node._image_available = u.cv(node, "image_id");
 				if(node._image_available) {
-					node._image_src = "/images/" + node._image_available + "/300x.jpg";
+					node._image_src = "/images/" + node._image_available + "/400x.jpg";
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
 				}
@@ -3298,7 +3298,7 @@ Util.Objects["candidate"] = new function() {
 			u.bug("u.browserHeight():  " + u.browserHeight())
 			this.li._image_available = u.cv(this.li, "image_id");
 			if(this.li._image_available) {
-				this.li._image_src = "/images/" + this.li._image_available + "/300x.jpg";
+				this.li._image_src = "/images/" + this.li._image_available + "/400x.jpg";
 				this.li._image_mask = u.ie(this.li, "div", {"class":"image"});
 				this.li.loaded = function(queue) {
 					this._image = u.ae(this._image_mask, "img", {"src":this._image_src});

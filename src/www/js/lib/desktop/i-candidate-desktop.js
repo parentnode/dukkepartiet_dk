@@ -30,7 +30,7 @@ Util.Objects["candidate"] = new function() {
 			// if image
 			if(this.li._image_available) {
 				// src
-				this.li._image_src = "/images/" + this.li._image_available + "/300x.jpg";
+				this.li._image_src = "/images/" + this.li._image_available + "/400x.jpg";
 				//alert(this.li._image_src)
 
 				// add image
