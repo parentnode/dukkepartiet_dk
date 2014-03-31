@@ -1,9 +1,6 @@
 
 /*seg_desktop_include.css*/
 
-/*s-fonts.css*/
-
-
 /*s-page-desktop.css*/
 * {font-family: Arial, sans-serif; color: #000000;
 	-webkit-text-size-adjust: none;
@@ -311,7 +308,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 
 /*s-mediaquery-desktop.css*/
 @media (min-width: 600px) and (max-width: 959px) {
-	#content .scene.front .container ul.items li.item {height:238px; width:600px; margin:0 auto;}
+	#content .scene.front .container ul.items li.item {height:238px; width:510px; margin:0 auto;}
 	#content .scene.action ul.items {width:600px;}
 	#content .scene.action ul.items li {width:260px;}
 	#content .scene.action .youtube {width:520px; margin-left: -260px; }

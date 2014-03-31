@@ -2692,3 +2692,124 @@ Util.getVar = function(param, url) {
 	}
 }
 
+
+/*i-page-mobile_touch.js*/
+u.bug_console_only = true;
+Util.Objects["page"] = new function() {
+	this.init = function(page) {
+			page.hN = u.qs("#header");
+			page.cN = u.qs("#content");
+			page.nN = u.qs("#navigation");
+			page.nN = u.ie(page.hN, page.nN);
+			page.fN = u.qs("#footer");
+			page.resized = function() {
+			}
+			page.scrolled = function() {
+			}
+			page.ready = function() {
+				u.bug("page ready")
+				if(!u.hc(this, "ready")) {
+					u.addClass(this, "ready");
+				}
+			}
+			page.cN.ready = function() {
+				u.bug("page.cN ready:" + u.hc(page, "ready") + ", " + u.hc(this, "ready"));
+			}
+	}
+}
+u.e.addDOMReadyEvent(u.init);
+
+
+/*i-front-mobile_touch.js*/
+Util.Objects["front"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			if (u.qsa(".scene", page.cN).length == 2) {
+				this.slogan = u.qs(".container", this);
+				this.slogan.innerHTML = "";
+				var height = u.browserWidth()/64*149
+				u.as(this.slogan, "height", height+"px")
+				page.ready();
+			}
+		}
+		scene.loadPages = function() {
+			this.sections = ["/program"];
+			var i, section, div;
+			for (i = 0; section = this.sections[i]; i++) {
+				div = u.ae(page.cN, "div");
+				div.response = function(response) {
+					var new_scene = u.qs(".scene", response);
+					this.innerHTML = new_scene.innerHTML;
+					u.ac(this, new_scene.className);
+					u.init(this);
+					scene.ready();
+				}
+				u.request(div, u.h.getCleanHash(section));
+			}
+		}
+		scene.loadPages();
+	}
+}
+
+
+/*i-carousel-mobile_touch.js*/
+Util.Objects["carousel"] = new function() {
+	this.init = function(list) {
+		list.resized = function() {
+		}
+		list.scrolled = function() {
+		}
+		list.ready = function() {
+			this.container = u.we(this, "div", {"class": "container"})
+			this.slides = u.qsa('li.item', this);
+			this.current_slide_num = 0;
+			this.current_node = this.slides[0];
+			this.next_node;
+			this._previous = u.ae(this.container, "div", {"class": "next", "html": "Næste"});
+			this._next = u.ae(this.container, "div", {"class": "previous", "html": "Forrige"});
+			var i, node;
+			for(i = 0; node = this.slides[i]; i++) {
+				// 
+				u.e.click(this._next);
+				u.e.click(this._previous);
+				this._next.clicked = this._previous.clicked = function(event) {
+					if (u.hc(event.target, "next")) {
+						if (list.current_slide_num == list.slides.length-1) {
+							list.current_slide_num = 0;	
+						} else {
+							list.current_slide_num++;
+						}
+						list.hide(list.current_node);
+						list.show(list.slides[list.current_slide_num]);
+					}
+					if (u.hc(event.target, "previous")) {
+						if (list.current_slide_num != 0) {
+							list.current_slide_num--;
+						} else {
+							list.current_slide_num = list.slides.length-1;
+						}
+						list.hide(list.current_node);
+						list.show(list.slides[list.current_slide_num]);
+					}
+				}
+				if (i == 0) {
+					u.as(node, "display", "block");
+				} else {
+					u.as(node, "display", "none");
+				}
+			}
+		}
+		list.hide = function(node) {
+			u.as(node, "display", "none");
+		}
+		list.show = function(node) {
+			u.as(node, "display", "block");
+			list.current_node = node;
+		}
+		list.ready();
+	}
+}

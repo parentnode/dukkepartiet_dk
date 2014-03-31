@@ -1,0 +1,96 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+
+/*#header #navigation { position: fixed; top:0; width: 100%; z-index: 99; border-bottom:1px solid pink;}*/
+#header #navigation {position: fixed; top:0; width: 100%; height:70px; z-index: 99; background-repeat: no-repeat; background-position: 20px 20px;}
+#header.open #navigation {background-image: none;}
+#header #navigation .logo {width: 136px; height:48px; top: 16px; left:30px; position:absolute; background-repeat: no-repeat; background-position: top left; cursor: pointer;}
+
+
+.no_menu #header #navigation.red,
+.no_menu #header #navigation.blue {background-image: none;}
+.no_menu #header #navigation ul.servicenavigation {display: none;}
+.no_menu #header #navigation .logo {display: none;}
+
+#header #navigation .nav_icon {width:22px; height:22px; position: absolute; padding:16px 30px 0 0; right:0px; top:0px; cursor: pointer;  background-repeat:no-repeat; background-position: bottom left;
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+
+/* PRIMARY NAVIGATION */
+#header #navigation ul.primary {display: none;}
+#header.open #navigation ul.primary {display: block; position: relative;}
+#header.open #navigation ul.primary li {display: block; text-align: center;}
+#header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW02-BlackC'; width:400px; display: block; margin:20px auto; text-transform: uppercase;}
+
+
+/* SERVICE NAVIGATION */
+#header #navigation ul.servicenavigation {margin:16px auto 0; text-align: center;}
+#header #navigation ul.servicenavigation li a {display:block; height:40px; margin: 0 10px; background-repeat:no-repeat; background-position: center center;}
+#header #navigation ul.servicenavigation li.help_us a {width:122px;}
+#header #navigation ul.servicenavigation li.support_us a {width:92px;}
+#header.open #navigation ul.servicenavigation {display: none;}
+
+
+/* SOCIAL */
+#header #navigation .social {display: none;}
+#header.open #navigation .social {display: block; position: absolute;  bottom: 40px; padding-bottom:20px; left: 50%; width: 420px; margin-left: -210px; }
+#header.open #navigation .social h4 {font-family:'HelveticaNeueW02-97Blac'; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
+#header.open #navigation .social ul {}
+#header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}
+#header.open #navigation .social ul li.facebook a,
+#header.open #navigation .social ul li.twitter a {width: 90px;}
+
+#header.open #navigation .social ul li.instagram a,
+#header.open #navigation .social ul li.youtube a {width: 100px;}
+
+
+
+/* SWITCH COLOR */
+
+	/* red */
+#header #navigation.red .logo {background-image: url("/img/gx_fixed_logo_blue.png");}
+#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png");}
+#header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
+#header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
+		/*open*/
+#header.open #navigation.red {background: #00027a;}
+#header.open #navigation.red ul.primary li a {color:#ee191b;}
+#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png");}
+#header.open #navigation.red ul.primary li a.active,
+#header.open #navigation.red ul.primary li a:hover {background-color:#ee191b; color:#00027a;}
+#header.open #navigation.red .social h4 {color:#ee191b;}
+#header.open #navigation.red .social ul li.facebook a {background-image: url("/img/bn_fb_red.png");}
+#header.open #navigation.red .social ul li.youtube a {background-image: url("/img/bn_yt_red.png");}
+#header.open #navigation.red .social ul li.twitter a {background-image: url("/img/bn_tw_red.png");}
+#header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
+	/* blue */
+#header #navigation.blue .logo {background-image: url("/img/gx_fixed_logo_red.png");}
+#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png");}
+#header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
+		/*open*/
+#header.open #navigation.blue {background: #ee191b;}
+#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png");}
+#header.open #navigation.blue ul.primary li a {color:#00027a;}
+#header.open #navigation.blue ul.primary li a.active,
+#header.open #navigation.blue ul.primary li a:hover {background-color:#00027a; color:#ee191b;}
+#header.open #navigation.blue .social h4 {color:#00027a;}
+#header.open #navigation.blue .social ul li.facebook a {background-image: url("/img/bn_fb_blue.png");}
+#header.open #navigation.blue .social ul li.youtube a {background-image: url("/img/bn_yt_blue.png");}
+#header.open #navigation.blue .social ul li.twitter a {background-image: url("/img/bn_tw_blue.png");}
+#header.open #navigation.blue .social ul li.instagram a {background-image: url("/img/bn_ig_blue.png");}
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+/*
+font-family:'HelveticaNeueW02-77BdCn 694069';			Condensed Bold Oblique
+font-family:'HelveticaNeueW02-97Blac';					Condensed Black
+font-family:'HelveticaNeueW01-77BdCn 692722';			Condensed Bold
+font-family:'HelveticaNeueW02-BlackC';					Condensed Black Oblique
+
+
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#content .scene.front .container {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }

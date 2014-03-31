@@ -4,7 +4,7 @@
 @media (min-width: 600px) and (max-width: 959px) {
 	/* ------- GENERAL ------- */
 	
-	#content .scene.front .container ul.items li.item {height:238px; width:600px; margin:0 auto;}
+	#content .scene.front .container ul.items li.item {height:238px; width:510px; margin:0 auto;}
 
 	#content .scene.action ul.items {width:600px;}
 	#content .scene.action ul.items li {width:260px;}
