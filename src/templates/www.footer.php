@@ -22,10 +22,10 @@
 				<div class="social">
 					<h4>Følg Dukkepartiet</h4>
 					<ul>
-						<li class="facebook"><a href="http://facebook.com">facebook</a></li>
-						<li class="youtube"><a href="http://youtube.com">youtube</a></li>
-						<li class="twitter"><a href="http://twitter.com">twitter</a></li>
-						<li class="instagram"><a href="http://instagram.com">instagram</a></li>
+						<li class="facebook"><a href="http://facebook.com" target="_blank">facebook</a></li>
+						<li class="youtube"><a href="http://youtube.com" target="_blank">youtube</a></li>
+						<li class="twitter"><a href="http://twitter.com" target="_blank">twitter</a></li>
+						<li class="instagram"><a href="http://instagram.com" target="_blank">instagram</a></li>
 					</ul>
 				</div>
 
@@ -41,11 +41,12 @@
 							<p><a href="mailto:kontakt@dukkepartiet.dk">kontakt@dukkepartiet.dk</a></p>
 						</li>
 						<li class="contact press">
-							<h4>Presskontakt</h4>
+							<h4>Pressekontakt</h4>
 							<h5>Have Kommunikation A/S</h5>
+							<p>Kristina Sindberg</p>
 							<p>Carit Etlars Vej 3</p>
-							<p>DK-1814 Frederiksberg C</p>
-							<p><a href="mailto:mail@have.dk">mail@have.dk</a>  (+45) 3325 2107</p>
+							<p>1814 Frederiksberg C</p>
+							<p><a href="mailto:kristina@have.dk">kristina@have.dk</a>  (+45) 2486 0184</p>
 						</li>
 					</ul>
 				</div>

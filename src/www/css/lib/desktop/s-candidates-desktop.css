@@ -14,8 +14,9 @@ red:  #ee191b;
 #content .scene.candidates ul.items li.item .image img {width:100%;}
 
 #content .scene.candidates ul.items li.item h2 {color: #ee191b; font-size: 24px; padding:0 10px; }
-#content .scene.candidates ul.items li.item h4 {color: #ee191b; padding: 4px 0;}
-#content .scene.candidates ul.items li.item p.link {display: inherit; font-family:'HelveticaNeueW01-86Heav'; font-size: 14px; }
+#content .scene.candidates ul.items li.item h4 {color: #ee191b; padding: 4px 0; font-style: italic;}
+#content .scene.candidates ul.items li.item p.link {display: block;}
+#content .scene.candidates ul.items li.item p.link a {font-family: Arial, sans-serif; font-weight: bold; font-size: 14px;}
 
 #content .scene.candidates ul.items li.item h3,
 #content .scene.candidates ul.items li.item p {display: none; color: #ee191b; padding: 4px 0;}

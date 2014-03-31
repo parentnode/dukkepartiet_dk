@@ -17,16 +17,18 @@ Util.Objects["front"] = new function() {
 		// check fold on scroll
 		scene.scrolled = function() {
 //			u.bug("scrolled")
-			var scroll_y = u.scrollY();
+			var scroll_y = u.scrollY()+100;
 			var browser_h = u.browserH();
+			// hide logo
 			if (scroll_y > browser_h) {
-				if (u.hc(page.hN, "no_logo")) {
-					u.rc(page.hN, "no_logo");
+				if (u.hc(page, "no_menu")) {
+					u.rc(page, "no_menu");
 				}
-			} else {
-				if (!u.hc(page.hN, "no_logo")) {
-					u.ac(page.hN, "no_logo");
-					u.bug("add logo");
+			}
+			// show logo
+			else {
+				if (!u.hc(page, "no_menu")) {
+					u.ac(page, "no_menu");
 				}
 			}
 		}
@@ -46,8 +48,8 @@ Util.Objects["front"] = new function() {
 				this.slogan = u.qs(".container", this);
 				
 				// duplicate servicenavigation to intro section
-				// this.servicenavigation = u.qs("ul.servicenavigation", page.fN);
-				// u.ae(this, this.servicenavigation)
+				this.servicenavigation = u.qs("ul.servicenavigation", page.fN).cloneNode(true);
+				u.ae(this, this.servicenavigation)
 
 				// load slogan
 				this.loadSloganImages();

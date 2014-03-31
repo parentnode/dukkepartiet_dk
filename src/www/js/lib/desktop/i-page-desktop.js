@@ -116,6 +116,14 @@ Util.Objects["page"] = new function() {
 			// }
 
 			page.initNavigation = function() {
+
+				// create logo div
+				this.logo = u.ae(this.nN, "div", {"class": "logo"});
+				u.ce(this.logo)
+				this.logo.clicked = function(event) {
+					location.href = "/";
+				}
+
 				// get ul.primary
 				this.primary = u.qs("ul.primary", page.nN);
 				this.primary.li = u.qsa("li a", this.primary);

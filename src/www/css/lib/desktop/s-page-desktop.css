@@ -1,4 +1,4 @@
-* {font-family: "Nationale Regular", Arial, Verdana, sans-serif; color: #000000;
+* {font-family: Arial, sans-serif; color: #000000;
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 /*
@@ -41,16 +41,16 @@ input, textarea {outline: none;}
 a, span {font-size: inherit; font-family: inherit; color: inherit; text-transform: inherit;}
 
 h1 {
-	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;
+	font-family: Arial, sans-serif;
 }
 h2 {line-height: 1.25em; padding-bottom: 7px; padding-top: 7px;
-	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;
+	font-family: Arial, sans-serif;
 }
 h3 {
-	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;
+	font-family: Arial, sans-serif;
 }
 h4 {
-	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;
+	font-family: Arial, sans-serif;
 }
 h5 {}
 h6 {}
@@ -60,11 +60,11 @@ p {line-height: 1.38em; padding: 0 0 20px;}
 
 ul {font-size: 0;}
 li {display: inline-block; vertical-align: top;
-	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;
+	font-family: Arial, sans-serif;
 }
 
 dl {font-size: 0;} 
 dd, 
 dt {display: inline-block; vertical-align: top; text-transform: uppercase; color: #666666;
-	font-family: "Nationale Demibold", Arial, Verdana, sans-serif;
+	font-family: Arial, sans-serif;
 }

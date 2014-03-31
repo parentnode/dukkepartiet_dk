@@ -1,0 +1,43 @@
+
+
+
+@media (min-width: 600px) and (max-width: 959px) {
+	/* ------- GENERAL ------- */
+	
+	#content .scene.front .container ul.items li.item {height:238px; width:600px; margin:0 auto;}
+
+	#content .scene.action ul.items {width:600px;}
+	#content .scene.action ul.items li {width:260px;}
+	#content .scene.action .youtube {width:520px; margin-left: -260px; }
+
+	#content .scene.program ul.items li.item {width:460px;} /*height: 300px;*/
+
+	#content .scene.candidates ul.items {width: 600px;}
+	#content .scene.candidates ul.items li.item {width: 290px;}
+	#content .scene.candidates ul.items li.item .image {width:240px;}
+	.candidate #content .scene.candidates ul.items li.item {margin-left: 60px;}
+
+	#content .scene.events ul.items {width:600px;}
+	#content .scene.events ul.items li.item {width:280px;}
+	.event #content .scene.events ul.items li.item {margin-left: 60px;}
+
+	#footer .about {width:460px;}
+	#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:220px;}
+
+}
+
+@media (min-width: 960px) and (max-width: 1299px) {
+	#content .scene.front .container ul.items li.item {height:325px; width:820px;}
+}
+/*
+@media (min-width: 1260px) {
+}
+*/
+
+
+
+
+
+
+
+

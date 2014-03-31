@@ -60,7 +60,6 @@ class TypeCandidate extends Model {
 		$this->addToModel("responsibilities", array(
 			"type" => "text",
 			"label" => "Responsibilities text",
-			"required" => true,
 			"hint_message" => "Write candidates responsibilities here",
 			"error_message" => "No, responsibilities! This is not good for the world"
 		));
@@ -69,7 +68,6 @@ class TypeCandidate extends Model {
 		$this->addToModel("background", array(
 			"type" => "text",
 			"label" => "Background text",
-			"required" => true,
 			"hint_message" => "Write candidates background here",
 			"error_message" => "It's gonna come out sooner than later anyway"
 		));

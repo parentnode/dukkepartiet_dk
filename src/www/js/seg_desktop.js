@@ -2893,6 +2893,11 @@ Util.Objects["page"] = new function() {
 			// 		
 			// 		
 			page.initNavigation = function() {
+				this.logo = u.ae(this.nN, "div", {"class": "logo"});
+				u.ce(this.logo)
+				this.logo.clicked = function(event) {
+					location.href = "/";
+				}
 				this.primary = u.qs("ul.primary", page.nN);
 				this.primary.li = u.qsa("li a", this.primary);
 				var i, node;
@@ -2938,16 +2943,16 @@ Util.Objects["front"] = new function() {
 			u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
 		}
 		scene.scrolled = function() {
-			var scroll_y = u.scrollY();
+			var scroll_y = u.scrollY()+100;
 			var browser_h = u.browserH();
 			if (scroll_y > browser_h) {
-				if (u.hc(page.hN, "no_logo")) {
-					u.rc(page.hN, "no_logo");
+				if (u.hc(page, "no_menu")) {
+					u.rc(page, "no_menu");
 				}
-			} else {
-				if (!u.hc(page.hN, "no_logo")) {
-					u.ac(page.hN, "no_logo");
-					u.bug("add logo");
+			}
+			else {
+				if (!u.hc(page, "no_menu")) {
+					u.ac(page, "no_menu");
 				}
 			}
 		}
@@ -2955,6 +2960,8 @@ Util.Objects["front"] = new function() {
 			if (u.qsa(".scene", page.cN).length == 3) {
 				this.logo = u.ie(this, "div", {"class": "logo"});
 				this.slogan = u.qs(".container", this);
+				this.servicenavigation = u.qs("ul.servicenavigation", page.fN).cloneNode(true);
+				u.ae(this, this.servicenavigation)
 				this.loadSloganImages();
 				u.e.addEvent(window, "resize", scene.resized);
 				u.e.addEvent(window, "scroll", scene.scrolled);
@@ -3200,8 +3207,14 @@ Util.Objects["action"] = new function() {
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
 					node.player_url = u.qs("a", node).href;
-					node.player_width = 720;
-					node.player_height = (node.player_width/16)*9;
+					if (u.browserWidth() > 959 ) {
+						node.player_width = 720;
+						node.player_height = (node.player_width/16)*9;
+					}
+					else {
+						node.player_width = 520;
+						node.player_height = (node.player_width/16)*9;
+					}
 					if(node.player_url.match(/youtube/i)) {
 						var p_id = node.player_url.match(/watch\?v\=([a-zA-Z0-9_-]+)/);
 						if(p_id) {

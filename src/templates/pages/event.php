@@ -19,7 +19,7 @@ $prev = $IC->getPrev($item_id, array("items" => $items));
 			<h3><?= $item["name"] ?></h3>
 			<dl class="info">
 				<dt class="published_at">Tidspunkt</dt>
-				<dd class="published_at"><span class="date"><?= date("d.m.y", strtotime($item["published_at"])) ?></span> <span class="time"><?= date("H:i", strtotime($item["published_at"])) ?></span></dd>
+				<dd class="published_at"><span class="date"><?= date("d.m.y", strtotime($item["published_at"])) ?></span> — <span class="time"><?= date("H:i", strtotime($item["published_at"])) ?></span></dd>
 				<dt class="location">Sted</dt>
 				<dd class="location"><?= $item["location"] ?></dd>
 			</dl>

@@ -53,8 +53,16 @@ Util.Objects["action"] = new function() {
 					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
 					
 					node.player_url = u.qs("a", node).href;
-					node.player_width = 720;
-					node.player_height = (node.player_width/16)*9;
+					// normal size
+					if (u.browserWidth() > 959 ) {
+						node.player_width = 720;
+						node.player_height = (node.player_width/16)*9;
+					}
+					// below 600px
+					else {
+						node.player_width = 520;
+						node.player_height = (node.player_width/16)*9;
+					}
 					
 					// REGEX! example urls
 					// http://www.youtube.com/watch?v=zSWUWPx2VeQ

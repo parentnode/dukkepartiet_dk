@@ -8,14 +8,14 @@ red:  #ee191b;
 
 /*#content .scene.doctrines h2 {text-align: center; margin:60px auto 60px; font-size: 55px; font-family:'HelveticaNeueW01-86Heav';}*/
 #footer .about {width:740px; margin:0 auto;}
-#footer .about p {text-align: center; font-size: 26px; font-family:'HelveticaNeueW01-86Heav';}
+#footer .about p {text-align: center; font-size: 26px; font-family: Arial, sans-serif; font-weight: bold; font-style:italic;}
 #footer .about ul.contacts {display:block; width:100%; font-size: 1rem; height:200px;}
 #footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:360px;}
 #footer .about ul.contacts li.contact .press {}
 #footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
 #footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-86Heav';}
-#footer .about ul.contacts li.contact p {padding-bottom: 4px; font-size: 14px; line-height: 1em; font-family:'HelveticaNeueW02-55Roma';}
-#footer .about ul.contacts li.contact p a {font-family:'HelveticaNeueW01-86Heav'; padding:0 4px;}
+#footer .about ul.contacts li.contact p {font-weight: normal; font-style:normal; padding-bottom: 4px; font-size: 14px; line-height: 1em; font-family: Arial, sans-serif;}
+#footer .about ul.contacts li.contact p a {font-weight: bold; padding:0 4px;}
 
 
 

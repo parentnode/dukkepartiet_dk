@@ -15,8 +15,8 @@ font-family:'HelveticaNeueW01-76Bold';
 
 #content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
 #content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW01-85Heav'; text-transform: uppercase; font-size:55px;}
-#content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase;font-size:16px;}
-#content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; font-style: italic; text-transform: uppercase; font-size:16px;}
+#content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase;font-size:16px;}
+#content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase; font-size:16px;}
 
 
 /* background colors */
@@ -32,7 +32,7 @@ font-family:'HelveticaNeueW01-76Bold';
 
 /* PREVIOUS / NEXT - Carousel */
 #content .scene .next,
-#content .scene .previous {position:absolute; width:100px; height:20px; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;
+#content .scene .previous {position:absolute; width:100px; padding: 28px 0; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;
 	/*-webkit-touch-callout: none;*/
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
@@ -40,12 +40,12 @@ font-family:'HelveticaNeueW01-76Bold';
 	    -ms-user-select: none;
 	        user-select: none;
 }
-#content .scene .next {right: 0;
+#content .scene .next {right: -10px;
 	-webkit-transform:rotate(90deg);
   	   -moz-transform:rotate(90deg);
   	    -ms-transform:rotate(90deg);
 }
-#content .scene .previous {left: 0; 
+#content .scene .previous {left: -10px; 
 	-webkit-transform:rotate(-90deg);
   	   -moz-transform:rotate(-90deg);
   	    -ms-transform:rotate(-90deg);
@@ -60,3 +60,6 @@ font-family:'HelveticaNeueW01-76Bold';
 .error #content .scene > h1 {font-size: 7rem; padding: 70px 80px 10px 83px;}
 .error #content .scene > h2 {font-size: 1.5rem; padding: 20px 80px 10px 83px;}
 .error #content .scene > p {padding: 20px 20px 10px 83px; max-width: 480px;}
+
+
+

@@ -21,11 +21,17 @@ $prev = $IC->getPrev($item_id, array("items" => $items));
 			<p class="link"><a href="<?= $item["link"] ?>"><?= $item["link"] ?></a></p>
 
 			<!-- Bio -->
+<? 		if ($item["responsibilities"]): ?>
 			<h3>Politisk ansvar:</h3>
 			<p><?= $item["responsibilities"] ?></p>
+<? 		endif; ?>
+
+<? 		if ($item["background"]): ?>
 			<h3>Baggrund:</h3>
 			<p><?= $item["background"] ?></p>
-			
+<? 		endif; ?>
+
+
 		</li>
 	</ul>
 
