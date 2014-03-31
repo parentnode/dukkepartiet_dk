@@ -6,6 +6,8 @@ Util.Objects["front"] = new function() {
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
 			
+			var height = u.browserWidth()/64*149 - 2;
+			u.as(scene, "height", height+"px")
 			// refresh dom
 			//this.offsetHeight;
 		}
@@ -29,9 +31,15 @@ Util.Objects["front"] = new function() {
 				// slogan container
 				this.slogan = u.qs(".container", this);
 				this.slogan.innerHTML = "";
-				var height = u.browserWidth()/64*149
-				u.as(this.slogan, "height", height+"px")
+				// var height = u.browserWidth()/64*149 -2;
+				// u.as(this, "height", height+"px")
 				
+				// set resize handler
+				u.e.addEvent(window, "resize", this.resized);
+
+				// resize straight away!
+				this.resized();
+
 
 				// after all scenes loaded
 				page.ready();

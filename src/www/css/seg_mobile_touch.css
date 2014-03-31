@@ -47,7 +47,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 
 
 /*s-front-mobile_touch.css*/
-#content .scene.front .container {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }
+#content .scene.front {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }
 
 
 /*s-program-desktop.css*/

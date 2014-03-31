@@ -9,4 +9,4 @@ blue: #00027a;
 red:  #ee191b;
 */
 
-#content .scene.front .container {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }
+#content .scene.front {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }

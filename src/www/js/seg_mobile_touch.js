@@ -2724,6 +2724,8 @@ u.e.addDOMReadyEvent(u.init);
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
+			var height = u.browserWidth()/64*149 - 2;
+			u.as(scene, "height", height+"px")
 		}
 		scene.scrolled = function() {
 		}
@@ -2731,8 +2733,8 @@ Util.Objects["front"] = new function() {
 			if (u.qsa(".scene", page.cN).length == 2) {
 				this.slogan = u.qs(".container", this);
 				this.slogan.innerHTML = "";
-				var height = u.browserWidth()/64*149
-				u.as(this.slogan, "height", height+"px")
+				u.e.addEvent(window, "resize", this.resized);
+				this.resized();
 				page.ready();
 			}
 		}
