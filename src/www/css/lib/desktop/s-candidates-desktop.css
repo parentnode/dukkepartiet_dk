@@ -4,7 +4,7 @@ red:  #ee191b;
 */
 
 #content .scene.candidates {padding:60px 0 60px;}
-#content .scene.candidates h1 {color:#ee191b;}
+#content .scene.candidates h1 {color:#ee191b; text-transform: uppercase;}
 
 #content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
 #content .scene.candidates ul.items li.item {width: 470px; margin:0 10px 70px 0; text-align: center; cursor: pointer;}

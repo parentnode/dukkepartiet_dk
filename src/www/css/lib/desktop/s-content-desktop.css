@@ -1,11 +1,14 @@
 /*
-font-family:'HelveticaNeueW01-UltLt';
-font-family:'HelveticaNeueW02-55Roma';
-font-family:'HelveticaNeueW01-85Heav';
-font-family:'HelveticaNeueW01-86Heav';
-font-family:'HelveticaNeueW01-95Blac';
-font-family:'HelveticaNeueW01-76Bold';
+font-family:'HelveticaNeueW02-77BdCn 694069';			Condensed Bold Oblique
+font-family:'HelveticaNeueW02-97Blac';					Condensed Black
+font-family:'HelveticaNeueW01-77BdCn 692722';			Condensed Bold
+font-family:'HelveticaNeueW02-BlackC';					Condensed Black Oblique
+
+
+blue: #00027a;
+red:  #ee191b;
 */
+
 
 
 
@@ -13,8 +16,8 @@ font-family:'HelveticaNeueW01-76Bold';
 
 #content .scene {position: relative; width:100%; border-bottom:1px solid #000;}
 
-#content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
-#content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW01-85Heav'; text-transform: uppercase; font-size:55px;}
+#content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW02-BlackC';}
+#content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW02-BlackC'; text-transform: uppercase; font-size:55px;}
 #content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase;font-size:16px;}
 #content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase; font-size:16px;}
 
@@ -32,7 +35,7 @@ font-family:'HelveticaNeueW01-76Bold';
 
 /* PREVIOUS / NEXT - Carousel */
 #content .scene .next,
-#content .scene .previous {position:absolute; width:100px; padding: 28px 0; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;
+#content .scene .previous {position:absolute; width:100px; padding: 28px 0; top: 50%; text-align: center; font-family:'HelveticaNeueW02-97Blac'; color:#00027a; cursor: pointer;
 	/*-webkit-touch-callout: none;*/
 	-webkit-user-select: none;
 	 -khtml-user-select: none;

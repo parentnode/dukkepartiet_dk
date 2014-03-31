@@ -22,10 +22,10 @@
 				<div class="social">
 					<h4>Følg Dukkepartiet</h4>
 					<ul>
-						<li class="facebook"><a href="http://facebook.com" target="_blank">facebook</a></li>
-						<li class="youtube"><a href="http://youtube.com" target="_blank">youtube</a></li>
-						<li class="twitter"><a href="http://twitter.com" target="_blank">twitter</a></li>
-						<li class="instagram"><a href="http://instagram.com" target="_blank">instagram</a></li>
+						<li class="facebook"><a href="http://www.facebook.com/dukkepartiet" target="_blank">facebook</a></li>
+						<li class="youtube"><a href="http://www.youtube.com/channel/UCWHykjLjMYGVjugW0PYsg5w" target="_blank">youtube</a></li>
+						<li class="twitter"><a href="http://twitter.com/Dukkepartiet" target="_blank">twitter</a></li>
+						<li class="instagram"><a href="http://instagram.com/dukkepartiet" target="_blank">instagram</a></li>
 					</ul>
 				</div>
 

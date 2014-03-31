@@ -18,7 +18,7 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/css/seg_<?= $this->segment() ?>.css" />
 	<script type="text/javascript" src="/js/seg_<?= $this->segment() ?>.js"></script>
 <? } ?>
-	<script type="text/javascript" src="http://fast.fonts.net/jsapi/e1e7a590-3717-4301-a3ea-e2abb030f634.js"></script>
+	<script type="text/javascript" src="http://fast.fonts.net/jsapi/013abfcd-c15e-468e-aebc-4b44edca5e9f.js"></script>
 </head>
 
 <body<?= HTML::attribute("class", $this->bodyClass()) ?>>

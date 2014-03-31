@@ -52,8 +52,8 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 /*s-content-desktop.css*/
 #content {position: relative;}
 #content .scene {position: relative; width:100%; border-bottom:1px solid #000;}
-#content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW01-86Heav';}
-#content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW01-85Heav'; text-transform: uppercase; font-size:55px;}
+#content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW02-BlackC';}
+#content .scene h2 {text-align: center; padding: 100px 0 60px 0; font-family:'HelveticaNeueW02-BlackC'; text-transform: uppercase; font-size:55px;}
 #content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase;font-size:16px;}
 #content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase; font-size:16px;}
 #content .scene.red,
@@ -66,7 +66,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 	background-color: #00027a;
 }
 #content .scene .next,
-#content .scene .previous {position:absolute; width:100px; padding: 28px 0; top: 50%; text-align: center; font-family:'HelveticaNeueW01-86Heav'; color:#00027a; cursor: pointer;
+#content .scene .previous {position:absolute; width:100px; padding: 28px 0; top: 50%; text-align: center; font-family:'HelveticaNeueW02-97Blac'; color:#00027a; cursor: pointer;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -100,15 +100,15 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.front .container ul.items li.item .image img {width: 100%;}
 #content .scene .next,
 #content .scene .previous {top:50%;}
-.no_menu #content .scene.front ul.servicenavigation {display:block; width:240px; left:50%; margin-left:-120px; position: absolute; bottom:40px;}
-.no_menu #content .scene.front ul.servicenavigation li a {display:block; width:100px; height:40px; margin: 0 10px;}
-.no_menu #content .scene.front ul.servicenavigation li.help_us a {background: #00027a url("/img/bn_help_us_red.png") no-repeat center center;}
-.no_menu #content .scene.front ul.servicenavigation li.support_us a {background: #00027a url("/img/bn_support_us_red.png") no-repeat center center;}
+.no_menu #content .scene.front ul.servicenavigation {display:block; width:260px; left:50%; margin-left:-130px; position: absolute; bottom:40px;}
+.no_menu #content .scene.front ul.servicenavigation li a {display:block; height:40px; margin: 0 10px; background-repeat:no-repeat; background-position: center center;}
+.no_menu #content .scene.front ul.servicenavigation li.help_us a {width:122px; background-image: url("/img/bn_help_us_red.png");}
+.no_menu #content .scene.front ul.servicenavigation li.support_us a {width:92px; background-image: url("/img/bn_support_us_red.png");}
 #content .scene.front ul.servicenavigation {display: none;}
 
 /*s-candidates-desktop.css*/
 #content .scene.candidates {padding:60px 0 60px;}
-#content .scene.candidates h1 {color:#ee191b;}
+#content .scene.candidates h1 {color:#ee191b; text-transform: uppercase;}
 #content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
 #content .scene.candidates ul.items li.item {width: 470px; margin:0 10px 70px 0; text-align: center; cursor: pointer;}
 #content .scene.candidates ul.items li.item:last-child {margin:0;}
@@ -137,12 +137,12 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.action ul.items {width:960px; margin:0 auto 80px;}
 #content .scene.action ul.items li {display:inline-block; vertical-align:top; width:280px; height:300px; padding:10px; font-size: 1em; margin:0 20px 20px 0;}
 #content .scene.action ul.items li.item {background-color: #ee191b;}
-#content .scene.action ul.items li.item h3 {font-size:21px; font-family:'HelveticaNeueW02-55Roma'; color:#00027a; padding:10px 0; text-align: center;}
+#content .scene.action ul.items li.item h3 {font-size:21px; font-family:'HelveticaNeueW01-77BdCn 692722'; color:#00027a; padding:10px 0; text-align: center;}
 #content .scene.action ul.items li.item p {font-size:16px; font-family: Arial, sans-serif; color:#00027a; text-align: center;}
 #content .scene.action ul.items li.item a {display: none;}
 #content .scene.action ul.items li.item .image {position: relative; background-color: #00027a;}
 #content .scene.action ul.items li.item .image .play_bn {position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #00027a; cursor: pointer;}
-#content .scene.action ul.items li.item .image .play_bn p {color: #ee191b; font-size:21px; text-transform: uppercase; font-family:'HelveticaNeueW01-85Heav'; margin-top: 20px; cursor: pointer;
+#content .scene.action ul.items li.item .image .play_bn p {color: #ee191b; font-size:21px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722'; margin-top: 20px; cursor: pointer;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -164,21 +164,20 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.program ul.items {display:block; width:100%; font-size: 1rem; height:400px;}
 #content .scene.program ul.items li.item {text-align:center; padding:20px; margin:0 auto; width:740px; height: 300px; background-color: #ee191b; }
 #content .scene.program ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
-	font-size: 30px;color: #ee191b; font-family:'HelveticaNeueW01-86Heav'; line-height: 50px;
+	font-size: 30px;color: #ee191b; font-family:'HelveticaNeueW02-97Blac'; line-height: 50px;
 	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
 }
 
-
 /*s-events-desktop.css*/
 #content .scene.events {padding:60px 0 60px;}
-#content .scene.events h1 {color:#00027a;}
+#content .scene.events h1 {color:#00027a; text-transform: uppercase;}
 #content .scene.events ul.items {display:block; width:960px; font-size: 0; margin: 0 auto;}
 #content .scene.events ul.items li.item {width:220px; margin:0 10px 40px; text-align: center; cursor: pointer;}
-#content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; font-family:'HelveticaNeueW01-76Bold'; padding-bottom:4px;}
+#content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; font-family:'HelveticaNeueW02-77BdCn 694069'; padding-bottom:4px;}
 #content .scene.events ul.items li.item dl {}
 #content .scene.events ul.items li.item dl dt {display: none;}
 #content .scene.events ul.items li.item dl dd {display:block;}
-#content .scene.events ul.items li.item dl dd.published_at {font-size: 36px; color:#00027a; font-family:'HelveticaNeueW01-86Heav'; padding-bottom:4px;}
+#content .scene.events ul.items li.item dl dd.published_at {font-size: 36px; color:#00027a; font-family:'HelveticaNeueW02-97Blac'; padding-bottom:4px;}
 #content .scene.events ul.items li.item dl dd.location {font-size: 16px; color:#00027a; font-style: italic; padding-top:4px;}
 #content .scene.events ul.items li.item .description {display: none;}
 .event #content .scene.events {padding:0;}
@@ -215,9 +214,9 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.help .container h2 {color: #00027a; font-size: 55px; padding:0 10px; }
 #content .scene.help .container dl {padding-top:70px;}
 #content .scene.help .container dl dt,
-#content .scene.help .container dl dd {display: block; color: #00027a; font-family:'HelveticaNeueW01-86Heav';}
-#content .scene.help .container dl dt {font-size: 24px; padding-bottom:10px;}
-#content .scene.help .container dl dd {font-size: 40px; padding-bottom:40px;}
+#content .scene.help .container dl dd {display: block; color: #00027a;}
+#content .scene.help .container dl dt {font-size: 24px; padding-bottom:10px; font-family:'HelveticaNeueW02-77BdCn 694069';}
+#content .scene.help .container dl dd {font-size: 40px; padding-bottom:40px; font-family:'HelveticaNeueW02-97Blac';}
 #content .scene.help .container p {color: #00027a;}
 #content .scene.help .container p.intro {font-size: 18px; padding:30px 0;}
 .help_us #content .scene.help .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_blue.png") no-repeat bottom left; text-indent: -9999px; z-index: 101;}
@@ -235,7 +234,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:360px;}
 #footer .about ul.contacts li.contact .press {}
 #footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
-#footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-86Heav';}
+#footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722';}
 #footer .about ul.contacts li.contact p {font-weight: normal; font-style:normal; padding-bottom: 4px; font-size: 14px; line-height: 1em; font-family: Arial, sans-serif;}
 #footer .about ul.contacts li.contact p a {font-weight: bold; padding:0 4px;}
 #footer.red {background-color:#ee191b; }
@@ -265,13 +264,15 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #header #navigation ul.primary {display: none;}
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
-#header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW01-85Heav'; width:400px; display: block; margin:20px auto; text-transform: uppercase;}
+#header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW02-BlackC'; width:400px; display: block; margin:20px auto; text-transform: uppercase;}
 #header #navigation ul.servicenavigation {margin:16px auto 0; text-align: center;}
-#header #navigation ul.servicenavigation li a {display:block; width:100px; height:40px; margin: 0 10px;}
+#header #navigation ul.servicenavigation li a {display:block; height:40px; margin: 0 10px; background-repeat:no-repeat; background-position: center center;}
+#header #navigation ul.servicenavigation li.help_us a {width:122px;}
+#header #navigation ul.servicenavigation li.support_us a {width:92px;}
 #header.open #navigation ul.servicenavigation {display: none;}
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute;  bottom: 40px; padding-bottom:20px; left: 50%; width: 420px; margin-left: -210px; }
-#header.open #navigation .social h4 {font-family:'HelveticaNeueW01-85Heav'; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
+#header.open #navigation .social h4 {font-family:'HelveticaNeueW02-97Blac'; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}
 #header.open #navigation .social ul li.facebook a,
@@ -280,8 +281,8 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #header.open #navigation .social ul li.youtube a {width: 100px;}
 #header #navigation.red .logo {background-image: url("/img/gx_fixed_logo_blue.png");}
 #header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png");}
-#header #navigation.red ul.servicenavigation li.help_us a {background: #00027a url("/img/bn_help_us_red.png") no-repeat center center;}
-#header #navigation.red ul.servicenavigation li.support_us a {background: #00027a url("/img/bn_support_us_red.png") no-repeat center center;}
+#header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
+#header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
 #header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png");}
@@ -294,8 +295,8 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
 #header #navigation.blue .logo {background-image: url("/img/gx_fixed_logo_red.png");}
 #header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png");}
-#header #navigation.blue ul.servicenavigation li.help_us a {background: #ee191b url("/img/bn_help_us_blue.png") no-repeat center center;}
-#header #navigation.blue ul.servicenavigation li.support_us a {background: #ee191b url("/img/bn_support_us_blue.png") no-repeat center center;}
+#header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
 #header.open #navigation.blue {background: #ee191b;}
 #header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png");}
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
