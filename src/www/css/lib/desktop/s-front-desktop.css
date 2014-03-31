@@ -26,7 +26,7 @@ red:  #ee191b;
 
 
 /* SERVICE NAVIGATION */
-.no_menu #content .scene.front ul.servicenavigation {display:block; width:260px; left:50%; margin-left:-130px; position: absolute; bottom:40px;}
+.no_menu #content .scene.front ul.servicenavigation {display:block; position: absolute; bottom:42px; width: 100%; text-align: center;}
 .no_menu #content .scene.front ul.servicenavigation li a {display:block; height:40px; margin: 0 10px; background-repeat:no-repeat; background-position: center center;}
 .no_menu #content .scene.front ul.servicenavigation li.help_us a {width:122px; background-image: url("/img/bn_help_us_red.png");}
 .no_menu #content .scene.front ul.servicenavigation li.support_us a {width:92px; background-image: url("/img/bn_support_us_red.png");}

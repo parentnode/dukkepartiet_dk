@@ -44,9 +44,8 @@
 							<h4>Pressekontakt</h4>
 							<h5>Have Kommunikation A/S</h5>
 							<p>Kristina Sindberg</p>
-							<p>Carit Etlars Vej 3</p>
-							<p>1814 Frederiksberg C</p>
-							<p><a href="mailto:kristina@have.dk">kristina@have.dk</a>  (+45) 2486 0184</p>
+							<p>(+45) 2486 0184</p>
+							<p><a href="mailto:kristina@have.dk">kristina@have.dk</a></p>
 						</li>
 					</ul>
 				</div>
