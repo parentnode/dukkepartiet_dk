@@ -9,8 +9,6 @@
 			<dd>1004510880</dd>
 		</dl-->
 
-		
-		
 		<p class="intro">Dukkepartiet vil gerne i Folketinget. Derfor har vi brug for din underskrift. For at blive opstillingsberettiget til det kommende Folketingsvalg skal Dukkepartiet samle 20.260 underskrevne vælgererklæringer. Ved at underskrive vælgererklæringen bliver du stiller for Dukkepartiet, men du er ikke forpligtet på at stemme på Dukkepartiet ved Folketingsvalget.</p>
  
 		<p><a href="/img/vaelgererklaering_dukkepartiet.pdf" download>Her kan du hente vælgererklæringen.</a></p>

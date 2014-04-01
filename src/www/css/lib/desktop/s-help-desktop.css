@@ -10,8 +10,8 @@ red:  #ee191b;
 #content .scene.help .container dl {padding-top:70px;}
 #content .scene.help .container dl dt,
 #content .scene.help .container dl dd {display: block; color: #00027a;}
-#content .scene.help .container dl dt {font-size: 24px; padding-bottom:10px; font-family:'HelveticaNeueW02-77BdCn 694069';}
-#content .scene.help .container dl dd {font-size: 40px; padding-bottom:40px; font-family:'HelveticaNeueW02-97Blac';}
+#content .scene.help .container dl dt {font-size: 24px; padding-bottom:10px; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;}
+#content .scene.help .container dl dd {font-size: 40px; padding-bottom:40px; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;}
 #content .scene.help .container p.intro {font-size: 18px; padding:30px 0;}
 #content .scene.help .container p {color: #00027a;}
 #content .scene.help .container p a {color: #00027a; font-weight: bold; padding:1px 4px; font-size: 20px;}

@@ -9,7 +9,7 @@ red:  #ee191b;
 #content .scene.support .container h2 {color: #ee191b; font-size: 55px; padding:0 10px; }
 #content .scene.support .container dl {padding-top:70px;}
 #content .scene.support .container dl dt,
-#content .scene.support .container dl dd {display: block; color: #ee191b; font-family:'HelveticaNeueW01-86Heav';}
+#content .scene.support .container dl dd {display: block; color: #ee191b; font-family:'HelveticaNeueW01-86Heav', Arial, sans-serif;}
 #content .scene.support .container dl dt {font-size: 24px; padding-bottom:10px;}
 #content .scene.support .container dl dd {font-size: 40px; padding-bottom:40px;}
 #content .scene.support .container p {color: #ee191b;}

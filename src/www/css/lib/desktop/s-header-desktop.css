@@ -27,7 +27,7 @@ red:  #ee191b;
 #header #navigation ul.primary {display: none;}
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
-#header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW02-BlackC'; width:400px; display: block; margin:20px auto; text-transform: uppercase;}
+#header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; width:400px; display: block; margin:20px auto; text-transform: uppercase;}
 
 
 /* SERVICE NAVIGATION */
@@ -41,7 +41,7 @@ red:  #ee191b;
 /* SOCIAL */
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute;  bottom: 40px; padding-bottom:20px; left: 50%; width: 420px; margin-left: -210px; }
-#header.open #navigation .social h4 {font-family:'HelveticaNeueW02-97Blac'; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
+#header.open #navigation .social h4 {font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}
 #header.open #navigation .social ul li.facebook a,

@@ -9,11 +9,11 @@ red:  #ee191b;
 
 #content .scene.events ul.items {display:block; width:960px; font-size: 0; margin: 0 auto;}
 #content .scene.events ul.items li.item {width:220px; margin:0 10px 40px; text-align: center; cursor: pointer;}
-#content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; font-family:'HelveticaNeueW02-77BdCn 694069'; padding-bottom:4px;}
+#content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; padding-bottom:4px;}
 #content .scene.events ul.items li.item dl {}
 #content .scene.events ul.items li.item dl dt {display: none;}
 #content .scene.events ul.items li.item dl dd {display:block;}
-#content .scene.events ul.items li.item dl dd.published_at {font-size: 36px; color:#00027a; font-family:'HelveticaNeueW02-97Blac'; padding-bottom:4px;}
+#content .scene.events ul.items li.item dl dd.published_at {font-size: 36px; color:#00027a; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; padding-bottom:4px;}
 #content .scene.events ul.items li.item dl dd.location {font-size: 16px; color:#00027a; font-style: italic; padding-top:4px;}
 #content .scene.events ul.items li.item .description {display: none;}
 
