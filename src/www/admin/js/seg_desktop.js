@@ -3503,6 +3503,9 @@ Util.Form = u.f = new function() {
 					if(!this.isDefault(input)) {
 						params[input.name] = input.value;
 					}
+					else {
+						params[input.name] = "";
+					}
 				}
 			}
 		}
@@ -3517,6 +3520,9 @@ Util.Form = u.f = new function() {
 			if(!u.hc(textarea, ignore_inputs)) {
 				if(!this.isDefault(textarea)) {
 					params[textarea.name] = textarea.value;
+				}
+				else {
+					params[textarea.name] = "";
 				}
 			}
 		}
