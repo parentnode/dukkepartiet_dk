@@ -17,15 +17,28 @@ Util.Objects["front"] = new function() {
 		// check fold on scroll
 		scene.scrolled = function() {
 //			u.bug("scrolled")
-			var scroll_y = u.scrollY()+100;
+			var scroll_y = u.scrollY();
 			var browser_h = u.browserH();
 			// hide logo
 			if (scroll_y > browser_h) {
+				if (u.hc(page, "no_logo")) {
+					u.rc(page, "no_logo");
+				}
+			}
+			// show logo
+			else {
+				if (!u.hc(page, "no_logo")) {
+					u.ac(page, "no_logo");
+				}
+			}
+
+			// hide menu
+			if (scroll_y+100 > browser_h) {
 				if (u.hc(page, "no_menu")) {
 					u.rc(page, "no_menu");
 				}
 			}
-			// show logo
+			// show menu
 			else {
 				if (!u.hc(page, "no_menu")) {
 					u.ac(page, "no_menu");

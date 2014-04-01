@@ -13,7 +13,7 @@ red:  #ee191b;
 .no_menu #header #navigation.red,
 .no_menu #header #navigation.blue {background-image: none;}
 .no_menu #header #navigation ul.servicenavigation {display: none;}
-.no_menu #header #navigation .logo {display: none;}
+.no_logo #header #navigation .logo {display: none;}
 
 #header #navigation .nav_icon {width:22px; height:22px; position: absolute; padding:16px 30px 0 0; right:0px; top:0px; cursor: pointer;  background-repeat:no-repeat; background-position: bottom left;
 	-webkit-user-select: none;
