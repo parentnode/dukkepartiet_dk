@@ -6,7 +6,12 @@
 					
 					<li><a class="front" href="/">Forside</a></li>
 					<li><a class="candidates" href="/kandidaterne">Kandidater</a></li>
+<? 
+$IC = new Item();
+$events = $IC->getItems(array("itemtype" => "event", "status" => 1, "order" => "published_at ASC"));
+if($events): ?>
 					<li><a class="events" href="/kalender">Kalender</a></li>
+<? endif; ?>
 				</ul>
 
 			</div>

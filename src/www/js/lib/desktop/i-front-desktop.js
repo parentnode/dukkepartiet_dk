@@ -117,18 +117,20 @@ Util.Objects["front"] = new function() {
 
 					// get .scene content from response
 					var new_scene = u.qs(".scene", response);
+					if(new_scene) {
+						// append new scene to #content
+						//scene = u.ae(this, this.scene);
+						this.innerHTML = new_scene.innerHTML;
+						u.ac(this, new_scene.className);
+						//u.ac(scene, "scene");
 
-					// append new scene to #content
-					//scene = u.ae(this, this.scene);
-					this.innerHTML = new_scene.innerHTML;
-					u.ac(this, new_scene.className);
-					//u.ac(scene, "scene");
+						// init content - will callback to ready when done
+						u.init(this);
 
-					// init content - will callback to ready when done
-					u.init(this);
+						// ready callback
+						scene.ready();
+					}
 
-					// ready callback
-					scene.ready();
 				}
 				u.request(div, u.h.getCleanHash(section));
 			}

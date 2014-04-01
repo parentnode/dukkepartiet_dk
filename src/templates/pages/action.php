@@ -21,6 +21,8 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 <?			endforeach; ?>
 			<li class="more"><a href="http://youtube.com" target="_blank">flere film her</a></li>
 		</ul>
+<?		else: ?>
+		<p>Her kan du snart se videoer fra vores aktioner.</p>
 <?		endif; ?>
 		
 		<div class="youtube olle">
