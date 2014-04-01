@@ -19,15 +19,23 @@ Util.Objects["support"] = new function() {
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
 			
-			u.bug("support   " + u.browserHeight());
-
 			// scene height
-			u.as(this, "height", u.browserHeight()+"px");
-
-			// margin of item
+			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
-			u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
-			
+
+			// smaller than screen
+			if (this.ul.offsetHeight < height ) {
+				// set height
+				u.as(this, "height", u.browserHeight()+"px");
+				// margin of item
+				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
+
+			// bigger than screen
+			} else {
+				// set padding
+				u.as(this.ul, "padding", "100px 0 60px 0");
+			}
+
 
 			// loaded!
 			page.ready();

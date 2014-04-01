@@ -19,8 +19,6 @@ Util.Objects["help"] = new function() {
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
 			
-			u.bug("help   " + u.browserHeight());
-
 			// scene height
 			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
