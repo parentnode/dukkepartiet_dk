@@ -3695,10 +3695,14 @@ Util.Objects["support"] = new function() {
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			u.bug("support   " + u.browserHeight());
-			u.as(this, "height", u.browserHeight()+"px");
+			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
-			u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
+			if (this.ul.offsetHeight < height ) {
+				u.as(this, "height", u.browserHeight()+"px");
+				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
+			} else {
+				u.as(this.ul, "padding", "100px 0 60px 0");
+			}
 			page.ready();
 			page.cN.ready();
 		}
@@ -3714,7 +3718,6 @@ Util.Objects["help"] = new function() {
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			u.bug("help   " + u.browserHeight());
 			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
 			if (this.ul.offsetHeight < height ) {
