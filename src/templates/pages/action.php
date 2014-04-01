@@ -19,13 +19,13 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 				<a href="<?= $item["link"] ?>"><?= $item["link"] ?></a>
 			</li>
 <?			endforeach; ?>
-			<li class="more"><a href="http://youtube.com" target="_blank">flere film her</a></li>
+			<li class="more"><a href="http://www.youtube.com/channel/UCWHykjLjMYGVjugW0PYsg5w" target="_blank">flere film her</a></li>
 		</ul>
 <?		else: ?>
-		<p>Her kan du snart se videoer fra vores aktioner.</p>
+		<p class="no_videos">Her kan du snart se videoer fra vores aktioner.</p>
 <?		endif; ?>
 		
-		<div class="youtube olle">
+		<div class="youtube">
 
 			<div class="close"></div>
 			<div class="player"></div>

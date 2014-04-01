@@ -12,8 +12,15 @@ red:  #ee191b;
 #content .scene.help .container dl dd {display: block; color: #00027a;}
 #content .scene.help .container dl dt {font-size: 24px; padding-bottom:10px; font-family:'HelveticaNeueW02-77BdCn 694069';}
 #content .scene.help .container dl dd {font-size: 40px; padding-bottom:40px; font-family:'HelveticaNeueW02-97Blac';}
-#content .scene.help .container p {color: #00027a;}
 #content .scene.help .container p.intro {font-size: 18px; padding:30px 0;}
+#content .scene.help .container p {color: #00027a;}
+#content .scene.help .container p a {color: #00027a; font-weight: bold; padding:1px 4px; font-size: 20px;}
+#content .scene.help .container p a:hover {color: #ee191b; font-weight: bold; background-color: #00027a;}
+
+#content .scene.help .container h3 {color: #00027a; font-weight: bold; font-size: 32px;}
+#content .scene.help .container ul {}
+#content .scene.help .container ul li {display: block;}
+#content .scene.help .container ul li p {font-size: 1rem; font-weight: bold;}
 
 
 	/* menu/close_bn*/

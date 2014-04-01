@@ -11,7 +11,7 @@ Util.Objects["front"] = new function() {
 			u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
 
 			// refresh dom
-			//this.offsetHeight;
+			this.offsetHeight;
 		}
 
 		// check fold on scroll
@@ -72,10 +72,11 @@ Util.Objects["front"] = new function() {
 				// set scroll handler
 				u.e.addEvent(window, "scroll", scene.scrolled);
 
-				// resize / scroll straight away!
-				this.resized();
+				// scroll straight away!
 				this.scrolled();
-
+				
+				// resize after load
+				this.resized();
 
 				// after all scenes loaded
 				page.ready();
@@ -85,10 +86,6 @@ Util.Objects["front"] = new function() {
 
 		scene.loadSloganImages = function() {
 
-			//this.slogan = u.qs(".container", this);
-			
-			
-			
 			this.slogans = u.qsa("ul.items li.item", this.slogan);
 
 			var i, node;
@@ -100,13 +97,22 @@ Util.Objects["front"] = new function() {
 
 				// if image
 				if(node._image_available) {
-					// src
-					//node._image_src = "/logo/940/" + node._image_available + "." + node._image_format;
-					node._image_src = "/images/" + node._image_available + "/960x.png";
+					// format, src
+					node._image_format = u.cv(node, "image_format");
+					node._image_src = "/images/" + node._image_available + "/1260x" + "." + node._image_format;;
 
-					// add image
+					// add image mask
 					node._image_mask = u.ie(node, "div", {"class":"image"});
-					node._image = u.ae(node._image_mask, "img", {"src":node._image_src});
+
+					node.loaded = function(queue) {
+						// add image
+						this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
+
+						// resize scene!
+						scene.resized();
+					}
+					u.preloader(node, [node._image_src]);
+
 				}
 			}
 		}

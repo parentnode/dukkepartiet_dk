@@ -1,7 +1,7 @@
 <div class="scene help i:help red">
 	
 	<div class="container">
-		<h2>Hjælp os</h2>
+		<h2>Skriv under</h2>
 		<!--dl>
 			<dt>Reg nummer</dt>
 			<dd>0521</dd>
@@ -9,8 +9,23 @@
 			<dd>1004510880</dd>
 		</dl-->
 
-		<p class="intro">Vi lever af andres støtte. Støt DP ved at indbetale et bidrag på vores konto. Cras vel dictum elit. Ut rhoncus lobortis facilisis. Sed tincidunt mauris sit amet velit dignissim imperdiet.</h3>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin facilisis, ante sed vulputate rhoncus, tellus nisi sollicitudin neque, sit amet ornare odio felis dignissim purus. Praesent at turpis a mi sodales iaculis ac ac nulla. Duis tempor, purus id feugiat tristique, felis massa sodales sem, eu cursus mi risus in nibh.</p>
+		
+		
+		<p class="intro">Dukkepartiet vil gerne i Folketinget. Derfor har vi brug for din underskrift. For at blive opstillingsberettiget til det kommende Folketingsvalg skal Dukkepartiet samle 20.260 underskrevne vælgererklæringer. Ved at underskrive vælgererklæringen bliver du stiller for Dukkepartiet, men du er ikke forpligtet på at stemme på Dukkepartiet ved Folketingsvalget.</p>
+ 
+		<p><a href="/img/vaelgererklaering_dukkepartiet.pdf" download>Her kan du hente vælgererklæringen.</a></p>
+		<h3>Vejledning:</h3>
+		<ul>
+			<li><p>- Udskriv vælgererklæringen.</p></li>
+			<li><p>- Udfyld og underskriv. Husk at datere og underskrive vælgererklæringen ellers er den ugyldig.</p></li>
+			<li><p>- Send vælgererklæringen til Dukkepartiet, Postbox 2030, 1112 København K.</p></li>
+			<li><p>- Dukkepartiet sender din vælgererklæring videre til Folkeregisteret i din kommune.</p></li>
+			<li><p>- Folkeregisteret godkender og sender derefter vælgererklæringen til dig, hvorefter du igen skal sende den til Dukkepartiet.</p></li>
+		</ul>
+		
+		<p>Det er en forudsætning for at blive stiller, at du er dansk statsborger, er bosat i Danmark og har ret til at stemme ved Folketingsvalget.</p>
+ 
+		
 	</div>
 
 	<div class="close"><a href="/">go back...to where?</a></div>
