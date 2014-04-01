@@ -101,8 +101,6 @@ Util.Objects["action"] = new function() {
 			//u.e.addEvent(window, "resize", this.resized);
 		}
 
-
-    	
 		// callback to scene ready
 		scene.ready();
 
