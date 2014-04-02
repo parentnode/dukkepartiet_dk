@@ -6,9 +6,9 @@
 		<p class="intro">Det er dyrt at starte et parti, og vi har hårdt brug for økonomisk støtte. Alene frimærkeomkostninger til vælgererklæringer koster os 200.000 kr. Du kan støtte Dukkepartiet ved at indbetale et beløb på vores konto i Handelsbanken. Alle bidrag er velkomne - uanset størrelse. Dit bidrag vil blandt andet gå til at få Dukkepartiet opstillingsberettiget til det kommende Folketingsvalg.</p>
 		<dl>
 			<dt>Reg nummer</dt>
-			<dd>0521</dd>
+			<dd>7643</dd>
 			<dt>Konto nummer</dt>
-			<dd>1004510880</dd>
+			<dd>76432053387</dd>
 		</dl>
 		<p>Giv os også et like på <a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a>. Her kan du følge partiet og holde dig opdateret om partiets aktiviteter.</p>
 	</div>
