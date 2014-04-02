@@ -17,5 +17,5 @@ document.write('<script type="text/javascript" src="/js/lib/desktop/i-help-deskt
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-footer-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-fonts-desktop.js"></script>');
 
-// document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');
-// document.write('<script type="text/javascript" src="/js/manipulator/src/u-googleanalytics.js"></script>');
+document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');
+document.write('<script type="text/javascript" src="/js/manipulator/src/u-googleanalytics.js"></script>');
