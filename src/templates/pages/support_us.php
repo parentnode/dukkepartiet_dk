@@ -2,15 +2,15 @@
 	
 	<div class="container">
 		<h2>Støt os</h2>
-		<!--dl>
+
+		<p class="intro">Det er dyrt at starte et parti, og vi har hårdt brug for økonomisk støtte. Alene frimærkeomkostninger til vælgererklæringer koster os 200.000 kr. Du kan støtte Dukkepartiet ved at indbetale et beløb på vores konto i Handelsbanken. Alle bidrag er velkomne - uanset størrelse. Dit bidrag vil blandt andet gå til at få Dukkepartiet opstillingsberettiget til det kommende Folketingsvalg.</p>
+		<dl>
 			<dt>Reg nummer</dt>
 			<dd>0521</dd>
 			<dt>Konto nummer</dt>
 			<dd>1004510880</dd>
 		</dl>
-
-		<p class="intro">Vi lever af andres støtte. Støt DP ved at indbetale et bidrag på vores konto. Cras vel dictum elit. Ut rhoncus lobortis facilisis. Sed tincidunt mauris sit amet velit dignissim imperdiet.</h3-->
-		<p>Dukkepartiet har brug for din støtte. Giv os et like på Facebook: <a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a>. Her kan du også følge partiet og holde dig opdateret om partiets aktiviteter.</p>
+		<p>Giv os også et like på <a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a>. Her kan du følge partiet og holde dig opdateret om partiets aktiviteter.</p>
 	</div>
 
 	<div class="close"><a href="/">go back...to where?</a></div>

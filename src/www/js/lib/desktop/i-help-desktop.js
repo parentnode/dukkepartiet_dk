@@ -24,7 +24,7 @@ Util.Objects["help"] = new function() {
 			this.ul = u.qs(".container", this);
 
 			// smaller than screen
-			if (this.ul.offsetHeight < height ) {
+			if (this.ul.offsetHeight+160 < height ) {
 				// set height
 				u.as(this, "height", u.browserHeight()+"px");
 				// margin of item
