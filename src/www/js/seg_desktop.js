@@ -2997,6 +2997,12 @@ Util.Objects["front"] = new function() {
 					u.preloader(node, [node._image_src]);
 				}
 			}
+			if(this.slogans.length < 2) {
+				var next = u.qs(".next", this.slogan);
+				u.as(next, "display", "none");
+				var prev = u.qs(".previous", this.slogan);
+				u.as(prev, "display", "none");
+			}
 		}
 		scene.loadPages = function() {
 			this.sections = ["/aktioner", "/program"];
