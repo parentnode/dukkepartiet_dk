@@ -3335,7 +3335,7 @@ Util.Objects["support"] = new function() {
 		scene.ready = function() {
 			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
-			if (this.ul.offsetHeight < height ) {
+			if (this.ul.offsetHeight+160 < height ) {
 				u.as(this, "height", u.browserHeight()+"px");
 				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
 			} else {
@@ -3358,7 +3358,7 @@ Util.Objects["help"] = new function() {
 		scene.ready = function() {
 			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
-			if (this.ul.offsetHeight < height ) {
+			if (this.ul.offsetHeight+160 < height ) {
 				u.as(this, "height", u.browserHeight()+"px");
 				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
 			} else {
