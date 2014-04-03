@@ -167,7 +167,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.program ul.items {display:block; width:100%; font-size: 1rem; height:300px;}
 #content .scene.program ul.items li.item {text-align:center; padding:20px; margin:0 auto; width:740px; background-color: #ee191b; }
 #content .scene.program ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
-	font-size: 35px; color: #ee191b; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; line-height: 50px;
+	font-size: 35px; color: #ee191b; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; line-height: 55px;
 	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
 }
 
@@ -215,16 +215,16 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.help {padding:100px 0 60px;}
 #content .scene.help .container {width: 460px; margin:0 auto; text-align: center;}
 #content .scene.help .container h2 {color: #00027a; font-size: 55px; padding:0 10px; }
-#content .scene.help .container h3 {color: #00027a; font-size: 40px; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; margin-top:40px;}
+#content .scene.help .container h3 {color: #00027a; font-size: 40px; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; margin:40px 0;}
 #content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
 #content .scene.help .container p.intro {font-size: 18px; padding:30px 0; line-height: 26px; margin-bottom: 20px;}
 #content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 24px; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; text-transform: uppercase;}
 #content .scene.help .container p.download a:hover {color: #00027a; background-color: #ee191b;}
-#content .scene.help .container dl {}
+#content .scene.help .container dl {width: 350px; margin: 0 auto;}
 #content .scene.help .container dl dt,
 #content .scene.help .container dl dd {display: block; font-size: 18px; color: #00027a;}
-#content .scene.help .container dl dt {font-weight: bold;}
-#content .scene.help .container dl dd {padding:10px 0 30px; text-transform: none; line-height: 24px;}
+#content .scene.help .container dl dt {font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;}
+#content .scene.help .container dl dd {padding:6px 0 30px; text-transform: none; line-height: 24px;}
 .help_us #page #footer {display: none;}
 .help_us #page #header #navigation .nav_icon {display: none;}
 .help_us #page #header #navigation ul.servicenavigation li.help_us a {background: #ee191b url("/img/bn_help_us_blue.png") no-repeat center center;}
@@ -357,8 +357,6 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.red .close a:hover {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
 #content .scene.blue .close a:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #content .scene.action .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
-#header #navigation.blue .logo:hover {background-image: url("/img/gx_fixed_logo_blue.png"); background-color:cyan;};
-#header #navigation.red .logo:hover {background-image: url("/img/gx_fixed_logo_red.png"); background-color:green;};
 #content .scene.red .next:hover,
 #content .scene.red .previous:hover {color: #ee191b; background-color: #00027a;}
 #content .scene.blue .next:hover,
