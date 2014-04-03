@@ -7,7 +7,7 @@ Util.Objects["front"] = new function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
 			// slogan height
 			
-			if (u.browserHeight() < 700) {
+			if (u.browserHeight() < 800) {
 				u.as(scene.slogan, "marginTop", "0px");
 			} else {
 				u.as(scene, "height", u.browserHeight()+"px");

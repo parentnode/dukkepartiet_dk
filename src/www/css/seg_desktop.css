@@ -96,7 +96,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.front .logo {margin:0 auto -20px; background: url("/img/gx_logo_front.png") no-repeat center 70px; height: 270px;}
 #content .scene.front .container {position: relative;}
 #content .scene.front .container ul.items {}
-#content .scene.front .container ul.items li.item {width:100%; margin:0 auto;}
+#content .scene.front .container ul.items li.item {width:100%; margin:0 auto 140px;}
 #content .scene.front .container ul.items li.item p {display: none;}
 #content .scene.front .container ul.items li.item .image {padding:0 100px;}
 #content .scene.front .container ul.items li.item .image img {width: 100%;}

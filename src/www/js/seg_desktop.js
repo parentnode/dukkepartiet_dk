@@ -2938,7 +2938,7 @@ u.e.addDOMReadyEvent(u.init);
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			if (u.browserHeight() < 700) {
+			if (u.browserHeight() < 800) {
 				u.as(scene.slogan, "marginTop", "0px");
 			} else {
 				u.as(scene, "height", u.browserHeight()+"px");
