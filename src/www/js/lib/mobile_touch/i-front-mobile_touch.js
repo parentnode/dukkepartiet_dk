@@ -5,8 +5,8 @@ Util.Objects["front"] = new function() {
 		// resize scene
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
-			
-			var height = u.browserWidth()/64*149 - 2;
+
+			var height = u.browserWidth()/64*181 - 2;
 			u.as(scene, "height", height+"px")
 			// refresh dom
 			//this.offsetHeight;
