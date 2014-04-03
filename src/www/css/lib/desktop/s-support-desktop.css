@@ -4,7 +4,7 @@ red:  #ee191b;
 */
 
 
-#content .scene.support {padding:0;}
+#content .scene.support {padding:100px 0 60px;}
 
 #content .scene.support .container {width: 460px; margin:0 auto; text-align: center;}
 #content .scene.support .container h2 {color: #ee191b; font-size: 55px; padding:0 10px; }
@@ -19,7 +19,7 @@ red:  #ee191b;
 #content .scene.support .container p a:hover {color: #00027a; background-color: #ee191b; }
 
 	/* menu/close_bn*/
-.support_us #content .scene.support .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_red.png") no-repeat bottom left; text-indent: -9999px; z-index: 101;}
+/*.support_us #content .scene.support .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_red.png") no-repeat bottom left; text-indent: -9999px; z-index: 101;}*/
 	/* HIDE MENU & FOOTER */
 .support_us #page #footer {display: none;}
 .support_us #page #header #navigation .nav_icon {display: none;}

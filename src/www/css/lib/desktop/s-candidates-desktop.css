@@ -30,9 +30,8 @@ red:  #ee191b;
 .candidate #content .scene.candidates .next,
 .candidate #content .scene.candidates .previous {top:50%; color: #ee191b; font-size: 16px;}
 
-	/* menu/close_bn*/
-.candidate #content .scene.candidates .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_red.png") no-repeat bottom left; text-indent: -9999px;}
-	/* HIDE MENU & FOOTER */
+
+/* HIDE MENU & FOOTER */
 .candidate #page #header,
 .candidate #page #footer {display: none;}
 

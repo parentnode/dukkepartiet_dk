@@ -4,7 +4,11 @@ Util.Objects["support"] = new function() {
 		// resize scene
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
-
+			var height = u.browserHeight()-160; // 160px is padding
+			if (scene.ul.offsetHeight < height ) {
+				// set height
+				u.as(scene, "height", height+"px");
+			}
 			// refresh dom
 			//this.offsetHeight;
 		}
@@ -20,21 +24,13 @@ Util.Objects["support"] = new function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
 			
 			// scene height
-			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
 
-			// smaller than screen
-			if (this.ul.offsetHeight+160 < height ) {
-				// set height
-				u.as(this, "height", u.browserHeight()+"px");
-				// margin of item
-				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
-
-			// bigger than screen
-			} else {
-				// set padding
-				u.as(this.ul, "padding", "100px 0 60px 0");
-			}
+			// set resize handler
+			u.e.addEvent(window, "resize", scene.resized);			
+			
+			// resize after load
+			this.resized();
 
 
 			// loaded!

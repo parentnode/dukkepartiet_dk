@@ -16,7 +16,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 <?		foreach($items as $item): 
 			$item = $IC->extendItem($item); ?>
 		<li class="item">
-			<p><span><?= $item["doctrine"] ?></span></p>
+			<p><?= $item["doctrine"] ?></p>
 		</li>
 <?		endforeach; ?>
 	</ul>

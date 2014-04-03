@@ -1,0 +1,56 @@
+ /* HOVERS*/
+
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+
+
+/* Top menu */
+#header.open #navigation.red ul.primary li a:hover {background-color:#ee191b; color:#00027a;}
+#header.open #navigation.blue ul.primary li a:hover {background-color:#00027a; color:#ee191b;}
+#header #navigation.red .nav_icon:hover {background-image: url("/img/gx_nav_icon_red.png"); background-color:#00027a;}
+#header.open #navigation.red .nav_icon:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color:#ee191b;}
+#header #navigation.blue .nav_icon:hover {background-image: url("/img/gx_nav_icon_blue.png"); background-color:#ee191b;}
+#header.open #navigation.blue .nav_icon:hover {background-image: url("/img/gx_nav_icon_close_red.png"); background-color:#00027a;}
+#header #navigation.red ul.servicenavigation li.help_us a:hover {background-image: url("/img/bn_help_us_blue.png");}
+#header #navigation.red ul.servicenavigation li.support_us a:hover {background-image: url("/img/bn_support_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.help_us a:hover {background-image: url("/img/bn_help_us_red.png");}
+#header #navigation.blue ul.servicenavigation li.support_us a:hover {background-image: url("/img/bn_support_us_red.png");}
+	/* front nav */
+#content .scene.front ul.servicenavigation li.support_us a:hover {background-image: url("/img/bn_support_us_blue.png");}
+#content .scene.front ul.servicenavigation li.help_us a:hover {background-image: url("/img/bn_help_us_blue.png");}
+
+	/* social */
+#header #navigation.blue .social ul li.facebook a:hover {background-image: url("/img/bn_fb_red.png");}
+#header #navigation.blue .social ul li.youtube a:hover {background-image: url("/img/bn_yt_red.png");}
+#header #navigation.blue .social ul li.twitter a:hover {background-image: url("/img/bn_tw_red.png");}
+#header #navigation.blue .social ul li.instagram a:hover {background-image: url("/img/bn_ig_red.png");}
+#header #navigation.red .social ul li.facebook a:hover {background-image: url("/img/bn_fb_blue.png");}
+#header #navigation.red .social ul li.youtube a:hover {background-image: url("/img/bn_yt_blue.png");}
+#header #navigation.red .social ul li.twitter a:hover {background-image: url("/img/bn_tw_blue.png");}
+#header #navigation.red .social ul li.instagram a:hover {background-image: url("/img/bn_ig_blue.png");}
+
+	/* close bn */
+#content .scene.red .close a:hover {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
+#content .scene.blue .close a:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
+#content .scene.action .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
+	/* logo */
+#header #navigation.blue .logo:hover {background-image: url("/img/gx_fixed_logo_blue.png"); background-color:cyan;};
+#header #navigation.red .logo:hover {background-image: url("/img/gx_fixed_logo_red.png"); background-color:green;};
+
+
+/* prev/next */
+#content .scene.red .next:hover,
+#content .scene.red .previous:hover {color: #ee191b; background-color: #00027a;}
+#content .scene.blue .next:hover,
+#content .scene.blue .previous:hover {color: #00027a; background-color: #ee191b;}
+
+
+/* events */
+.events #content .scene.events ul.items li.item:hover {background-color: #00027a;}
+.events #content .scene.events ul.items li.item:hover h3 {color:#ee191b;}
+.events #content .scene.events ul.items li.item:hover dl dd.published_at {color:#ee191b;}
+.events #content .scene.events ul.items li.item:hover dl dd.location {color:#ee191b;}
+

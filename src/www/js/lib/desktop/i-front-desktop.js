@@ -6,9 +6,15 @@ Util.Objects["front"] = new function() {
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
 			// slogan height
-			u.as(scene, "height", u.browserHeight()+"px");
-			var height = u.browserHeight() - scene.logo.offsetHeight - 100; // 100px bottom
-			u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
+			
+			if (u.browserHeight() < 700) {
+				u.as(scene.slogan, "marginTop", "0px");
+			} else {
+				u.as(scene, "height", u.browserHeight()+"px");
+				var height = u.browserHeight() - scene.logo.offsetHeight - 100; // 100px bottom
+				u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
+			}
+			
 
 			// refresh dom
 			this.offsetHeight;

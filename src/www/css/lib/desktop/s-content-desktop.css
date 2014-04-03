@@ -35,7 +35,8 @@ red:  #ee191b;
 
 /* PREVIOUS / NEXT - Carousel */
 #content .scene .next,
-#content .scene .previous {position:absolute; width:100px; padding: 28px 0; top: 50%; text-align: center; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; color:#00027a; cursor: pointer;
+#content .scene .previous {position:absolute; width:100px; padding: 10px 0; top: 50%; cursor: pointer; color:#00027a;
+	text-align: center; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; font-size:18px; text-transform: uppercase; letter-spacing: 1px;
 	/*-webkit-touch-callout: none;*/
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
@@ -54,6 +55,10 @@ red:  #ee191b;
   	    -ms-transform:rotate(-90deg);
 }
 
+/* CLOSE BUTTON */
+#content .scene .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; right:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center;}
+#content .scene.red .close a {background-image: url("/img/gx_nav_icon_close_blue.png");}
+#content .scene.blue .close a {background-image: url("/img/gx_nav_icon_close_red.png");}
 
 /* FOOTER */
 #footer {position: relative;}

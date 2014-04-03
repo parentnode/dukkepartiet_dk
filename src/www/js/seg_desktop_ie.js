@@ -3306,9 +3306,13 @@ u.e.addDOMReadyEvent(u.init);
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			u.as(scene, "height", u.browserHeight()+"px");
-			var height = u.browserHeight() - scene.logo.offsetHeight - 100; 
-			u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
+			if (u.browserHeight() < 700) {
+				u.as(scene.slogan, "marginTop", "0px");
+			} else {
+				u.as(scene, "height", u.browserHeight()+"px");
+				var height = u.browserHeight() - scene.logo.offsetHeight - 100; 
+				u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
+			}
 			this.offsetHeight;
 		}
 		scene.scrolled = function() {
@@ -3697,18 +3701,17 @@ Util.Objects["candidate"] = new function() {
 Util.Objects["support"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
+			var height = u.browserHeight()-160; 
+			if (scene.ul.offsetHeight < height ) {
+				u.as(scene, "height", height+"px");
+			}
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
-			if (this.ul.offsetHeight+160 < height ) {
-				u.as(this, "height", u.browserHeight()+"px");
-				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
-			} else {
-				u.as(this.ul, "padding", "100px 0 60px 0");
-			}
+			u.e.addEvent(window, "resize", scene.resized);			
+			this.resized();
 			page.ready();
 			page.cN.ready();
 		}
@@ -3720,18 +3723,17 @@ Util.Objects["support"] = new function() {
 Util.Objects["help"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
+			var height = u.browserHeight()-160; 
+			if (scene.ul.offsetHeight < height ) {
+				u.as(scene, "height", height+"px");
+			}
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			var height = u.browserHeight();
 			this.ul = u.qs(".container", this);
-			if (this.ul.offsetHeight+160 < height ) {
-				u.as(this, "height", u.browserHeight()+"px");
-				u.as(this.ul, "paddingTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
-			} else {
-				u.as(this.ul, "padding", "100px 0 60px 0");
-			}
+			u.e.addEvent(window, "resize", scene.resized);			
+			this.resized();
 			page.ready();
 			page.cN.ready();
 		}
