@@ -8,7 +8,7 @@
 			<dt>Reg nummer</dt>
 			<dd>7643</dd>
 			<dt>Konto nummer</dt>
-			<dd>76432053387</dd>
+			<dd>0002053387</dd>
 		</dl>
 		<p>Giv os også et like på <a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a>. Her kan du følge partiet og holde dig opdateret om partiets aktiviteter.</p>
 	</div>
