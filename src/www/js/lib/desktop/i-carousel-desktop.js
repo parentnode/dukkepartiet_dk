@@ -80,7 +80,6 @@ Util.Objects["carousel"] = new function() {
 		}
 		
 		list.hide = function(node) {
-			//u.a.setOpacity(node, 0);
 			u.as(node, "display", "none");
 		}
 
@@ -89,24 +88,6 @@ Util.Objects["carousel"] = new function() {
 			u.as(node, "display", "block");
 			// remember current node
 			list.current_node = node;
-
-
-			// this.current_node.transitioned = function() {
-			// 	u.a.transition(this, "none");
-			// 	//u.a.translate(this, -200, 0);
-			
-			// 	// show NEW
-			// 	u.a.transition(node, "all 500ms ease-in-out");
-			// 	u.a.setOpacity(node, 1);
-
-			// 	// set current node
-			// 	list.current_node = node;
-			// }
-
-			// // Bg
-			// u.a.transition(this.current_node, "all 500ms ease-in-out");
-			// u.a.setOpacity(this.current_node, 0);
-			
 		}
 
     	

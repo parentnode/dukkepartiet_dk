@@ -2724,7 +2724,7 @@ u.e.addDOMReadyEvent(u.init);
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			var height = u.browserWidth()/64*149 - 2;
+			var height = u.browserWidth()/64*181 - 2;
 			u.as(scene, "height", height+"px")
 		}
 		scene.scrolled = function() {

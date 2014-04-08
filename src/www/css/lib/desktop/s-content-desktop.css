@@ -16,26 +16,23 @@ red:  #ee191b;
 
 #content .scene {position: relative; width:100%; border-bottom:1px solid #000;}
 
-#content .scene h1 {text-align: center; padding:60px 0; font-size: 50px; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;}
-#content .scene h2 {text-align: center; padding: 60px 0 60px 0; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; text-transform: uppercase; font-size:55px;}
+#content .scene h1 {text-align: center; padding: 50px 0; font-size: 50px; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;}
+#content .scene h2 {text-align: center; padding: 50px 0 40px 0; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; text-transform: uppercase; font-size:55px;}
 #content .scene h3 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase;font-size:16px;}
 #content .scene h4 {text-align: center; padding: 10px 0; font-family: Arial; text-transform: uppercase; font-size:16px;}
 
 
 /* background colors */
-#content .scene.red,
-#content .scene.doctrines,
-#content .scene.front {
+#content .scene.red {
 	background-color: #ee191b;
 }
-#content .scene.blue,
-#content .scene.action {
+#content .scene.blue {
 	background-color: #00027a;
 }
 
 /* PREVIOUS / NEXT - Carousel */
 #content .scene .next,
-#content .scene .previous {position:absolute; width:100px; padding: 10px 0; top: 50%; cursor: pointer; color:#00027a;
+#content .scene .previous {position:absolute; width:100px; padding: 10px 0; top: 50%; cursor: pointer; margin-top: -25px;
 	text-align: center; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; font-size:18px; text-transform: uppercase; letter-spacing: 1px;
 	/*-webkit-touch-callout: none;*/
 	-webkit-user-select: none;
@@ -54,6 +51,10 @@ red:  #ee191b;
   	   -moz-transform:rotate(-90deg);
   	    -ms-transform:rotate(-90deg);
 }
+#content .scene.red .previous,
+#content .scene.red .next {color:#00027a;}
+#content .scene.blue .previous,
+#content .scene.blue .next {color:#ee191b;}
 
 /* CLOSE BUTTON */
 #content .scene .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; right:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center;}

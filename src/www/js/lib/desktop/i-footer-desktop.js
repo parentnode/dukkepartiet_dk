@@ -5,8 +5,10 @@ Util.Objects["footer"] = new function() {
 			
 			u.bug("set footer color");
 			
+			this._class = document.body.className;
+			
 			// RED
-			if (document.body.className == "candidates" || document.body.className == "candidate") {
+			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform") {
 				u.ac(this, "red");
 			}
 			// BLUE

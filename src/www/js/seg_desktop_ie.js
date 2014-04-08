@@ -3451,10 +3451,6 @@ Util.Objects["carousel"] = new function() {
 		list.show = function(node) {
 			u.as(node, "display", "block");
 			list.current_node = node;
-			// 	
-			// 	
-			// 	
-			// 
 		}
 		list.ready();
 	}
@@ -3746,7 +3742,8 @@ Util.Objects["footer"] = new function() {
 	this.init = function(footer) {
 		footer.ready = function() {
 			u.bug("set footer color");
-			if (document.body.className == "candidates" || document.body.className == "candidate") {
+			this._class = document.body.className;
+			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform") {
 				u.ac(this, "red");
 			}
 			else {

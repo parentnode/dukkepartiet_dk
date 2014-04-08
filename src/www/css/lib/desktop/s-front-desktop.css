@@ -22,9 +22,6 @@ red:  #ee191b;
 #content .scene.front .container ul.items li.item .image img {width: 100%;}
 
 
-#content .scene .next,
-#content .scene .previous {top:50%;}
-
 
 /* SERVICE NAVIGATION */
 .no_menu #content .scene.front ul.servicenavigation {display:block; position: absolute; bottom:42px; width: 100%; text-align: center;}

@@ -3,13 +3,13 @@ blue: #00027a;
 red:  #ee191b;
 */
 
-#footer {padding: 100px 0 60px; width: 100%;}
+#footer {padding: 70px 0 80px; width: 100%;}
 #footer .social {display: none;}
 
 #footer .about {width:740px; margin:0 auto;}
 #footer .about p {text-align: center; font-size: 26px; font-family: Arial, sans-serif; font-weight: bold; font-style:italic;}
-#footer .about ul.contacts {display:block; width:100%; font-size: 1rem; height:200px;}
-#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:360px;}
+#footer .about ul.contacts {display:block; width:100%; font-size: 1rem; }
+#footer .about ul.contacts li.contact {text-align:center; margin:50px auto 0; width:360px;}
 #footer .about ul.contacts li.contact .press {}
 #footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
 #footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;}

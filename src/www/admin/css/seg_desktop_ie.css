@@ -345,6 +345,7 @@ input, select, textarea {font-size: 14px;}
 #content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.candidateList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.billList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
 #content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
 body.slogan #navigation .slogan a,

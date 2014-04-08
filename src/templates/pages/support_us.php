@@ -13,6 +13,6 @@
 		<p>Giv os også et like på <a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a>. Her kan du følge partiet og holde dig opdateret om partiets aktiviteter.</p>
 	</div>
 
-	<div class="close"><a href="/">go back...to where?</a></div>
+	<div class="close"><a href="/">go back</a></div>
 
 </div>
