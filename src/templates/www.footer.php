@@ -13,7 +13,7 @@ if($events): ?>
 					<li><a class="events" href="/kalender">Kalender</a></li>
 <? endif; ?>
 					<li><a class="bills" href="/lovforslag">Lovforslag</a></li>
-					<li><a class="bills" href="/folketingsreformen">Folketingsreformen</a></li>
+					<!--li><a class="reform" href="/folketingsreformen">Folketingsreformen</a></li-->
 				</ul>
 
 			</div>
