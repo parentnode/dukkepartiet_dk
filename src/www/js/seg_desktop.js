@@ -2938,13 +2938,8 @@ u.e.addDOMReadyEvent(u.init);
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			if (u.browserHeight() < 800) {
-				u.as(scene.slogan, "marginTop", "0px");
-			} else {
-				u.as(scene, "height", u.browserHeight()+"px");
-				var height = u.browserHeight() - scene.logo.offsetHeight - 100; 
-				u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
-			}
+			u.as(scene, "height", u.browserHeight()+"px");
+			// 	var height = u.browserHeight() - scene.logo.offsetHeight - 100; 
 			this.offsetHeight;
 		}
 		scene.scrolled = function() {
@@ -2970,6 +2965,18 @@ Util.Objects["front"] = new function() {
 					u.ac(page, "no_menu");
 				}
 			}
+			if (scroll_y > browser_h-400) {
+				if (u.hc(scene.logo, "fixed")) {
+					u.rc(scene.logo, "fixed");
+					u.as(scene.logo, "top", scroll_y +"px")
+				}
+			}
+			else {
+				if (!u.hc(scene.logo, "fixed")) {
+					u.ac(scene.logo, "fixed");
+					u.as(scene.logo, "top", "0px")
+				}
+			}
 		}
 		scene.ready = function() {
 			if (u.qsa(".scene", page.cN).length == 3) {
@@ -2992,7 +2999,7 @@ Util.Objects["front"] = new function() {
 				node._image_available = u.cv(node, "image_id");
 				if(node._image_available) {
 					node._image_format = u.cv(node, "image_format");
-					node._image_src = "/images/" + node._image_available + "/1260x" + "." + node._image_format;;
+					node._image_src = "/images/" + node._image_available + "/1600x" + "." + node._image_format;;
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 					node.loaded = function(queue) {
 						this._image = u.ae(this._image_mask, "img", {"src":this._image_src});

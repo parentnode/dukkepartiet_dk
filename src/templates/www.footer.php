@@ -12,7 +12,13 @@ $events = $IC->getItems(array("itemtype" => "event", "status" => 1, "order" => "
 if($events): ?>
 					<li><a class="events" href="/kalender">Kalender</a></li>
 <? endif; ?>
+
+<? 
+$IC = new Item();
+$events = $IC->getItems(array("itemtype" => "bill", "status" => 1, "order" => "published_at ASC"));
+if($events): ?>
 					<li><a class="bills" href="/lovforslag">Lovforslag</a></li>
+<? endif; ?>
 					<!--li><a class="reform" href="/folketingsreformen">Folketingsreformen</a></li-->
 				</ul>
 
