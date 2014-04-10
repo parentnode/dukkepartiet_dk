@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?= $this->language() ?>">
 <head>
-	<!-- (c) & (p) e-types.com, 2013 //-->
+	<!-- (c) & (p) e-types.com, 2014 //-->
 	<!-- All material protected by copyrightlaws, as if you didnt know //-->
 	<title><?= $this->pageTitle() ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
