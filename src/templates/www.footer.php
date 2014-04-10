@@ -1,4 +1,4 @@
-			
+fvsfv			
 			</div>
 			
 			<div id="navigation">
@@ -45,20 +45,20 @@ if($events): ?>
 				<!-- Stay in footer -->
 				<div class="about">
 					<p>Dukkepartiet er et samlingspunkt for alle, der hverken kan eller vil stille sig tilfreds med den aktuelle udformning af det politiske landskab. Partiet består af en gruppe borgere, der ønsker at tage et opgør med vores demokratiforståelse. Et opgør, der skal udstille tomheden for derigennem at genstarte demokratiet.</p>
-					<ul class="contacts">
+					<ul class="contacts" itemscope itemtype="http://schema.org/PostalAddress">
 						<li class="contact">
 							<h4>Kontakt os</h4>
-							<h5>Dukkepartiet</h5>
-							<p>Postbox 2030</p>
-							<p>1112 KBH K.</p>
-							<p><a href="mailto:kontakt@dukkepartiet.dk">kontakt@dukkepartiet.dk</a></p>
+							<h5 itemprop="name">Dukkepartiet</h5>
+							<p itemprop="streetAddress">Postbox 2030</p>
+							<p><span itemprop="postalCode">1112</span><span itemprop="addressLocality">KBH K.</span></p>
+							<p><a itemprop="email" href="mailto:kontakt@dukkepartiet.dk">kontakt@dukkepartiet.dk</a></p>
 						</li>
 						<li class="contact press">
 							<h4>Pressekontakt</h4>
-							<h5>Have Kommunikation A/S</h5>
-							<p>Kristina Sindberg</p>
-							<p>(+45) 2486 0184</p>
-							<p><a href="mailto:kristina@have.dk">kristina@have.dk</a></p>
+							<h5 itemprop="name">Have Kommunikation A/S</h5>
+							<p itemprop="member">Kristina Sindberg</p>
+							<p itemprop="telephone">(+45) 2486 0184</p>
+							<p><a itemprop="email" href="mailto:kristina@have.dk">kristina@have.dk</a></p>
 						</li>
 					</ul>
 				</div>
