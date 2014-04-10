@@ -11,7 +11,7 @@
 	<meta name="viewport" content="initial-scale=1, user-scalable=no" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta property="og:image" content="/img/sh_dukkepartiet.png" />
+	<meta property="og:image" content="http://dukkepartiet.dk/img/sh_dukkepartiet.png" />
 
 <? if(Session::value("dev")) { ?>
 	<link type="text/css" rel="stylesheet" media="all" href="/css/lib/seg_<?= $this->segment() ?>_include.css" />
