@@ -65,13 +65,13 @@ $signature_data  = $values["signature_data"];
 
 		div.form * {font-size: 12px;}
 		div.form div {position: absolute; overflow: hidden;}
-		div.name {left: 85px; top: 149px;}
-		div.address1 {left: 85px; top: 187px;}
-		div.address2 {left: 85px; top: 220px;}
+		div.name {left: 85px; top: 149px; width: 330px;}
+		div.address1 {left: 85px; top: 187px; width: 330px;}
+		div.address2 {left: 85px; top: 220px; width: 330px;}
 		div.postal {left: 129px; top: 257px;}
 		div.postal span {float: left; padding: 0 14px 0 0; width: 12px;}
-		div.city {left: 250px; top: 259px;}
-		div.municipality {left: 580px; top: 203px;}
+		div.city {left: 250px; top: 259px; width: 170px;}
+		div.municipality {left: 580px; top: 203px; width: 220px;}
 		div.cpr_1 {left: 465px; top: 173px;}
 		div.cpr_1 span {float: left; padding: 0 22px 0 0; width: 12px;}
 		div.cpr_2 {left: 701px; top: 173px;}
