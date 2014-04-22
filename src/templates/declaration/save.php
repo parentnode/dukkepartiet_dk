@@ -2,7 +2,8 @@
 
 
 function quickGet($var) {
-	return utf8_decode(getVar($var));
+	return getVar($var);
+//	return utf8_decode(getVar($var));
 //	return urlencode(getVar($var));
 }
 
