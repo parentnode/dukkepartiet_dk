@@ -30,13 +30,13 @@ body.declaration #content .scene .vcard .email {display: inline-block; vertical-
 body.declaration #content .scene div.signatureform {width: 737px; overflow: hidden; position: relative; padding: 0 0 30px; background: transparent url(/img/bg_standardvaelgererklaering_userform.png) no-repeat left top;}
 body.declaration #content .scene div.signatureform * {font-size: 12px;}
 body.declaration #content .scene div.signatureform div {position: absolute; overflow: hidden;}
-body.declaration #content .scene div.signatureform div.name {left: 55px; top: 30px;}
-body.declaration #content .scene div.signatureform div.address1 {left: 55px; top: 65px;}
-body.declaration #content .scene div.signatureform div.address2 {left: 55px; top: 95px;}
+body.declaration #content .scene div.signatureform div.name {left: 55px; top: 30px; width: 330px;}
+body.declaration #content .scene div.signatureform div.address1 {left: 55px; top: 65px; width: 330px;}
+body.declaration #content .scene div.signatureform div.address2 {left: 55px; top: 95px; width: 330px;}
 body.declaration #content .scene div.signatureform div.postal {left: 90px; top: 128px;}
 body.declaration #content .scene div.signatureform div.postal span {float: left; padding: 0 10px 0 0; width: 12px;}
-body.declaration #content .scene div.signatureform div.city {left: 192px; top: 127px;}
-body.declaration #content .scene div.signatureform div.municipality {left: 490px; top: 78px;}
+body.declaration #content .scene div.signatureform div.city {left: 192px; top: 127px; width: 170px;}
+body.declaration #content .scene div.signatureform div.municipality {left: 490px; top: 78px; width: 220px;}
 body.declaration #content .scene div.signatureform div.cpr_1 {left: 385px; top: 55px;}
 body.declaration #content .scene div.signatureform div.cpr_1 span {float: left; padding: 0 17px 0 0; width: 12px;}
 body.declaration #content .scene div.signatureform div.cpr_2 {left: 593px; top: 55px;}
