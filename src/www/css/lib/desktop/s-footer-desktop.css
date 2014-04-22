@@ -20,13 +20,20 @@ red:  #ee191b;
 
 /* SWITCH COLOR */
 
-	/* red */
+/* red */
 #footer.red {background-color:#ee191b; }
 #footer.red .about p {color: #00027a;}
 #footer.red .about ul.contacts li.contact * {color: #00027a;}
 #footer.red .about ul.contacts li.contact p a:hover {background-color: #00027a; color: #ee191b;}
-	/* blue */
+
+/* blue */
 #footer.blue {background-color:#00027a; }
 #footer.blue .about p {color: #ee191b;}
 #footer.blue .about ul.contacts li.contact * {color: #ee191b;}
 #footer.blue .about ul.contacts li.contact p a:hover {background-color: #ee191b; color: #00027a;}
+
+/* black */
+body.declaration #footer {background-color: #000000; }
+body.declaration #footer .about p {color: #ffffff;}
+body.declaration #footer .about ul.contacts li.contact * {color: #ffffff;}
+body.declaration #footer .about ul.contacts li.contact p a:hover {background-color: #ffffff; color: #000000;}

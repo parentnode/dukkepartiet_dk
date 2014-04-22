@@ -22,20 +22,15 @@
 	#footer .about {width:460px;}
 	#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:220px;}
 
+
+	body.declaration #content .scene {
+		
+		/* INSERT ROTATE GRAPHIC */
+		
+	}
 }
 
-/*@media (min-width: 960px) and (max-width: 1299px) {
-}*/
 
 @media (min-width: 1260px) {
 	#content .scene.front .container ul.items li.item {width:1260px;} 
 }
-
-
-
-
-
-
-
-
-
