@@ -1,4 +1,3 @@
-fvsfv			
 			</div>
 			
 			<div id="navigation">

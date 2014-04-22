@@ -1,6 +1,5 @@
 <div class="scene signature i:signature">
 
-	<?= Session::value("signature_id") ?>
 	<h1>Vælgererklæring</h1>
 	<div id="vcard-dukkepartiet" class="vcard" itemscope itemtype="http://schema.org/Organization">
 		<div class="name fn org" itemprop="name">Dukkepartiet</div>
