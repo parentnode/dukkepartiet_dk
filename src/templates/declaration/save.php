@@ -68,20 +68,8 @@ $output = shell_exec($ex);
 
 
 // delete info file
-//unlink($info_file);
-
+unlink($info_file);
+Session::reset("signature_id");
+header("Location: /vaelgererklaering/receipt?id=$declaration_id");
+exit();
 ?>
-
-<div class="scene receipt i:receipt">
-
-	<h1>Tak</h1>
-	<p>Vi har nu modtaget din underskrevne vælgererklæring</p>
-
-	<p class="regards">Med venlig hilsen</p>
-	<h2>Dukkepartiet</h2>
-
-	<ul class="actions">
-		<li class="download"><a href="/vaelgererklaering/download?id=<?= $declaration_id ?>">Download PDF til godkendelse af OIM</a></li>
-	</ul>
-
-</div>

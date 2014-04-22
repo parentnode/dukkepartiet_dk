@@ -1,5 +1,14 @@
 u.bug_force = true;
 
+Util.Objects["dataform"] = new function() {
+	this.init = function(scene) {
+
+		var form = u.qs("form", scene);
+		u.f.init(form);
+
+	}
+}
+
 Util.Objects["signature"] = new function() {
 	this.init = function(scene) {
 //		u.bug("scene init:" + u.nodeId(scene))

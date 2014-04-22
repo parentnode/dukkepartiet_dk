@@ -9,6 +9,15 @@ $municipality    = stringor(getVar("municipality"), "Kommuneslev");
 $cpr_1           = stringor(getVar("cpr_1"), "123456");
 $cpr_2           = stringor(getVar("cpr_2"), "1234");
 
+$name            = getVar("name");
+$address1        = getVar("address1");
+$address2        = getVar("address2");
+$postal          = getVar("postal");
+$city            = getVar("city");
+$municipality    = getVar("municipality");
+$cpr_1           = getVar("cpr_1");
+$cpr_2           = getVar("cpr_2");
+
 $date_data       = getVar("date_data");
 $signature_data  = getVar("signature_data");
 
@@ -18,7 +27,7 @@ if(!Session::value("signature_id")) {
 
 ?>
 
-<div class="scene dataform">
+<div class="scene dataform i:dataform">
 
 	<h1>Vælgererklæring</h1>
 	<p>
@@ -28,39 +37,35 @@ if(!Session::value("signature_id")) {
 	<form name="declaration" action="/vaelgererklaering/signature" method="post">
 		<fieldset>
 
-			<div class="field string">
-				<label>Navn</label>
-				<input type="text" name="name" value="<?= $name ?>" />
+			<div class="field string required">
+				<label for="name">Navn</label>
+				<input type="text" name="name" id="name" value="<?= $name ?>" />
+			</div>
+
+			<div class="field string required">
+				<label for="address1">Adresse 1</label>
+				<input type="text" name="address1" id="address1" value="<?= $address1 ?>" />
 			</div>
 
 			<div class="field string">
-				<label>Adresse 1</label>
-				<input type="text" name="address1" value="<?= $address1 ?>" />
+				<label for="address2">Adresse 2</label>
+				<input type="text" name="address2" id="address2" value="<?= $address2 ?>" />
 			</div>
 
-			<div class="field string">
-				<label>Adresse 2</label>
-				<input type="text" name="address2" value="<?= $address2 ?>" />
+			<div class="field postalcity required">
+				<label for="postal">Postnr. og by</label>
+				<input type="text" name="postal" class="postal" id="postal" value="<?= $postal ?>" />
+				<input type="text" name="city" class="city" value="<?= $city ?>" />
 			</div>
 
-			<div class="field string">
-				<label>Postnummer</label>
-				<input type="text" name="postal" value="<?= $postal ?>" />
+			<div class="field string required">
+				<label for="municipality">Kommune</label>
+				<input type="text" name="municipality" id="municipality" value="<?= $municipality ?>" />
 			</div>
 
-			<div class="field string">
-				<label>By</label>
-				<input type="text" name="city" value="<?= $city ?>" />
-			</div>
-
-			<div class="field string">
-				<label>Kommune</label>
-				<input type="text" name="municipality" value="<?= $municipality ?>" />
-			</div>
-
-			<div class="field string">
-				<label>CPR</label>
-				<input type="text" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr1" /><span>-</span><input type="text" name="cpr_2" value="<?= $cpr_2 ?>" id="cpr2" />
+			<div class="field cpr required">
+				<label for="cpr">CPR</label>
+				<input type="text" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr" class="cpr1" /><span>-</span><input type="text" name="cpr_2" value="<?= $cpr_2 ?>" class="cpr2" />
 			</div>
 
 			<input type="hidden" name="date_data" value="<?= $date_data ?>" />

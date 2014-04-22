@@ -22,7 +22,7 @@ if(count($action) > 0) {
 		$page->template("declaration/signature.php");
 		$page->footer();
 		exit();
-		
+
 	}
 	else if($action[0] == "preview") {
 
@@ -30,7 +30,7 @@ if(count($action) > 0) {
 		$page->template("declaration/preview.php");
 		$page->footer();
 		exit();
-		
+
 	}
 	else if($action[0] == "save") {
 
@@ -38,14 +38,21 @@ if(count($action) > 0) {
 		$page->template("declaration/save.php");
 		$page->footer();
 		exit();
-		
+
+	}
+	else if($action[0] == "receipt") {
+
+		$page->header();
+		$page->template("declaration/receipt.php");
+		$page->footer();
+		exit();
+
 	}
 	else if($action[0] == "print") {
 
 		$page->template("declaration/print.php");
 		exit();
 	}
-
 
 	else if($action[0] == "download") {
 
