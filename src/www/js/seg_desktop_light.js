@@ -5264,6 +5264,21 @@ Util.Objects["candidate"] = new function() {
 	}
 }
 
+/*i-bill-desktop.js*/
+Util.Objects["scene"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			u.bug("standard scene");
+			page.ready();
+		}
+		scene.ready();
+	}
+}
+
 /*i-support-desktop.js*/
 Util.Objects["support"] = new function() {
 	this.init = function(scene) {
