@@ -78,6 +78,12 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 #content .scene.dataform .field label:after {content: ":";}
 #content .scene.dataform .field input {width: 250px; display: inline-block; vertical-align: top; border: 1px solid #000000; padding: 2px 3px;}
 #content .scene.dataform .field input.error {border-color: #ee191b;}
+
+#content .scene.dataform .field input[type="number"]::-webkit-inner-spin-button,
+#content .scene.dataform .field input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
 #content .scene.dataform .field input.cpr1 {width: 150px;}
 #content .scene.dataform .field input.cpr2 {width: 80px;}
 #content .scene.dataform .field.postalcity input.postal {width: 50px; margin-right: 12px;}

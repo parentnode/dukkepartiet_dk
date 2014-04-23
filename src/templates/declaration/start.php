@@ -31,7 +31,7 @@ if(!Session::value("signature_id")) {
 
 	<h1>Vælgererklæring</h1>
 	<p>
-		Hjælp os med at opstille til folketingsvalget. <br />
+		Hjælp os med at opstille til folketingsvalget, ved at udfylde den digitale vælgererklæring. <br />
 		Indtast dine personlige oplysninger i formularen herunder:
 	</p>
 	<form name="declaration" action="/vaelgererklaering/signature" method="post">
@@ -54,7 +54,7 @@ if(!Session::value("signature_id")) {
 
 			<div class="field postalcity required">
 				<label for="postal">Postnr. og by</label>
-				<input type="text" name="postal" class="postal" id="postal" value="<?= $postal ?>" />
+				<input type="number" name="postal" class="postal" id="postal" value="<?= $postal ?>" />
 				<input type="text" name="city" class="city" value="<?= $city ?>" />
 			</div>
 
@@ -65,7 +65,7 @@ if(!Session::value("signature_id")) {
 
 			<div class="field cpr required">
 				<label for="cpr">CPR</label>
-				<input type="text" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr" class="cpr1" /><span>-</span><input type="text" name="cpr_2" value="<?= $cpr_2 ?>" class="cpr2" />
+				<input type="number" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr" class="cpr1" /><span>-</span><input type="number" name="cpr_2" value="<?= $cpr_2 ?>" class="cpr2" />
 			</div>
 
 			<input type="hidden" name="date_data" value="<?= $date_data ?>" />

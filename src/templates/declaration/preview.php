@@ -36,7 +36,7 @@
 		<input type="hidden" id="signature_data" name="signature_data" value="<?= getVar("signature_data") ?>">
 
 		<ul class="actions">
-			<li class="preview"><input type="submit" value="Send"></li>
+			<li class="preview"><input type="submit" value="Send vælgererklæring"></li>
 		</ul>
 	</form>
 </div>
