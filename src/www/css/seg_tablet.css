@@ -410,7 +410,7 @@ body.declaration #content .scene.signature canvas.signature.selected {border: 2p
 body.declaration #content .scene input {border-radius: 0;
 	-webkit-appearance: none;
 }
-body.declaration #content .scene .actions input {border: none; background: #000000; color: #ffffff; padding: 5px 20px; cursor: pointer;
+body.declaration #content .scene .actions input {border: none; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 20px; cursor: pointer;
 	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
 }
 body.declaration #content .scene .back {position: relative; z-index:100; top: -30px; background: #000000; color: #ffffff; padding: 6px 20px; font-size: 14px; display: inline-block; cursor: pointer;
