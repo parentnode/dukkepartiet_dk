@@ -17,6 +17,11 @@
 #content .defaultList.billList ul.items > li h3 {padding-bottom: 16px;}
 
 
+/* DECLARATION */
+#content .defaultList.declarationList h1 {border-bottom: 1px solid #dedede; padding-bottom: 74px;}
+#content .defaultList.declarationList ul.items > li h3 {padding-bottom: 13px;}
+
+
 /* EVENT */
 #content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
 #content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
@@ -29,4 +34,8 @@ body.doctrine #navigation .doctrine a,
 
 body.candidate #navigation .candidate a,
 body.event #navigation .event a,
+body.bill #navigation .bill a,
+
+body.declaration #navigation .declaration a,
+
 body.tags #navigation .tags a {padding-left: 35px; color: #ffffff;}

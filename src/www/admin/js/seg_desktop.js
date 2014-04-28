@@ -4620,19 +4620,15 @@ Util.Objects["addMedia"] = new function() {
 	this.init = function(div) {
 		var form = u.qs("form", div);
 		u.f.init(form);
-		form.fields["files"].changed = function() {
+		var file_input = u.qs("input[type=file]", form);
+		file_input.changed = function() {
 			this.response = function(response) {
 				response = JSON.parse(this.responseText);
 				if(response.cms_status == "success" && response.cms_object) {
 					location.reload();
 				}
 				else if(response.cms_message) {
-					if(typeof(page.notify) == "function") {
-						page.notify(response.cms_message);
-					}
-					else {
-						alert(response.cms_message[0]);
-					}
+					page.notify(response.cms_message);
 				}
 			}
 			this.responseError = function(response) {
@@ -4646,8 +4642,8 @@ Util.Objects["addMedia"] = new function() {
 			}
 			var fd = new FormData();
 			var i, file;
-			for(i = 0; file = this.form.fields["files"].files[i]; i++) {
-				fd.append("files["+i+"]", file);
+			for(i = 0; file = this.files[i]; i++) {
+				fd.append(this.name+"["+i+"]", file);
 			}
 			this.HTTPRequest = u.createRequestObject();
 			this.HTTPRequest.node = this;
@@ -4655,6 +4651,22 @@ Util.Objects["addMedia"] = new function() {
 			u.e.addEvent(this.HTTPRequest, "error", this.responseError);
 			this.HTTPRequest.open("POST", this.form.action);
 			this.HTTPRequest.send(fd);
+		}
+		if(u.hc(div, "sortable")) {
+			div.list = u.qs("ul.media", div);
+			u.s.sortable(div.list);
+			div.list.picked = function() {}
+			div.list.dropped = function() {
+				var url = this.getAttribute("data-save-order");
+				this.nodes = u.qsa("li.media", this);
+				for(i = 0; node = this.nodes[i]; i++) {
+					url += "/"+u.cv(node, "media_id");
+				}
+				this.response = function(response) {
+					page.notify(response.cms_message);
+				}
+				u.request(this, url);
+			}
 		}
 	}
 }
@@ -5205,6 +5217,7 @@ Util.Objects["formDefaultStatus"] = new function() {
 /*i-form_defaultdelete.js*/
 Util.Objects["formDefaultDelete"] = new function() {
 	this.init = function(form) {
+		u.bug("formDefaultDelete init:" + u.nodeId(form));
 		u.f.init(form);
 		var bn_delete = u.qs("input.delete", form);
 		if(bn_delete) {
@@ -5212,6 +5225,9 @@ Util.Objects["formDefaultDelete"] = new function() {
 			bn_delete.restore = function(event) {
 				this.value = "Delete";
 				u.rc(this, "confirm");
+			}
+			bn_delete.inputStarted = function(event) {
+				u.e.kill(event);
 			}
 			bn_delete.clicked = function(event) {
 				u.e.kill(event);
