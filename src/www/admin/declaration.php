@@ -11,6 +11,8 @@ include_once("class/system/output.class.php");
 
 $action = $page->actions();
 $output = new Output();
+$fs = new FileSystem();
+
 
 
 $page->bodyClass("declaration");
@@ -55,11 +57,13 @@ if(is_array($action) && count($action)) {
 	}
 
 	// DELETE ITEM
-	else if(count($action) == 2 && $action[0] == "delete") {
+	else if(count($action) == 2 && $action[0] == "archive") {
 	
 
 		$file = PUBLIC_FILE_PATH."/declarations/".$action[1];
 		if(file_exists($file)) {
+			$fs->makeDirRecursively(PRIVATE_FILE_PATH."/declaration_archive");
+			copy($file, PRIVATE_FILE_PATH."/declaration_archive/".$action[1]);
 			unlink($file);
 		}
 		$output->screen(array("cms_status" => "success"));

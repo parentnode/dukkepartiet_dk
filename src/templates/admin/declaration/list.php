@@ -1,7 +1,5 @@
 <?php
-
-$fs = new FileSystem();
-
+global $fs;
 
 $declarations = $fs->files(PUBLIC_FILE_PATH."/declarations", array("allow_extension" => "pdf"));
 ?>
@@ -12,16 +10,14 @@ $declarations = $fs->files(PUBLIC_FILE_PATH."/declarations", array("allow_extens
 <?		if($declarations): ?>
 		<ul class="items">
 <?			foreach($declarations as $declaration):
-				$filename = str_replace(PUBLIC_FILE_PATH."/declarations/", "", $declaration);
-
-?>
+				$filename = str_replace(PUBLIC_FILE_PATH."/declarations/", "", $declaration); ?>
 			<li class="item">
-				<h3><?= $filename ?></h3>
+				<h3><?= date("d/m/Y H:i:s", str_replace(".pdf", "", $filename)) ?></h3>
 
 				<ul class="actions">
 					<li class="delete">
-						<form action="/admin/declaration/delete/<?= $filename ?>" method="post" class="i:formDefaultDelete">
-							<input type="submit" value="Delete" class="delete button">
+						<form action="/admin/declaration/archive/<?= $filename ?>" method="post" class="i:formDefaultDelete">
+							<input type="submit" value="Archive" class="delete button">
 						</form>
 					</li>
 					<li class="download">
