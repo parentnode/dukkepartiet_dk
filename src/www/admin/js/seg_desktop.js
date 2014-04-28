@@ -5217,13 +5217,13 @@ Util.Objects["formDefaultStatus"] = new function() {
 /*i-form_defaultdelete.js*/
 Util.Objects["formDefaultDelete"] = new function() {
 	this.init = function(form) {
-		u.bug("formDefaultDelete init:" + u.nodeId(form));
 		u.f.init(form);
 		var bn_delete = u.qs("input.delete", form);
 		if(bn_delete) {
+			bn_delete.org_value = bn_delete.value;
 			u.e.click(bn_delete);
 			bn_delete.restore = function(event) {
-				this.value = "Delete";
+				this.value = this.org_value;
 				u.rc(this, "confirm");
 			}
 			bn_delete.inputStarted = function(event) {
@@ -5242,7 +5242,7 @@ Util.Objects["formDefaultDelete"] = new function() {
 						if(response.cms_status == "success") {
 							if(response.cms_object && response.cms_object.constraint_error) {
 								page.notify(response.cms_message);
-								this.value = "Delete";
+								this.value = this.org_value;
 								u.ac(this, "disabled");
 							}
 							else {
