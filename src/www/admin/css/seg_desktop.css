@@ -73,11 +73,12 @@ input, select, textarea {font-size: 14px;}
 
 /*s-header.css*/
 #header {background-color: #313942; position: fixed; top: 0; left: 0; width: 230px; height: 100%;}
-#header .servicenavigation {display: block; background-color: #64ad8e; height: 80px; padding: 30px 10px;}
-#header .servicenavigation li.front {display: block; color: #ffffff; padding: 0 10px;}
+#header .servicenavigation {display: block; background-color: #64ad8e; height: 140px; padding: 0;}
+#header .servicenavigation li.front {display: block; color: #ffffff; padding: 30px 20px;}
 #header .servicenavigation li.navigation {display: none;}
 #header .servicenavigation li.help {display: none;}
-
+#header .servicenavigation li.user {display: block; color: #8C9399; border-top: 1px solid #404A56; position: absolute; bottom: 0; left: 0; width: 230px;}
+#header .servicenavigation li.user a {padding: 14px 20px 15px; display: block;}
 
 /*s-content.css*/
 #content {margin-bottom: 50px;}
@@ -287,25 +288,6 @@ input, select, textarea {font-size: 14px;}
 #content .defaultEdit.userEdit .views li {padding: 15px 30px; border-right: 1px solid #dedede;}
 #content .defaultEdit.userEdit .views li a {text-decoration: none;}
 #content .defaultEdit.userEdit .views li.selected {background-color: #dedede; color: #aaaaaa;}
-#content .defaultEdit.userEdit > div.status {
-	border-top: 1px solid #dedede;
-	border-bottom: 1px solid #dedede;
-}
-#content .defaultEdit.userEdit > div.status .actions {
-	padding: 0;
-}
-#content .defaultEdit.userEdit > div.status .actions li.status {display: block; 
-	padding: 10px 0px; 
-	text-align: right;
-}
-#content .defaultEdit.userEdit > div.status .actions li.status form {display: inline-block; vertical-align: top; padding-right: 30px;}
-#content .defaultEdit.userEdit > div.status .actions li.status form h3 {padding-top: 5px; padding-bottom: 0; font-size: 13px;}
-#content .defaultEdit.userEdit > div.status .actions li.status.disabled {background: orange;}
-#content .defaultEdit.userEdit > div.status .actions li.status.disabled form.disable {display: none;}
-#content .defaultEdit.userEdit > div.status .actions li.status.enabled form.enable {display: none;}
-#content .scene.userEdit > .actions {}
-#content .scene.userEdit > div.status .actions li.status h3 {display: inline-block; vertical-align: top;}
-#content .scene.userEdit > div.status .actions li.status input {display: inline-block; vertical-align: top;}
 #content .scene.userEdit > div.usernames {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
 #content .scene.userEdit > div.usernames {}
 #content .scene.userEdit > div.usernames .actions {text-align: left;}
@@ -313,18 +295,25 @@ input, select, textarea {font-size: 14px;}
 #content .scene.userEdit > div.password {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
 #content .scene.userEdit > div.password .actions {text-align: left;}
 #content .scene.userEdit > div.password .actions li {padding: 0 5px 10px;}
-#content .scene.userEdit > div.newsletters {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
-#content .scene.userEdit > div.addresses {padding: 0; border-bottom: 1px solid #dedede;}
+#content .scene.userEdit > div.addresses {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
 #content .scene.userEdit > div.addresses ul.addresses {padding: 0 30px;}
 #content .scene.userEdit > div.addresses ul.addresses > li {display: inline-block; vertical-align: top; width: 250px; margin-right: 30px; height: 120px; padding: 20px 0; border-top: 1px solid #dedede; position: relative;}
 #content .scene.userEdit > div.addresses ul.addresses > li h3 {padding: 0 0 5px;}
 #content .scene.userEdit > div.addresses ul.addresses > li .actions {position: absolute; top: 20px; right: 0; padding: 0;}
 #content .scene.userEdit > div.addresses ul.addresses > li .actions li {padding-left: 0;}
+#content .scene.userEdit > div.newsletters {padding: 0 0 20px 0; border-bottom: 1px solid #dedede;}
+#content .scene.userEdit > div.newsletters ul.newsletters {padding: 0 30px;}
+#content .scene.userEdit > div.newsletters ul.newsletters > li {display: block; padding: 0 0 10px;}
 #content .defaultList.userList .userGroups {}
 #content .defaultList.userList .userGroups li {padding: 15px 30px; border-right: 1px solid #dedede;}
 #content .defaultList.userList .userGroups li a {text-decoration: none;}
 #content .defaultList.userList .userGroups li.selected {background-color: #dedede; color: #aaaaaa;}
 #content .scene.defaultNew.userAddress > form {padding: 0;}
+#content .defaultEdit.accessEdit > div.access {padding: 20px 0;}
+#content .defaultEdit.accessEdit > div.access ul.points {padding: 0 0 20px;}
+#content .defaultEdit.accessEdit > div.access ul.points li {display: block;}
+#content .defaultEdit.accessEdit > div.access ul.points li.action {border-top: 1px solid #dedede; padding: 10px 0 0;}
+
 
 /*s-default_list.css*/
 #content .defaultList .all_items > h2,
@@ -389,9 +378,22 @@ input, select, textarea {font-size: 14px;}
 #content .scene.defaultEdit > div.media .field input {opacity: 0;}
 #content .scene.defaultEdit > div.media .field label {display: block; color: #aaaaaa; position: absolute; width: 100%; padding-top: 8px; text-align: center;}
 #content .scene.defaultEdit > div.media .actions {display: none;}
-#content .scene.defaultEdit > div.media ul.media {padding: 20px; text-align: left;}
-#content .scene.defaultEdit > div.media ul.media li {margin: 0 10px; position: relative; text-align: center;}
+#content .scene.defaultEdit > div.media ul.media {padding: 40px 20px 0; text-align: left;}
+#content .scene.defaultEdit > div.media ul.media li {margin: 0 10px 20px; position: relative; text-align: center;}
 #content .scene.defaultEdit > div.media ul.media li h4 {padding: 0 0 5px;}
+#content .scene.defaultEdit > div.media ul.media form {padding: 0; position: absolute; top: 0; right: 0;}
+#content .scene.defaultEdit > div.media ul.media form input { font-size: 12px;
+	width: 30px; height: 30px; background: #ffffff url(/janitor/img/bg_icons.png) no-repeat 8px -42px;
+	display: block; text-indent: -9999px; border: none; border-radius: none; cursor: pointer; border-bottom-left-radius: 5px;
+	-webkit-appearance: none;
+}
+#content .scene.defaultEdit > div.media ul.media form input:hover {
+	background-position: 8px -67px;
+}
+#content .scene.defaultEdit > div.media ul.media form input.confirm {
+	text-indent: 0; width: auto; padding-left: 24px;
+}
+#content .scene.defaultEdit > div.media.sortable ul.media li {cursor: move;}
 #content .scene.defaultEdit > div.media ul.media li.image {}
 #content .scene.defaultEdit > div.media ul.media li.audio {width: 50px; height: 70px; background: transparent url(/janitor/img/bg_bn_play_medium.png) no-repeat 0px 20px;}
 #content .scene.defaultEdit > div.media ul.media li.audio.playing {background-position: 0 -80px;}
@@ -413,6 +415,8 @@ input, select, textarea {font-size: 14px;}
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.candidateList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.billList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.declarationList h1 {border-bottom: 1px solid #dedede; padding-bottom: 74px;}
+#content .defaultList.declarationList ul.items > li h3 {padding-bottom: 13px;}
 #content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
 #content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
 body.slogan #navigation .slogan a,
@@ -420,5 +424,7 @@ body.action #navigation .action a,
 body.doctrine #navigation .doctrine a,
 body.candidate #navigation .candidate a,
 body.event #navigation .event a,
+body.bill #navigation .bill a,
+body.declaration #navigation .declaration a,
 body.tags #navigation .tags a {padding-left: 35px; color: #ffffff;}
 

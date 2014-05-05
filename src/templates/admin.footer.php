@@ -7,7 +7,9 @@
 			<li class="doctrine"><a href="/admin/doctrine/list">Doktriner</a></li>
 			<li class="candidate"><a href="/admin/candidate/list">Kandidater</a></li>
 			<li class="event"><a href="/admin/event/list">Kalender</a></li>
-			<li class="event"><a href="/admin/bill/list">Lovforslag</a></li>
+			<li class="bill"><a href="/admin/bill/list">Lovforslag</a></li>
+
+			<li class="declaration"><a href="/admin/declaration/list">Vælgereklæringer</a></li>
 
 			<li class="tags"><a href="/admin/tag/list">Tags</a></li>
 		</ul>

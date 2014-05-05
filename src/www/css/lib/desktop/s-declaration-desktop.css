@@ -1,38 +1,129 @@
-#content .scene.declaration {width: 840px; height: 600px; margin: 0 auto;}
-#content .scene.declaration div.form {width: 840px; height: 305px; overflow: hidden; position: relative;
-	background: transparent url(/img/temp_standardvaelgererklaering_2480.png) no-repeat left -388px;
-	background-size: 100% auto;
+body.declaration {background: #ffffff;}
+body.declaration #header {display: none;}
+
+
+body.declaration #content .scene {width: 737px; padding: 50px 0 70px; margin: 0 auto; position: relative;}
+
+/* INTRO TEXT */
+body.declaration #content .scene h1 {padding: 0 0 10px; font-size: 20px;
+	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
+
+}
+body.declaration #content .scene h2 {padding: 0 0 10px; font-size: 20px;
+	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
 }
 
-#content .scene.declaration div.form div {position: absolute; overflow: hidden;}
-#content .scene.declaration div.name {left: 85px; top: 132px;}
-#content .scene.declaration div.address1 {left: 85px; top: 165px;}
-#content .scene.declaration div.address2 {left: 85px; top: 197px;}
-#content .scene.declaration div.postal {left: 130px; top: 227px;}
-#content .scene.declaration div.postal span {float: left; padding: 0 15px 0 0;}
-#content .scene.declaration div.city {left: 220px; top: 227px;}
-#content .scene.declaration div.municipality {left: 520px; top: 179px;}
-#content .scene.declaration div.cpr_1 {left: 428px; top: 152px;}
-#content .scene.declaration div.cpr_1 span {float: left; padding: 0 21px 0 0;}
-#content .scene.declaration div.cpr_2 {left: 634px; top: 152px;}
-#content .scene.declaration div.cpr_2 span {float: left; padding: 0 21px 0 0;}
-
-#content .scene.declaration ul.actions {position: absolute; top: 500px; left: 85px;}
-
-#content .scene.declaration ul.tools {position: absolute; top: 325px; right: 85px;}
-#content .scene.declaration ul.tools li {font-size: 12px; display: inline-block; vertical-align: top; padding: 0 0 0 20px;}
-
-#content .scene.declaration canvas.date {position: absolute; top: 257px; left: 73px; width: 133px; height: 27px; border: 1px solid black; margin: 1px;}
-#content .scene.declaration canvas.signature {position: absolute; top: 242px; left: 310px; width: 250px; height: 50px; border: 1px solid black; margin: 1px;}
-
-#content .scene.declaration canvas.date.selected {border: 2px solid red; margin: 0;}
-#content .scene.declaration canvas.signature.selected {border: 2px solid red; margin: 0;}
+body.declaration #content .scene .vcard {font-size: 0; padding: 0 0 30px; text-align: center;}
+body.declaration #content .scene .vcard .name {font-size: 58px; padding: 0 0 6px;}
+body.declaration #content .scene .vcard .po-box,
+body.declaration #content .scene .vcard .postallocality,
+body.declaration #content .scene .vcard .url,
+body.declaration #content .scene .vcard .email {font-size: 13px;}
+body.declaration #content .scene .vcard .po-box:after {content: ",\00a0";}
+body.declaration #content .scene .vcard .url:after {content: "\00a0-\00a0";}
+body.declaration #content .scene .vcard .po-box,
+body.declaration #content .scene .vcard .postallocality,
+body.declaration #content .scene .vcard .url,
+body.declaration #content .scene .vcard .email {display: inline-block; vertical-align: top;}
 
 
-#content .scene.declaration div.input h2 {display: block; font-size: 20px; padding: 10px 0 0 33px;}
-#content .scene.declaration canvas.canvas_input {
-	position: absolute; top: 340px; left: 30px; width: 750px; height: 150px; 
-	border: 1px solid black;
+body.declaration #content .scene div.signatureform {width: 737px; overflow: hidden; position: relative; padding: 0 0 30px; background: transparent url(/img/bg_standardvaelgererklaering_userform.png) no-repeat left top;}
+body.declaration #content .scene div.signatureform * {font-size: 12px;}
+body.declaration #content .scene div.signatureform div {position: absolute; overflow: hidden;}
+body.declaration #content .scene div.signatureform div.name {left: 55px; top: 30px; width: 330px;}
+body.declaration #content .scene div.signatureform div.address1 {left: 55px; top: 65px; width: 330px;}
+body.declaration #content .scene div.signatureform div.address2 {left: 55px; top: 95px; width: 330px;}
+body.declaration #content .scene div.signatureform div.postal {left: 90px; top: 128px;}
+body.declaration #content .scene div.signatureform div.postal span {float: left; padding: 0 10px 0 0; width: 12px;}
+body.declaration #content .scene div.signatureform div.city {left: 192px; top: 127px; width: 170px;}
+body.declaration #content .scene div.signatureform div.municipality {left: 490px; top: 78px; width: 220px;}
+body.declaration #content .scene div.signatureform div.cpr_1 {left: 385px; top: 55px;}
+body.declaration #content .scene div.signatureform div.cpr_1 span {float: left; padding: 0 17px 0 0; width: 12px;}
+body.declaration #content .scene div.signatureform div.cpr_2 {left: 593px; top: 55px;}
+body.declaration #content .scene div.signatureform div.cpr_2 span {float: left; padding: 0 17px 0 0; width: 12px;}
+
+
+
+/* DATE CANVAS */
+body.declaration #content .scene div.signatureform div.date {position: absolute; top: 157px; left: 34px; cursor: pointer;}
+body.declaration #content .scene canvas.date {width: 133px; height: 22px; margin: 2px;}
+body.declaration #content .scene.signature canvas.date {border: 2px solid #ee191b; margin: 0;}
+body.declaration #content .scene.signature canvas.date.selected {border: 2px solid #00027a; margin: 0;}
+
+/* SIGNATURE CANVAS */
+body.declaration #content .scene div.signatureform div.signature {position: absolute; top: 142px; left: 300px; cursor: pointer;}
+body.declaration #content .scene canvas.signature {width: 250px; height: 41px; margin: 2px;}
+body.declaration #content .scene.signature canvas.signature {border: 2px solid #ee191b; margin: 0;}
+body.declaration #content .scene.signature canvas.signature.selected {border: 2px solid #00027a; margin: 0;}
+
+
+/* DEFAULT INPUT STYLE */
+body.declaration #content .scene input {border-radius: 0;
+	-webkit-appearance: none;
+}
+body.declaration #content .scene .actions input {border: none; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 20px; cursor: pointer;
+	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
+}
+body.declaration #content .scene .back {position: relative; z-index:100; top: -30px; background: #000000; color: #ffffff; padding: 6px 20px; font-size: 14px; display: inline-block; cursor: pointer;
+	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
 }
 
-#content .scene.declaration canvas.canvas_input.date {background: transparent url(/img/temp_standardvaelgererklaering_2480.png) no-repeat -418px -3650px; background-size: 632% auto;}
+
+/* DATA FORM */
+body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px;}
+#content .scene.dataform p {padding: 0 0 30px; text-align: center; font-size: 16px;}
+#content .scene.dataform .field {padding: 0 0 15px; font-size: 0;}
+#content .scene.dataform .field span {font-size: 14px; padding: 2px 0 0; width: 12px; display: inline-block; vertical-align: top; text-align: center;}
+#content .scene.dataform .field label {width: 265px; font-size: 14px; text-align: right; display: inline-block; vertical-align: top; padding: 2px 5px 0 0;}
+#content .scene.dataform .field label:after {content: ":";}
+#content .scene.dataform .field input {width: 250px; display: inline-block; vertical-align: top; border: 1px solid #000000; padding: 2px 3px;}
+#content .scene.dataform .field input.error {border-color: #ee191b;}
+
+#content .scene.dataform .field input[type="number"]::-webkit-inner-spin-button,
+#content .scene.dataform .field input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+#content .scene.dataform .field input.cpr1 {width: 150px;}
+#content .scene.dataform .field input.cpr2 {width: 80px;}
+#content .scene.dataform .field.postalcity input.postal {width: 50px; margin-right: 12px;}
+#content .scene.dataform .field.postalcity input.city {width: 180px;}
+
+#content .scene.dataform .actions {padding: 15px 0 0 328px;}
+#content .scene.dataform .actions input {width: 100px;}
+
+
+
+/* SIGNING PAGE */
+body.declaration #content .scene.signature {padding-bottom: 40px;}
+#content .scene.signature div.signatureform {height: 201px;}
+#content .scene.signature p {padding: 0 0 30px; font-size: 13px; text-align: center;}
+body.declaration #content .scene ul.actions li.reset {background: #000000; color: #ffffff; padding: 8px 20px; font-size: 14px; display: inline-block; cursor: pointer; font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase; margin-right: 10px;}
+
+/* ACTIVE INPUT CANVAS */
+#content .scene.signature div.input {padding: 0 0 30px; display: none; position: relative;}
+#content .scene.signature div.input h2 {display: block; font-size: 13px; padding: 10px 0 10px; width: 150px; left: 50%; margin-left: -75px; text-align: center; position: absolute; top: 22px; color: #999999;
+	font-family: Arial,sans-serif; text-transform: none;
+}
+
+body.declaration #content .scene.signature canvas.canvas_input {width: 733px; height: 121px; border: 2px solid #000000;}
+body.declaration #content .scene.signature canvas.canvas_input.date {background: transparent url(/img/bg_standardvaelgererklaering_date.png) no-repeat left top;}
+
+#content .scene.signature ul.actions {padding: 0; text-align: right;}
+
+
+/* PREVIEW PAGE */
+body.declaration #content .scene.preview {padding-bottom: 40px;}
+#content .scene.preview div.signatureform {height: 400px;}
+#content .scene.preview ul.actions {padding: 0; text-align: right;}
+
+
+
+#content .scene.receipt {width: 737px; margin: 0 auto; position: relative; padding: 50px 0 70px;}
+
+body.declaration #content .scene.receipt h1 {font-size: 40px;}
+body.declaration #content .scene.receipt p {font-size: 16px; text-align: center;}
+body.declaration #content .scene.receipt h2 {}
+body.declaration #content .scene.receipt p.regards {padding: 27px 0 9px;}
+
+body.declaration #content .scene.receipt .actions li a {font-size: 16px; text-decoration: underline;}

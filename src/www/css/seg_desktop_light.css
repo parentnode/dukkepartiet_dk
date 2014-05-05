@@ -274,6 +274,10 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #footer.blue .about p {color: #ee191b;}
 #footer.blue .about ul.contacts li.contact * {color: #ee191b;}
 #footer.blue .about ul.contacts li.contact p a:hover {background-color: #ee191b; color: #00027a;}
+body.declaration #footer {background-color: #000000; }
+body.declaration #footer .about p {color: #ffffff;}
+body.declaration #footer .about ul.contacts li.contact * {color: #ffffff;}
+body.declaration #footer .about ul.contacts li.contact p a:hover {background-color: #ffffff; color: #000000;}
 
 /*s-header-desktop.css*/
 #header #navigation {position: fixed; top:0; width: 100%; height:70px; z-index: 99; background-repeat: no-repeat; background-position: 20px 20px;}
@@ -351,6 +355,8 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 	.event #content .scene.events ul.items li.item {margin-left: 60px;}
 	#footer .about {width:460px;}
 	#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:220px;}
+	body.declaration #content .scene {
+	}
 }
 @media (min-width: 1260px) {
 	#content .scene.front .container ul.items li.item {width:1260px;} 

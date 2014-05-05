@@ -73,11 +73,12 @@ input, select, textarea {font-size: 14px;}
 
 /*s-header.css*/
 #header {background-color: #313942; position: fixed; top: 0; left: 0; width: 230px; height: 100%;}
-#header .servicenavigation {display: block; background-color: #64ad8e; height: 80px; padding: 30px 10px;}
-#header .servicenavigation li.front {display: block; color: #ffffff; padding: 0 10px;}
+#header .servicenavigation {display: block; background-color: #64ad8e; height: 140px; padding: 0;}
+#header .servicenavigation li.front {display: block; color: #ffffff; padding: 30px 20px;}
 #header .servicenavigation li.navigation {display: none;}
 #header .servicenavigation li.help {display: none;}
-
+#header .servicenavigation li.user {display: block; color: #8C9399; border-top: 1px solid #404A56; position: absolute; bottom: 0; left: 0; width: 230px;}
+#header .servicenavigation li.user a {padding: 14px 20px 15px; display: block;}
 
 /*s-content.css*/
 #content {margin-bottom: 50px;}
@@ -322,9 +323,22 @@ input, select, textarea {font-size: 14px;}
 #content .scene.defaultEdit > div.media .field input {opacity: 0;}
 #content .scene.defaultEdit > div.media .field label {display: block; color: #aaaaaa; position: absolute; width: 100%; padding-top: 8px; text-align: center;}
 #content .scene.defaultEdit > div.media .actions {display: none;}
-#content .scene.defaultEdit > div.media ul.media {padding: 20px; text-align: left;}
-#content .scene.defaultEdit > div.media ul.media li {margin: 0 10px; position: relative; text-align: center;}
+#content .scene.defaultEdit > div.media ul.media {padding: 40px 20px 0; text-align: left;}
+#content .scene.defaultEdit > div.media ul.media li {margin: 0 10px 20px; position: relative; text-align: center;}
 #content .scene.defaultEdit > div.media ul.media li h4 {padding: 0 0 5px;}
+#content .scene.defaultEdit > div.media ul.media form {padding: 0; position: absolute; top: 0; right: 0;}
+#content .scene.defaultEdit > div.media ul.media form input { font-size: 12px;
+	width: 30px; height: 30px; background: #ffffff url(/janitor/img/bg_icons.png) no-repeat 8px -42px;
+	display: block; text-indent: -9999px; border: none; border-radius: none; cursor: pointer; border-bottom-left-radius: 5px;
+	-webkit-appearance: none;
+}
+#content .scene.defaultEdit > div.media ul.media form input:hover {
+	background-position: 8px -67px;
+}
+#content .scene.defaultEdit > div.media ul.media form input.confirm {
+	text-indent: 0; width: auto; padding-left: 24px;
+}
+#content .scene.defaultEdit > div.media.sortable ul.media li {cursor: move;}
 #content .scene.defaultEdit > div.media ul.media li.image {}
 #content .scene.defaultEdit > div.media ul.media li.audio {width: 50px; height: 70px; background: transparent url(/janitor/img/bg_bn_play_medium.png) no-repeat 0px 20px;}
 #content .scene.defaultEdit > div.media ul.media li.audio.playing {background-position: 0 -80px;}
@@ -346,6 +360,8 @@ input, select, textarea {font-size: 14px;}
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.candidateList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.billList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.declarationList h1 {border-bottom: 1px solid #dedede; padding-bottom: 74px;}
+#content .defaultList.declarationList ul.items > li h3 {padding-bottom: 13px;}
 #content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
 #content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
 body.slogan #navigation .slogan a,
@@ -353,5 +369,7 @@ body.action #navigation .action a,
 body.doctrine #navigation .doctrine a,
 body.candidate #navigation .candidate a,
 body.event #navigation .event a,
+body.bill #navigation .bill a,
+body.declaration #navigation .declaration a,
 body.tags #navigation .tags a {padding-left: 35px; color: #ffffff;}
 
