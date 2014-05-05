@@ -19,7 +19,9 @@ $events = $IC->getItems(array("itemtype" => "bill", "status" => 1, "order" => "p
 if($events): ?>
 					<li><a class="bills" href="/lovforslag">Lovforslag</a></li>
 <? endif; ?>
+
 					<!--li><a class="reform" href="/folketingsreformen">Folketingsreformen</a></li-->
+					<li><a class="reform" href="/vision">Vision</a></li>
 				</ul>
 
 			</div>

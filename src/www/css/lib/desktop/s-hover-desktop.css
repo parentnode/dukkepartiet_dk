@@ -5,8 +5,6 @@ blue: #00027a;
 red:  #ee191b;
 */
 
-
-
 /* Top menu */
 #header.open #navigation.red ul.primary li a:hover {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.blue ul.primary li a:hover {background-color:#00027a; color:#ee191b;}

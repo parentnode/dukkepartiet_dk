@@ -1,0 +1,23 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+/*HelveticaNeueLTCom BlkCn*/
+
+#content .scene.vision {padding:60px 0;}
+
+#content .scene.vision h1 {color: #ee191b; text-transform: uppercase; margin:0 auto;}
+#content .scene.vision .container {width: 460px; margin:0 auto; text-align: center;}
+
+#content .scene.vision .container ul li {font-size: 18px; color: #ee191b; margin-bottom: 40px; line-height: 1.3em;}
+#content .scene.vision .container ul li:nth-child(2) {font-size: 30px;}
+#content .scene.vision .container ul li:nth-child(4) {font-size: 34px; font-weight: 700; font-style: italic; line-height: 1.2em;}
+#content .scene.vision .container ul li:nth-child(6) {font-size: 30px;}
+#content .scene.vision .container ul li:nth-child(8) {font-size: 34px; font-weight: 700; line-height: 1.2em;}
+#content .scene.vision .container ul li:nth-child(10) {font-size: 30px;}
+#content .scene.vision .container ul li:nth-child(12) {font-size: 30px; font-style: italic;}
+#content .scene.vision .container ul li:nth-child(14) {font-size: 34px; font-weight: 700; line-height: 1.2em;}
+#content .scene.vision .container ul li a {border-bottom:1px solid red;}
+
+
+
