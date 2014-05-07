@@ -9,7 +9,7 @@
 		
 		<p>Som det første parti i Danmark har Dukkepartiet fået godkendt digital underskrift af vælgererklæringer.</p>
  
-		<p class="download"><a href="https://dukkepartiet.dk/vaelgererklaering">Her kan du underskrive vælgererklæringen digitalt</a></p>
+		<p class="download"><a href="/vaelgererklaering">Her kan du underskrive vælgererklæringen digitalt</a></p>
  
  
 		<p>Alternativt kan du også udskrive og udfylde erklæringen, som derefter skal sendes med posten.</p>
