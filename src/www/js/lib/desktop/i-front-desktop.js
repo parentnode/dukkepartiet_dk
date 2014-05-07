@@ -28,6 +28,8 @@ Util.Objects["front"] = new function() {
 //			u.bug("scrolled")
 			var scroll_y = u.scrollY();
 			var browser_h = u.browserH();
+
+			u.bug("scroll_y: " + scroll_y);
 			// hide logo
 			if (scroll_y > browser_h) {
 				if (u.hc(page, "no_logo")) {
@@ -54,19 +56,20 @@ Util.Objects["front"] = new function() {
 				}
 			}
 
-			// hide menu
+			// 
 			if (scroll_y > browser_h-400) {
+
 				if (u.hc(scene.logo, "fixed")) {
 					u.rc(scene.logo, "fixed");
-					u.as(scene.logo, "top", scroll_y +"px")
+					u.as(scene.logo, "top", browser_h-400 +"px");
 				}
+				
 			}
-			// show menu
+			// 
 			else {
 				if (!u.hc(scene.logo, "fixed")) {
 					u.ac(scene.logo, "fixed");
 					u.as(scene.logo, "top", "0px")
-
 				}
 			}
 		}

@@ -30,6 +30,10 @@ Util.Objects["page"] = new function() {
 			page.scrolled = function() {
 				u.bug("scrolled");
 
+				if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
+					page.cN.scene.scrolled();
+				}
+
 				var scroll_y = u.scrollY();
 				var browser_h = u.browserH();
 				var i, node;
@@ -161,6 +165,8 @@ Util.Objects["page"] = new function() {
 						//var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 						u.as(page.cN, "display", "block");
 						document.body.scrollTop = this.scroll_y;
+
+						page.scrolled();
 						
 					} else {
 						// OPEN MENU
