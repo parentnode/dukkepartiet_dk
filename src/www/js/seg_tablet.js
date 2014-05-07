@@ -2832,6 +2832,9 @@ Util.Objects["page"] = new function() {
 			}
 			page.scrolled = function() {
 				u.bug("scrolled");
+				if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
+					page.cN.scene.scrolled();
+				}
 				var scroll_y = u.scrollY();
 				var browser_h = u.browserH();
 				var i, node;
@@ -2894,6 +2897,7 @@ Util.Objects["page"] = new function() {
 						u.rc(page.hN, "open");
 						u.as(page.cN, "display", "block");
 						document.body.scrollTop = this.scroll_y;
+						page.scrolled();
 					} else {
 						u.ac(page.hN, "open");
 						u.a.setHeight(page.nN, u.browserHeight());
@@ -2921,6 +2925,7 @@ Util.Objects["front"] = new function() {
 		scene.scrolled = function() {
 			var scroll_y = u.scrollY();
 			var browser_h = u.browserH();
+			u.bug("scroll_y: " + scroll_y);
 			if (scroll_y > browser_h) {
 				if (u.hc(page, "no_logo")) {
 					u.rc(page, "no_logo");
@@ -2944,7 +2949,7 @@ Util.Objects["front"] = new function() {
 			if (scroll_y > browser_h-400) {
 				if (u.hc(scene.logo, "fixed")) {
 					u.rc(scene.logo, "fixed");
-					u.as(scene.logo, "top", scroll_y +"px")
+					u.as(scene.logo, "top", browser_h-400 +"px");
 				}
 			}
 			else {

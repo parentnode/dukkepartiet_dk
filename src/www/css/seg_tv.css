@@ -238,12 +238,13 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 /*s-help-desktop.css*/
 #content .scene.help {padding:100px 0 60px;}
 #content .scene.help .container {width: 460px; margin:0 auto; text-align: center;}
-#content .scene.help .container h2 {color: #00027a; font-size: 50px; padding:0 10px; }
+#content .scene.help .container h1 {color: #00027a; font-size: 50px; padding:0 10px; }
+#content .scene.help .container h2 {color: #00027a; font-size: 40px; }
 #content .scene.help .container h3 {color: #00027a; font-size: 40px; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; margin:40px 0;}
 #content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
 #content .scene.help .container p.intro {font-size: 18px; padding:30px 0; line-height: 26px; margin-bottom: 20px;}
-#content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 24px; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; text-transform: uppercase;}
-#content .scene.help .container p.download a:hover {color: #00027a; background-color: #ee191b;}
+#content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 24px; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; text-transform: uppercase; line-height: 3rem; box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a;}
+#content .scene.help .container p.download a:hover {color: #00027a; background-color: #ee191b; box-shadow: 10px 0 0 #ee191b, -10px 0 0 #ee191b;}
 #content .scene.help .container dl {width: 350px; margin: 0 auto;}
 #content .scene.help .container dl dt,
 #content .scene.help .container dl dd {display: block; font-size: 18px; color: #00027a;}
