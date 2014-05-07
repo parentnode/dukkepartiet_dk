@@ -3,7 +3,11 @@
 	<div class="container">
 		<h2>Støt os</h2>
 
-		<p class="intro">Det er dyrt at starte et parti, og vi har hårdt brug for økonomisk støtte. Alene frimærkeomkostninger til vælgererklæringer koster os 200.000 kr. Du kan støtte Dukkepartiet ved at indbetale et beløb på vores konto i Handelsbanken. Alle bidrag er velkomne - uanset størrelse. Dit bidrag vil blandt andet gå til at få Dukkepartiet opstillingsberettiget til det kommende Folketingsvalg.</p>
+		<p class="intro">
+			Det er dyrt at starte et parti, og vi sætter stor pris på økonomisk støtte. Du kan støtte Dukkepartiet ved at 
+			indbetale et beløb på vores konto i Handelsbanken. Alle bidrag er velkomne - uanset størrelse. Dit bidrag vil 
+			blandt andet gå til at få Dukkepartiet opstillingsberettiget til det kommende Folketingsvalg.
+		</p>
 		<dl>
 			<dt>Reg nummer</dt>
 			<dd>7643</dd>
