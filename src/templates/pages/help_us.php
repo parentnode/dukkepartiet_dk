@@ -12,7 +12,7 @@
 			under gældende regler.
 		</p>
  
-		<p class="download"><a href="/vaelgererklaering">Her kan du underskrive vælgererklæringen digitalt</a></p>
+		<p class="download"><a href="/vaelgererklaering" target="_blank">Her kan du underskrive vælgererklæringen digitalt</a></p>
  
  
 		<p>Alternativt kan du også udskrive og udfylde erklæringen, som derefter skal sendes med posten.</p>
