@@ -34,7 +34,7 @@ fclose($fp);
 
 
 //$host = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]."?";
-$host = "https://".$_SERVER["HTTP_HOST"]."/vaelgererklaering/print?signature_id=".$signature_id;
+$host = ($_SERVER["HTTPS"] ? "https" : "http") . "://".$_SERVER["HTTP_HOST"]."/vaelgererklaering/print?signature_id=".$signature_id;
 
 $url = escapeshellarg($host);
 //$url = escapeshellarg($host . $param);
