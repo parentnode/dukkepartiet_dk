@@ -6,8 +6,11 @@
 		<p class="intro">Dukkepartiet vil gerne i Folketinget. Derfor har vi brug for din underskrift. For at blive opstillingsberettiget til det kommende Folketingsvalg skal Dukkepartiet samle 20.260 underskrevne vælgererklæringer. Ved at underskrive vælgererklæringen bliver du stiller for Dukkepartiet, men du er ikke forpligtet på at stemme på Dukkepartiet ved Folketingsvalget.</p>
  		
 		<h2>Ny digital vælgererklæringen</h2>
-		
-		<p>Som det første parti i Danmark har Dukkepartiet fået godkendt digital underskrift af vælgererklæringer.</p>
+		<p>
+			Som det første parti i Danmark har Dukkepartiet fået godkendt digital underskrift af vælgererklæringer.
+			Underskriftsmodulet er godkendt af Indenrigsministeriet. Afgivelse af underskrift er fortrolig og sikret 
+			under gældende regler.
+		</p>
  
 		<p class="download"><a href="/vaelgererklaering">Her kan du underskrive vælgererklæringen digitalt</a></p>
  
