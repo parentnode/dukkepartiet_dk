@@ -91,6 +91,8 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 
 #content .scene.dataform .actions {padding: 15px 0 0 328px;}
 #content .scene.dataform .actions input {width: 100px;}
+/* close bn (outside scene, wince scene isn't wide enough) */
+body.declaration #content .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; right:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center; background-image: url("/img/gx_nav_icon_close_black.png");}
 
 
 

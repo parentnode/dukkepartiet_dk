@@ -79,3 +79,6 @@ if(!Session::value("signature_id")) {
 	</form>
 
 </div>
+
+<div class="close black"><a href="/">go back</a></div>
+

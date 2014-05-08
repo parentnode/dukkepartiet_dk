@@ -34,7 +34,7 @@ red:  #ee191b;
 #content .scene.red .close a:hover {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
 #content .scene.blue .close a:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #content .scene.action .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
-
+body.declaration #content .close a:hover {background-image: url("/img/gx_nav_icon_close_white.png"); background-color: #000000;}
 
 /* prev/next */
 #content .scene.red .next:hover,

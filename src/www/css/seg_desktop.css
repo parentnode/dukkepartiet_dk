@@ -253,7 +253,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 /*s-help-desktop.css*/
 #content .scene.help {padding:100px 0 60px;}
 #content .scene.help .container {width: 460px; margin:0 auto; text-align: center;}
-#content .scene.help .container h1 {color: #00027a; font-size: 50px; padding:0 10px; }
+#content .scene.help .container h1 {color: #00027a; font-size: 50px; padding:0 10px; text-transform: uppercase;}
 #content .scene.help .container h2 {color: #00027a; font-size: 40px; }
 #content .scene.help .container h3 {color: #00027a; font-size: 40px; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; margin:40px 0;}
 #content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
@@ -403,6 +403,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.red .close a:hover {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
 #content .scene.blue .close a:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #content .scene.action .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
+body.declaration #content .close a:hover {background-image: url("/img/gx_nav_icon_close_white.png"); background-color: #000000;}
 #content .scene.red .next:hover,
 #content .scene.red .previous:hover {color: #ee191b; background-color: #00027a;}
 #content .scene.blue .next:hover,
@@ -485,6 +486,7 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 #content .scene.dataform .field.postalcity input.city {width: 180px;}
 #content .scene.dataform .actions {padding: 15px 0 0 328px;}
 #content .scene.dataform .actions input {width: 100px;}
+body.declaration #content .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; right:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center; background-image: url("/img/gx_nav_icon_close_black.png");}
 body.declaration #content .scene.signature {padding-bottom: 40px;}
 #content .scene.signature div.signatureform {height: 201px;}
 #content .scene.signature p {padding: 0 0 30px; font-size: 13px; text-align: center;}
