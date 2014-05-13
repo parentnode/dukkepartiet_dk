@@ -80,5 +80,3 @@ if(!Session::value("signature_id")) {
 
 </div>
 
-<div class="close black"><a href="/">go back</a></div>
-

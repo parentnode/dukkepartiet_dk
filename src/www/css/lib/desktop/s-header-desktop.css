@@ -55,13 +55,13 @@ red:  #ee191b;
 
 	/* red */
 #header #navigation.red .logo {background-image: url("/img/gx_fixed_logo_blue.png");}
-#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png");}
+#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png"); background-color: #ee191b;}
 #header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
 #header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
 		/*open*/
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
-#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png");}
+#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
 #header.open #navigation.red ul.primary li a.active {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.red .social h4 {color:#ee191b;}
 #header.open #navigation.red .social ul li.facebook a {background-image: url("/img/bn_fb_red.png");}
@@ -70,12 +70,12 @@ red:  #ee191b;
 #header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
 	/* blue */
 #header #navigation.blue .logo {background-image: url("/img/gx_fixed_logo_red.png");}
-#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png");}
+#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png"); background-color: #00027a;}
 #header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
 #header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
 		/*open*/
 #header.open #navigation.blue {background: #ee191b;}
-#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png");}
+#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
 #header.open #navigation.blue ul.primary li a.active {background-color:#00027a; color:#ee191b;}
 #header.open #navigation.blue .social h4 {color:#00027a;}
