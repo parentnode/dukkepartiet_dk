@@ -6,7 +6,7 @@ red:  #ee191b;
 #content .scene.program {padding-bottom: 70px;}
 #content .scene.program h2 {color: #00027a; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;}
 
-#content .scene.program ul.items {display:block; width:100%; font-size: 1rem;}
+#content .scene.program ul.items {display:block; width:100%; font-size: 1rem; height:100px;}
 #content .scene.program ul.items li.item {text-align:center; padding:0 20px; margin:0 auto; width:740px; background-color: #ee191b; }
 
 #content .scene.program ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
