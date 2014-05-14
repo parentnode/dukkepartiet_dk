@@ -98,7 +98,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #content .scene.front .logo.fixed {position: fixed; }
 #content .scene.front .container {position: absolute; top:0; left:0; width: 100%; height: 100%; z-index:1;}
 #content .scene.front .container ul.items {}
-#content .scene.front .container ul.items li.item {width:100%; margin:0 auto 140px;}
+#content .scene.front .container ul.items li.item {width:100%; margin:0 auto 140px; }
 #content .scene.front .container ul.items li.item p {display: none;}
 #content .scene.front .container ul.items li.item .image {position: absolute; top:0; left:0; width: 100%; height: 100%;}
 #content .scene.front .container ul.items li.item .image img {width: 100%; height:100%;}
@@ -164,7 +164,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 /*s-program-desktop.css*/
 #content .scene.program {padding-bottom: 70px;}
 #content .scene.program h2 {color: #00027a; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;}
-#content .scene.program ul.items {display:block; width:100%; font-size: 1rem;}
+#content .scene.program ul.items {display:block; width:100%; font-size: 1rem; height:100px;}
 #content .scene.program ul.items li.item {text-align:center; padding:0 20px; margin:0 auto; width:740px; background-color: #ee191b; }
 #content .scene.program ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
 	font-size: 35px; color: #ee191b; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; line-height: 55px;
@@ -329,12 +329,12 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header.open #navigation .social ul li.instagram a,
 #header.open #navigation .social ul li.youtube a {width: 100px;}
 #header #navigation.red .logo {background-image: url("/img/gx_fixed_logo_blue.png");}
-#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png");}
+#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png"); background-color: #ee191b;}
 #header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
 #header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
-#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png");}
+#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
 #header.open #navigation.red ul.primary li a.active {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.red .social h4 {color:#ee191b;}
 #header.open #navigation.red .social ul li.facebook a {background-image: url("/img/bn_fb_red.png");}
@@ -342,11 +342,11 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header.open #navigation.red .social ul li.twitter a {background-image: url("/img/bn_tw_red.png");}
 #header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
 #header #navigation.blue .logo {background-image: url("/img/gx_fixed_logo_red.png");}
-#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png");}
+#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png"); background-color: #00027a;}
 #header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
 #header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
 #header.open #navigation.blue {background: #ee191b;}
-#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png");}
+#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
 #header.open #navigation.blue ul.primary li a.active {background-color:#00027a; color:#ee191b;}
 #header.open #navigation.blue .social h4 {color:#00027a;}
@@ -460,6 +460,7 @@ body.declaration #content .scene.signature canvas.signature {border: 2px solid #
 body.declaration #content .scene.signature canvas.signature.selected {border: 2px solid #00027a; margin: 0;}
 body.declaration #content .scene input {border-radius: 0;
 	-webkit-appearance: none;
+	-moz-appearance: textfield;
 }
 body.declaration #content .scene .actions input {border: none; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 20px; cursor: pointer;
 	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
@@ -486,7 +487,6 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 #content .scene.dataform .field.postalcity input.city {width: 180px;}
 #content .scene.dataform .actions {padding: 15px 0 0 328px;}
 #content .scene.dataform .actions input {width: 100px;}
-body.declaration #content .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; right:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center; background-image: url("/img/gx_nav_icon_close_black.png");}
 body.declaration #content .scene.signature {padding-bottom: 40px;}
 #content .scene.signature div.signatureform {height: 201px;}
 #content .scene.signature p {padding: 0 0 30px; font-size: 13px; text-align: center;}

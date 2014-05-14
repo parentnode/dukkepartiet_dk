@@ -60,6 +60,7 @@ body.declaration #content .scene.signature canvas.signature.selected {border: 2p
 /* DEFAULT INPUT STYLE */
 body.declaration #content .scene input {border-radius: 0;
 	-webkit-appearance: none;
+	-moz-appearance: textfield;
 }
 body.declaration #content .scene .actions input {border: none; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 20px; cursor: pointer;
 	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
