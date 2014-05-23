@@ -1,7 +1,9 @@
 /*
-JES v0.7.5-medium Copyright 2013 http://whattheframework.org/jes/license
-wtf-js-merged @ 2013-12-06 10:05:08
+Manipulator v0.8-full Copyright 2014 http://manipulator.parentnode.dk
+wtf-js-merged @ 2014-05-20 01:37:36
 */
+
+/*seg_basic_include.js*/
 
 /*u.js*/
 if(!u || !Util) {
@@ -11,3 +13,4 @@ if(!u || !Util) {
 	u.nodeId = function() {};
 	u.stats = new function() {this.pageView = function(){};this.event = function(){};this.customVar = function(){};}
 }
+
