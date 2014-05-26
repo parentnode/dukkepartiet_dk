@@ -2694,129 +2694,9 @@ Util.getVar = function(param, url) {
 
 
 /*u-image.js*/
-Util.Image = u.i = new function() {
-	this.load = function(node, src) {
-		var image = new Image();
-		image.node = node;
-		u.ac(node, "loading");
-	    u.e.addEvent(image, 'load', u.i._loaded);
-		u.e.addEvent(image, 'error', u.i._error);
-		image.src = src;
-	}
-	this._loaded = function(event) {
-		u.rc(this.node, "loading");
-		if(typeof(this.node.loaded) == "function") {
-			this.node.loaded(event);
-		}
-	}
-	this._error = function(event) {
-		u.rc(this.node, "loading");
-		u.ac(this.node, "error");
-		if(typeof(this.node.loaded) == "function" && typeof(this.node.failed) != "function") {
-			this.node.loaded(event);
-		}
-		else if(typeof(this.node.failed) == "function") {
-			this.node.failed(event);
-		}
-	}
-	this._progress = function(event) {
-		u.bug("progress")
-		if(typeof(this.node.progress) == "function") {
-			this.node.progress(event);
-		}
-	}
-	this._debug = function(event) {
-		u.bug("event:" + event.type);
-		u.xInObject(event);
-	}
-}
 
 
 /*beta-u-preloader.js*/
-u.preloader = function(node, files, options) {
-	var callback, callback_min_delay
-	if(typeof(options) == "object") {
-		var argument;
-		for(argument in options) {
-			switch(argument) {
-				case "callback"				: callback				= options[argument]; break;
-				case "callback_min_delay"	: callback_min_delay	= options[argument]; break;
-			}
-		}
-	}
-	if(!u._preloader_queue) {
-		u._preloader_queue = document.createElement("div");
-		u._preloader_processes = 0;
-		if(u.e && u.e.event_pref == "touch") {
-			u._preloader_max_processes = 1;
-		}
-		else {
-			u._preloader_max_processes = 1;
-		}
-	}
-	if(node && files) {
-		var entry, file;
-		var new_queue = u.ae(u._preloader_queue, "ul");
-		new_queue._callback = callback;
-		new_queue._node = node;
-		new_queue._files = files;
-		new_queue.nodes = new Array();
-		new_queue._start_time = new Date().getTime();
-		for(i = 0; file = files[i]; i++) {
-			entry = u.ae(new_queue, "li", {"class":"waiting"});
-			entry.i = i;
-			entry._queue = new_queue
-			entry._file = file;
-		}
-		u.ac(node, "waiting");
-		if(typeof(node.waiting) == "function") {
-			node.waiting();
-		}
-	}
-	u.queueLoader();
-	return u._preloader_queue;
-}
-u.queueLoader = function() {
-	if(u.qs("li.waiting", u._preloader_queue)) {
-		while(u._preloader_processes < u._preloader_max_processes) {
-			var next = u.qs("li.waiting", u._preloader_queue);
-			if(next) {
-				if(u.hc(next._queue._node, "waiting")) {
-					u.rc(next._queue._node, "waiting");
-					u.ac(next._queue._node, "loading");
-					if(typeof(next._queue._node.loading) == "function") {
-						next._node._queue.loading();
-					}
-				}
-				u._preloader_processes++;
-				u.rc(next, "waiting");
-				u.ac(next, "loading");
-				next.loaded = function(event) {
-					this._image = event.target;
-					this._queue.nodes[this.i] = this;
-					u.rc(this, "loading");
-					u.ac(this, "loaded");
-					u._preloader_processes--;
-					if(!u.qs("li.waiting,li.loading", this._queue)) {
-						u.rc(this._queue._node, "loading");
-						if(typeof(this._queue._callback) == "function") {
-							this._queue._node._callback = this._queue._callback;
-							this._queue._node._callback(this._queue.nodes);
-						}
-						else if(typeof(this._queue._node.loaded) == "function") {
-							this._queue._node.loaded(this._queue.nodes);
-						}
-					}
-					u.queueLoader();
-				}
-				u.i.load(next, next._file);
-			}
-			else {
-				break
-			}
-		}
-	}
-}
 
 
 /*i-page-desktop.js*/
@@ -3576,11 +3456,11 @@ Util.Objects["signature"] = new function() {
 			this.bn_preview.scene = this;
 			this.bn_preview.onclick = function(event) {
 				u.e.kill(event);
-				if(this.scene.canvas_date.paths.paths.length < 10) {
+				if(this.scene.canvas_date.paths.paths.length < 20) {
 					this.value = "Godkend";
 					this.scene.canvas_date.clicked();
 				}
-				else if(this.scene.canvas_signature.paths.paths.length < 10) {
+				else if(this.scene.canvas_signature.paths.paths.length < 20) {
 					this.value = "Godkend";
 					this.scene.canvas_signature.clicked();
 				}

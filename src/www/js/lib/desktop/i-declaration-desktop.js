@@ -64,6 +64,14 @@ Util.Objects["signature"] = new function() {
 			this.canvas_signature.clicked = function() {
 				u.ac(this, "selected");
 				u.rc(this.scene.canvas_date, "selected");
+
+				if(this.scene.canvas_date.paths.paths.length > 20) {
+					u.ac(this.scene.canvas_date, "correct");
+				}
+				else {
+					u.rc(this.scene.canvas_date, "correct");
+				}
+
 				this.scene.selected_input = this;
 
 				this.scene.createCanvasInput();
@@ -94,6 +102,14 @@ Util.Objects["signature"] = new function() {
 			this.canvas_date.clicked = function() {
 				u.ac(this, "selected");
 				u.rc(this.scene.canvas_signature, "selected");
+
+				if(this.scene.canvas_signature.paths.paths.length > 20) {
+					u.ac(this.scene.canvas_signature, "correct");
+				}
+				else {
+					u.rc(this.scene.canvas_signature, "correct");
+				}
+
 				this.scene.selected_input = this;
 
 				this.scene.createCanvasInput();
@@ -312,12 +328,12 @@ Util.Objects["signature"] = new function() {
 				// u.xInObject(this.scene.canvas_date.paths.paths);
 
 				// make sure both fields have been updated
-				if(this.scene.canvas_date.paths.paths.length < 10) {
+				if(this.scene.canvas_date.paths.paths.length < 20) {
 					this.value = "Godkend";
 
 					this.scene.canvas_date.clicked();
 				}
-				else if(this.scene.canvas_signature.paths.paths.length < 10) {
+				else if(this.scene.canvas_signature.paths.paths.length < 20) {
 					this.value = "Godkend";
 
 					this.scene.canvas_signature.clicked();
@@ -355,6 +371,14 @@ Util.Objects["signature"] = new function() {
 					this.canvas_date.paths = JSON.parse(decodeURIComponent(this.canvas_date._input.value).replace(/\\/g, ""));
 					this.canvas_date._repeat();
 				}
+
+				if(this.canvas_signature.paths.paths.length > 20) {
+					u.ac(this.canvas_signature, "correct");
+				}
+				if(this.canvas_date.paths.paths.length > 20) {
+					u.ac(this.canvas_date, "correct");
+				}
+
 
 			}
 

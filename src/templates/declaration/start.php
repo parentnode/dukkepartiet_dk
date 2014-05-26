@@ -54,7 +54,7 @@ if(!Session::value("signature_id")) {
 
 			<div class="field postalcity required">
 				<label for="postal">Postnr. og by</label>
-				<input type="number" name="postal" class="postal" id="postal" value="<?= $postal ?>" />
+				<input type="tel" name="postal" class="postal" id="postal" value="<?= $postal ?>" />
 				<input type="text" name="city" class="city" value="<?= $city ?>" />
 			</div>
 
@@ -65,7 +65,7 @@ if(!Session::value("signature_id")) {
 
 			<div class="field cpr required">
 				<label for="cpr">CPR</label>
-				<input type="number" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr" class="cpr1" /><span>-</span><input type="number" name="cpr_2" value="<?= $cpr_2 ?>" class="cpr2" />
+				<input type="tel" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr" class="cpr1" /><span>-</span><input type="tel" name="cpr_2" value="<?= $cpr_2 ?>" class="cpr2" />
 			</div>
 
 			<input type="hidden" name="date_data" value="<?= $date_data ?>" />

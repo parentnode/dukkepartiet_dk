@@ -13,18 +13,19 @@ if($info) {
 	}
 }
 else {
+	exit();
 
-$values["name"] = "a";
-$values["address1"] = "a";
-$values["address2"] = "a";
-$values["postal"] = "a";
-$values["city"] = "a";
-$values["municipality"] = "a";
-$values["cpr_1"] = "a";
-$values["cpr_2"] = "a";
+	$values["name"] = "a";
+	$values["address1"] = "a";
+	$values["address2"] = "a";
+	$values["postal"] = "a";
+	$values["city"] = "a";
+	$values["municipality"] = "a";
+	$values["cpr_1"] = "a";
+	$values["cpr_2"] = "a";
 
-$values["date_data"] = "a";	
-$values["signature_data"] = "a";
+	$values["date_data"] = "a";	
+	$values["signature_data"] = "a";
 
 //	exit();
 	
@@ -59,7 +60,7 @@ $signature_data  = $values["signature_data"];
 	<script type="text/javascript" src="/js/lib/seg_desktop_include.js"></script>
 	<style type="text/css">
 		body {font-size: 12px; font-family: Arial; margin: 0;}
-		div#page {width: 900px; padding: 675px 0 0; background: transparent url(/img/temp_standardvaelgererklaering_2390.png) no-repeat left 170px; background-size: 100% auto;}
+		div#page {width: 900px; padding: 675px 0 0; background: transparent url(/img/bg_standardvaelgererklaering_2390.png) no-repeat left 170px; background-size: 100% auto;}
 
 		div.form {height: 580px; overflow: hidden; position: relative;}
 

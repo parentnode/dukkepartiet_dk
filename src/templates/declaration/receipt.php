@@ -1,5 +1,5 @@
 <?php
-$declaration_id = $_GET["id"];
+//$declaration_id = $_GET["id"];
 ?>
 
 <div class="scene receipt i:receipt">
