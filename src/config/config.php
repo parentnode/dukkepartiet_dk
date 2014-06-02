@@ -28,4 +28,5 @@ define("SITE_ITEMS", true);
 // Enable notifications (send collection email after N notifications)
 define("SITE_COLLECT_NOTIFICATIONS", 50);
 
+define("SITE_INSTALL", true);
 ?>
