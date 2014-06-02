@@ -419,10 +419,12 @@ body.declaration #content .scene div.signatureform div.date {position: absolute;
 body.declaration #content .scene canvas.date {width: 133px; height: 22px; margin: 2px;}
 body.declaration #content .scene.signature canvas.date {border: 2px solid #ee191b; margin: 0;}
 body.declaration #content .scene.signature canvas.date.selected {border: 2px solid #00027a; margin: 0;}
+body.declaration #content .scene.signature canvas.date.correct {border: 2px solid #009f00; margin: 0;}
 body.declaration #content .scene div.signatureform div.signature {position: absolute; top: 142px; left: 300px; cursor: pointer;}
 body.declaration #content .scene canvas.signature {width: 250px; height: 41px; margin: 2px;}
 body.declaration #content .scene.signature canvas.signature {border: 2px solid #ee191b; margin: 0;}
 body.declaration #content .scene.signature canvas.signature.selected {border: 2px solid #00027a; margin: 0;}
+body.declaration #content .scene.signature canvas.signature.correct {border: 2px solid #009f00; margin: 0;}
 body.declaration #content .scene input {border-radius: 0;
 	-webkit-appearance: none;
 	-moz-appearance: textfield;
