@@ -5,6 +5,9 @@
 /* DOCTRINE */
 #content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
 
+/* VISION */
+#content .defaultList.visionList ul.items > li h3 {padding-bottom: 16px;}
+
 
 /* ACTION */
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}

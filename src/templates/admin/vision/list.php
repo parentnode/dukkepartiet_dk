@@ -6,10 +6,10 @@ global $itemtype;
 $all_items = $IC->getItems(array("itemtype" => $itemtype, "order" => "position ASC"));
 ?>
 <div class="scene defaultList <?= $itemtype ?>List">
-	<h1>Bills</h1>
+	<h1>Visioner</h1>
 
 	<ul class="actions i:actions">
-		<?= $HTML->link("New bill", "/admin/".$itemtype."/new", array("class" => "button primary key:n", "wrapper" => "li.new")) ?>
+		<?= $HTML->link("Ny vision", "/admin/".$itemtype."/new", array("class" => "button primary key:n", "wrapper" => "li.new")) ?>
 	</ul>
 
 	<div class="all_items i:defaultList taggable filters sortable">
@@ -30,7 +30,7 @@ $all_items = $IC->getItems(array("itemtype" => $itemtype, "order" => "position A
 <?			endforeach; ?>
 		</ul>
 <?		else: ?>
-		<p>No Bills.</p>
+		<p>Ingen visioner.</p>
 <?		endif; ?>
 	</div>
 

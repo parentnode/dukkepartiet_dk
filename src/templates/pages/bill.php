@@ -12,7 +12,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 	<h1>Lovforslag</h1>
 
 <?	if($items): ?>
-	<ul class="items i:carousel">
+	<ul class="items">
 <?		foreach($items as $item): 
 			$item = $IC->extendItem($item); ?>
 		<li class="item">

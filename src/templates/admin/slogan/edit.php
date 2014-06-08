@@ -11,7 +11,7 @@ $item_id = $item["id"];
 	<h1>Edit slogan</h1>
 
 	<ul class="actions">
-		<li class="cancel"><a href="/admin/<?= $itemtype ?>/list" class="button">Back</a></li>
+		<?= $HTML->link("Back", "/admin/".$itemtype."/list", array("class" => "button", "wrapper" => "li.cancel")) ?>
 	</ul>
 
 	<div class="status i:defaultEditStatus item_id:<?= $item_id ?>">
@@ -21,34 +21,32 @@ $item_id = $item["id"];
 	</div>
 
 	<div class="item i:defaultEdit item_id:<?= $item_id ?>">
-		<form action="/admin/cms/update/<?= $item_id ?>" class="labelstyle:inject" method="post" enctype="multipart/form-data">
-
+		<?= $model->formStart("/admin/cms/update/".$item_id, array("class" => "labelstyle:inject")) ?>
 			<fieldset>
 				<?= $model->input("name", array("value" => $item["name"])) ?>
 			</fieldset>
 
 			<ul class="actions">
-				<li class="cancel"><a href="/admin/<?= $itemtype ?>/list" class="button key:esc">Back</a></li>
-				<li class="save"><input type="submit" value="Update" class="button primary key:s" /></li>
+				<?= $model->link("Back", "/admin/".$itemtype."/list", array("class" => "button key:esc", "wrapper" => "li.cancel")) ?>
+				<?= $model->submit("Update", array("class" => "primary key:s", "wrapper" => "li.save")) ?>
 			</ul>
 
-		</form>
+		<?= $model->formEnd() ?>
 	</div>
 
 	<h2>Media</h2>
 	<div class="media i:addMedia">
 		<p>Image must be jpg or png.</p>
 
-		<form action="/admin/cms/update/<?= $item_id ?>" class="i:formAddMedia labelstyle:inject" method="post" enctype="multipart/form-data">
+		<?= $model->formStart("/admin/cms/update/".$item_id, array("class" => "upload labelstyle:inject")) ?>
 			<fieldset>
 				<?= $model->input("files") ?>
 			</fieldset>
 
 			<ul class="actions">
-				<li class="save"><input type="submit" value="Add image" class="button primary" /></li>
+				<?= $model->submit("Add image", array("class" => "primary", "wrapper" => "li.save")) ?>
 			</ul>
-
-		</form>
+		<?= $model->formEnd() ?>
 
 		<ul class="media">
 			<li class="image">

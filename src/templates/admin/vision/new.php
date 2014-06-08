@@ -5,7 +5,7 @@ global $itemtype;
 global $model;
 ?>
 <div class="scene defaultNew">
-	<h1>New candidate</h1>
+	<h1>Ny vision</h1>
 
 	<ul class="actions">
 		<?= $model->link("Back", "/admin/".$itemtype."/list", array("class" => "button", "wrapper" => "li.cancel")) ?>
@@ -14,10 +14,7 @@ global $model;
 	<?= $model->formStart("/admin/cms/save/".$itemtype, array("class" => "i:formDefaultNew labelstyle:inject")) ?>
 		<fieldset>
 			<?= $model->input("name") ?>
-			<?= $model->input("area") ?>
-			<?= $model->input("link") ?>
-			<?= $model->input("responsibilities", array("class" => "autoexpand")) ?>
-			<?= $model->input("background", array("class" => "autoexpand")) ?>
+			<?= $model->input("vision", array("class" => "autoexpand")) ?>
 		</fieldset>
 
 		<ul class="actions">
@@ -25,5 +22,7 @@ global $model;
 			<?= $model->submit("Save", array("class" => "primary key:s", "wrapper" => "li.save")) ?>
 		</ul>
 	<?= $model->formEnd() ?>
+
+	</form>
 
 </div>

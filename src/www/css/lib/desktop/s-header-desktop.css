@@ -33,6 +33,8 @@ red:  #ee191b;
 #header #navigation ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
 #header #navigation ul.servicenavigation li.help_us a {width:122px;}
 #header #navigation ul.servicenavigation li.support_us a {width:92px;}
+#header #navigation ul.servicenavigation li.facebook a {width: 90px;}
+
 #header.open #navigation ul.servicenavigation {display: none;}
 
 
@@ -56,6 +58,8 @@ red:  #ee191b;
 #header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png"); background-color: #ee191b;}
 #header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
 #header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
+#header #navigation.red ul.servicenavigation li.facebook a {background-image: url("/img/bn_fb_blue.png");}
+
 		/*open*/
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
@@ -71,6 +75,7 @@ red:  #ee191b;
 #header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png"); background-color: #00027a;}
 #header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
 #header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.facebook a {background-image: url("/img/bn_fb_red.png");}
 		/*open*/
 #header.open #navigation.blue {background: #ee191b;}
 #header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}

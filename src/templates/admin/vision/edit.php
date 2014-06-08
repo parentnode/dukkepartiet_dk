@@ -8,7 +8,7 @@ $item = $IC->getCompleteItem(array("id" => $action[1]));
 $item_id = $item["id"];
 ?>
 <div class="scene defaultEdit <?= $itemtype ?>Edit">
-	<h1>Edit doctrine</h1>
+	<h1>Rediger vision</h1>
 
 	<ul class="actions">
 		<?= $HTML->link("Back", "/admin/".$itemtype."/list", array("class" => "button", "wrapper" => "li.cancel")) ?>
@@ -24,7 +24,7 @@ $item_id = $item["id"];
 		<?= $model->formStart("/admin/cms/update/".$item_id, array("class" => "labelstyle:inject")) ?>
 			<fieldset>
 				<?= $model->input("name", array("value" => $item["name"])) ?>
-				<?= $model->input("doctrine", array("class" => "autoexpand", "value" => $item["doctrine"])) ?>
+				<?= $model->input("vision", array("class" => "autoexpand", "value" => $item["vision"])) ?>
 			</fieldset>
 
 			<ul class="actions">

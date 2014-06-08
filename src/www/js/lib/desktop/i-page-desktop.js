@@ -148,6 +148,8 @@ Util.Objects["page"] = new function() {
 				this.social = u.qs(".social", page.fN).cloneNode(true);
 				this.social = u.ae(this.nN, this.social)
 
+				this.facebook = u.ae(this.servicenavigation, u.qs(".facebook", this.social).cloneNode(true));
+
 				// add menu icon
 				this.nav_icon = u.ae(this.nN, "div", {"class": "nav_icon"});
 				u.e.click(this.nav_icon);
