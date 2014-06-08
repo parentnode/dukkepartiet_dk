@@ -435,6 +435,7 @@ body.user #navigation .user a {padding-left: 35px; color: #ffffff;}
 /*s-content.css*/
 #content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.visionList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.candidateList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.billList ul.items > li h3 {padding-bottom: 16px;}

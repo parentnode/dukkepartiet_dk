@@ -196,12 +196,15 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 /*s-bill-desktop.css*/
 #content .scene.bill {padding: 60px 0 80px;}
 #content .scene.bill h1 {color: #00027a; text-transform: uppercase;}
-#content .scene.bill ul.items {display:block; width:100%; font-size: 1rem;}
-#content .scene.bill ul.items li.item {text-align:center; padding:0 20px; margin:0 auto; width:740px; background-color: #ee191b; }
-#content .scene.bill ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
-	font-size: 26px; color: #ee191b; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; line-height: 44px;
-	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
+#content .scene.bill ul.items {display: block; font-size: 1rem;}
+#content .scene.bill ul.items li.item {}
+#content .scene.bill ul.items li.item {padding: 0 20px 30px; display: block; margin: 0 auto; width: 600px;}
+#content .scene.bill ul.items li.item p {
+	font-size: 22px; color: #00027a; 
 }
+#content .scene.bill ul.items li:nth-child(2) p {font-size: 18px;}
+#content .scene.bill ul.items li:nth-child(4) p {font-size: 18px; font-weight: 700; font-style: italic; line-height: 1.2em;}
+
 
 /*s-reform-desktop.css*/
 #content .scene.reform {padding:60px 0 80px;}
@@ -303,6 +306,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header #navigation ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
 #header #navigation ul.servicenavigation li.help_us a {width:122px;}
 #header #navigation ul.servicenavigation li.support_us a {width:92px;}
+#header #navigation ul.servicenavigation li.facebook a {width: 90px;}
 #header.open #navigation ul.servicenavigation {display: none;}
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute;  bottom: 40px; padding-bottom:20px; left: 50%; width: 420px; margin-left: -210px; }
@@ -317,6 +321,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png"); background-color: #ee191b;}
 #header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
 #header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
+#header #navigation.red ul.servicenavigation li.facebook a {background-image: url("/img/bn_fb_blue.png");}
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
 #header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
@@ -330,6 +335,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png"); background-color: #00027a;}
 #header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
 #header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.facebook a {background-image: url("/img/bn_fb_red.png");}
 #header.open #navigation.blue {background: #ee191b;}
 #header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
