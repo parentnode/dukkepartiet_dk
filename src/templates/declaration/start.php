@@ -21,8 +21,8 @@ $cpr_2           = getVar("cpr_2");
 $date_data       = getVar("date_data");
 $signature_data  = getVar("signature_data");
 
-if(!Session::value("signature_id")) {
-	Session::value("signature_id", gen_uuid());
+if(!session()->value("signature_id")) {
+	session()->value("signature_id", gen_uuid());
 }
 
 ?>

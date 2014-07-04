@@ -13,7 +13,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta property="og:image" content="http://dukkepartiet.dk/img/sh_dukkepartiet.png" />
 
-<? if(Session::value("dev")) { ?>
+<? if(session()->value("dev")) { ?>
 	<link type="text/css" rel="stylesheet" media="all" href="/css/lib/seg_<?= $this->segment() ?>_include.css" />
 	<script type="text/javascript" src="/js/lib/seg_<?= $this->segment() ?>_include.js"></script>
 <? } else { ?>
@@ -23,7 +23,7 @@
 
 </head>
 
-<body<?= HTML::attribute("class", $this->bodyClass()) ?>>
+<body<?= $HTML->attribute("class", $this->bodyClass()) ?>>
 
 <div id="page" class="i:page">
 	<div id="header">

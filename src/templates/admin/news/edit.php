@@ -19,7 +19,7 @@ $item_id = $item["id"];
 
 	<div class="status i:defaultEditStatus item_id:<?= $item["id"] ?>">
 		<ul class="actions">
-			<?= $HTML->status("Enable", "Disable", "/admin/cms/status", $item, array("js" => true)) ?>
+			<?= $HTML->statusButton("Enable", "Disable", "/admin/cms/status", $item, array("js" => true)) ?>
 		</ul>
 	</div>
 

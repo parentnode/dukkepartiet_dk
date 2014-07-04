@@ -11,7 +11,7 @@ $fs = new FileSystem();
 $fs->makeDirRecursively(PRIVATE_FILE_PATH."/declarations");
 $fs->makeDirRecursively(PUBLIC_FILE_PATH."/declarations");
 
-$signature_id = Session::value("signature_id");
+$signature_id = session()->value("signature_id");
 
 
 $string = "name=".quickGet("name")."\n";
@@ -70,7 +70,7 @@ $output = shell_exec($ex);
 
 // delete info file
 unlink($info_file);
-Session::reset("signature_id");
+session()->reset("signature_id");
 //header("Location: /vaelgererklaering/receipt?id=$declaration_id");
 header("Location: /vaelgererklaering/receipt");
 exit();
