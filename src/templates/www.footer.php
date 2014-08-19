@@ -19,8 +19,8 @@ if($events): ?>
 					<li><a class="bills" href="/lovforslag">Lovforslag</a></li>
 <? endif; ?>
 
-					<!--li><a class="reform" href="/folketingsreformen">Folketingsreformen</a></li-->
 					<li><a class="reform" href="/vision">Vision</a></li>
+					<li><a class="primeminister" href="/statsministerkandidat">Statsministerkandidat?</a></li>
 				</ul>
 
 			</div>

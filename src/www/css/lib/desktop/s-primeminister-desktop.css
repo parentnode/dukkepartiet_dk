@@ -1,0 +1,36 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+
+#content .scene.primeminister {padding-bottom: 60px;}
+#content .scene.primeminister h2 {color: #00027a; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;}
+#content .scene.primeminister ul.items {width:960px; margin:0 auto;}
+#content .scene.primeminister ul.items li {display:inline-block; vertical-align:top; width:280px; height:300px; padding:10px; font-size: 1em; margin:0 20px 20px 0;}
+#content .scene.primeminister ul.items li.item {background-color: #ee191b;}
+#content .scene.primeminister ul.items li.item h3 {font-size:21px; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; color:#00027a; padding:10px 0; text-align: center;}
+#content .scene.primeminister ul.items li.item p {font-size:16px; font-family: Arial, sans-serif; color:#ee191b; text-align: center;}
+#content .scene.primeminister ul.items li.item a {display: none;}
+#content .scene.primeminister ul.items li.item .image {position: relative; background-color: #ee191b;}
+#content .scene.primeminister ul.items li.item .image .play_bn {position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #00027a; cursor: pointer;}
+#content .scene.primeminister ul.items li.item .image .play_bn p {color: #00027a; font-size:21px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; margin-top: 20px; cursor: pointer;
+/*-webkit-touch-callout: none;*/
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+#content .scene.primeminister ul.items li.item .image .play_bn:hover {background: #00027a;}
+#content .scene.primeminister ul.items li.item .image .play_bn:hover p {color:#00027a;}
+
+#content .scene.primeminister ul.items li.item .image img {width: 100%; opacity: 0.6;}
+#content .scene.primeminister ul.items li.more a {display:block; background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; background-size: 100% auto; cursor: pointer; height: 300px;}
+#content .scene.primeminister ul.items li.item .youtube {width:100%; height:100%;}
+
+#content .scene.primeminister .youtube {display:none; position:absolute; width:720px; background-color: #00027a; top: 228px; left: 50%; margin-left: -360px; }
+#content .scene.primeminister .youtube iframe {}
+#content .scene.primeminister .youtube .close {display:block; width:24px; height:22px; position: absolute; padding:10px; right:-44px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_red.png") no-repeat center; z-index: 101;}
+
+#content .scene.primeminister p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #ee191b; padding-bottom: 80px;}
