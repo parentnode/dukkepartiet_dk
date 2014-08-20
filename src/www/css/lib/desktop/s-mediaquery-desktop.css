@@ -8,6 +8,10 @@
 	#content .scene.action ul.items li {width:260px;}
 	#content .scene.action .youtube {width:520px; margin-left: -260px; }
 
+	#content .scene.primeminister ul.items {width:600px;}
+	#content .scene.primeminister ul.items li {width:260px;}
+	#content .scene.primeminister .youtube {width:520px; margin-left: -314px; }
+
 	#content .scene.program ul.items li.item {width:460px;} /*height: 300px;*/
 
 	#content .scene.candidates ul.items {width: 600px;}

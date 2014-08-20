@@ -8,7 +8,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 
 <div class="scene candidates i:candidates blue">
 
-	<h1>Kandidaterne</h1>
+	<h1>Print maske</h1>
 
 
 <?		if($items): ?>

@@ -4,14 +4,8 @@
 				<ul class="primary">
 					
 					<li><a class="front" href="/">Forside</a></li>
-					<li><a class="candidates" href="/kandidaterne">Kandidater</a></li>
-<? 
-$IC = new Item();
-$events = $IC->getItems(array("itemtype" => "event", "status" => 1, "order" => "published_at ASC"));
-if($events): ?>
-					<li><a class="events" href="/kalender">Kalender</a></li>
-<? endif; ?>
-
+					<li><a class="primeminister" href="/statsministerkandidat">Statsministerkandidat?</a></li>
+					<li><a class="reform" href="/vision">Vision</a></li>
 <? 
 $IC = new Item();
 $events = $IC->getItems(array("itemtype" => "bill", "status" => 1, "order" => "published_at ASC"));
@@ -19,8 +13,14 @@ if($events): ?>
 					<li><a class="bills" href="/lovforslag">Lovforslag</a></li>
 <? endif; ?>
 
-					<li><a class="reform" href="/vision">Vision</a></li>
-					<li><a class="primeminister" href="/statsministerkandidat">Statsministerkandidat?</a></li>
+<? 
+$IC = new Item();
+$events = $IC->getItems(array("itemtype" => "event", "status" => 1, "order" => "published_at ASC"));
+if($events): ?>
+					<li><a class="events" href="/kalender">Kalender</a></li>
+<? endif; ?>
+					<?php // Kandidaterne is temporarly renamed to print mask ?>
+					<li><a class="candidates" href="/kandidaterne">Print maske</a></li>
 				</ul>
 
 			</div>

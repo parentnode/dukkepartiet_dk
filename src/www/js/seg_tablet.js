@@ -3648,7 +3648,7 @@ Util.Objects["candidate"] = new function() {
 	}
 }
 
-/*i-bill-desktop.js*/
+/*i-scene-desktop.js*/
 Util.Objects["scene"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {

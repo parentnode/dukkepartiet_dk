@@ -111,7 +111,7 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 /*s-candidates-desktop.css*/
 #content .scene.candidates {padding:60px 0 60px;}
 #content .scene.candidates h1 {color:#ee191b; text-transform: uppercase;}
-#content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto;}
+#content .scene.candidates ul.items {width: 960px; font-size: 0; margin: 0 auto; text-align: center;}
 #content .scene.candidates ul.items li.item {width: 470px; margin:0 10px 70px 0; text-align: center; cursor: pointer;}
 #content .scene.candidates ul.items li.item:last-child {margin:0;}
 #content .scene.candidates ul.items li.item .image {width:390px; min-height:220px; padding:10px; background-color: red; margin: 0 auto 6px;}
@@ -316,7 +316,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header #navigation ul.primary {display: none;}
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
-#header.open #navigation ul.primary li a {font-size: 50px; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; width:500px; display: block; margin:20px auto; text-transform: uppercase;}
+#header.open #navigation ul.primary li a {font-size: 44px; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; width:50%; display: block; margin:20px auto; text-transform: uppercase;}
 #header #navigation ul.servicenavigation {margin:16px auto 0; text-align: center;}
 #header #navigation ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
 #header #navigation ul.servicenavigation li.help_us a {width:122px;}
@@ -324,7 +324,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header #navigation ul.servicenavigation li.facebook a {width: 90px;}
 #header.open #navigation ul.servicenavigation {display: none;}
 #header #navigation .social {display: none;}
-#header.open #navigation .social {display: block; position: absolute;  bottom: 40px; padding-bottom:20px; left: 50%; width: 420px; margin-left: -210px; }
+#header.open #navigation .social {display: block; position: absolute; bottom: 40px; left: 50%; width: 420px; margin-left: -210px; }
 #header.open #navigation .social h4 {font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}
@@ -367,6 +367,9 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 	#content .scene.action ul.items {width:600px;}
 	#content .scene.action ul.items li {width:260px;}
 	#content .scene.action .youtube {width:520px; margin-left: -260px; }
+	#content .scene.primeminister ul.items {width:600px;}
+	#content .scene.primeminister ul.items li {width:260px;}
+	#content .scene.primeminister .youtube {width:520px; margin-left: -314px; }
 	#content .scene.program ul.items li.item {width:460px;} 
 	#content .scene.candidates ul.items {width: 600px;}
 	#content .scene.candidates ul.items li.item {width: 290px;}
@@ -410,6 +413,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.blue .close a:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #content .scene.action .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 body.declaration #content .close a:hover {background-image: url("/img/gx_nav_icon_close_white.png"); background-color: #000000;}
+#content .scene.primeminister .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
 #content .scene.red .next:hover,
 #content .scene.red .previous:hover {color: #ee191b; background-color: #00027a;}
 #content .scene.blue .next:hover,
