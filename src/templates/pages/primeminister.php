@@ -25,7 +25,7 @@ function get_youtube_views($video_ID) {
 					<li class="item">
 						<?
 							//$url = "http://www.youtube.com/watch?v=Q8TXgCzxEnw&feature=relate";
-							$url = "https://www.youtube.com/watch?v=vVHzyC3Umxw";
+							$url = "https://www.youtube.com/watch?v=KL4g67IFptI";
 							parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 							$id = $my_array_of_vars['v'];
 
@@ -45,7 +45,7 @@ function get_youtube_views($video_ID) {
 
 					<li class="item">
 						<?
-							$url = "https://www.youtube.com/watch?v=EFSGe-l18Yo";
+							$url = "youtube.com/watch?v=Q8TXgCzxEnw";
 							parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 							$id = $my_array_of_vars['v'];
 						?>
@@ -59,7 +59,7 @@ function get_youtube_views($video_ID) {
 
 					<li class="item">
 						<?
-							$url = "https://www.youtube.com/watch?v=EFSGe-l18Yo";
+							$url = "https://www.youtube.com/watch?v=E9QeMrqE7u8";
 							parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 							$id = $my_array_of_vars['v'];
 						?>
@@ -73,7 +73,7 @@ function get_youtube_views($video_ID) {
 
 					<li class="item">
 						<?
-							$url = "https://www.youtube.com/watch?v=EFSGe-l18Yo";
+							$url = "https://www.youtube.com/watch?v=_1NGnVLDPog";
 							parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 							$id = $my_array_of_vars['v'];
 						?>
@@ -87,7 +87,7 @@ function get_youtube_views($video_ID) {
 
 					<li class="item">
 						<?
-							$url = "https://www.youtube.com/watch?v=EFSGe-l18Yo";
+							$url = "https://www.youtube.com/watch?v=dD_NdnYrDzY";
 							parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 							$id = $my_array_of_vars['v'];
 						?>
