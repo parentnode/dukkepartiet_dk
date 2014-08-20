@@ -12,6 +12,7 @@ document.write('<script type="text/javascript" src="/js/lib/desktop/i-candidate-
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-scene-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-support-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-help-desktop.js"></script>');
+document.write('<script type="text/javascript" src="/js/lib/desktop/i-primeminister-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-footer-desktop.js"></script>');
 
 document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');

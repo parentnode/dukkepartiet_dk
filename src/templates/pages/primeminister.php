@@ -20,7 +20,7 @@ function get_youtube_views($video_ID) {
 				</div>
 				
 
-				<h2>Kandidater</h2>
+				<h3>Kandidater</h3>
 				<ul class="items">
 					<li class="item">
 						<?
