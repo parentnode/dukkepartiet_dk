@@ -25,7 +25,7 @@ function get_youtube_views($video_ID) {
  					
  					<p class="send"><a href="mailto:kontakt@dukkepartiet.dk?subject=Statsministerkandidat">Indsend</a></p>
 
-					<p>Optag din tale på computer eller smartphone og<br>send filen direkte til os. Du kan også uploade filen på Youtube og sende os linket.</p>
+					<p>Optag din tale på computer eller smartphone og<br>send filen direkte til os. Masker kan printes <a href="https://dukkepartiet.dk/kandidaterne/25">her</a>. <br>Du kan også uploade filen på Youtube og sende os linket.</p>
 				</div>
 				
 
