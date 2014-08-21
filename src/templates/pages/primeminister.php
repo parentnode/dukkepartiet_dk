@@ -16,7 +16,7 @@ function get_youtube_views($video_ID) {
 		$views = $JSON_Data->{'feed'}->{'entry'}[0]->{'yt$statistics'}->{'viewCount'};
 	}
 	else {
-		$views = 0;
+		$views = 5;
 	}
 	return $views;
 }
