@@ -12,7 +12,12 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 function get_youtube_views($video_ID) {
 	$JSON = file_get_contents("https://gdata.youtube.com/feeds/api/videos?q={$video_ID}&alt=json");
 	$JSON_Data = json_decode($JSON);
-	$views = $JSON_Data->{'feed'}->{'entry'}[0]->{'yt$statistics'}->{'viewCount'};
+	if(isset($JSON_Data->{'feed'}->{'entry'})) {
+		$views = $JSON_Data->{'feed'}->{'entry'}[0]->{'yt$statistics'}->{'viewCount'};
+	}
+	else {
+		$views = 0;
+	}
 	return $views;
 }
 ?>
