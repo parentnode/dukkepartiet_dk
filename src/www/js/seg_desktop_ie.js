@@ -4128,7 +4128,6 @@ Util.Objects["primeminister"] = new function() {
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
-			u.bug("action");
 			page.cN.ready();
 			this.ul = u.qs("ul.items", this)
 			if (this.ul) {
@@ -4160,47 +4159,20 @@ Util.Objects["primeminister"] = new function() {
 					node.player_html = '<iframe width="' + node.player_width+ '" height="' + node.player_height + '" src="//www.youtube.com/embed/' + node.player_id + '?autoplay=1" frameborder="0" allowfullscreen></iframe>'
 					node._bn_play = u.ae(node._image, "div", {"class":"play_bn", "html": "<p>Play</p>"});
 					node._bn_play.node = node 
-					u.ce(node._bn_play);
-					node._bn_play.clicked = function(event) {
+					u.ce(node);
+					node.clicked = function(event) {
 						u.as(scene.video_container, "display", "block");
-						var top = u.scrollY()+( u.browserHeight()/2 ) - (this.node.player_height/2);
+						var top = u.scrollY()+( u.browserHeight()/2 ) - (this.player_height/2);
 						u.as(scene.video_container, "top", top+"px");
-						scene.video_player.innerHTML = this.node.player_html;
-						var h3 = this.node._h3.cloneNode(true);
-						var p = this.node._p.cloneNode(true);
+						scene.video_player.innerHTML = this.player_html;
+						var h3 = this._h3.cloneNode(true);
+						var p = this._p.cloneNode(true);
 						u.ae(scene.video_player, h3);
 						u.ae(scene.video_player, p);
 						u.as(scene.ul, "opacity", "0.5");
 					}
 				}
-				// 		
-				// 		
-				// 		
-				// 		
-				// 		
-				// 		
-				// 		// http:
-				// 				node.player_html = '<iframe width="' + node.player_width+ '" height="' + node.player_height + '" src="//www.youtube.com/embed/' + node.player_id + '?autoplay=1" frameborder="0" allowfullscreen></iframe>'
-				// 				
-				// 				node._bn_play.node = node 
-				// 				
-				// 					
-				// 					
 			}
-			// 	
-			// 	
-			// 		
-			// 			
-			// 			
-			// 			
-			// 			
-			// 			
-			// 			
-			// 			// http:
-			// 					node.player_html = '<iframe width="' + node.player_width+ '" height="' + node.player_height + '" src="//www.youtube.com/embed/' + node.player_id + '?autoplay=1" frameborder="0" allowfullscreen></iframe>'
-			// 					
-			// 					
-			// 						
 			page.ready();
 		}
 		scene.ready();
