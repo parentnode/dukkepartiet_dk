@@ -372,6 +372,7 @@ body.user #navigation .user a {padding-left: 35px; color: #ffffff;}
 
 /*s-content.css*/
 #content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.primeministerList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.visionList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
@@ -384,6 +385,7 @@ body.user #navigation .user a {padding-left: 35px; color: #ffffff;}
 #content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
 #content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
 body.slogan #navigation .slogan a,
+body.primeminister #navigation .primeminister a,
 body.action #navigation .action a,
 body.doctrine #navigation .doctrine a,
 body.candidate #navigation .candidate a,
