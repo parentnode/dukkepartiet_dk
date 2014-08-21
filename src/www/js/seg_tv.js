@@ -5160,6 +5160,13 @@ Util.Objects["front"] = new function() {
 					}
 					u.preloader(node, [node._image_src]);
 				}
+				node.url = u.qs("a", node);
+				if(node.url) {
+					node.clicked = function() {
+						window.location.href = this.url;
+					}
+					u.ce(node);
+				}
 			}
 			if(this.slogans.length < 2) {
 				var next = u.qs(".next", this.slogan);

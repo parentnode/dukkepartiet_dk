@@ -1,6 +1,8 @@
 /* SLOGAN */
 #content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
 
+/* Primeminister */
+#content .defaultList.primeministerList ul.items > li h3 {padding-bottom: 16px;}
 
 /* DOCTRINE */
 #content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
@@ -34,9 +36,9 @@
 
 /* NAVIGATION */
 body.slogan #navigation .slogan a,
+body.primeminister #navigation .primeminister a,
 body.action #navigation .action a,
 body.doctrine #navigation .doctrine a,
-
 body.candidate #navigation .candidate a,
 body.event #navigation .event a,
 body.bill #navigation .bill a,

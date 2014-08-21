@@ -5,7 +5,7 @@ global $itemtype;
 global $model;
 ?>
 <div class="scene defaultNew">
-	<h1>New slogan</h1>
+	<h1>New Statsministerkandidat</h1>
 
 	<ul class="actions">
 		<?= $model->link("Back", "/admin/".$itemtype."/list", array("class" => "button", "wrapper" => "li.cancel")) ?>
@@ -13,7 +13,7 @@ global $model;
 
 	<?= $model->formStart("/admin/cms/save/".$itemtype, array("class" => "i:formDefaultNew labelstyle:inject")) ?>
 
-		<p>Give the slogan a meaningful name, press <em>save</em> and upload your image. The slogan can also link to subpage, if so add a URL.</p>
+		<p>Add the name of the candidate and the youtube url.</p>
 		<fieldset>
 			<?= $model->input("name") ?>
 			<?= $model->input("url") ?>

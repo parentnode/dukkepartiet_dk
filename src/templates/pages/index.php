@@ -13,7 +13,13 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "order" => 
 	<ul class="items i:carousel">
 <?		foreach($items as $item): 
 			$item = $IC->extendItem($item); ?>
-		<li class="item image_id:<?= $item["item_id"] ?> image_format:<?= $item["files"] ?>"><p><?= $item["name"] ?></p></li>
+		<li class="item image_id:<?= $item["item_id"] ?> image_format:<?= $item["files"] ?>">
+			<p><?= $item["name"] ?></p>
+
+			<? if($item["url"]): ?>
+			<a href="<?= $item["url"] ?>"><?= $item["url"] ?></a>
+			<? endif; ?>			
+		</li>
 <?		endforeach; ?>
 	</ul>
 	

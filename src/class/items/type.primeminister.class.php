@@ -5,9 +5,9 @@
 */
 
 /**
-* TypeNews
+* TypePrimeminister
 */
-class TypeSlogan extends Model {
+class TypePrimeminister extends Model {
 
 
 	/**
@@ -15,7 +15,7 @@ class TypeSlogan extends Model {
 	*/
 	function __construct() {
 
-		$this->db = SITE_DB.".item_slogan";
+		$this->db = SITE_DB.".item_primeminister";
 
 
 		// Name
@@ -24,26 +24,18 @@ class TypeSlogan extends Model {
 			"label" => "Name",
 			"required" => true,
 			"unique" => $this->db,
-			"hint_message" => "Every slogan deserves a name - just write a few words, which uniquely identifies the slogan", 
+			"hint_message" => "The name of the candidate", 
 			"error_message" => "Name must be filled out"
 		));
 
 		// URL
 		$this->addToModel("url", array(
 			"type" => "string",
-			"label" => "Url",
+			"label" => "Video link",
 			"required" => false,
-			"hint_message" => "This slogan can link to a subpage"
-		));
-
-		// Files
-		$this->addToModel("files", array(
-			"type" => "files",
-			"label" => "Add media here",
-			"max" => 1,
-			"allowed_formats" => "png,jpg",
-			"hint_message" => "Add slogan images here. Use png or jpg.",
-			"error_message" => "Image does not fit requirements."
+			"unique" => $this->db,
+			"hint_message" => "Every candidate must have a video", 
+			"error_message" => "Video url must be filled out"
 		));
 
 		// Tags
@@ -68,11 +60,11 @@ class TypeSlogan extends Model {
 				$query->sql("UPDATE ".$this->db." SET position = ".($i)." WHERE item_id = ".$item_id);
 			}
 
-			message()->addMessage("Slogan order updated");
+			message()->addMessage("Candidate order updated");
 			return true;
 		}
 
-		message()->addMessage("Slogan order could not be updated - refresh your browser", array("type" => "error"));
+		message()->addMessage("Candidates order could not be updated - refresh your browser", array("type" => "error"));
 		return false;
 
 	}

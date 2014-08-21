@@ -142,6 +142,18 @@ Util.Objects["front"] = new function() {
 					u.preloader(node, [node._image_src]);
 
 				}
+
+				node.url = u.qs("a", node);
+
+				// if LINK/URL
+				if(node.url) {
+					node.clicked = function() {
+						//location.href = this.url;
+						window.location.href = this.url;
+					}
+					u.ce(node);
+				}
+
 			}
 			if(this.slogans.length < 2) {
 

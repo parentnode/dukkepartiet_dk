@@ -8,7 +8,7 @@ $item = $IC->getCompleteItem(array("id" => $action[1]));
 $item_id = $item["id"];
 ?>
 <div class="scene defaultEdit <?= $itemtype ?>Edit">
-	<h1>Edit slogan</h1>
+	<h1>Edit Statsministerkandidat</h1>
 
 	<ul class="actions">
 		<?= $HTML->link("Back", "/admin/".$itemtype."/list", array("class" => "button", "wrapper" => "li.cancel")) ?>
@@ -33,33 +33,6 @@ $item_id = $item["id"];
 			</ul>
 
 		<?= $model->formEnd() ?>
-	</div>
-
-	<h2>Media</h2>
-	<div class="media i:addMedia">
-		<p>Image must be jpg or png.</p>
-
-		<?= $model->formStart("/admin/cms/update/".$item_id, array("class" => "upload labelstyle:inject")) ?>
-			<fieldset>
-				<?= $model->input("files") ?>
-			</fieldset>
-
-			<ul class="actions">
-				<?= $model->submit("Add image", array("class" => "primary", "wrapper" => "li.save")) ?>
-			</ul>
-		<?= $model->formEnd() ?>
-
-		<ul class="media">
-			<li class="image">
-				<h4>Image</h4>
-<?		if($item["files"]): ?>
-				<img src="/images/<?= $item["id"] ?>/160x.<?= $item["files"] ?>">
-<?		else: ?>
-				<img src="/images/0/missing/160x.png">
-<?		endif; ?>
-			</li>
-		</ul>
-
 	</div>
 
 </div>
