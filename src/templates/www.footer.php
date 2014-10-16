@@ -5,6 +5,7 @@
 					
 					<li><a class="front" href="/">Forside</a></li>
 					<li><a class="primeminister" href="/statsministerkandidat">Statsministerkandidat?</a></li>
+					<li><a class="interview" href="/interview">Dukkerne møder</a></li>
 					<li><a class="reform" href="/vision">Vision</a></li>
 <? 
 $IC = new Item();
