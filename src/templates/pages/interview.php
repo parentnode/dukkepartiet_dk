@@ -19,11 +19,12 @@ function get_youtube_views($video_ID) {
 			<div class="scene interview i:interview blue">
 				
 				<div class="introduction">
-					<p>lorem ipsum</p>
+					<h2>Dukkerne møder</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper ac neque eu ultrices. Aliquam erat volutpat. Proin fringilla sapien metus, vitae feugiat velit finibus non. Proin et mauris at odio facilisis aliquet. Ut ullamcorper laoreet nunc sed placerat. Pellentesque a neque non nibh vehicula sodales id quis tellus. In arcu felis, dictum sit amet lacus non, finibus tempus nibh. Proin in mauris dolor. Nullam eget elit ligula. Vestibulum nec viverra arcu, sit amet vehicula magna. Aliquam et nulla a erat luctus feugiat. Proin consequat nulla eu dui egestas maximus.</p>
 				</div>
 				
 
-				<h3>Kandidater</h3>
+				<h3>Interviews</h3>
 
 <?			if($items): ?>
 				<ul class="items">

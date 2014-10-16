@@ -8,7 +8,7 @@ Util.Objects["footer"] = new function() {
 			this._class = document.body.className;
 			
 			// RED
-			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform" || this._class == "vision") {
+			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform" || this._class == "vision" || this._class == "interview" ) {
 				u.ac(this, "red");
 			}
 			// BLUE

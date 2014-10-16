@@ -12,6 +12,7 @@ $itemtype = "interview";
 
 
 $page->pageTitle("Dukke Partiet - Dukke møder");
+$page->bodyClass("interview");
 
 // list
 if(!$action) {

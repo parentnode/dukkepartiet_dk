@@ -1,6 +1,9 @@
 /* SLOGAN */
 #content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
 
+/* Interview */
+#content .defaultList.interviewList ul.items > li h3 {padding-bottom: 16px;}
+
 /* Primeminister */
 #content .defaultList.primeministerList ul.items > li h3 {padding-bottom: 16px;}
 

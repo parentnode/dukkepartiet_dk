@@ -3803,7 +3803,7 @@ Util.Objects["footer"] = new function() {
 		footer.ready = function() {
 			u.bug("set footer color");
 			this._class = document.body.className;
-			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform" || this._class == "vision") {
+			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform" || this._class == "vision" || this._class == "interview" ) {
 				u.ac(this, "red");
 			}
 			else {
@@ -3811,6 +3811,65 @@ Util.Objects["footer"] = new function() {
 			}
 		}
 		footer.ready();
+	}
+}
+
+/*i-interview-desktop.js*/
+Util.Objects["interview"] = new function() {
+	this.init = function(scene) {
+		scene.resized = function() {
+		}
+		scene.scrolled = function() {
+		}
+		scene.ready = function() {
+			page.cN.ready();
+			this.ul = u.qs("ul.items", this)
+			if (this.ul) {
+				this.nodes = u.qsa("ul.items li.item", this.ul);
+				this.video_container = u.qs(".youtube", this);
+				this.video_player = u.qs(".youtube .player", this);
+				this.video_close = u.qs(".youtube .close", this);
+				u.ce(this.video_close);
+				this.video_close.clicked = function(event) {
+					u.as(scene.video_container, "display", "none");
+					scene.video_player.innerHTML = "";
+					u.as(scene.ul, "opacity", "1");
+				}
+				var i, node;
+				for (i = 0; node = this.nodes[i]; i++) {
+					node._image_id = u.cv(node, "image_id");
+					node._image = u.qs(".image", node);
+					node._h3 = u.qs("h3", node);
+					node._p = u.qs("p", node);
+					if (u.browserWidth() > 959 ) {
+						node.player_width = 720;
+						node.player_height = (node.player_width/16)*9;
+					}
+					else {
+						node.player_width = 520;
+						node.player_height = (node.player_width/16)*9;
+					}
+					node.player_id = u.qs("a", node).innerHTML;
+					node.player_html = '<iframe width="' + node.player_width+ '" height="' + node.player_height + '" src="//www.youtube.com/embed/' + node.player_id + '?autoplay=1" frameborder="0" allowfullscreen></iframe>'
+					node._bn_play = u.ae(node._image, "div", {"class":"play_bn", "html": "<p>Play</p>"});
+					node._bn_play.node = node 
+					u.ce(node);
+					node.clicked = function(event) {
+						u.as(scene.video_container, "display", "block");
+						var top = u.scrollY()+( u.browserHeight()/2 ) - (this.player_height/2);
+						u.as(scene.video_container, "top", top+"px");
+						scene.video_player.innerHTML = this.player_html;
+						var h3 = this._h3.cloneNode(true);
+						var p = this._p.cloneNode(true);
+						u.ae(scene.video_player, h3);
+						u.ae(scene.video_player, p);
+						u.as(scene.ul, "opacity", "0.5");
+					}
+				}
+			}
+			page.ready();
+		}
+		scene.ready();
 	}
 }
 
