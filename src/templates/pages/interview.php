@@ -41,7 +41,7 @@ function get_youtube_views($video_ID) {
 							<?= '<img src="http://img.youtube.com/vi/'.$id.'/0.jpg" />' ?>
 						</div>
 						<h3><?= $item["name"] ?></h3>
-						<p>Set <?= get_youtube_views($id) ?> gange</p>
+						<!--p>Set <?= get_youtube_views($id) ?> gange</p-->
 						<a href="<?= $url ?>"><?= $id ?></a>
 					</li>
 
