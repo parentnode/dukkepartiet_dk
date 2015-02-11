@@ -25,7 +25,9 @@ red:  #ee191b;
 #header #navigation ul.primary {display: none;}
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
-#header.open #navigation ul.primary li a {font-size: 44px; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; width:50%; display: block; margin:20px auto; text-transform: uppercase;}
+#header.open #navigation ul.primary li a {font-size: 38px; width: 50%; display: block; margin:20px auto; text-transform: uppercase;
+	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+}
 
 
 /* SERVICE NAVIGATION */
@@ -41,7 +43,9 @@ red:  #ee191b;
 /* SOCIAL */
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute; bottom: 40px; left: 50%; width: 420px; margin-left: -210px; }
-#header.open #navigation .social h4 {font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;}
+#header.open #navigation .social h4 {text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}
 #header.open #navigation .social ul li.facebook a,
@@ -53,39 +57,81 @@ red:  #ee191b;
 
 /* SWITCH COLOR */
 
-	/* red */
-#header #navigation.red .logo {background-image: url("/img/gx_fixed_logo_blue.png");}
-#header #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_blue.png"); background-color: #ee191b;}
-#header #navigation.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
-#header #navigation.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
-#header #navigation.red ul.servicenavigation li.facebook a {background-image: url("/img/bn_fb_blue.png");}
+/* RED */
+#header #navigation.red .logo {
+	background-image: url("/img/gx_fixed_logo_blue.png");
+}
+#header #navigation.red .nav_icon {background-color: #ee191b;
+	background-image: url("/img/gx_nav_icon_blue.png");
+}
+#header #navigation.red ul.servicenavigation li.help_us a {
+	background-image: url("/img/bn_help_us_red.png");
+}
+#header #navigation.red ul.servicenavigation li.support_us a {
+	background-image: url("/img/bn_support_us_red.png");
+}
+#header #navigation.red ul.servicenavigation li.facebook a {
+	background-image: url("/img/bn_fb_blue.png");
+}
 
-		/*open*/
+/* OPEN */
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
-#header.open #navigation.red .nav_icon {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
+#header.open #navigation.red .nav_icon {background-color: #00027a;
+	background-image: url("/img/gx_nav_icon_close_red.png");
+}
 #header.open #navigation.red ul.primary li a.active {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.red .social h4 {color:#ee191b;}
-#header.open #navigation.red .social ul li.facebook a {background-image: url("/img/bn_fb_red.png");}
-#header.open #navigation.red .social ul li.youtube a {background-image: url("/img/bn_yt_red.png");}
-#header.open #navigation.red .social ul li.twitter a {background-image: url("/img/bn_tw_red.png");}
-#header.open #navigation.red .social ul li.instagram a {background-image: url("/img/bn_ig_red.png");}
-	/* blue */
-#header #navigation.blue .logo {background-image: url("/img/gx_fixed_logo_red.png");}
-#header #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_red.png"); background-color: #00027a;}
-#header #navigation.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
-#header #navigation.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
-#header #navigation.blue ul.servicenavigation li.facebook a {background-image: url("/img/bn_fb_red.png");}
-		/*open*/
+#header.open #navigation.red .social ul li.facebook a {
+	background-image: url("/img/bn_fb_red.png");
+}
+#header.open #navigation.red .social ul li.youtube a {
+	background-image: url("/img/bn_yt_red.png");
+}
+#header.open #navigation.red .social ul li.twitter a {
+	background-image: url("/img/bn_tw_red.png");
+}
+#header.open #navigation.red .social ul li.instagram a {
+	background-image: url("/img/bn_ig_red.png");
+}
+
+/* BLUE */
+#header #navigation.blue .logo {
+	background-image: url("/img/gx_fixed_logo_red.png");
+}
+#header #navigation.blue .nav_icon {background-color: #00027a;
+	background-image: url("/img/gx_nav_icon_red.png");
+}
+#header #navigation.blue ul.servicenavigation li.help_us a {
+	background-image: url("/img/bn_help_us_blue.png");
+}
+#header #navigation.blue ul.servicenavigation li.support_us a {
+	background-image: url("/img/bn_support_us_blue.png");
+}
+#header #navigation.blue ul.servicenavigation li.facebook a {
+	background-image: url("/img/bn_fb_red.png");
+}
+
+/* OPEN */
 #header.open #navigation.blue {background: #ee191b;}
-#header.open #navigation.blue .nav_icon {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
+#header.open #navigation.blue .nav_icon {background-color: #ee191b;
+	background-image: url("/img/gx_nav_icon_close_blue.png");
+}
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
 #header.open #navigation.blue ul.primary li a.active {background-color:#00027a; color:#ee191b;}
 #header.open #navigation.blue .social h4 {color:#00027a;}
-#header.open #navigation.blue .social ul li.facebook a {background-image: url("/img/bn_fb_blue.png");}
-#header.open #navigation.blue .social ul li.youtube a {background-image: url("/img/bn_yt_blue.png");}
-#header.open #navigation.blue .social ul li.twitter a {background-image: url("/img/bn_tw_blue.png");}
-#header.open #navigation.blue .social ul li.instagram a {background-image: url("/img/bn_ig_blue.png");}
+#header.open #navigation.blue .social ul li.facebook a {
+	background-image: url("/img/bn_fb_blue.png");
+}
+#header.open #navigation.blue .social ul li.youtube a {
+	background-image: url("/img/bn_yt_blue.png");
+}
+#header.open #navigation.blue .social ul li.twitter a {
+	background-image: url("/img/bn_tw_blue.png");
+}
+#header.open #navigation.blue .social ul li.instagram a {
+	background-image: url("/img/bn_ig_blue.png");
+}
 
 
 

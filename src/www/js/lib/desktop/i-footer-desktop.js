@@ -1,24 +1,14 @@
 Util.Objects["footer"] = new function() {
 	this.init = function(footer) {
 
-		footer.ready = function() {
-			
-			u.bug("set footer color");
-			
-			this._class = document.body.className;
-			
-			// RED
-			if (this._class == "candidates" || this._class == "candidate" || this._class == "reform" || this._class == "vision" || this._class == "interview" ) {
-				u.ac(this, "red");
-			}
-			// BLUE
-			else {
-				u.ac(this, "blue");
-			}
+		// RED
+		if(u.hc(document.body, "candidates|candidate|reform|vision|interview|action|mask")) {
+			u.ac(footer, "red");
 		}
-
-		// callback to footer ready
-		footer.ready();
+		// BLUE
+		else {
+			u.ac(footer, "blue");
+		}
 
 	}
 }

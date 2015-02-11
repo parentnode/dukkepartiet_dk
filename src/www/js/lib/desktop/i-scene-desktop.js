@@ -3,24 +3,20 @@ Util.Objects["scene"] = new function() {
 
 		// resize scene
 		scene.resized = function() {
-			
-			// refresh dom
-			//this.offsetHeight;
+//			u.bug("scene.resized:" + u.nodeId(this));
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scrolled")
+//			u.bug("scene.scrolled:" + u.nodeId(this));
 		}
-
 
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
-			
-			u.bug("standard scene");
-			
-			// callback to init menu etc.
-			page.ready();
+
+			page.scenes.push(this);
+
+			page.scrolled();
 		}
 
 		// callback to scene ready

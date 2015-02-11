@@ -11,8 +11,9 @@ error_reporting(E_ALL);
 * Required site information
 */
 define("SITE_UID", "DUK");
-define("SITE_NAME", "Dukke Partiet");
-define("SITE_URL", "dukkepartiet.dk");
+define("SITE_NAME", "Dukkepartiet");
+define("SITE_URL", (isset($_SERVER["HTTPS"]) ? "https" : "http")."://".$_SERVER["SERVER_NAME"]);
+define("SITE_EMAIL", "kontakt@dukkepartiet.dk");
 
 /**
 * Optional constants

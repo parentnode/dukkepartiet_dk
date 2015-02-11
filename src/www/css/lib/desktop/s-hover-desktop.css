@@ -30,12 +30,26 @@ red:  #ee191b;
 #header #navigation.red .social ul li.twitter a:hover {background-image: url("/img/bn_tw_blue.png");}
 #header #navigation.red .social ul li.instagram a:hover {background-image: url("/img/bn_ig_blue.png");}
 
-	/* close bn */
-#content .scene.red .close a:hover {background-image: url("/img/gx_nav_icon_close_red.png"); background-color: #00027a;}
-#content .scene.blue .close a:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
-#content .scene.action .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
+
+/* BACK BN */
+#content .scene.red .close a:hover {background-color: #00027a;
+	background-image: url("/img/gx_nav_icon_back_red.png");
+}
+#content .scene.blue .close a:hover {background-color: #ee191b;
+	background-image: url("/img/gx_nav_icon_back_blue.png");
+}
+
+/* YOUTUBE CLOSE */
+body #youtube .close:hover {background-color: #ee191b;
+	background-image: url("/img/gx_nav_icon_close_blue.png");
+}
+
+
+#content .scene.help .container p.download a:hover {color: #00027a; background-color: #ee191b; box-shadow: 10px 0 0 #ee191b, -10px 0 0 #ee191b;}
+
+
 body.declaration #content .close a:hover {background-image: url("/img/gx_nav_icon_close_white.png"); background-color: #000000;}
-#content .scene.primeminister .youtube .close:hover {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color: #ee191b;}
+
 /* prev/next */
 #content .scene.red .next:hover,
 #content .scene.red .previous:hover {color: #ee191b; background-color: #00027a;}

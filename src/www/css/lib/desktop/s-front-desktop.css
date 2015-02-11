@@ -11,11 +11,11 @@ red:  #ee191b;
 
 
 #content .scene.front h2 {color: #00027a;}
-/*#content .scene.front .logo {background: url("/img/gx_logo_front.png") no-repeat center 70px; width:100%; height: 270px; position:absolute; top:0; z-index:10;}*/
-#content .scene.front .logo {background: url("/img/gx_logo_front.png") no-repeat bottom center; width:412px; height: 192px; left:50%; margin-left:-206px; position:absolute; padding-top:70px; z-index:10;}
+#content .scene.front .logo {width:412px; height: 192px; left:50%; margin-left:-206px; position:absolute; padding-top:70px; z-index:10;
+	background: url("/img/gx_logo_front.png") no-repeat bottom center;
+}
 #content .scene.front .logo.fixed {position: fixed; }
 
-/*#content .scene.front .container {position: relative;}*/
 #content .scene.front .container {position: absolute; top:0; left:0; width: 100%; height: 100%; z-index:1;}
 
 #content .scene.front .container ul.items {}
@@ -32,7 +32,11 @@ red:  #ee191b;
 /* SERVICE NAVIGATION */
 .no_menu #content .scene.front ul.servicenavigation {display:block; position: absolute; bottom:42px; width: 100%; text-align: center; z-index: 10;}
 .no_menu #content .scene.front ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
-.no_menu #content .scene.front ul.servicenavigation li.help_us a {width:122px; background-image: url("/img/bn_help_us_red.png");}
-.no_menu #content .scene.front ul.servicenavigation li.support_us a {width:92px; background-image: url("/img/bn_support_us_red.png");}
+.no_menu #content .scene.front ul.servicenavigation li.help_us a {width:122px; 
+	background-image: url("/img/bn_help_us_red.png");
+}
+.no_menu #content .scene.front ul.servicenavigation li.support_us a {width:92px; 
+	background-image: url("/img/bn_support_us_red.png");
+}
 /* hide buttons */
 #content .scene.front ul.servicenavigation {display: none;}

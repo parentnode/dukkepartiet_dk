@@ -1,18 +1,28 @@
 @import url(/css/lib/desktop/s-page-desktop.css);
 @import url(/css/lib/desktop/s-content-desktop.css);
+@import url(/css/lib/desktop/s-footer-desktop.css);
+@import url(/css/lib/desktop/s-header-desktop.css);
+
+@import url(/css/lib/desktop/s-mediaquery-desktop.css);
+@import url(/css/lib/desktop/s-hover-desktop.css);
+
 @import url(/css/lib/desktop/s-front-desktop.css);
-@import url(/css/lib/desktop/s-candidates-desktop.css);
 @import url(/css/lib/desktop/s-action-desktop.css);
 @import url(/css/lib/desktop/s-program-desktop.css);
 @import url(/css/lib/desktop/s-events-desktop.css);
 @import url(/css/lib/desktop/s-bill-desktop.css);
-@import url(/css/lib/desktop/s-reform-desktop.css);
+@import url(/css/lib/desktop/s-mask-desktop.css);
+@import url(/css/lib/desktop/s-vision-desktop.css);
 @import url(/css/lib/desktop/s-support-desktop.css);
 @import url(/css/lib/desktop/s-help-desktop.css);
 @import url(/css/lib/desktop/s-primeminister-desktop.css);
-@import url(/css/lib/desktop/s-footer-desktop.css);
-@import url(/css/lib/desktop/s-header-desktop.css);
-@import url(/css/lib/desktop/s-mediaquery-desktop.css);
-@import url(/css/lib/desktop/s-hover-desktop.css);
+@import url(/css/lib/desktop/s-interview-desktop.css);
 
-/*@import url(/css/lib/desktop_light/s-content-desktop_light.css);*/
+@import url(/css/lib/desktop/s-declaration-desktop.css);
+
+@import url(/css/lib/desktop_light/s-content-desktop_light.css);
+
+/*
+@import url(/css/lib/desktop/s-candidates-desktop.css);
+@import url(/css/lib/desktop/s-reform-desktop.css);
+*/

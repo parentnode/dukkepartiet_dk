@@ -13,20 +13,10 @@ $action = $page->actions();
 $page->bodyClass("vision");
 $page->pageTitle("Dukke Partiet - Vision");
 
-// list
-if(!$action) {
 
-	$page->header();
-	$page->template("pages/vision.php");
-	$page->footer();
-
-}
-else {
-
-	$page->header();
-	$page->template("pages/404.php");
-	$page->footer();
-
-}
+$page->page(array(
+	"templates" => "pages/vision.php"
+));
+exit();
 
 ?>

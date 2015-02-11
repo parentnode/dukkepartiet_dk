@@ -1,7 +1,7 @@
-<div class="scene i:scene 404">
+<?
+$this->bodyClass("page_missing");
+?>
+<div class="scene i:scene page_missing red">
 	<h1>404</h1>
-	<h2>Siden mangler</h2>
-	<p>
-		Vi beklager, men der er sket en fejl.
-	</p>
+	<h2>Vi beklager, men siden findes ikke.</h2>
 </div>

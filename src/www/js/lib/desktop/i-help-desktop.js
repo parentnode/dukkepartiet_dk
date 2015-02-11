@@ -4,43 +4,29 @@ Util.Objects["help"] = new function() {
 		// resize scene
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
-			var height = u.browserHeight()-160; // 160px is padding
-			if (scene.ul.offsetHeight < height ) {
+
+			if(this.offsetHeight < page.browser_h) {
 				// set height
-				u.as(scene, "height", height+"px");
+				u.as(this, "height", (page.browser_h-160)+"px");
 			}
 
-			// refresh dom
-			//this.offsetHeight;
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scrolled")
-
+//			u.bug("scene.scrolled:" + u.nodeId(this));
 		}
-
 
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
-			
-			// scene height
-			
-			this.ul = u.qs(".container", this);
 
-			// set resize handler
-			u.e.addEvent(window, "resize", scene.resized);			
-			
-			// resize after load
-			this.resized();
+			page.scenes.push(this);
 
-			// loaded!
-			page.ready();
-			page.cN.ready();
+			page.resized();
+			page.scrolled();
 		}
 
 		// callback to scene ready
 		scene.ready();
-
 	}
 }

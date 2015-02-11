@@ -4,39 +4,28 @@ Util.Objects["events"] = new function() {
 		// resize scene
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
-
-			// refresh dom
-			//this.offsetHeight;
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scrolled")
-
+//			u.bug("scene.scrolled:" + u.nodeId(this));
 		}
-
 
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
-			
-			u.bug("events");
-			
+
+			page.scenes.push(this);
+
 			this.nodes = u.qsa("ul.items li.item", this);
 			var i, node;
-			for (i = 0; node = this.nodes[i]; i++) {
-				u.ce(node);
-				node.clicked = function() {
-					location.href = this.url;
-				}
+			for(i = 0; node = this.nodes[i]; i++) {
+				u.ce(node, {"type":"link"});
 			}
 
-			// loaded!
-			page.ready();
-			page.cN.ready();
+			page.scrolled();
 		}
 
 		// callback to scene ready
 		scene.ready();
-
 	}
 }

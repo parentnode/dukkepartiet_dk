@@ -5,33 +5,25 @@ Util.Objects["event"] = new function() {
 		scene.resized = function() {
 //			u.bug("scene.resized:" + u.nodeId(this));
 
-			// refresh dom
-			//this.offsetHeight;
+			// adjust height of event view
+			u.as(this, "height", page.browser_h+"px");
+			u.as(this.ul, "paddingTop", (page.browser_h-(this.ul.offsetHeight-parseInt(u.gcs(this.ul, "padding-top"))))/2 +"px");
+
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scrolled")
-
+//			u.bug("scene.scrolled:" + u.nodeId(this));
 		}
-
 
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
-			
-			u.bug("event!   " + u.browserHeight());
 
-			// scene height
-			u.as(this, "height", u.browserHeight()+"px");
+			page.scenes.push(this);
+			this.ul = u.qs("ul.items", this);
 
-			// margin of item
-			this.ul = u.qs("ul.items li.item", this);
-			u.as(this.ul, "marginTop", (u.browserHeight()/2)-(this.ul.offsetHeight/2) +"px");
-			
-
-			// loaded!
-			page.ready();
-			page.cN.ready();
+			page.resized();
+			page.scrolled();
 		}
 
 		// callback to scene ready

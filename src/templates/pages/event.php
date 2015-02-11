@@ -1,14 +1,14 @@
 <?php
 global $action;
-global $IC;
-global $itemtype;
 
+$IC = new Items();
+$itemtype = "event";
 
-$item = $IC->getCompleteItem(array("id" => $action[0]));
-$item_id = $item["id"];
+$item_id = $action[0];
+$item = $IC->getItem(array("id" => $item_id, "extend" => true));
 
 // get previous and next from current item order
-$items = $IC->getItems(array("count" => 1, "itemtype" => $itemtype, "status" => 1, "order" => "published_at ASC"));
+$items = $IC->getItems(array("count" => 1, "itemtype" => $itemtype, "status" => 1, "order" => "published_at DESC"));
 $next = $IC->getNext($item_id, array("items" => $items));
 $prev = $IC->getPrev($item_id, array("items" => $items));
 ?>
@@ -30,8 +30,8 @@ $prev = $IC->getPrev($item_id, array("items" => $items));
 	</ul>
 
 	<ul class="actions">
-<? if($prev): ?><li class="previous"><a href="/kalender/<?= $prev[0]["id"] ?>">Forrige</a></li><? endif; ?>
-<? if($next): ?><li class="next"><a href="/kalender/<?= $next[0]["id"] ?>">Næste</a></li><? endif; ?>
+<? if($next): ?><li class="previous"><a href="/kalender/<?= $next[0]["id"] ?>">Forrige</a></li><? endif; ?>
+<? if($prev): ?><li class="next"><a href="/kalender/<?= $prev[0]["id"] ?>">Næste</a></li><? endif; ?>
 	</ul>
 
 	<div class="close"><a href="/kalender">go back</a></div>

@@ -1,27 +1,50 @@
+@media (min-width: 100px) and (max-width: 959px) {
 
-
-
-@media (min-width: 600px) and (max-width: 959px) {
 	/* ------- GENERAL ------- */
-	
-	#content .scene.action ul.items {width:600px;}
-	#content .scene.action ul.items li {width:260px;}
-	#content .scene.action .youtube {width:520px; margin-left: -260px; }
+	body #youtube div.player {width:520px; margin-left: -260px;}
+	body #youtube iframe {width: 520px; height: 292px;}
+	body #youtube div.close {margin-left: 260px;}
 
-	#content .scene.primeminister ul.items {width:600px;}
-	#content .scene.primeminister ul.items li {width:260px;}
-	#content .scene.primeminister .youtube {width:520px; margin-left: -314px; }
 
-	#content .scene.program ul.items li.item {width:460px;} /*height: 300px;*/
+	/* ACTIONS */
+	#content .scene.action ul.items {width:640px;}
+	#content .scene.action ul.items li {width: 280px;}
 
-	#content .scene.candidates ul.items {width: 600px;}
+
+	/* PROGRAM */
+	#content .scene.program {height: 350px;}
+	#content .scene.program ul.items li.item {width:460px;}
+
+
+	/* PRIMEMINISTER */
+	#content .scene.primeminister ul.items {width: 640px;}
+	#content .scene.primeminister ul.items li {width: 280px;}
+
+
+	/* INTERVIEW */
+	#content .scene.interview ul.items {width: 640px;}
+	#content .scene.interview ul.items li {width: 280px;}
+
+
+	/* EVENT */
+	#content .scene.events ul.items {width:640px;}
+
+
+
+
+	#content .scene.candidates ul.items {width: 640px;}
 	#content .scene.candidates ul.items li.item {width: 290px;}
 	#content .scene.candidates ul.items li.item .image {width:240px;}
 	.candidate #content .scene.candidates ul.items li.item {margin-left: 60px;}
 
-	#content .scene.events ul.items {width:600px;}
+	/*
+*/
+	/*
 	#content .scene.events ul.items li.item {width:280px;}
+*/
+	/*
 	.event #content .scene.events ul.items li.item {margin-left: 60px;}
+*/
 
 	#footer .about {width:460px;}
 	#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:220px;}

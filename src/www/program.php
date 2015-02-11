@@ -13,20 +13,10 @@ $action = $page->actions();
 $page->bodyClass("program");
 $page->pageTitle("Dukke Partiet - Program");
 
-// list
-if(!$action) {
 
-	$page->header();
-	$page->template("pages/program.php");
-	$page->footer();
-
-}
-else {
-
-	$page->header();
-	$page->template("pages/404.php");
-	$page->footer();
-
-}
+$page->page(array(
+	"templates" => "pages/program.php"
+));
+exit();
 
 ?>

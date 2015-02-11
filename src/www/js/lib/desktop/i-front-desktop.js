@@ -4,72 +4,58 @@ Util.Objects["front"] = new function() {
 		
 		// resize scene
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
-
+			u.bug("scene.resized:" + u.nodeId(this));
 
 			// front height
-			u.as(scene, "height", u.browserHeight()+"px");
-
-			// if (u.browserHeight() < 800) {
-			// 	u.as(scene.slogan, "marginTop", "0px");
-			// } else {
-			// 	u.as(scene, "height", u.browserHeight()+"px");
-			// 	var height = u.browserHeight() - scene.logo.offsetHeight - 100; // 100px bottom
-			// 	u.as(scene.slogan, "marginTop", (height/2)-(scene.slogan.offsetHeight/2) +"px");
-			// }
-			
-
-			// refresh dom
-			this.offsetHeight;
+			u.as(scene, "height", page.browser_h+"px", false);
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scrolled")
-			var scroll_y = u.scrollY();
-			var browser_h = u.browserH();
+			u.bug("scene.scrolled:" + u.nodeId(this));
 
-			u.bug("scroll_y: " + scroll_y);
+//			u.bug("scroll_y: " + scroll_y);
 			// hide logo
-			if (scroll_y > browser_h) {
-				if (u.hc(page, "no_logo")) {
+			if(page.scroll_y > page.browser_h) {
+				if(u.hc(page, "no_logo")) {
 					u.rc(page, "no_logo");
 				}
 			}
 			// show logo
 			else {
-				if (!u.hc(page, "no_logo")) {
+				if(!u.hc(page, "no_logo")) {
 					u.ac(page, "no_logo");
 				}
 			}
 
 			// hide menu
-			if (scroll_y+100 > browser_h) {
-				if (u.hc(page, "no_menu")) {
+			if(page.scroll_y+100 > page.browser_h) {
+				if(u.hc(page, "no_menu")) {
 					u.rc(page, "no_menu");
 				}
 			}
 			// show menu
 			else {
-				if (!u.hc(page, "no_menu")) {
+				if(!u.hc(page, "no_menu")) {
 					u.ac(page, "no_menu");
 				}
 			}
 
-			// 
-			if (scroll_y > browser_h-400) {
+			// position logo
+			if(this.logo) {
+				if(page.scroll_y > page.browser_h-400) {
 
-				if (u.hc(scene.logo, "fixed")) {
-					u.rc(scene.logo, "fixed");
-					u.as(scene.logo, "top", browser_h-400 +"px");
+					if(u.hc(this.logo, "fixed")) {
+						u.rc(this.logo, "fixed");
+						u.as(this.logo, "top", page.browser_h-400 +"px");
+					}
 				}
-				
-			}
-			// 
-			else {
-				if (!u.hc(scene.logo, "fixed")) {
-					u.ac(scene.logo, "fixed");
-					u.as(scene.logo, "top", "0px")
+				//
+				else {
+					if(!u.hc(this.logo, "fixed")) {
+						u.ac(this.logo, "fixed");
+						u.as(this.logo, "top", "0px")
+					}
 				}
 			}
 		}
@@ -77,11 +63,13 @@ Util.Objects["front"] = new function() {
 
 		scene.ready = function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
-			
+
+
 			// after loading all scenes
-			//u.bug("booom: " + u.qsa(".scene", page.cN).length)
-			if (u.qsa(".scene", page.cN).length == 3) {
-				
+			if(u.qsa(".scene", page.cN).length == this.sections.length+1) {
+
+				page.scenes.push(this);
+
 				// add logo
 				this.logo = u.ie(this, "div", {"class": "logo"});
 
@@ -94,50 +82,35 @@ Util.Objects["front"] = new function() {
 
 				// load slogan
 				this.loadSloganImages();
-				
-				// set resize handler
-				u.e.addEvent(window, "resize", scene.resized);
-				// set scroll handler
-				u.e.addEvent(window, "scroll", scene.scrolled);
 
-				// scroll straight away!
+				// scroll+resize straight away!
 				this.scrolled();
-				
-				// resize after load
 				this.resized();
 
-				// after all scenes loaded
-				page.ready();
 			}
-			
 		}
 
+		// load slogan images
 		scene.loadSloganImages = function() {
 
 			this.slogans = u.qsa("ul.items li.item", this.slogan);
 
 			var i, node;
-			for (i = 0; node = this.slogans[i]; i++) {
-				//u.bug("slogan image node:  " + node);
+			for(i = 0; node = this.slogans[i]; i++) {
 
 				node._image_available = u.cv(node, "image_id");
-				//u.bug("_image_available:  " + node._image_available);
 
 				// if image
 				if(node._image_available) {
 					// format, src
 					node._image_format = u.cv(node, "image_format");
-					node._image_src = "/images/" + node._image_available + "/1600x" + "." + node._image_format;;
+					node._image_src = "/images/" + node._image_available + "/main/1600x" + "." + node._image_format;
 
 					// add image mask
 					node._image_mask = u.ie(node, "div", {"class":"image"});
 
 					node.loaded = function(queue) {
-						// add image
 						this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
-
-						// resize scene!
-						scene.resized();
 					}
 					u.preloader(node, [node._image_src]);
 
@@ -147,14 +120,12 @@ Util.Objects["front"] = new function() {
 
 				// if LINK/URL
 				if(node.url) {
-					node.clicked = function() {
-						//location.href = this.url;
-						window.location.href = this.url;
-					}
-					u.ce(node);
+					u.ce(node, {"type":"link"});
 				}
 
 			}
+
+			// show next/prev
 			if(this.slogans.length < 2) {
 
 				var next = u.qs(".next", this.slogan);
@@ -165,18 +136,19 @@ Util.Objects["front"] = new function() {
 			}
 		}
 
+
+		// load additional frontpage scenes
 		scene.loadPages = function() {
-								
 
 			this.sections = ["/aktioner", "/program"];
 			//var sections = ["/aktioner", "/events", "/doktriner", "/tweets", "/about"];
-			
+
 			// request new content
 			var i, section, div;
 			for (i = 0; section = this.sections[i]; i++) {
-				//this.scene_divs[section] =  u.ae(this, "div");
-				
+
 				div = u.ae(page.cN, "div");
+				div.scene = this;
 
 				// content received
 				div.response = function(response) {
@@ -186,16 +158,13 @@ Util.Objects["front"] = new function() {
 					var new_scene = u.qs(".scene", response);
 					if(new_scene) {
 						// append new scene to #content
-						//scene = u.ae(this, this.scene);
 						this.innerHTML = new_scene.innerHTML;
 						u.ac(this, new_scene.className);
-						//u.ac(scene, "scene");
 
-						// init content - will callback to ready when done
 						u.init(this);
 
-						// ready callback
-						scene.ready();
+						// local ready callback (waiting for all sections to be loaded)
+						this.scene.ready();
 					}
 
 				}
@@ -203,7 +172,7 @@ Util.Objects["front"] = new function() {
 			}
 		}
 
+		// start loading frontpage sections
 		scene.loadPages();
-
 	}
 }

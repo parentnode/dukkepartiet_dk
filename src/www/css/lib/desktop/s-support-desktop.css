@@ -11,23 +11,18 @@ red:  #ee191b;
 #content .scene.support .container dl {padding-top:40px;}
 #content .scene.support .container dl dt,
 #content .scene.support .container dl dd {display: block; color: #ee191b;}
-#content .scene.support .container dl dt {font-size: 24px; padding-bottom:10px; font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;}
-#content .scene.support .container dl dd {font-size: 40px; padding-bottom:40px; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;}
+#content .scene.support .container dl dt {font-size: 24px; padding-bottom:10px; 
+	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
+}
+#content .scene.support .container dl dd {font-size: 40px; padding-bottom:40px; 
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
 #content .scene.support .container p {color: #ee191b;}
 #content .scene.support .container p.intro {font-size: 18px; padding:30px 0;}
 #content .scene.support .container p a {color: #ee191b; font-weight: bold; padding:1px 4px;}
 #content .scene.support .container p a:hover {color: #00027a; background-color: #ee191b; }
 
-	/* menu/close_bn*/
-/*.support_us #content .scene.support .close a {display:block; width:22px; height:22px; position: absolute; padding:16px 20px 0 0; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_red.png") no-repeat bottom left; text-indent: -9999px; z-index: 101;}*/
-	/* HIDE MENU & FOOTER */
+
+.support_us #page #header,
 .support_us #page #footer {display: none;}
-.support_us #page #header #navigation .nav_icon {display: none;}
-.support_us #page #header #navigation ul.servicenavigation li.support_us a {background: #00027a url("/img/bn_support_us_red.png") no-repeat center center;}
-
-
-
-
-
-
 

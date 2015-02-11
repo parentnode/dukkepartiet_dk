@@ -6,14 +6,10 @@ red:  #ee191b;
 #content .scene.bill {padding: 60px 0 80px;}
 #content .scene.bill h1 {color: #00027a; text-transform: uppercase;}
 
-/*#content .scene.bill .container {padding-bottom: 100px;}*/
 #content .scene.bill ul.items {display: block; font-size: 1rem;}
 #content .scene.bill ul.items li.item {}
 #content .scene.bill ul.items li.item {padding: 0 20px 30px; display: block; margin: 0 auto; width: 600px;}
 
-#content .scene.bill ul.items li.item p {
-	font-size: 22px; color: #00027a; 
-	/*font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; */
-}
+#content .scene.bill ul.items li.item p {font-size: 22px; color: #00027a;}
 #content .scene.bill ul.items li:nth-child(2) p {font-size: 18px;}
 #content .scene.bill ul.items li:nth-child(4) p {font-size: 18px; font-weight: 700; font-style: italic; line-height: 1.2em;}

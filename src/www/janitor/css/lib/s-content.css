@@ -1,0 +1,49 @@
+/* SLOGAN */
+#content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
+
+/* Interview */
+#content .defaultList.interviewList ul.items > li h3 {padding-bottom: 16px;}
+
+/* Primeminister */
+#content .defaultList.primeministerList ul.items > li h3 {padding-bottom: 16px;}
+
+/* DOCTRINE */
+#content .defaultList.doctrineList ul.items > li h3 {padding-bottom: 16px;}
+
+/* VISION */
+#content .defaultList.visionList ul.items > li h3 {padding-bottom: 16px;}
+
+/* ACTION */
+#content .defaultList.actionList ul.items > li h3 {padding-bottom: 16px;}
+
+/* CANDIDATE */
+#content .defaultList.candidateList ul.items > li h3 {padding-bottom: 16px;}
+
+/* BILL */
+#content .defaultList.billList ul.items > li h3 {padding-bottom: 16px;}
+
+/* EVENT */
+#content .defaultList.eventList ul.items > li dl.info {display: block; padding: 6px 30px 16px;}
+#content .defaultList.eventList ul.items > li dl.info dt.published_at {display: none;}
+
+
+/* DECLARATION */
+#content .defaultList.declarationList h1 {border-bottom: 1px solid #dedede; padding-bottom: 74px;}
+#content .defaultList.declarationList ul.items > li h3 {padding-bottom: 13px;}
+#content .defaultList.declarationList h2 {padding-top: 20px;}
+#content .defaultList.declarationList div.bundles {padding-bottom: 30px;}
+
+
+
+
+/* NAVIGATION */
+body.slogan #navigation .slogan a,
+body.primeminister #navigation .primeminister a,
+body.interview #navigation .interview a,
+body.action #navigation .action a,
+body.doctrine #navigation .doctrine a,
+body.candidate #navigation .candidate a,
+body.event #navigation .event a,
+body.bill #navigation .bill a,
+body.vision #navigation .vision a,
+body.declaration #navigation .declaration a {padding-left: 35px; color: #ffffff;}

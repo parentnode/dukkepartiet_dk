@@ -1,5 +1,5 @@
 <div class="scene support i:support blue">
-	
+
 	<div class="container">
 		<h2>Støt os</h2>
 
@@ -14,7 +14,11 @@
 			<dt>Konto nummer</dt>
 			<dd>0002053387</dd>
 		</dl>
-		<p>Giv os også et like på <a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a>. Her kan du følge partiet og holde dig opdateret om partiets aktiviteter.</p>
+		<p>
+			Giv os også et like på<br />
+			<a href="http://www.facebook.com/dukkepartiet">http://www.facebook.com/dukkepartiet</a><br />
+			Her kan du følge partiet og holde dig opdateret om partiets aktiviteter.
+		</p>
 	</div>
 
 	<div class="close"><a href="/">go back</a></div>

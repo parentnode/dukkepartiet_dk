@@ -6,26 +6,17 @@ if(isset($read_access) && $read_access) {
 
 include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
+
 $action = $page->actions();
 
 
 $page->bodyClass("action");
 $page->pageTitle("Dukke Partiet - Aktioner");
 
-// list
-if(!$action) {
 
-	$page->header();
-	$page->template("pages/action.php");
-	$page->footer();
-
-}
-else {
-
-	$page->header();
-	$page->template("pages/404.php");
-	$page->footer();
-
-}
+$page->page(array(
+	"templates" => "pages/action.php"
+));
+exit();
 
 ?>

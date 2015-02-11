@@ -8,30 +8,26 @@ include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
 
 $action = $page->actions();
-$IC = new Item();
-$itemtype = "event";
 
 
 $page->pageTitle("Dukke Partiet - Mød kandidaterne");
 
+
 // list
-if(!$action) {
+if(count($action) > 0) {
 
-	$page->bodyClass("events");
-
-	$page->header();
-	$page->template("pages/events.php");
-	$page->footer();
-
-}
-else {
-
-	$page->bodyClass("event");
-
-	$page->header();
-	$page->template("pages/event.php");
-	$page->footer();
+	$page->page(array(
+		"body_class" => "event",
+		"templates" => "pages/event.php"
+	));
+	exit();
 
 }
+
+$page->page(array(
+	"body_class" => "events",
+	"templates" => "pages/events.php"
+));
+exit();
 
 ?>
