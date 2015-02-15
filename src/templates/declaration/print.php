@@ -1,8 +1,19 @@
 <?php
+global $action;
 
-$signature_id = getVar("signature_id");
+$signature_id = $action[1];
+
+
+// check if data file exists
+if(!file_exists(PRIVATE_FILE_PATH."/declarations/".$signature_id)) {
+
+	// print blank pdf
+	exit();
+
+}
+
+// read values from data file
 $values = array();
-
 $info = file(PRIVATE_FILE_PATH."/declarations/".$signature_id);
 if($info) {
 	foreach($info as $variable) {
@@ -12,25 +23,29 @@ if($info) {
 		}
 	}
 }
-else {
+
+// additional data check
+if(
+	!isset($values["slug"]) || !$values["slug"] ||
+	!isset($values["name"]) || !$values["name"] ||
+	!isset($values["address1"]) || !$values["address1"] ||
+	!isset($values["postal"]) || !$values["postal"] ||
+	!isset($values["city"]) || !$values["city"] ||
+	!isset($values["municipality"]) || !$values["municipality"] ||
+	!isset($values["cpr_1"]) || !$values["cpr_1"] ||
+	!isset($values["cpr_2"]) || !$values["cpr_2"] ||
+	!isset($values["date_data"]) || !$values["date_data"] ||
+	!isset($values["signature_data"]) || !$values["signature_data"]
+
+) {
+
+	// print blank pdf
 	exit();
 
-	$values["name"] = "a";
-	$values["address1"] = "a";
-	$values["address2"] = "a";
-	$values["postal"] = "a";
-	$values["city"] = "a";
-	$values["municipality"] = "a";
-	$values["cpr_1"] = "a";
-	$values["cpr_2"] = "a";
-
-	$values["date_data"] = "a";	
-	$values["signature_data"] = "a";
-
-//	exit();
-	
 }
 
+
+$slug            = $values["slug"];
 $name            = $values["name"];
 $address1        = $values["address1"];
 $address2        = $values["address2"];
@@ -44,11 +59,12 @@ $date_data       = $values["date_data"];
 $signature_data  = $values["signature_data"];
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="DA">
 <head>
-	<!-- (c) & (p) e-types.com, 2013 //-->
+	<!-- (c) & (p) think.dk, 2013-2015 //-->
 	<!-- All material protected by copyrightlaws, as if you didnt know //-->
 	<title>Vælgererklæring</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -80,29 +96,14 @@ $signature_data  = $values["signature_data"];
 
 
 		div.date {top: 293px; left: 70px;
-/*			background: red;*/
+			/* background: red;*/
 		}
 		canvas.date {width: 151px; height: 25px;}
 
 		div.signature {top: 278px; left: 380px;
-/*			background: red;
-*/		}
+			/* background: red;*/
+		}
 		canvas.signature {width: 250px; height: 41px;}
-
-/*
-		div.form div {position: absolute; overflow: hidden;}
-		div.name {left: 85px; top: 132px;}
-		div.address1 {left: 85px; top: 165px;}
-		div.address2 {left: 85px; top: 197px;}
-		div.postal {left: 130px; top: 227px;}
-		div.postal span {float: left; padding: 0 15px 0 0;}
-		div.city {left: 220px; top: 227px;}
-		div.municipality {left: 520px; top: 179px;}
-		div.cpr_1 {left: 428px; top: 152px;}
-		div.cpr_1 span {float: left; padding: 0 21px 0 0;}
-		div.cpr_2 {left: 634px; top: 152px;}
-		div.cpr_2 span {float: left; padding: 0 21px 0 0;}
-*/
 
 	</style>
 </head>
@@ -128,6 +129,7 @@ $signature_data  = $values["signature_data"];
 			<canvas class="signature"></canvas>
 		</div>
 	</div>
+
 
 </div>
 

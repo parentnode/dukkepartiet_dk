@@ -11,53 +11,103 @@ $action = $page->actions();
 
 $page->bodyClass("declaration");
 $page->pageTitle("Dukke Partiet - Vælgererklæring");
+$slug = session()->value("slug");
 
 
-// list
-if(count($action) > 0) {
 
+// Received POST data
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+	// save data in session
+	$posts = $_POST;
+	foreach($posts as $name => $value) {
+		session()->value($name, $value);
+	}
+
+	// redirect to clear POST state
+	header("Location: ".$page->url);
+	exit();
+
+}
+
+
+
+// print PDF
+else if(count($action) == 2 && $action[0] == "print") {
+
+	$page->template("declaration/print.php");
+	exit();
+
+
+}
+
+
+// no session data OR bad slug
+else if(!session()->value("signature_id") || !session()->value("slug") || array_search(session()->value("slug"), $slug_data) == -1) {
+
+
+	$slug = "dukkepartiet";
+	session()->value("slug", $slug);
+	include("config/data-".$slug.".php");
+
+	header("Location: /vaelgererklaering");
+	// $page->page(array(
+	// 	"templates" => "declaration/start.php"
+	// ));
+	// exit();
+}
+
+// include slug data
+include("config/data-".$slug.".php");
+
+// show template
+if(count($action) == 1) {
+
+	// signature form
 	if($action[0] == "signature") {
 
-		$page->header();
-		$page->template("declaration/signature.php");
-		$page->footer();
+		$page->page(array(
+			"templates" => "declaration/signature.php"
+		));
 		exit();
-
 	}
+	// preview declaration
 	else if($action[0] == "preview") {
 
-		$page->header();
-		$page->template("declaration/preview.php");
-		$page->footer();
+		$page->page(array(
+			"templates" => "declaration/preview.php"
+		));
 		exit();
-
 	}
-	else if($action[0] == "save") {
-
-		$page->header();
-		$page->template("declaration/save.php");
-		$page->footer();
-		exit();
-
-	}
+	// receipt
 	else if($action[0] == "receipt") {
 
-		$page->header();
-		$page->template("declaration/receipt.php");
-		$page->footer();
+		$page->page(array(
+			"templates" => "declaration/receipt.php"
+		));
 		exit();
-
 	}
-	else if($action[0] == "print") {
+	// error
+	else if($action[0] == "error") {
 
-		$page->template("declaration/print.php");
+		$page->page(array(
+			"templates" => "declaration/error.php"
+		));
+		exit();
+	}
+	// save data and perform print action (redirects to receipt or error)
+	else if($action[0] == "save") {
+
+		$page->template("declaration/save.php");
 		exit();
 	}
 
 }
 
-$page->header();
-$page->template("declaration/start.php");
-$page->footer();
+// back to personal data form (with slug already set)
+$page->page(array(
+	"templates" => "declaration/start.php"
+));
+exit();
 
 ?>

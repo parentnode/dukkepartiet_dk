@@ -24,9 +24,12 @@ Util.Objects["carousel"] = new function() {
 			this.current_slide_num = 0;
 			this.current_node = this.slides[0];
 			this.next_node;
-			
-			this._previous = u.ae(this.container, "div", {"class": "next", "html": "Næste"});
-			this._next = u.ae(this.container, "div", {"class": "previous", "html": "Forrige"});
+
+			this._pagination = u.ae(this.container, "div", {"class": "pagination"});
+
+			this._previous = u.ae(this._pagination, "div", {"class": "next", "html": "Næste"});
+			this._next = u.ae(this._pagination, "div", {"class": "previous", "html": "Forrige"});
+
 
 			var i, node;
 			for(i = 0; node = this.slides[i]; i++) {

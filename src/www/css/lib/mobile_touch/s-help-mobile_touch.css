@@ -1,0 +1,37 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#content .scene.help {padding: 50px 0;}
+
+
+#content .scene.help .offline {display: none;}
+
+#content .scene.help .container {text-align: center; padding: 0 20px;}
+#content .scene.help .container h1 {color: #00027a; font-size: 30px; padding:0 10px; text-transform: uppercase;}
+#content .scene.help .container h2 {color: #00027a; font-size: 20px; padding-top:0;}
+#content .scene.help .container h3 {color: #00027a; font-size: 20px; margin:40px 0;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
+#content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
+#content .scene.help .container p.intro {font-size: 16px; padding: 40px 0 30px; line-height: 26px; margin-bottom: 20px;}
+#content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 20px; text-transform: uppercase; line-height: 3rem; box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a;
+	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
+}
+
+#content .scene.help hr {margin: 30px auto 50px; border: none; height: 1px; background: #00027a;}
+
+#content .scene.help .container dl {width: 350px; margin: 0 auto;}
+#content .scene.help .container dl dt,
+#content .scene.help .container dl dd {display: block; font-size: 18px; color: #00027a;}
+#content .scene.help .container dl dt {
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
+#content .scene.help .container dl dd {padding:6px 0 30px; text-transform: none; line-height: 24px;}
+
+
+/* HIDE MENU & FOOTER */
+.help_us #page #header,
+.help_us #page #footer {display: none;}
+

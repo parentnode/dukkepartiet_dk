@@ -1,5 +1,6 @@
 body.declaration {background: #ffffff;}
 body.declaration #header {display: none;}
+body.declaration #content .scene a {text-decoration: underline;}
 
 
 body.declaration #content .scene {width: 737px; padding: 50px 0 70px; margin: 0 auto; position: relative;}
@@ -12,6 +13,7 @@ body.declaration #content .scene h1 {padding: 0 0 10px; font-size: 20px;
 body.declaration #content .scene h2 {padding: 0 0 10px; font-size: 20px;
 	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
 }
+
 
 body.declaration #content .scene .vcard {font-size: 0; padding: 0 0 30px; text-align: center;}
 body.declaration #content .scene .vcard .name {font-size: 58px; padding: 0 0 6px;}
@@ -27,7 +29,9 @@ body.declaration #content .scene .vcard .url,
 body.declaration #content .scene .vcard .email {display: inline-block; vertical-align: top;}
 
 
-body.declaration #content .scene div.signatureform {width: 737px; overflow: hidden; position: relative; padding: 0 0 30px; background: transparent url(/img/bg_standardvaelgererklaering_userform.png) no-repeat left top;}
+body.declaration #content .scene div.signatureform {width: 737px; overflow: hidden; position: relative; padding: 0 0 30px; 
+	background: transparent url(/img/bg_standardvaelgererklaering_userform.png) no-repeat left top;
+}
 body.declaration #content .scene div.signatureform * {font-size: 12px;}
 body.declaration #content .scene div.signatureform div {position: absolute; overflow: hidden;}
 body.declaration #content .scene div.signatureform div.name {left: 55px; top: 30px; width: 330px;}
@@ -64,13 +68,23 @@ body.declaration #content .scene input {border-radius: 0;
 	-webkit-appearance: none;
 	-moz-appearance: textfield;
 }
-body.declaration #content .scene .actions input {border: none; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 20px; cursor: pointer;
+body.declaration #content .scene .actions input {border: 1px solid #000000; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 18px; cursor: pointer;
 	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
 }
-body.declaration #content .scene .back {position: relative; z-index:100; top: -30px; background: #000000; color: #ffffff; padding: 6px 20px; font-size: 14px; display: inline-block; cursor: pointer;
-	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
-}
+body.declaration #content .scene .actions input:hover {background: #ffffff; color: #000000; border: 1px solid #000000;}
 
+body.declaration #content .scene .back {position: relative; z-index:100; top: -30px; background: #000000; color: #ffffff; padding: 6px 20px; font-size: 14px; display: inline-block; cursor: pointer;
+	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase; border: 1px solid #000000;
+}
+body.declaration #content .scene .back:hover {background: #ffffff; color: #000000; border: 1px solid #000000;}
+
+body.declaration #content .scene .close {position: fixed; top: 0; right: 0;}
+body.declaration #content .scene .close a {left: auto; right: 10px;
+	background-image: url("/img/gx_nav_icon_close_black.png");
+}
+body.declaration #content .scene .close a:hover {background-color: #000000;
+	background-image: url("/img/gx_nav_icon_close_white.png");
+}
 
 /* DATA FORM */
 body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px;}
@@ -100,16 +114,24 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 body.declaration #content .scene.signature {padding-bottom: 40px;}
 #content .scene.signature div.signatureform {height: 201px;}
 #content .scene.signature p {padding: 0 0 30px; font-size: 13px; text-align: center;}
-body.declaration #content .scene ul.actions li.reset {background: #000000; color: #ffffff; padding: 8px 20px; font-size: 14px; display: inline-block; cursor: pointer; font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase; margin-right: 10px;}
+body.declaration #content .scene ul.actions li.reset {background: #000000; color: #ffffff; padding: 8px 20px; font-size: 14px; display: inline-block; cursor: pointer; text-transform: uppercase; margin-right: 10px; border: 1px solid #000000;
+	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif;
+}
+body.declaration #content .scene ul.actions li.reset:hover {background: #ffffff; color: #000000; border: 1px solid #000000;}
 
 /* ACTIVE INPUT CANVAS */
 #content .scene.signature div.input {padding: 0 0 30px; display: none; position: relative;}
 #content .scene.signature div.input h2 {display: block; font-size: 13px; padding: 10px 0 10px; width: 150px; left: 50%; margin-left: -75px; text-align: center; position: absolute; top: 22px; color: #999999;
 	font-family: Arial,sans-serif; text-transform: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 body.declaration #content .scene.signature canvas.canvas_input {width: 733px; height: 121px; border: 2px solid #000000;}
-body.declaration #content .scene.signature canvas.canvas_input.date {background: transparent url(/img/bg_standardvaelgererklaering_date.png) no-repeat left top;}
+body.declaration #content .scene.signature canvas.canvas_input.date {
+	background: transparent url(/img/bg_standardvaelgererklaering_date.png) no-repeat left top;
+}
 
 #content .scene.signature ul.actions {padding: 0; text-align: right;}
 
@@ -118,6 +140,8 @@ body.declaration #content .scene.signature canvas.canvas_input.date {background:
 body.declaration #content .scene.preview {padding-bottom: 40px;}
 #content .scene.preview div.signatureform {height: 400px;}
 #content .scene.preview ul.actions {padding: 0; text-align: right;}
+#content .scene.preview .signature_data,
+#content .scene.preview .date_data {display: none;}
 
 
 

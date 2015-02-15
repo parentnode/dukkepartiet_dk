@@ -1,20 +1,18 @@
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		u.bug("scene init:" + u.nodeId(scene))
 		
 		// resize scene
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+			u.bug("scene.resized:" + u.nodeId(this));
 
-			var height = u.browserWidth()/64*181 - 2;
-			u.as(scene, "height", height+"px")
-			// refresh dom
-			//this.offsetHeight;
+			u.as(this, "height", Math.round(page.browser_w / (640/664)) + "px");
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
 //			u.bug("scrolled")
+
 		}
 
 
@@ -22,36 +20,81 @@ Util.Objects["front"] = new function() {
 //			u.bug("scene.ready:" + u.nodeId(this));
 			
 			// after loading all scenes
-			//u.bug("booom: " + u.qsa(".scene", page.cN).length)
-			if (u.qsa(".scene", page.cN).length == 2) {
-				
-				// add logo
-				//this.logo = u.ie(this, "div", {"class": "logo"});
+			if(u.qsa(".scene", page.cN).length == this.sections.length+1) {
+
+				page.scenes.push(this);
+
 
 				// slogan container
 				this.slogan = u.qs(".container", this);
-				this.slogan.innerHTML = "";
-				// var height = u.browserWidth()/64*149 -2;
-				// u.as(this, "height", height+"px")
-				
-				// set resize handler
-				u.e.addEvent(window, "resize", this.resized);
+				this.ul = u.qs("ul.items", this);
 
-				// resize straight away!
+				// duplicate servicenavigation to intro section
+				// this.servicenavigation = u.qs("ul.servicenavigation", page.fN).cloneNode(true);
+				// u.ae(this, this.servicenavigation)
+
+				// load slogan
+//				this.loadSloganImages();
+
+				// scroll+resize straight away!
+				this.scrolled();
 				this.resized();
 
-
-				// after all scenes loaded
-				page.ready();
 			}
 			
 		}
 
 
-		scene.loadPages = function() {
-								
+		// load slogan images
+		scene.loadSloganImages = function() {
 
-			this.sections = ["/program"];
+			this.slogans = u.qsa("ul.items li.item", this.slogan);
+
+			var i, node;
+			for(i = 0; node = this.slogans[i]; i++) {
+
+				node._image_available = u.cv(node, "image_id");
+
+				// if image
+				if(node._image_available) {
+					// format, src
+					node._image_format = u.cv(node, "image_format");
+					node._image_src = "/images/" + node._image_available + "/main/480x" + "." + node._image_format;
+
+					// add image mask
+					node._image_mask = u.ie(node, "div", {"class":"image"});
+
+					node.loaded = function(queue) {
+						this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
+					}
+					u.preloader(node, [node._image_src]);
+
+				}
+
+				node.url = u.qs("a", node);
+
+				// if LINK/URL
+				if(node.url) {
+					u.ce(node, {"type":"link"});
+				}
+
+			}
+
+			// show next/prev
+			if(this.slogans.length < 2) {
+
+				var next = u.qs(".next", this.slogan);
+				u.as(next, "display", "none");
+
+				var prev = u.qs(".previous", this.slogan);
+				u.as(prev, "display", "none");
+			}
+		}
+
+
+		scene.loadPages = function() {
+
+			this.sections = ["/program", "/hjaelp_os"];
 			
 			// request new content
 			var i, section, div;
@@ -69,6 +112,11 @@ Util.Objects["front"] = new function() {
 					// make div the new .scene
 					this.innerHTML = new_scene.innerHTML;
 					u.ac(this, new_scene.className);
+
+					// switch program class
+					if(u.hc(this, "program")) {
+						u.tc(this, "red", "blue");
+					}
 
 					// init content - will callback to ready when done
 					u.init(this);

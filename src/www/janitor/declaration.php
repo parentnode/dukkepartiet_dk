@@ -1,13 +1,11 @@
 <?php
-$access_item = false;
+$access_item["/"] = true;
 if(isset($read_access) && $read_access) {
 	return;
 }
 
 include_once($_SERVER["FRAMEWORK_PATH"]."/config/init.php");
 
-// include the output class for output method support
-include_once("class/system/output.class.php");
 
 $action = $page->actions();
 $output = new Output();
@@ -19,6 +17,7 @@ $page->bodyClass("declaration");
 $page->pageTitle("Declarations");
 
 
+$fs->makeDirRecursively(PUBLIC_FILE_PATH."/declarations");
 $fs->makeDirRecursively(PUBLIC_FILE_PATH."/declaration_zips");
 $fs->makeDirRecursively(PRIVATE_FILE_PATH."/declaration_archive");
 $fs->makeDirRecursively(PRIVATE_FILE_PATH."/declaration_zip_archive");
@@ -31,7 +30,7 @@ if(is_array($action) && count($action)) {
 	if(count($action) == 1 && $action[0] == "list") {
 
 		$page->header(array("type" => "janitor"));
-		$page->template("admin/declaration/list.php");
+		$page->template("janitor/declaration/list.php");
 		$page->footer(array("type" => "janitor"));
 		exit();
 

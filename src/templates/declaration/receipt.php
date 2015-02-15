@@ -1,14 +1,23 @@
 <?php
-//$declaration_id = $_GET["id"];
+global $slug;
+global $slug_data_receipt;
+
+// now is the time to clear session
+$segment = session()->value("segment");
+$dev = session()->value("dev");
+
+session()->reset();
+
+
+session()->value("segment", $segment);
+session()->value("dev", $dev);
+
 ?>
 
 <div class="scene receipt i:receipt">
 
-	<h1>Tak</h1>
-	<p>Vi har nu modtaget din underskrevne vælgererklæring</p>
-	<p>Indenfor nogle uger får du den tilbage med posten fra Folkeregistret i din kommune. Husk at sende den til os med post hurtigst muligt. Først når vi modtager den fra dig, tæller den med blandt de 20.260 vælgererklæringer, som vi skal bruge for at kunne stille op til næste folketingsvalg.</p>
+	<?= $slug_data_receipt ?>
 
-	<p class="regards">Med venlig hilsen</p>
-	<h2>Dukkepartiet</h2>
+	<div class="close"><a href="javascript:window.close();">go back</a></div>
 
 </div>

@@ -50,10 +50,6 @@ Util.Objects["page"] = new function() {
 				}
 
 
-				if(page.cN && page.cN.scene && typeof(page.cN.scene.resized) == "function") {
-					page.cN.scene.resized();
-				}
-
 				if(page.scenes.length) {
 					for(i = 0; scene = page.scenes[i]; i++) {
 						if(scene && typeof(scene.resized) == "function") {

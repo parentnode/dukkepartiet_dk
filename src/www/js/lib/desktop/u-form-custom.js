@@ -1,20 +1,53 @@
 
 // custom initializations
-Util.Form.customInit["postalcity"] = function(field) {
+Util.Form.customInit["postalcity"] = function(form, field) {
 
+	u.bug("fisk")
 	field._input = u.qs("input.postal", field);
 	field._input_city = u.qs("input.city", field);
 
 	field._input.field = field;
 	field._input_city.field = field;
 
-	u.f.formIndex(field._input.form, field._input);
-	u.f.formIndex(field._input_city.form, field._input_city);
+
+	// add input to fields array
+	form.fields[field._input.name] = field._input;
+	form.fields[field._input_city.name] = field._input_city;
+
+	u.bug("fisk2")
+
+	// get input label (only label for first input)
+	field._input._label = u.qs("label[for="+field._input.id+"]", field);
+
+	// get/set value function
+	field._input.val = u.f._value;
+	field._input_city.val = u.f._value;
+
+	u.bug("fisk3")
+
+	// change/update events
+	u.e.addEvent(field._input, "keyup", u.f._updated);
+	u.e.addEvent(field._input, "change", u.f._changed);
+	u.e.addEvent(field._input_city, "keyup", u.f._updated);
+	u.e.addEvent(field._input_city, "change", u.f._changed);
+
+	// submit on enter (checks for autocomplete etc)
+	u.f.inputOnEnter(field._input);
+	u.f.inputOnEnter(field._input_city);
+
+	// activate input
+	u.f.activateInput(field._input);
+	u.f.activateInput(field._input_city);
+
+	// validate field now
+	u.f.validate(field._input);
+	u.f.validate(field._input_city);
+
 }
 
 
 // custom initializations
-Util.Form.customInit["cpr"] = function(field) {
+Util.Form.customInit["cpr"] = function(form, field) {
 
 	field._input = u.qs("input.cpr1", field);
 
@@ -33,8 +66,34 @@ Util.Form.customInit["cpr"] = function(field) {
 	field._input.field = field;
 	field._input_cpr2.field = field;
 
-	u.f.formIndex(field._input.form, field._input);
-	u.f.formIndex(field._input_cpr2.form, field._input_cpr2);
+	// add input to fields array
+	form.fields[field._input.name] = field._input;
+	form.fields[field._input_cpr2.name] = field._input_cpr2;
+
+	// get input label (only label for first input)
+	field._input._label = u.qs("label[for="+field._input.id+"]", field);
+
+	// get/set value function
+	field._input.val = u.f._value;
+	field._input_cpr2.val = u.f._value;
+
+	// change/update events
+	u.e.addEvent(field._input, "keyup", u.f._updated);
+	u.e.addEvent(field._input, "change", u.f._changed);
+	u.e.addEvent(field._input_cpr2, "keyup", u.f._updated);
+	u.e.addEvent(field._input_cpr2, "change", u.f._changed);
+
+	// submit on enter (checks for autocomplete etc)
+	u.f.inputOnEnter(field._input);
+	u.f.inputOnEnter(field._input_cpr2);
+
+	// activate input
+	u.f.activateInput(field._input);
+	u.f.activateInput(field._input_cpr2);
+
+	// validate field now
+	u.f.validate(field._input);
+	u.f.validate(field._input_cpr2);
 }
 
 

@@ -1,7 +1,7 @@
-document.write('<script type="text/javascript" src="/js/manipulator/v0_8/full/seg_tablet.js"></script>');
+document.write('<script type="text/javascript" src="/js/manipulator/v0_9/full/seg_tablet.js"></script>');
 
-document.write('<script type="text/javascript" src="/js/manipulator/v0_8/src/beta-u-textscaler.js"></script>');
-document.write('<script type="text/javascript" src="/js/manipulator/src/u-debug.js"></script>');
+document.write('<script type="text/javascript" src="/js/manipulator/v0_9/src/u-textscaler.js"></script>');
+
 
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-page-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-footer-desktop.js"></script>');

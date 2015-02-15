@@ -9,4 +9,12 @@ blue: #00027a;
 red:  #ee191b;
 */
 
-#content .scene.front {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }
+.front #content .close {display: none;}
+
+#content .scene.front {background: url(/img/mobile/bg_front.png) no-repeat top left; background-size:100% auto;}
+#content .scene.front .container {display: none;}
+
+#content .scene.front ul.items {overflow: hidden;}
+#content .scene.front ul.items li.item {height: 100%;}
+#content .scene.front ul.items li.item div.image {height: 100%; font-size: 0; text-align: center;}
+#content .scene.front li.item img {height: 100%; display: inline-block; vertical-align: top;}

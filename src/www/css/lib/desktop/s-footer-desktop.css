@@ -24,7 +24,7 @@ red:  #ee191b;
 #footer.red {background-color:#ee191b; }
 #footer.red .about p {color: #00027a;}
 #footer.red .about ul.contacts li.contact * {color: #00027a;}
-#footer.red .about ul.contacts li.contact p a:hover {background-color: #00027a; color: #ee191b;}
+#footer.red .about ul.contacts li.contact p a:hover {background-color: a; color: #ee191b;}
 
 /* blue */
 #footer.blue {background-color:#00027a; }

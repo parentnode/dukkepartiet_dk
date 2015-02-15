@@ -1,2 +1,4 @@
 /* IE SPECIFIC STYLES */
 
+#content .scene.help .online,
+#content .scene.help .midline {display: none;}

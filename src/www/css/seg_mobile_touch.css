@@ -46,36 +46,290 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 }
 
 
-/*s-front-mobile_touch.css*/
-#content .scene.front {width: 100%; background: url(/img/mobile/front_mobile.png) no-repeat top left; background-size:100% auto; }
-
-
-/*s-program-desktop.css*/
-#content .scene.program {background-color: #ee191b; position: relative;}
-#content .scene.program h2 {color: #00027a; text-align: center; padding: 40px 0; font-family:'HelveticaNeueW02-BlackC'; text-transform: uppercase; font-size:44px;}
-#content .scene.program ul.items {width:100%; font-size: 1rem;}
-#content .scene.program ul.items li.item {text-align:center; margin:0 auto; width:80%; min-height: 200px; background-color: #ee191b; padding-bottom:60px;}
-#content .scene.program ul.items li.item p {display: inline; background-color:#00027a; padding:4px;
-	font-size: 20px;color: #ee191b; font-family:'HelveticaNeueW02-97Blac'; line-height: 35px;
-	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
+/*s-header-mobile_touch.css*/
+#header {position: relative; background: #ee191b; padding: 0 0 10px;
+	display: none;
 }
-#content .scene.program .next,
-#content .scene.program .previous {
-	position:absolute; width:100%; text-align: center; font-family:'HelveticaNeueW02-97Blac'; color:#00027a; cursor: pointer;
+#header div.logo {z-index: 10; height: 60px; 
+	background: url("/img/gx_logo_front.png") no-repeat bottom center; background-size: auto 100%;
 }
-#content .scene .next {top: 100px;}
-#content .scene .previous {bottom: 20px; }
+#header > ul.servicenavigation li.navigation {position: absolute; top: 0; right: 0; width: 50px; height: 50px; background-repeat: no-repeat; background-position: center center;
+	background-image: url("/img/gx_nav_icon_blue.png");
+}
+#navigation {display: none; position: absolute; top: 70px; width: 100%; z-index: 99; padding: 10px 0; background-color: #00027a;}
+#navigation ul.primary li {display: block; text-align: center;}
+#navigation ul.primary li a {font-size: 20px; display: block; padding: 10px 0; text-transform: uppercase; color: #ee191b;
+	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif; 
+}
+#navigation ul.servicenavigation {margin: 15px 0;}
+#navigation ul.servicenavigation li {display: block; padding: 10px 0;}
+#navigation ul.servicenavigation li a {display: block; height: 40px; background-repeat:no-repeat; background-position: center center;}
+#navigation ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
+#navigation ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
 
-/*s-footer-desktop.css*/
+
+/*s-content-mobile_touch.css*/
+body #youtube {z-index: 101; display: none; width: 100%; position: fixed; background-color: rgba(0, 2, 122, 0.7); top: 0px;}
+body #youtube div.player {background: #000000; position: absolute; top: 0; left: 50%; margin-left: -360px; width: 720px;}
+body #youtube iframe {display: block; width: 720; height: 405px;}
+body #youtube .close {z-index: 102; display: block; width:24px; height:22px; position: absolute; padding:10px; left: 50%; margin-left: 360px; cursor: pointer; 
+	background: url("/img/gx_nav_icon_close_red.png") no-repeat center;
+}
+#content {position: relative;}
+#content .scene {position: relative; 
+}
+#content .scene h1 {text-align: center; padding: 50px 0; font-size: 30px; 
+	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+}
+#content .scene h2 {text-align: center; padding: 50px 0 40px 0; text-transform: uppercase; font-size:25px;
+	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+}
+#content .scene h3 {text-align: center; padding: 10px 0; text-transform: uppercase; font-size:16px;
+	font-family: Arial;
+}
+#content .scene h4 {text-align: center; padding: 10px 0; text-transform: uppercase; font-size:16px;
+	font-family: Arial;
+}
+#content .scene.red {background-color: #ee191b;}
+#content .scene.blue {background-color: #00027a;}
+#content .scene .pagination {position: relative; height: 70px;}
+#content .scene .next,
+#content .scene .previous {position: absolute; top: 20px; padding: 15px 0 10px; font-size: 16px; text-transform: uppercase;
+	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; 
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+#content .scene .next {right: 10px;}
+#content .scene .previous {left: 10px;}
+#content .scene.red .previous,
+#content .scene.red .next {color:#00027a;}
+#content .scene.blue .previous,
+#content .scene.blue .next {color:#ee191b;}
+#content .scene .close {position: fixed; top: 0; left: 0;}
+#content .scene .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; left:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center;}
+#content .scene.red .close a {
+	background-image: url("/img/gx_nav_icon_back_blue.png");
+}
+#content .scene.blue .close a {
+	background-image: url("/img/gx_nav_icon_back_red.png");
+}
+#footer {position: relative;}
+.page_missing #content .scene {padding: 60px 0;}
+.page_missing #content .scene > h1 {font-size: 7rem; padding: 70px 80px 10px 83px; color: #00027a;}
+.page_missing #content .scene > h2 {font-size: 1.5rem; padding: 20px 80px 10px 83px; color: #00027a;}
+
+
+/*s-footer-mobile_touch.css*/
 #footer {padding: 40px 0 60px; width: 100%; background-color: #00027a; position: relative;}
 #footer .social {display: none;}
 #footer .about {width:80%; margin:0 auto;}
-#footer .about p {text-align: center; font-size: 20px; font-family: Arial, sans-serif; font-weight: bold; font-style:italic; color: #ee191b;}
+#footer .about p {text-align: center; font-size: 20px; font-weight: bold; font-style:italic; color: #ee191b;
+	font-family: Arial, sans-serif;
+}
 #footer .about ul.contacts {display:block; width:100%; font-size: 1rem;}
 #footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:100%;}
 #footer .about ul.contacts li.contact * {color: #ee191b;}
 #footer .about ul.contacts li.contact .press {}
 #footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
-#footer .about ul.contacts li.contact h5 {padding-bottom: 10px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722';}
-#footer .about ul.contacts li.contact p {font-weight: normal; font-style:normal; padding-bottom: 4px; font-size: 14px; line-height: 1em; font-family: Arial, sans-serif;}
+#footer .about ul.contacts li.contact h5 {padding-bottom: 10px; font-size:20px; text-transform: uppercase; 
+	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;
+}
+#footer .about ul.contacts li.contact p {font-weight: normal; font-style:normal; padding-bottom: 4px; font-size: 14px; line-height: 1em; 
+	font-family: Arial, sans-serif;
+}
 #footer .about ul.contacts li.contact p a {font-weight: bold; padding:0 4px;}
+#footer ul.servicenavigation {margin: 15px 0; text-align: center;
+	display: none;
+}
+#footer ul.servicenavigation li {display: inline-block; vertical-align: top; padding: 10px 0; margin: 0 10px;}
+#footer ul.servicenavigation li a {display: block; height: 40px; background-repeat:no-repeat; background-position: center center;}
+#footer.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
+#footer.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
+#footer.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
+#footer.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
+#footer ul.servicenavigation li.help_us a {width:122px;}
+#footer ul.servicenavigation li.support_us a {width:92px;}
+#footer.red {background-color:#ee191b; }
+#footer.red .about p {color: #00027a;}
+#footer.red .about ul.contacts li.contact * {color: #00027a;}
+#footer.red .about ul.contacts li.contact p a:hover {background-color: a; color: #ee191b;}
+#footer.blue {background-color:#00027a; }
+#footer.blue .about p {color: #ee191b;}
+#footer.blue .about ul.contacts li.contact * {color: #ee191b;}
+#footer.blue .about ul.contacts li.contact p a:hover {background-color: #ee191b; color: #00027a;}
+body.declaration #footer {background-color: #000000; }
+body.declaration #footer .about p {color: #ffffff;}
+body.declaration #footer .about ul.contacts li.contact * {color: #ffffff;}
+body.declaration #footer .about ul.contacts li.contact p a:hover {background-color: #ffffff; color: #000000;}
+
+/*s-front-mobile_touch.css*/
+.front #content .close {display: none;}
+#content .scene.front {background: url(/img/mobile/bg_front.png) no-repeat top left; background-size:100% auto;}
+#content .scene.front .container {display: none;}
+#content .scene.front ul.items {overflow: hidden;}
+#content .scene.front ul.items li.item {height: 100%;}
+#content .scene.front ul.items li.item div.image {height: 100%; font-size: 0; text-align: center;}
+#content .scene.front li.item img {height: 100%; display: inline-block; vertical-align: top;}
+
+
+/*s-program-mobile_touch.css*/
+#content .scene.program {}
+#content .scene.program h2 {color: #ee191b; font-size: 34px;}
+#content .scene.program ul.items {height: 130px;}
+#content .scene.program ul.items li.item {text-align: center; padding: 0 20px;}
+#content .scene.program ul.items li.item p {display: inline; padding: 4px; font-size: 20px; color: #ee191b; line-height: 35px;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; 
+}
+
+
+/*s-help-mobile_touch.css*/
+#content .scene.help {padding: 50px 0;}
+#content .scene.help .offline {display: none;}
+#content .scene.help .container {text-align: center; padding: 0 20px;}
+#content .scene.help .container h1 {color: #00027a; font-size: 30px; padding:0 10px; text-transform: uppercase;}
+#content .scene.help .container h2 {color: #00027a; font-size: 20px; padding-top:0;}
+#content .scene.help .container h3 {color: #00027a; font-size: 20px; margin:40px 0;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
+#content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
+#content .scene.help .container p.intro {font-size: 16px; padding: 40px 0 30px; line-height: 26px; margin-bottom: 20px;}
+#content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 20px; text-transform: uppercase; line-height: 3rem; box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a;
+	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
+}
+#content .scene.help hr {margin: 30px auto 50px; border: none; height: 1px; background: #00027a;}
+#content .scene.help .container dl {width: 350px; margin: 0 auto;}
+#content .scene.help .container dl dt,
+#content .scene.help .container dl dd {display: block; font-size: 18px; color: #00027a;}
+#content .scene.help .container dl dt {
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
+#content .scene.help .container dl dd {padding:6px 0 30px; text-transform: none; line-height: 24px;}
+.help_us #page #header,
+.help_us #page #footer {display: none;}
+
+
+/*s-declaration-mobile_touch.css*/
+body.declaration {background: #e8e8e8;}
+body.declaration #header {display: none;}
+body.declaration #content .scene,
+body.error #content .scene {padding: 30px 20px 50px; margin: 0 auto; position: relative; background: #ffffff; overflow: hidden;}
+body.declaration #content .scene h1 {padding: 0 0 40px; font-size: 20px; text-transform: uppercase;}
+body.declaration #content .scene h2 {padding: 0 0 10px; font-size: 20px; text-transform: uppercase;}
+body.declaration #content .scene h3 {padding: 10px 0 ; font-size: 16px; text-transform: uppercase;}
+body.declaration #content .scene input {border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+}
+body.declaration #content .scene ul.actions {padding: 10px 0 0; position: relative; height: 36px;}
+body.declaration #content .scene ul.actions li {display: block; margin-bottom: 10px;}
+body.declaration #content .scene ul.actions input {border: 1px solid #000000; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 18px; cursor: pointer; text-transform: uppercase;
+	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif; 
+}
+body.declaration #content .scene ul.actions input:active {background: #ffffff; color: #000000; border: 1px solid #000000;}
+body.declaration #content .scene ul.actions input.disabled,
+body.declaration #content .scene ul.actions input.disabled:active {background: #dedede; color: #999999; border-color: #dedede;}
+body.declaration #content .scene .back {position: relative; z-index:100; background: #999999; color: #ffffff; padding: 10px 20px; font-size: 14px; cursor: pointer; text-transform: uppercase; text-align: center;
+	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif;
+}
+body.declaration #content .scene .back:active {background: #000000; color: #ffffff;}
+body.declaration #content .scene.dataform p {text-align: center;}
+body.declaration #content .scene.dataform .field {padding: 0 0 10px; font-size: 0;}
+body.declaration #content .scene.dataform .field span {font-size: 14px; padding: 2px 0 0; width: 12px; display: inline-block; vertical-align: top; text-align: center;}
+body.declaration #content .scene.dataform .field label {font-size: 14px; padding: 2px 5px 0 0; display: block;}
+body.declaration #content .scene.dataform .field label:after {content: ":";}
+body.declaration #content .scene.dataform .field input {width: 250px; display: inline-block; vertical-align: top; border: 1px solid #000000; padding: 2px 3px;}
+body.declaration #content .scene.dataform .field input.error {border-color: #ee191b;}
+body.declaration #content .scene.dataform .field input[type="number"]::-webkit-inner-spin-button,
+body.declaration #content .scene.dataform .field input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+body.declaration #content .scene.dataform .field input.cpr1 {width: 150px;}
+body.declaration #content .scene.dataform .field input.cpr2 {width: 80px;}
+body.declaration #content .scene.dataform .field.postalcity input.postal {width: 50px; margin-right: 12px;}
+body.declaration #content .scene.dataform .field.postalcity input.city {width: 180px;}
+body.declaration #content .scene.dataform ul.actions {padding: 15px 0 0;}
+body.declaration #content .scene.dataform ul.actions input {position: absolute; right: 0; top: 10px;}
+body.declaration #content .scene.signature {padding-bottom: 40px;}
+body.declaration #content .scene.signature p {padding: 0; font-size: 13px;}
+body.declaration #content .scene.signature h2 {text-transform: none; font-size: 18px; padding-bottom: 20px;}
+body.declaration #content .scene.signature .vcard {padding: 10px 0 30px; text-align: center;}
+body.declaration #content .scene.signature .vcard .name {font-size: 18px; font-weight: bold; text-transform: uppercase;}
+body.declaration #content .scene.signature .vcard .po-box,
+body.declaration #content .scene.signature .vcard .postallocality,
+body.declaration #content .scene.signature .vcard .url,
+body.declaration #content .scene.signature .vcard .email,
+body.declaration #content .scene.signature .vcard .telephone {font-size: 14px;}
+body.declaration #content .scene.signature .vcard .po-box:after {content: "";}
+body.declaration #content .scene.signature .vcard .url:after {content: "";}
+body.declaration #content .scene.signature .vcard .email:after {content: "";}
+body.declaration #content .scene.signature .vcard .url,
+body.declaration #content .scene.signature .vcard .email,
+body.declaration #content .scene.signature .vcard .telephone {display: block;}
+body.declaration #content .scene.signature div.signatureform {overflow: hidden; position: relative; padding: 0 0 20px; text-align: center;}
+body.declaration #content .scene.signature div.signatureform * {font-size: 14px;}
+body.declaration #content .scene.signature div.signatureform div.postal {display: inline-block; vertical-align: top;}
+body.declaration #content .scene.signature div.signatureform div.city {display: inline-block; vertical-align: top;}
+body.declaration #content .scene.signature div.signatureform div.cpr_1:before {content: "CPR: ";}
+body.declaration #content .scene.signature div.signatureform div.cpr_1,
+body.declaration #content .scene.signature div.signatureform div.cpr_2 {display: inline-block; vertical-align: top;}
+body.declaration #content .scene.signature div.signatureform div.cpr_2:before {content: "-";}
+body.declaration #content .scene.signature canvas.date {border: 2px solid #ee191b;
+	background: transparent url(/img/bg_standardvaelgererklaering_date.png) no-repeat left top; background-size: 100% auto;
+}
+body.declaration #content .scene.signature canvas.date.correct {border: 2px solid #009f00;}
+body.declaration #content .scene.signature canvas.signature {border: 2px solid #ee191b;}
+body.declaration #content .scene.signature canvas.signature.correct {border: 2px solid #009f00;}
+body.declaration #content .scene.signature form {padding-bottom: 20px; border-bottom: 1px solid #dedede; margin-bottom: 20px;}
+body.declaration #content .scene.signature ul.actions li.preview {position: absolute; top: 10px; right: 0;}
+body.declaration #content .scene.signature ul.actions li.reset {background: #999999; color: #ffffff; padding: 10px 20px; font-size: 14px; display: inline-block; cursor: pointer; text-transform: uppercase; margin-right: 10px;
+	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif; 
+}
+body.declaration #content .scene.signature ul.actions li.reset:active {background: #fd0000; color: #ffffff;}
+body.declaration #content .scene.preview {}
+body.declaration #content .scene.preview div.preview {width: 737px;}
+body.declaration #content .scene.preview .vcard {font-size: 0; padding: 0 0 30px; text-align: center;}
+body.declaration #content .scene.preview .vcard .name {font-size: 48px; padding: 0 0 6px; font-weight: bold;}
+body.declaration #content .scene.preview .vcard .po-box,
+body.declaration #content .scene.preview .vcard .postallocality,
+body.declaration #content .scene.preview .vcard .url,
+body.declaration #content .scene.preview .vcard .email,
+body.declaration #content .scene.preview .vcard .telephone {font-size: 13px;}
+body.declaration #content .scene.preview .vcard .po-box:after {content: ",\00a0";}
+body.declaration #content .scene.preview .vcard .url:after {content: "\00a0-\00a0";}
+body.declaration #content .scene.preview .vcard .email:after {content: "\00a0-\00a0";}
+body.declaration #content .scene.preview .vcard .po-box,
+body.declaration #content .scene.preview .vcard .postallocality,
+body.declaration #content .scene.preview .vcard .url,
+body.declaration #content .scene.preview .vcard .email,
+body.declaration #content .scene.preview .vcard .telephone {display: inline-block; vertical-align: top;}
+body.declaration #content .scene.preview div.signatureform {height: 400px; overflow: hidden; position: relative; padding: 0 0 30px; background: transparent url(/img/bg_standardvaelgererklaering_userform.png) no-repeat left top;}
+body.declaration #content .scene.preview div.signatureform * {font-size: 12px;}
+body.declaration #content .scene.preview div.signatureform div {position: absolute; overflow: hidden;}
+body.declaration #content .scene.preview div.signatureform div.name {left: 55px; top: 30px; width: 330px;}
+body.declaration #content .scene.preview div.signatureform div.address1 {left: 55px; top: 65px; width: 330px;}
+body.declaration #content .scene.preview div.signatureform div.address2 {left: 55px; top: 95px; width: 330px;}
+body.declaration #content .scene.preview div.signatureform div.postal {left: 90px; top: 128px;}
+body.declaration #content .scene.preview div.signatureform div.postal span {float: left; padding: 0 10px 0 0; width: 12px;}
+body.declaration #content .scene.preview div.signatureform div.city {left: 192px; top: 127px; width: 170px;}
+body.declaration #content .scene.preview div.signatureform div.municipality {left: 490px; top: 78px; width: 220px;}
+body.declaration #content .scene.preview div.signatureform div.cpr_1 {left: 385px; top: 55px;}
+body.declaration #content .scene.preview div.signatureform div.cpr_1 span {float: left; padding: 0 17px 0 0; width: 12px;}
+body.declaration #content .scene.preview div.signatureform div.cpr_2 {left: 593px; top: 55px;}
+body.declaration #content .scene.preview div.signatureform div.cpr_2 span {float: left; padding: 0 17px 0 0; width: 12px;}
+body.declaration #content .scene.preview div.signatureform div.signature {position: absolute; top: 144px; left: 302px;}
+body.declaration #content .scene.preview div.signatureform div.date {position: absolute; top: 159px; left: 36px; cursor: pointer;}
+body.declaration #content .scene.preview div.signatureform canvas.date {width: 133px; height: 22px;}
+body.declaration #content .scene.preview div.signatureform canvas.signature {width: 250px; height: 41px;}
+body.declaration #content .scene.preview div.signatureform .signature_data,
+body.declaration #content .scene.preview div.signatureform .date_data {display: none;}
+body.declaration #content .scene.preview form {padding-bottom: 20px; border-bottom: 1px solid #dedede; margin-bottom: 20px;}
+body.declaration #content .scene.preview ul.actions {padding: 0; text-align: right;}
+body.declaration #content .scene.receipt p {text-align: center;}
+body.declaration #content .scene.receipt p.regards {padding: 27px 0 9px;}
+body.declaration #content .scene.receipt h2 {font-weight: 800;}
+body.declaration #content .scene.receipt .actions li a {font-size: 16px; text-decoration: underline;}
+

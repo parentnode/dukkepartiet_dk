@@ -30,4 +30,16 @@ define("SITE_ITEMS", true);
 define("SITE_COLLECT_NOTIFICATIONS", 50);
 
 define("SITE_INSTALL", true);
+
+
+// slug options
+$slug_data = array("dukkepartiet");
+
+
+// slug default data
+$slug_data_intro = '';
+$slug_data_address = '';
+$slug_data_receipt = '';
+$slug_data_footer = '<div class="about">Dukkepartiet</div>';
+
 ?>

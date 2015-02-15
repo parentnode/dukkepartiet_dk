@@ -1,0 +1,14 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#content .scene.program {}
+#content .scene.program h2 {color: #ee191b; font-size: 34px;}
+
+#content .scene.program ul.items {height: 130px;}
+#content .scene.program ul.items li.item {text-align: center; padding: 0 20px;}
+
+#content .scene.program ul.items li.item p {display: inline; padding: 4px; font-size: 20px; color: #ee191b; line-height: 35px;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; 
+}
