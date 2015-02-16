@@ -581,7 +581,7 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 #content .scene.dataform .field.postalcity input.postal {width: 50px; margin-right: 12px;}
 #content .scene.dataform .field.postalcity input.city {width: 180px;}
 #content .scene.dataform .actions {padding: 15px 0 0 328px;}
-#content .scene.dataform .actions input {width: 100px;}
+#content .scene.dataform .actions input {width: 130px; text-align: center;}
 body.declaration #content .scene.signature {padding-bottom: 40px;}
 #content .scene.signature div.signatureform {height: 201px;}
 #content .scene.signature p {padding: 0 0 30px; font-size: 13px; text-align: center;}

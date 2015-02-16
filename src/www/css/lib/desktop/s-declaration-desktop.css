@@ -107,7 +107,7 @@ body.declaration #content .scene.dataform h1 {padding: 0 0 20px; font-size: 40px
 #content .scene.dataform .field.postalcity input.city {width: 180px;}
 
 #content .scene.dataform .actions {padding: 15px 0 0 328px;}
-#content .scene.dataform .actions input {width: 100px;}
+#content .scene.dataform .actions input {width: 130px; text-align: center;}
 
 
 /* SIGNING PAGE */
