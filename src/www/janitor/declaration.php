@@ -64,10 +64,10 @@ if(is_array($action) && count($action)) {
 	else if(count($action) == 2 && $action[0] == "archive") {
 	
 
-		$file = PUBLIC_FILE_PATH."/declaration_zips/".$action[1];
+		$file = PUBLIC_FILE_PATH."/declarations/".$action[1];
 		if(file_exists($file)) {
-			$fs->makeDirRecursively(PRIVATE_FILE_PATH."/declaration_zip_archive");
-			copy($file, PRIVATE_FILE_PATH."/declaration_zip_archive/".$action[1]);
+			$fs->makeDirRecursively(PRIVATE_FILE_PATH."/declaration_archive");
+			copy($file, PRIVATE_FILE_PATH."/declaration_archive/".$action[1]);
 			unlink($file);
 		}
 		$output->screen(array("cms_status" => "success"));
