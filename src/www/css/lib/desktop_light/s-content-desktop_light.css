@@ -1,4 +1,52 @@
 /* IE SPECIFIC STYLES */
 
+body {overflow-x: hidden;}
+
+#header.open #navigation ul.primary li a {font-size: 30px;}
+
+body #youtube {background-color: rgb(0, 2, 122); top: 0px;}
+
 #content .scene.help .online,
 #content .scene.help .midline {display: none;}
+
+
+
+body.narrow #youtube div.player {width:520px; margin-left: -260px;}
+body.narrow #youtube iframe {width: 520px; height: 292px;}
+body.narrow #youtube div.close {margin-left: 260px;}
+
+
+/* ACTIONS */
+body.narrow #content .scene.action ul.items {width:640px;}
+body.narrow #content .scene.action ul.items li {width: 280px;}
+
+
+/* PROGRAM */
+body.narrow #content .scene.program {height: 350px;}
+body.narrow #content .scene.program ul.items li.item {width:460px;}
+
+
+/* PRIMEMINISTER */
+body.narrow #content .scene.primeminister ul.items {width: 640px;}
+body.narrow #content .scene.primeminister ul.items li {width: 280px;}
+
+
+/* INTERVIEW */
+body.narrow #content .scene.interview ul.items {width: 640px;}
+body.narrow #content .scene.interview ul.items li {width: 280px;}
+
+
+/* EVENT */
+body.narrow #content .scene.events ul.items {width:640px;}
+
+
+
+
+body.narrow #content .scene.candidates ul.items {width: 640px;}
+body.narrow #content .scene.candidates ul.items li.item {width: 290px;}
+body.narrow #content .scene.candidates ul.items li.item .image {width:240px;}
+.narrow.candidate #content .scene.candidates ul.items li.item {margin-left: 60px;}
+
+
+body.narrow #footer .about {width:460px;}
+body.narrow #footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:220px;}

@@ -37,27 +37,7 @@
 	#content .scene.candidates ul.items li.item .image {width:240px;}
 	.candidate #content .scene.candidates ul.items li.item {margin-left: 60px;}
 
-	/*
-*/
-	/*
-	#content .scene.events ul.items li.item {width:280px;}
-*/
-	/*
-	.event #content .scene.events ul.items li.item {margin-left: 60px;}
-*/
 
 	#footer .about {width:460px;}
 	#footer .about ul.contacts li.contact {text-align:center; margin:60px auto 0; width:220px;}
-
-
-	body.declaration #content .scene {
-		
-		/* INSERT ROTATE GRAPHIC */
-		
-	}
-}
-
-
-@media (min-width: 1260px) {
-	#content .scene.front .container ul.items li.item {width:1260px;} 
 }
