@@ -117,6 +117,9 @@ body.declaration #content .scene.signature {padding-bottom: 40px;}
 body.declaration #content .scene ul.actions li.reset {background: #000000; color: #ffffff; padding: 8px 20px; font-size: 14px; display: inline-block; cursor: pointer; text-transform: uppercase; margin-right: 10px; border: 1px solid #000000;
 	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif;
 }
+@media all and (-webkit-min-device-pixel-ratio:0) {
+	body.declaration #content .scene ul.actions li.reset {line-height: 12px;}
+}
 body.declaration #content .scene ul.actions li.reset:hover {background: #ffffff; color: #000000; border: 1px solid #000000;}
 
 /* ACTIVE INPUT CANVAS */
