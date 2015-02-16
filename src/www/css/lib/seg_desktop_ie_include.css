@@ -20,6 +20,8 @@
 @import url(/css/lib/desktop/s-mediaquery-desktop.css);
 @import url(/css/lib/desktop/s-hover-desktop.css);
 
+@import url(/css/lib/desktop_ie/s-content-desktop_ie.css);
+
 /*
 @import url(/css/lib/desktop/s-candidates-desktop.css);
 @import url(/css/lib/desktop/s-reform-desktop.css);
