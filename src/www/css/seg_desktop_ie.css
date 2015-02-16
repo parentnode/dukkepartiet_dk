@@ -687,4 +687,5 @@ body #youtube .close:hover {background-color: #ee191b;
 
 
 /*s-content-desktop_ie.css*/
+body.declaration #content .scene ul.actions li.reset {line-height: 12px;}
 
