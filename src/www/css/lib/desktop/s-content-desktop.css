@@ -19,7 +19,7 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 
 
 #content {position: relative;}
-#content .scene {position: relative; width:100%;}
+#content .scene {position: relative;}
 #content .scene h1 {text-align: center; padding: 50px 0; font-size: 50px; 
 	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
 }
