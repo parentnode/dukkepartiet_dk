@@ -616,7 +616,6 @@ body.declaration #content .scene.receipt .actions li a {font-size: 16px; text-de
 
 /*s-mediaquery-desktop.css*/
 @media (min-width: 100px) and (max-width: 959px) {
-	body {background-color: green;}
 	body #youtube div.player {width:520px; margin-left: -260px;}
 	body #youtube iframe {width: 520px; height: 292px;}
 	body #youtube div.close {margin-left: 260px;}

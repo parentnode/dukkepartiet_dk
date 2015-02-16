@@ -1,7 +1,5 @@
 @media (min-width: 100px) and (max-width: 959px) {
 
-	body {background-color: green;}
-
 	/* ------- GENERAL ------- */
 	body #youtube div.player {width:520px; margin-left: -260px;}
 	body #youtube iframe {width: 520px; height: 292px;}
