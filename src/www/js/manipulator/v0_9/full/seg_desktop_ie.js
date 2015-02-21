@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9-full Copyright 2015 http://manipulator.parentnode.dk
-js-merged @ 2015-02-15 09:14:49
+js-merged @ 2015-02-21 09:12:02
 */
 
 /*seg_desktop_ie_include.js*/
@@ -1053,7 +1053,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {
@@ -2111,7 +2111,9 @@ Util.Form = u.f = new function() {
 		}
 		var actions = u.qsa(".actions li input[type=button],.actions li input[type=submit],.actions li a.button", form);
 		for(i = 0; action = actions[i]; i++) {
-			action.form = form;
+			if(!action.form) {
+				action.form = form;
+			}
 			this.activateButton(action);
 		}
 		if(form._debug_init) {
@@ -2968,7 +2970,7 @@ u.f.addAction = function(node, _options) {
 		}
 	}
 	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
-	if(!u.hc(p_ul, "actions")) {
+	if(!p_ul || !u.hc(p_ul, "actions")) {
 		p_ul = u.ae(node, "ul", {"class":"actions"});
 	}
 	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, {"include":"li"});
@@ -4874,13 +4876,13 @@ if(u.a.vendor() == "ms") {
 				++this.translate_progress;
 				var new_x = (Number(this.x_start) + Number(this.translate_progress * this.x_change));
 				var new_y = (Number(this.y_start) + Number(this.translate_progress * this.y_change));
-				this.style[this.vendor("Transform")] = "translate("+ new_x + "px, " + new_y +"px)";
+				this.style[u.a.vendor("Transform")] = "translate("+ new_x + "px, " + new_y +"px)";
 				this.offsetHeight;
 				if(this.translate_progress < this.translate_transitions) {
 					this.t_translate_transition = u.t.setTimer(this, this.translate_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "translate("+ this._x + "px, " + this._y +"px)";
+					this.style[u.a.vendor("Transform")] = "translate("+ this._x + "px, " + this._y +"px)";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -4912,7 +4914,7 @@ if(u.a.vendor() == "ms") {
 					this.t_rotate_transition = u.t.setTimer(this, this.rotate_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "rotate("+ this._rotation + "deg)";
+					this.style[u.a.vendor("Transform")] = "rotate("+ this._rotation + "deg)";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -4937,13 +4939,13 @@ if(u.a.vendor() == "ms") {
 			node.scale_transitionTo = function(event) {
 				++this.scale_progress;
 				var new_scale = (Number(this.scale_start) + Number(this.scale_progress * this.scale_change));
-				this.style[this.vendor("Transform")] = "scale("+ new_scale +")";
+				this.style[u.a.vendor("Transform")] = "scale("+ new_scale +")";
 				this.offsetHeight;
 				if(this.scale_progress < this.scale_transitions) {
 					this.t_scale_transition = u.t.setTimer(this, this.scale_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "scale("+ this._scale +")";
+					this.style[u.a.vendor("Transform")] = "scale("+ this._scale +")";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}

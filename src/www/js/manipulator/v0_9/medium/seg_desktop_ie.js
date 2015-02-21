@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9-medium Copyright 2015 http://manipulator.parentnode.dk
-js-merged @ 2015-02-15 09:14:57
+js-merged @ 2015-02-21 09:12:10
 */
 
 /*seg_desktop_ie_include.js*/
@@ -682,7 +682,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {
@@ -1988,13 +1988,13 @@ if(u.a.vendor() == "ms") {
 				++this.translate_progress;
 				var new_x = (Number(this.x_start) + Number(this.translate_progress * this.x_change));
 				var new_y = (Number(this.y_start) + Number(this.translate_progress * this.y_change));
-				this.style[this.vendor("Transform")] = "translate("+ new_x + "px, " + new_y +"px)";
+				this.style[u.a.vendor("Transform")] = "translate("+ new_x + "px, " + new_y +"px)";
 				this.offsetHeight;
 				if(this.translate_progress < this.translate_transitions) {
 					this.t_translate_transition = u.t.setTimer(this, this.translate_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "translate("+ this._x + "px, " + this._y +"px)";
+					this.style[u.a.vendor("Transform")] = "translate("+ this._x + "px, " + this._y +"px)";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -2026,7 +2026,7 @@ if(u.a.vendor() == "ms") {
 					this.t_rotate_transition = u.t.setTimer(this, this.rotate_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "rotate("+ this._rotation + "deg)";
+					this.style[u.a.vendor("Transform")] = "rotate("+ this._rotation + "deg)";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -2051,13 +2051,13 @@ if(u.a.vendor() == "ms") {
 			node.scale_transitionTo = function(event) {
 				++this.scale_progress;
 				var new_scale = (Number(this.scale_start) + Number(this.scale_progress * this.scale_change));
-				this.style[this.vendor("Transform")] = "scale("+ new_scale +")";
+				this.style[u.a.vendor("Transform")] = "scale("+ new_scale +")";
 				this.offsetHeight;
 				if(this.scale_progress < this.scale_transitions) {
 					this.t_scale_transition = u.t.setTimer(this, this.scale_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "scale("+ this._scale +")";
+					this.style[u.a.vendor("Transform")] = "scale("+ this._scale +")";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}

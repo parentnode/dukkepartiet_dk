@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9-medium Copyright 2015 http://manipulator.parentnode.dk
-js-merged @ 2015-02-15 09:14:56
+js-merged @ 2015-02-21 09:12:10
 */
 
 /*seg_mobile_include.js*/
@@ -682,7 +682,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {
@@ -1969,8 +1969,8 @@ if(!document.documentElement || document.documentElement.style[u.a.vendor("Trans
 				node.transitioned = null;
 			}
 		}
-		if(u.support(this.variant("Transition"))) {
-			node.style[this.variant("Transition")] = "none";
+		if(u.support(u.a.vendor("Transition"))) {
+			node.style[u.a.vendor("Transition")] = "none";
 		}
 	}
 	u.a.translate = function(node, x, y) {
@@ -2360,6 +2360,9 @@ if(typeof(document.defaultView) == "undefined") {
 		// 
 		if(document.body.currentStyle && attribute != "opacity") {
 			attribute = attribute.replace(/(-\w)/g, function(word){return word.replace(/-/, "").toUpperCase()});
+			if(e.currentStyle[attribute] == "medium") {
+				return 0;
+			}
 			return e.currentStyle[attribute];
 		}
 		else if(document.body.currentStyle && attribute == "opacity" && e.currentStyle["filter"]) {

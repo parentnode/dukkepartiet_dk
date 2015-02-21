@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9-light Copyright 2015 http://manipulator.parentnode.dk
-js-merged @ 2015-02-15 09:15:01
+js-merged @ 2015-02-21 09:12:14
 */
 
 /*seg_desktop_include.js*/
@@ -258,7 +258,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {

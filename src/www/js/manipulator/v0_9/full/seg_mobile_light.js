@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9-full Copyright 2015 http://manipulator.parentnode.dk
-js-merged @ 2015-02-15 09:14:47
+js-merged @ 2015-02-21 09:12:01
 */
 
 /*seg_mobile_light_include.js*/
@@ -1053,7 +1053,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {
@@ -2111,7 +2111,9 @@ Util.Form = u.f = new function() {
 		}
 		var actions = u.qsa(".actions li input[type=button],.actions li input[type=submit],.actions li a.button", form);
 		for(i = 0; action = actions[i]; i++) {
-			action.form = form;
+			if(!action.form) {
+				action.form = form;
+			}
 			this.activateButton(action);
 		}
 		if(form._debug_init) {
@@ -2968,7 +2970,7 @@ u.f.addAction = function(node, _options) {
 		}
 	}
 	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
-	if(!u.hc(p_ul, "actions")) {
+	if(!p_ul || !u.hc(p_ul, "actions")) {
 		p_ul = u.ae(node, "ul", {"class":"actions"});
 	}
 	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, {"include":"li"});
@@ -4855,8 +4857,8 @@ if(!document.documentElement || document.documentElement.style[u.a.vendor("Trans
 				node.transitioned = null;
 			}
 		}
-		if(u.support(this.variant("Transition"))) {
-			node.style[this.variant("Transition")] = "none";
+		if(u.support(u.a.vendor("Transition"))) {
+			node.style[u.a.vendor("Transition")] = "none";
 		}
 	}
 	u.a.translate = function(node, x, y) {
@@ -5246,6 +5248,9 @@ if(typeof(document.defaultView) == "undefined") {
 		// 
 		if(document.body.currentStyle && attribute != "opacity") {
 			attribute = attribute.replace(/(-\w)/g, function(word){return word.replace(/-/, "").toUpperCase()});
+			if(e.currentStyle[attribute] == "medium") {
+				return 0;
+			}
 			return e.currentStyle[attribute];
 		}
 		else if(document.body.currentStyle && attribute == "opacity" && e.currentStyle["filter"]) {

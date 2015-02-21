@@ -114,7 +114,7 @@ u.f.addAction = function(node, _options) {
 	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
 	// check if ul is actions ul
 	// if not, it should be created automatically
-	if(!u.hc(p_ul, "actions")) {
+	if(!p_ul || !u.hc(p_ul, "actions")) {
 		p_ul = u.ae(node, "ul", {"class":"actions"});
 	}
 

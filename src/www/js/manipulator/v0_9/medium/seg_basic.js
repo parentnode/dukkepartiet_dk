@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9-medium Copyright 2015 http://manipulator.parentnode.dk
-js-merged @ 2015-02-15 09:14:55
+js-merged @ 2015-02-21 09:12:10
 */
 
 /*seg_basic_include.js*/
