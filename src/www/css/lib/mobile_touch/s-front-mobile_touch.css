@@ -11,7 +11,23 @@ red:  #ee191b;
 
 .front #content .close {display: none;}
 
-#content .scene.front {background: url(/img/mobile/bg_front.png) no-repeat top left; background-size:100% auto;}
+#content .scene.front {
+/*	background: url(/img/mobile/bg_front.png) no-repeat top left; background-size:100% auto;*/
+}
+
+#content .scene.front h1 {color: #00027a; padding-bottom: 20px;}
+#content .scene.front h2 {color: #ee191b; padding-top: 0; padding-bottom: 0; font-size: 45px;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
+#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
+
+#content .scene.front h2 span {display: inline-block; padding: 5px 7px 5px 8px; background: #00027a; margin: 0 3px;}
+#content .scene.front .logo {width: 312px; height: 172px; left:50%; margin-left:-156px; position:absolute; padding-top: 0px; z-index:10;
+	background: url("/img/gx_logo_front.png") no-repeat bottom center;
+	background-size: 100% auto;
+}
+
+
 #content .scene.front .container {display: none;}
 
 #content .scene.front ul.items {overflow: hidden;}

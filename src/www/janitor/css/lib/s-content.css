@@ -1,3 +1,9 @@
+/* COUNTER */
+#content .defaultList.counterList ul.items > li h3 {padding-bottom: 16px;}
+
+/* VIDEO */
+#content .defaultList.videoList ul.items > li h3 {padding-bottom: 16px;}
+
 /* SLOGAN */
 #content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
 
@@ -34,9 +40,16 @@
 #content .defaultList.declarationList div.bundles {padding-bottom: 30px;}
 
 
+#content .defaultList.approvedList h1 {border-bottom: 1px solid #dedede; padding-bottom: 74px;}
+#content .defaultList.approvedList ul.items > li h3 {padding-bottom: 13px;}
+#content .defaultList.approvedList h2 {padding-top: 20px;}
+#content .defaultList.approvedList div.bundles {padding-bottom: 30px;}
+
 
 
 /* NAVIGATION */
+body.counter #navigation .counter a,
+body.video #navigation .video a,
 body.slogan #navigation .slogan a,
 body.primeminister #navigation .primeminister a,
 body.interview #navigation .interview a,
@@ -46,4 +59,5 @@ body.candidate #navigation .candidate a,
 body.event #navigation .event a,
 body.bill #navigation .bill a,
 body.vision #navigation .vision a,
+body.approved #navigation .approved a,
 body.declaration #navigation .declaration a {padding-left: 35px; color: #ffffff;}

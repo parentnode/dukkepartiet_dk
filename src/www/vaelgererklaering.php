@@ -48,7 +48,7 @@ else if(!session()->value("signature_id") || !session()->value("slug") || array_
 
 	$slug = "dukkepartiet";
 	session()->value("slug", $slug);
-	include("config/data-".$slug.".php");
+//	include("config/data-".$slug.".php");
 
 	header("Location: /vaelgererklaering");
 	// $page->page(array(
@@ -58,7 +58,7 @@ else if(!session()->value("signature_id") || !session()->value("slug") || array_
 }
 
 // include slug data
-include("config/data-".$slug.".php");
+//include("config/data-".$slug.".php");
 
 // show template
 if(count($action) == 1) {

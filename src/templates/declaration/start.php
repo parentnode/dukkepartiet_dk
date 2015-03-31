@@ -61,7 +61,7 @@ else {
 <div class="scene dataform i:dataform">
 
 	<h1>Vælgererklæring</h1>
-	<?= $slug_data_intro ?>
+	<p>Hjælp os med at opstille til folketingsvalget, ved at udfylde den digitale vælgererklæring.</p>
 	<p>Indtast dine personlige oplysninger i formularen herunder:</p>
 
 	<form name="declaration" action="/vaelgererklaering/signature" method="post">

@@ -81,10 +81,10 @@ Util.Objects["page"] = new function() {
 				// page is ready to be shown - only initalize if not already shown
 				if(!this.is_ready) {
 
-					var correct_page = new RegExp(document.domain+"$|"+document.domain+"\/$|"+document.domain+"\/vaelgererklaering");
+					var correct_page = new RegExp(document.domain+"$|"+document.domain+"\/$|"+document.domain+"\/vaelgererklaering|"+document.domain+"\/upload");
 	
 					if(!location.href.match(correct_page)) {
-						location.href = "/";
+//						location.href = "/";
 					}
 
 					// page is ready

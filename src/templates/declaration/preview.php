@@ -19,7 +19,15 @@ $signature_data  = session()->value("signature_data");
 
 	<h1>Vælgererklæring</h1>
 
-	<?= $slug_data_address ?>
+	<div id="vcard-dukkepartiet" class="vcard" itemscope itemtype="http://schema.org/Organization">
+		<div class="name fn org" itemprop="name">Dukkepartiet</div>
+		<div class="adr" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<div class="po-box" itemprop="postOfficeBoxNumber">Postbox 2030</div>
+			<div class="postallocality"><span class="postal-code" itemprop="postalCode">1112</span> <span class="locality" itemprop="addressLocality">København K</span></div>
+		</div>
+		<div class="url" itemprop="url">www.dukkepartiet.dk</div>
+		<div class="email" itemprop="email"><a href="mailto:kontakt@dukkepartiet.dk">kontakt@dukkepartiet.dk</a></div>
+	</div>
 
 	<div class="signatureform">
 		<div class="name"><?= $name ?></div>

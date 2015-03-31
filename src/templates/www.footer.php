@@ -28,8 +28,8 @@ $bills = $IC->getItems(array("itemtype" => "bill", "status" => 1));
 	<div id="footer" class="i:footer" >
 		<!-- Move to fixed menu -->
 		<ul class="servicenavigation">
-			<li class="help_us"><a href="/hjaelp_os">Hjælp os</a></li>
 			<li class="support_us"><a href="/stot_os">Støt os</a></li>
+			<li class="help_us"><a href="/hjaelp_os">Hjælp os</a></li>
 		</ul>
 
 		<!-- Move to menu overlay -->

@@ -7,7 +7,9 @@ Util.Objects["front"] = new function() {
 			u.bug("scene.resized:" + u.nodeId(this));
 
 			// front height
-			u.as(scene, "height", page.browser_h+"px", false);
+			u.as(this, "height", page.browser_h+"px", false);
+
+			u.as(this._h1, "paddingTop", (page.browser_h/2)+"px", false);
 		}
 
 		// check fold on scroll
@@ -74,14 +76,17 @@ Util.Objects["front"] = new function() {
 				this.logo = u.ie(this, "div", {"class": "logo"});
 
 				// slogan container
-				this.slogan = u.qs(".container", this);
-				
+//				this.slogan = u.qs(".container", this);
+
+				this._h1 = u.qs("h1", this);
+
 				// duplicate servicenavigation to intro section
 				this.servicenavigation = u.qs("ul.servicenavigation", page.fN).cloneNode(true);
+				this.servicenavigation.removeChild(u.qs(".support_us", this.servicenavigation));
 				u.ae(this, this.servicenavigation)
 
 				// load slogan
-				this.loadSloganImages();
+//				this.loadSloganImages();
 
 				// scroll+resize straight away!
 				this.scrolled();
@@ -91,56 +96,57 @@ Util.Objects["front"] = new function() {
 		}
 
 		// load slogan images
-		scene.loadSloganImages = function() {
-
-			this.slogans = u.qsa("ul.items li.item", this.slogan);
-
-			var i, node;
-			for(i = 0; node = this.slogans[i]; i++) {
-
-				node._image_available = u.cv(node, "image_id");
-
-				// if image
-				if(node._image_available) {
-					// format, src
-					node._image_format = u.cv(node, "image_format");
-					node._image_src = "/images/" + node._image_available + "/main/1600x" + "." + node._image_format;
-
-					// add image mask
-					node._image_mask = u.ie(node, "div", {"class":"image"});
-
-					node.loaded = function(queue) {
-						this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
-					}
-					u.preloader(node, [node._image_src]);
-
-				}
-
-				node.url = u.qs("a", node);
-
-				// if LINK/URL
-				if(node.url) {
-					u.ce(node, {"type":"link"});
-				}
-
-			}
-
-			// show next/prev
-			if(this.slogans.length < 2) {
-
-				var next = u.qs(".next", this.slogan);
-				u.as(next, "display", "none");
-
-				var prev = u.qs(".previous", this.slogan);
-				u.as(prev, "display", "none");
-			}
-		}
+		// scene.loadSloganImages = function() {
+		//
+		// 	this.slogans = u.qsa("ul.items li.item", this.slogan);
+		//
+		// 	var i, node;
+		// 	for(i = 0; node = this.slogans[i]; i++) {
+		//
+		// 		node._image_available = u.cv(node, "image_id");
+		//
+		// 		// if image
+		// 		if(node._image_available) {
+		// 			// format, src
+		// 			node._image_format = u.cv(node, "image_format");
+		// 			node._image_src = "/images/" + node._image_available + "/main/1600x" + "." + node._image_format;
+		//
+		// 			// add image mask
+		// 			node._image_mask = u.ie(node, "div", {"class":"image"});
+		//
+		// 			node.loaded = function(queue) {
+		// 				this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
+		// 			}
+		// 			u.preloader(node, [node._image_src]);
+		//
+		// 		}
+		//
+		// 		node.url = u.qs("a", node);
+		//
+		// 		// if LINK/URL
+		// 		if(node.url) {
+		// 			u.ce(node, {"type":"link"});
+		// 		}
+		//
+		// 	}
+		//
+		// 	// show next/prev
+		// 	if(this.slogans.length < 2) {
+		//
+		// 		var next = u.qs(".next", this.slogan);
+		// 		u.as(next, "display", "none");
+		//
+		// 		var prev = u.qs(".previous", this.slogan);
+		// 		u.as(prev, "display", "none");
+		// 	}
+		// }
 
 
 		// load additional frontpage scenes
 		scene.loadPages = function() {
 
-			this.sections = ["/aktioner", "/program"];
+			this.sections = ["/videoer", "/aktioner"];
+//			this.sections = ["/aktioner", "/program"];
 			//var sections = ["/aktioner", "/events", "/doktriner", "/tweets", "/about"];
 
 			// request new content
