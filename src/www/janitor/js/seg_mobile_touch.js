@@ -4764,7 +4764,6 @@ Util.Form.customValidate["html"] = function(iN) {
 	}
 }
 u.f.textEditor = function(field) {
-	u.bug("init custom editor")
 	var hint_has_been_shown = u.getCookie("html-editor-hint-v1", {"path":"/"});
 	if(!hint_has_been_shown) {
 		var editor_hint = u.ie(field, "div", {"class":"html_editor_hint"});
@@ -4908,7 +4907,7 @@ u.f.textEditor = function(field) {
 				u.rc(this.field.options, "show");
 			}
 		}
-		if(this.media_allowed.length && this.item_id && this.media_add_action && this.media_delete_action) {
+		if(this.media_allowed.length && this.item_id && this.media_add_action && this.media_delete_action && !u.browser("IE", "<=9")) {
 			this.bn_add_media = u.ae(this.options, "li", {"class":"list", "html":"Media ("+this.media_allowed.join(", ")+")"});
 			this.bn_add_media.field = field;
 			u.ce(this.bn_add_media);
@@ -4929,7 +4928,7 @@ u.f.textEditor = function(field) {
 				u.rc(this.field.options, "show");
 			}
 		}
-		if(this.file_allowed.length && this.item_id && this.file_add_action && this.file_delete_action) {
+		if(this.file_allowed.length && this.item_id && this.file_add_action && this.file_delete_action && !u.browser("IE", "<=9")) {
 			this.bn_add_file = u.ae(this.options, "li", {"class":"file", "html":"Downloadable file"});
 			this.bn_add_file.field = field;
 			u.ce(this.bn_add_file);
@@ -5383,6 +5382,9 @@ u.f.textEditor = function(field) {
 		if(event.keyCode == 13 || event.keyCode == 9) {
 			u.e.kill(event);
 		}
+		if(event.keyCode == 9 && event.shiftKey) {
+			this.field.backwards_tab = true;
+		}
 	}
 	field._code_updated = function(event) {
 		var selection = window.getSelection(); 
@@ -5512,6 +5514,9 @@ u.f.textEditor = function(field) {
 		if(event.keyCode == 13) {
 			u.e.kill(event);
 		}
+		if(event.keyCode == 9 && event.shiftKey) {
+			this.field.backwards_tab = true;
+		}
 	}
 	field._changed_content = function(event) {
 		var selection = window.getSelection(); 
@@ -5560,7 +5565,8 @@ u.f.textEditor = function(field) {
 				var prev = this.field.findPreviousInput(this);
 				if(u.hc(this.tag, this.field.list_allowed.join("|"))) {
 					var all_lis = u.qsa("div.li", this.tag);
-					if(prev) {
+					if(prev || all_tags.length > 1) {
+						this.li._input.blur();
 						this.tag.removeChild(this.li);
 						if(!u.qsa("div.li", this.tag).length) {
 							this.tag.parentNode.removeChild(this.tag);
@@ -5568,13 +5574,23 @@ u.f.textEditor = function(field) {
 					}
 				}
 				else {
-					if(prev) {
+					if(prev || all_tags.length > 1) {
 						this.tag.parentNode.removeChild(this.tag);
 					}
 				}
 				u.sortable(this.field._editor, {"draggables":"tag", "targets":"editor"});
 				if(prev) {
 					prev.focus();
+				}
+				else {
+					if(u.hc(this.tag, this.field.list_allowed.join("|"))) {
+						var all_lis = u.qsa("div.li", this.tag);
+						all_lis[0]._input.focus();
+					}
+					else {
+						var all_tags = u.qsa("div.tag", this.field);
+						all_tags[0]._input.focus();
+					}
 				}
 			}
 			else if(!this.val() || !this.val().replace(/<br>/, "")) {
@@ -5609,7 +5625,8 @@ u.f.textEditor = function(field) {
 		u.ac(this.field, "focus");
 		u.as(this.field, "zIndex", this.field._input.form._focus_z_index);
 		u.f.positionHint(this.field);
-		if(event.rangeOffset == 1) {
+		if(this.field.backwards_tab) {
+			this.field.backwards_tab = false;
 			var range = document.createRange();
 			range.selectNodeContents(this);
 			range.collapse(false);
@@ -5631,22 +5648,24 @@ u.f.textEditor = function(field) {
 		var i, node;
 		var paste_content = event.clipboardData.getData("text/plain");
 		if(paste_content !== "") {
-			var paste_parts = paste_content.split(/\n\r|\n|\r/g);
+			var selection = window.getSelection();
+			if(!selection.isCollapsed) {
+				selection.deleteFromDocument();
+			}
+			var paste_parts = paste_content.trim().split(/\n\r|\n|\r/g);
 			var text_nodes = [];
 			for(i = 0; text = paste_parts[i]; i++) {
 				text_nodes.push(document.createTextNode(text));
-				text_nodes.push(document.createElement("br"));
+				if(paste_parts.length && i < paste_parts.length-1) {
+					text_nodes.push(document.createElement("br"));
+				}
 			}
-			var text_node = document.createTextNode(paste_content);
 			for(i = text_nodes.length-1; node = text_nodes[i]; i--) {
-				window.getSelection().getRangeAt(0).insertNode(node);
+				var range = selection.getRangeAt(0);
+				range.insertNode(node);
+				selection.addRange(range);
 			}
-			var range = document.createRange();
-			range.selectNodeContents(this);
-			range.collapse(false);
-			var selection = window.getSelection();
-			selection.removeAllRanges();
-			selection.addRange(range);
+			selection.collapseToEnd();
 		}
 	}
 	field.findPreviousInput = function(iN) {
@@ -5689,7 +5708,7 @@ u.f.textEditor = function(field) {
 				}
 			}
 		}
-		return prev ? prev._input : false;
+		return prev && prev._input != iN ? prev._input : false;
 	}
 	field.returnFocus = function(tag) {
 		if(u.hc(tag, this.text_allowed.join("|"))) {
@@ -5887,7 +5906,7 @@ u.f.textEditor = function(field) {
 				}
 			}
 			else if(node.nodeName.toLowerCase().match(field.text_allowed.join("|"))) {
-				value = node.innerHTML.replace(/\n\r|\n|\r/g, "<br>"); 
+				value = node.innerHTML.trim().replace(/(<br>|<br \/>)$/, "").replace(/\n\r|\n|\r/g, "<br>"); 
 				tag = field.addTextTag(node.nodeName.toLowerCase(), value);
 				field.activateInlineFormatting(tag._input);
 			}
@@ -5898,13 +5917,13 @@ u.f.textEditor = function(field) {
 			}
 			else if(node.nodeName.toLowerCase().match(field.list_allowed.join("|"))) {
 				var lis = u.qsa("li", node);
-				value = lis[0].innerHTML.replace(/\n\r|\n|\r/g, "<br>");
+				value = lis[0].innerHTML.trim().replace(/(<br>|<br \/>)$/, "").replace(/\n\r|\n|\r/g, "<br>");
 				tag = field.addListTag(node.nodeName.toLowerCase(), value);
 				var li = u.qs("div.li", tag);
 				field.activateInlineFormatting(li._input);
 				if(lis.length > 1) {
 					for(j = 1; li = lis[j]; j++) {
-						value = li.innerHTML.replace(/\n\r|\n|\r/g, "<br>");
+						value = li.innerHTML.trim().replace(/(<br>|<br \/>)$/, "").replace(/\n\r|\n|\r/g, "<br>");
 						li = field.addListItem(tag, value);
 						field.activateInlineFormatting(li._input);
 					}
@@ -6066,7 +6085,7 @@ Util.Form.geoLocation = function(field) {
 			html += '</head><body><div id="map"></div><div id="close"></div></body></html>';
 			window._mapsiframe = u.ae(document.body, "iframe", {"id":"geolocationmap"});
 			window._mapsiframe.field = this;
-			window._mapsiframe.doc = window._mapsiframe.contentDocument? window._mapsiframe.contentDocument: window._mapsiframe.contentWindow.document;
+			window._mapsiframe.doc = window._mapsiframe.contentDocument ? window._mapsiframe.contentDocument : window._mapsiframe.contentWindow.document;
 			window._mapsiframe.doc.open();
 			window._mapsiframe.doc.write(html);
 			window._mapsiframe.doc.close();
@@ -6139,7 +6158,6 @@ Util.Form.geoLocation = function(field) {
 	field.bn_geolocation.field = field;
 	u.ce(field.bn_geolocation);
 	field.bn_geolocation.clicked = function() {
-		u.a.transition(this, "all 0.5s ease-in-out");
 		this.transitioned = function() {
 			var new_scale;
 			if(this._scale == 1.4) {

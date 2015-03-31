@@ -694,6 +694,8 @@ body #selection_options ul.actions a.button:hover {background-color: #313942;}
 
 
 /*s-content.css*/
+#content .defaultList.counterList ul.items > li h3 {padding-bottom: 16px;}
+#content .defaultList.videoList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.sloganList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.interviewList ul.items > li h3 {padding-bottom: 16px;}
 #content .defaultList.primeministerList ul.items > li h3 {padding-bottom: 16px;}
@@ -708,6 +710,12 @@ body #selection_options ul.actions a.button:hover {background-color: #313942;}
 #content .defaultList.declarationList ul.items > li h3 {padding-bottom: 13px;}
 #content .defaultList.declarationList h2 {padding-top: 20px;}
 #content .defaultList.declarationList div.bundles {padding-bottom: 30px;}
+#content .defaultList.approvedList h1 {border-bottom: 1px solid #dedede; padding-bottom: 74px;}
+#content .defaultList.approvedList ul.items > li h3 {padding-bottom: 13px;}
+#content .defaultList.approvedList h2 {padding-top: 20px;}
+#content .defaultList.approvedList div.bundles {padding-bottom: 30px;}
+body.counter #navigation .counter a,
+body.video #navigation .video a,
 body.slogan #navigation .slogan a,
 body.primeminister #navigation .primeminister a,
 body.interview #navigation .interview a,
@@ -717,5 +725,6 @@ body.candidate #navigation .candidate a,
 body.event #navigation .event a,
 body.bill #navigation .bill a,
 body.vision #navigation .vision a,
+body.approved #navigation .approved a,
 body.declaration #navigation .declaration a {padding-left: 35px; color: #ffffff;}
 

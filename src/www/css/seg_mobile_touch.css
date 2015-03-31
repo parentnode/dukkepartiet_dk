@@ -167,7 +167,18 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 
 /*s-front-mobile_touch.css*/
 .front #content .close {display: none;}
-#content .scene.front {background: url(/img/mobile/bg_front.png) no-repeat top left; background-size:100% auto;}
+#content .scene.front {
+}
+#content .scene.front h1 {color: #00027a; padding-bottom: 20px;}
+#content .scene.front h2 {color: #ee191b; padding-top: 0; padding-bottom: 0; font-size: 45px;
+	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+}
+#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
+#content .scene.front h2 span {display: inline-block; padding: 5px 7px 5px 8px; background: #00027a; margin: 0 3px;}
+#content .scene.front .logo {width: 312px; height: 172px; left:50%; margin-left:-156px; position:absolute; padding-top: 0px; z-index:10;
+	background: url("/img/gx_logo_front.png") no-repeat bottom center;
+	background-size: 100% auto;
+}
 #content .scene.front .container {display: none;}
 #content .scene.front ul.items {overflow: hidden;}
 #content .scene.front ul.items li.item {height: 100%;}
@@ -189,20 +200,20 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.help {padding: 50px 0;}
 #content .scene.help .offline {display: none;}
 #content .scene.help .container {text-align: center; padding: 0 20px;}
-#content .scene.help .container h1 {color: #00027a; font-size: 30px; padding:0 10px; text-transform: uppercase;}
-#content .scene.help .container h2 {color: #00027a; font-size: 20px; padding-top:0;}
-#content .scene.help .container h3 {color: #00027a; font-size: 20px; margin:40px 0;
+#content .scene.help .container h1 {color: #ee191b; font-size: 30px; padding:0 10px; text-transform: uppercase;}
+#content .scene.help .container h2 {color: #ee191b; font-size: 20px; padding-top:0;}
+#content .scene.help .container h3 {color: #ee191b; font-size: 20px; margin:40px 0;
 	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
 }
-#content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
+#content .scene.help .container p {color: #ee191b; font-size: 14px; line-height: 20px;}
 #content .scene.help .container p.intro {font-size: 16px; padding: 40px 0 30px; line-height: 26px; margin-bottom: 20px;}
-#content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 20px; text-transform: uppercase; line-height: 3rem; box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a;
+#content .scene.help .container p.download a {color: #00027a; background-color: #ee191b; padding:10px; font-size: 20px; text-transform: uppercase; line-height: 3rem; box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a;
 	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
 }
-#content .scene.help hr {margin: 30px auto 50px; border: none; height: 1px; background: #00027a;}
+#content .scene.help hr {margin: 30px auto 50px; border: none; height: 1px; background: #ee191b;}
 #content .scene.help .container dl {width: 350px; margin: 0 auto;}
 #content .scene.help .container dl dt,
-#content .scene.help .container dl dd {display: block; font-size: 18px; color: #00027a;}
+#content .scene.help .container dl dd {display: block; font-size: 18px; color: #ee191b;}
 #content .scene.help .container dl dt {
 	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
 }
@@ -332,4 +343,20 @@ body.declaration #content .scene.receipt p {text-align: center;}
 body.declaration #content .scene.receipt p.regards {padding: 27px 0 9px;}
 body.declaration #content .scene.receipt h2 {font-weight: 800;}
 body.declaration #content .scene.receipt .actions li a {font-size: 16px; text-decoration: underline;}
+body.declaration #content .scene.upload h1 {
+}
+body.declaration #content .scene.upload p {
+}
+#content .scene.upload form {padding: 30px 0;}
+#content .scene.upload form label {display: block; text-align: center; padding: 0 0 5px;}
+#content .scene.upload form div.field {text-align: center; padding: 0 0 25px;}
+#content .scene.upload form div.field.error label {color: #df0000;}
+#content .scene.upload form div.field.files {margin: 20px auto 25px; border: 3px solid #999999; border-radius: 15px; height: 75px; padding: 0;}
+#content .scene.upload form div.field.files label {margin-top: -30px;}
+#content .scene.upload form div.field.files input {width: 100%; height: 75px; opacity: 0; border: none; position: relative; z-index: 2;}
+#content .scene.upload form div.field.files p {position: relative; z-index: 1; margin-top: -45px; font-size: 14px; color: #999999;}
+#content .scene.upload form div.field.files.error {border-color: #df0000;}
+#content .scene.upload form ul.actions {text-align: center;}
+#content .scene.upload ul.actions li.send input.wait,
+#content .scene.upload ul.actions li.send input.wait:hover {background: #999999; border-color: #999999; color: #ffffff; cursor: wait;}
 

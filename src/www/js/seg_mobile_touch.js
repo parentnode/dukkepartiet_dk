@@ -1032,7 +1032,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {
@@ -2068,7 +2068,9 @@ Util.Form = u.f = new function() {
 		}
 		var actions = u.qsa(".actions li input[type=button],.actions li input[type=submit],.actions li a.button", form);
 		for(i = 0; action = actions[i]; i++) {
-			action.form = form;
+			if(!action.form) {
+				action.form = form;
+			}
 			this.activateButton(action);
 		}
 		if(form._debug_init) {
@@ -2922,7 +2924,7 @@ u.f.addAction = function(node, _options) {
 		}
 	}
 	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
-	if(!u.hc(p_ul, "actions")) {
+	if(!p_ul || !u.hc(p_ul, "actions")) {
 		p_ul = u.ae(node, "ul", {"class":"actions"});
 	}
 	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, {"include":"li"});
@@ -4777,9 +4779,8 @@ Util.Objects["page"] = new function() {
 			page.ready = function() {
 				u.bug("page ready")
 				if(!this.is_ready) {
-					var correct_page = new RegExp(document.domain+"$|"+document.domain+"\/$|"+document.domain+"\/vaelgererklaering");
+					var correct_page = new RegExp(document.domain+"$|"+document.domain+"\/$|"+document.domain+"\/vaelgererklaering|"+document.domain+"\/upload");
 					if(!location.href.match(correct_page)) {
-						location.href = "/";
 					}
 					this.is_ready = true;
 					u.e.addEvent(window, "resize", page.resized);
@@ -4833,7 +4834,7 @@ u.e.addDOMReadyEvent(u.init);
 /*i-footer-mobile_touch.js*/
 Util.Objects["footer"] = new function() {
 	this.init = function(footer) {
-		if(u.hc(document.body, "candidates|candidate|reform|vision|interview|action|mask")) {
+		if(u.hc(document.body, "candidates|candidate|reform|vision|interview|action|mask|front")) {
 			u.ac(footer, "red");
 		}
 		else {
@@ -4850,50 +4851,29 @@ document.write(fonts_com_url);
 /*i-front-mobile_touch.js*/
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
-		u.bug("scene init:" + u.nodeId(scene))
 		scene.resized = function() {
 			u.bug("scene.resized:" + u.nodeId(this));
-			u.as(this, "height", Math.round(page.browser_w / (640/664)) + "px");
+			u.as(this, "height", page.browser_h+"px", false);
+			u.as(this._h1, "paddingTop", (this.logo.offsetHeight + 30)+"px", false);
 		}
 		scene.scrolled = function() {
 		}
 		scene.ready = function() {
 			if(u.qsa(".scene", page.cN).length == this.sections.length+1) {
 				page.scenes.push(this);
-				this.slogan = u.qs(".container", this);
-				this.ul = u.qs("ul.items", this);
+				this.logo = u.ie(this, "div", {"class": "logo"});
+				this._h1 = u.qs("h1", this);
 				this.scrolled();
 				this.resized();
 			}
 		}
-		scene.loadSloganImages = function() {
-			this.slogans = u.qsa("ul.items li.item", this.slogan);
-			var i, node;
-			for(i = 0; node = this.slogans[i]; i++) {
-				node._image_available = u.cv(node, "image_id");
-				if(node._image_available) {
-					node._image_format = u.cv(node, "image_format");
-					node._image_src = "/images/" + node._image_available + "/main/480x" + "." + node._image_format;
-					node._image_mask = u.ie(node, "div", {"class":"image"});
-					node.loaded = function(queue) {
-						this._image = u.ae(this._image_mask, "img", {"src":this._image_src});
-					}
-					u.preloader(node, [node._image_src]);
-				}
-				node.url = u.qs("a", node);
-				if(node.url) {
-					u.ce(node, {"type":"link"});
-				}
-			}
-			if(this.slogans.length < 2) {
-				var next = u.qs(".next", this.slogan);
-				u.as(next, "display", "none");
-				var prev = u.qs(".previous", this.slogan);
-				u.as(prev, "display", "none");
-			}
-		}
+		// 		
+		// 			
+		// 			
+		// 		
+		// 	
 		scene.loadPages = function() {
-			this.sections = ["/program", "/hjaelp_os"];
+			this.sections = ["/hjaelp_os"];
 			var i, section, div;
 			for (i = 0; section = this.sections[i]; i++) {
 				div = u.ae(page.cN, "div");
@@ -4901,7 +4881,7 @@ Util.Objects["front"] = new function() {
 					var new_scene = u.qs(".scene", response);
 					this.innerHTML = new_scene.innerHTML;
 					u.ac(this, new_scene.className);
-					if(u.hc(this, "program")) {
+					if(u.hc(this, "help")) {
 						u.tc(this, "red", "blue");
 					}
 					u.init(this);
@@ -5294,6 +5274,26 @@ Util.Objects["preview"] = new function() {
 		scene.ready();
 	}
 }
+Util.Objects["upload"] = new function() {
+	this.init = function(scene) {
+		scene.ready = function() {
+			this._form = u.qs("form", this);
+			this._form.div = this;
+			u.f.init(this._form);
+			this._form.p = u.ae(this._form.fields["declaration"].field, "p", {"html":"Klik her for at vælge filen"});
+			this._form.fields["declaration"].changed = function() {
+				u.f.validate(this);
+				this.form.p.innerHTML = this.files[0].name;
+			}
+			this._form.submitted = function() {
+					u.ac(this.actions["send"], "wait");
+					this.actions["send"].value = "Vent";
+					this.DOMsubmit();
+			}
+		}
+		scene.ready();
+	}
+}
 
 
 /*u-form-custom.js*/
@@ -5419,7 +5419,7 @@ u.ga_domain = 'dukkepartiet.dk';
 if(u.ga_account) {
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    m=s.getElementsByTagName(o)[0];a.async=1;a.defer=true;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', u.ga_account, u.ga_domain);
     ga('send', 'pageview');
