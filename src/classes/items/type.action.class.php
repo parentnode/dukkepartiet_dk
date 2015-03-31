@@ -28,7 +28,7 @@ class TypeAction extends Itemtype {
 			"label" => "Name",
 			"required" => true,
 			"unique" => $this->db,
-			"hint_message" => "Every slogan deserves a name - just write a few words, which uniquely identifies the slogan", 
+			"hint_message" => "Every action deserves a name - just write a few words, which uniquely identifies the action", 
 			"error_message" => "Name must be filled out"
 		));
 
@@ -37,7 +37,7 @@ class TypeAction extends Itemtype {
 			"type" => "text",
 			"label" => "Description",
 			"required" => true,
-			"hint_message" => "Describe the event",
+			"hint_message" => "Describe the action",
 			"error_message" => "Description must be filled out"
 		));
 
@@ -59,7 +59,7 @@ class TypeAction extends Itemtype {
 			"max" => 1,
 			"allowed_sizes" => "480x270",
 			"allowed_formats" => "png,jpg",
-			"hint_message" => "Add slogan images here. Use png or jpg in 480x270.",
+			"hint_message" => "Add action images here. Use png or jpg in 480x270.",
 			"error_message" => "Image does not fit requirements."
 		));
 
