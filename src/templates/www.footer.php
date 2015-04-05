@@ -56,13 +56,13 @@ $bills = $IC->getItems(array("itemtype" => "bill", "status" => 1));
 					</div>
 					<p><a itemprop="email" href="mailto:kontakt@dukkepartiet.dk">kontakt@dukkepartiet.dk</a></p>
 				</li>
-				<li class="contact press" itemscope itemtype="http://schema.org/Organization">
+				<!--li class="contact press" itemscope itemtype="http://schema.org/Organization">
 					<h4>Pressekontakt</h4>
 					<h5 itemprop="name">Have Kommunikation A/S</h5>
 					<p itemprop="member">Kristina Sindberg</p>
 					<p itemprop="telephone">(+45) 2486 0184</p>
 					<p><a itemprop="email" href="mailto:kristina@have.dk">kristina@have.dk</a></p>
-				</li>
+				</li-->
 			</ul>
 		</div>
 	</div>

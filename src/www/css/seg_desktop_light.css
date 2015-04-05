@@ -111,7 +111,7 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 #footer .social {display: none;}
 #footer .about {width:740px; margin:0 auto;}
 #footer .about p {text-align: center; font-size: 26px; font-family: Arial, sans-serif; font-weight: bold; font-style:italic;}
-#footer .about ul.contacts {display:block; width:100%; font-size: 1rem; }
+#footer .about ul.contacts {display:block; width:100%; font-size: 1rem; text-align: center;}
 #footer .about ul.contacts li.contact {text-align:center; margin:50px auto 0; width:360px;}
 #footer .about ul.contacts li.contact .press {}
 #footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
