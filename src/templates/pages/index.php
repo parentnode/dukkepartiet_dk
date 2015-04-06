@@ -12,7 +12,7 @@ if($items) {
 ?>
 <div class="scene front i:front red">
 
-<?	if($item): ?>
+<?	if($item && $item["counter"] != 0): ?>
 	<h1><?= $item["text"] ?></h1>
 	<h2><span><?= implode("</span><span>", str_split($item["counter"])) ?></span></h2>
 	<p>Vælgererklæringer</p>
