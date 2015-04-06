@@ -22,7 +22,10 @@ session()->value("dev", $dev);
 	<h3>Returnér din godkendte vælgererklæring til os</h3>
 	<p>Indenfor nogle uger får du din godkendte vælgererklæring tilbage med posten fra Folkeregistret i din kommune. Først når vi modtager den fra dig, tæller den med blandt de 20.260 vælgererklæringer, som vi skal bruge for at kunne stille op til næste folketingsvalg.</p>
 	<p>Husk at sende den til os hurtigst muligt!</p>
-	<p>Du gør det meget hurtigt og nemt ved at tage et foto af den med din smartphone og uploade den til os: <a href="https://dukkepartiet.dk/vaelgererklaering/upload">https://dukkepartiet.dk/upload</a>.</p>
+	<p>
+		Du gør det meget hurtigt og nemt ved at tage et foto af den med din smartphone og uploade den til os: 
+		<a href="<?= SITE_URL ?>/upload"><?= SITE_URL ?>/upload</a>.
+	</p>
 
 	<p class="regards">Med venlig hilsen</p>
 	<h2>Dukkepartiet</h2>
