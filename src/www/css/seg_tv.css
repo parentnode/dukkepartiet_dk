@@ -268,6 +268,39 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 }
 #content .scene.front ul.servicenavigation {display: none;}
 
+/*s-video-desktop.css*/
+#content .scene.video {padding-bottom: 60px; padding-top: 80px;}
+#content .scene.video h2 {color: #ee191b; display: none;
+	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+}
+#content .scene.video ul.items {width:960px; margin:0 auto;}
+#content .scene.video ul.items li {display:inline-block; vertical-align:top; width:280px; height:300px; padding:10px; font-size: 1em; margin:0 10px 20px;}
+#content .scene.video ul.items li.item {background-color: #ee191b;}
+#content .scene.video ul.items li.more {padding: 0; width: 300px; height: 320px;}
+#content .scene.video ul.items li.item h3 {font-size:21px; color: #00027a; padding:10px 0; text-align: center;
+	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; }
+#content .scene.video ul.items li.item p {font-size:16px; color: #00027a; text-align: center;
+	font-family: Arial, sans-serif;
+}
+#content .scene.video ul.items li.item a {display: none;}
+#content .scene.video ul.items li.item .image {position: relative; background-color: #00027a; height: 157px; overflow: hidden;}
+#content .scene.video ul.items li.item .image .play_bn {position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #ee191b; cursor: pointer;}
+#content .scene.video ul.items li.item .image .play_bn p {color: #00027a; font-size:21px; text-transform: uppercase; margin-top: 20px; cursor: pointer;
+	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; 
+	-webkit-user-select: none;
+	 -khtml-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+#content .scene.video ul.items li.item .image .play_bn:hover {background: #00027a;}
+#content .scene.video ul.items li.item .image .play_bn:hover p {color: #ee191b;}
+#content .scene.video ul.items li.item .image img {width: 100%; opacity: 0.6;}
+#content .scene.video ul.items li.more a {display:block; background-size: 100% auto; cursor: pointer; height: 320px;
+	background: url("/img/gx_vise_fler_filmer.png") no-repeat center center;
+}
+#content .scene.video p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #ee191b; padding-bottom: 80px;}
+
 /*s-action-desktop.css*/
 #content .scene.action {padding-bottom: 60px;}
 #content .scene.action h2 {color: #00027a; 

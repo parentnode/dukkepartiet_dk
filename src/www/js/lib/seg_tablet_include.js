@@ -9,6 +9,7 @@ document.write('<script type="text/javascript" src="/js/lib/desktop/i-fonts-desk
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-scene-desktop.js"></script>');
 
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-front-desktop.js"></script>');
+document.write('<script type="text/javascript" src="/js/lib/desktop/i-video-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-bill-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-carousel-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-events-desktop.js"></script>');
