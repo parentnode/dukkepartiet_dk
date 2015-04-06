@@ -5006,7 +5006,9 @@ Util.Objects["front"] = new function() {
 		scene.resized = function() {
 			u.bug("scene.resized:" + u.nodeId(this));
 			u.as(this, "height", page.browser_h+"px", false);
-			u.as(this._h1, "paddingTop", (page.browser_h/2)+"px", false);
+			if(this._h1) {
+				u.as(this._h1, "paddingTop", (page.browser_h/2)+"px", false);
+			}
 		}
 		scene.scrolled = function() {
 			u.bug("scene.scrolled:" + u.nodeId(this));

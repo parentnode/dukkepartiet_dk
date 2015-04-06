@@ -8,7 +8,9 @@ Util.Objects["front"] = new function() {
 
 			u.as(this, "height", page.browser_h+"px", false);
 
-			u.as(this._h1, "paddingTop", (this.logo.offsetHeight + 30)+"px", false);
+			if(this._h1) {
+				u.as(this._h1, "paddingTop", (this.logo.offsetHeight + 30)+"px", false);
+			}
 		}
 
 		// check fold on scroll
