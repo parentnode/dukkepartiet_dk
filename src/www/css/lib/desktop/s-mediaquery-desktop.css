@@ -6,6 +6,10 @@
 	body #youtube div.close {margin-left: 260px;}
 
 
+	/* VIDEOS */
+	#content .scene.video ul.items {width:640px;}
+	#content .scene.video ul.items li {width: 280px;}
+
 	/* ACTIONS */
 	#content .scene.action ul.items {width:640px;}
 	#content .scene.action ul.items li {width: 280px;}

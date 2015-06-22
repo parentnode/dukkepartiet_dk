@@ -729,6 +729,8 @@ body.declaration #content .scene.upload p {text-align: center; padding: 0 60px;}
 	body #youtube div.player {width:520px; margin-left: -260px;}
 	body #youtube iframe {width: 520px; height: 292px;}
 	body #youtube div.close {margin-left: 260px;}
+	#content .scene.video ul.items {width:640px;}
+	#content .scene.video ul.items li {width: 280px;}
 	#content .scene.action ul.items {width:640px;}
 	#content .scene.action ul.items li {width: 280px;}
 	#content .scene.program {height: 350px;}
