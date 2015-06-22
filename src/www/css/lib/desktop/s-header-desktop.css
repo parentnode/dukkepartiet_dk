@@ -26,7 +26,8 @@ red:  #ee191b;
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
 #header.open #navigation ul.primary li a {font-size: 38px; width: 50%; display: block; margin:20px auto; text-transform: uppercase;
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
+/*	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;*/
 }
 
 
@@ -44,7 +45,8 @@ red:  #ee191b;
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute; bottom: 40px; left: 50%; width: 420px; margin-left: -210px; }
 #header.open #navigation .social h4 {text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
+/*	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;*/
 }
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}

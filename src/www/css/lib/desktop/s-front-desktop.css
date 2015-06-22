@@ -1,35 +1,37 @@
 /*
-font-family:'HelveticaNeueW02-77BdCn 694069';			Condensed Bold Oblique
-font-family:'HelveticaNeueW02-97Blac';					Condensed Black
-font-family:'HelveticaNeueW01-77BdCn 692722';			Condensed Bold
-font-family:'HelveticaNeueW02-BlackC';					Condensed Black Oblique
-
-
 blue: #00027a;
 red:  #ee191b;
 */
 
-#content .scene.front h1 {color: #00027a; padding-bottom: 20px;}
-#content .scene.front h2 {color: #ee191b; padding-top: 0; padding-bottom: 0; font-size: 75px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+#content .scene.front h1 {display: none;
+	
+	color: #00027a; padding-bottom: 20px;}
+#content .scene.front h2 {color: #00027a; padding: 70px 70px 0; font-size: 75px;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
+/*	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;*/
 }
-#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
 
-#content .scene.front h2 span {display: inline-block; padding: 5px 7px 5px 8px; background: #00027a; margin: 0 3px;}
-#content .scene.front .logo {width:412px; height: 192px; left:50%; margin-left:-206px; position:absolute; padding-top:70px; z-index:10;
+
+#content .scene.front .logo {z-index:10; width: 412px; height: 192px; left: 50%; margin-left: -206px; position: absolute; padding-top: 70px;
 	background: url("/img/gx_logo_front.png") no-repeat bottom center;
 }
-#content .scene.front .logo.fixed {position: fixed; }
-
+#content .scene.front .logo.fixed {position: fixed;}
 #content .scene.front .container {position: absolute; top:0; left:0; width: 100%; height: 100%; z-index:1;}
 
-#content .scene.front .container ul.items {}
-#content .scene.front .container ul.items li.item {margin:0 auto 140px; }
+#content .scene.front .container ul.items {display: table; height: 100%;}
+#content .scene.front .container ul.items li.item {display: table-cell; vertical-align: middle; height: 100%;}
+#content .scene.front .container ul.items li.item.link {cursor: pointer;}
+
+/* counter
+#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
+#content .scene.front h2 span {display: inline-block; padding: 5px 7px 5px 8px; background: #00027a; margin: 0 3px;}
+*/
+
+/* slogans
 #content .scene.front .container ul.items li.item p,
 #content .scene.front .container ul.items li.item a {display: none;}
 #content .scene.front .container ul.items li.item .image {position: absolute; top:0; left:0; width: 100%; height: 100%;}
-#content .scene.front .container ul.items li.item .image img {width: 100%; height:100%;}
-#content .scene.front .container ul.items li.item.link {cursor: pointer;}
+#content .scene.front .container ul.items li.item .image img {width: 100%; height:100%;}*/
 
 
 

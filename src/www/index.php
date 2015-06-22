@@ -15,7 +15,7 @@ $page->pageTitle("Dukke Partiet");
 
 
 $page->page(array(
-	"templates" => "pages/index.php"
+	"templates" => "pages/introduction.php"
 ));
 exit();
 

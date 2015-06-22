@@ -90,6 +90,15 @@ Util.Objects["front"] = new function() {
 				// load slogan
 //				this.loadSloganImages();
 
+				u.textscaler(this, {".items li h2":{
+					"unit":"px", 
+					"min_size":45, 
+					"min_width":600, 
+					"max_size":75, 
+					"max_width":1200
+				}})
+
+
 				// scroll+resize straight away!
 				this.scrolled();
 				this.resized();

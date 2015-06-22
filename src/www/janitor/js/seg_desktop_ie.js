@@ -1034,7 +1034,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 					window.open(this.url);
 				}
 				else {
-					if(typeof(page.navigate) == "function") {
+					if(typeof(page) != "undefined" && typeof(page.navigate) == "function") {
 						page.navigate(this.url);
 					}
 					else {
@@ -2070,7 +2070,9 @@ Util.Form = u.f = new function() {
 		}
 		var actions = u.qsa(".actions li input[type=button],.actions li input[type=submit],.actions li a.button", form);
 		for(i = 0; action = actions[i]; i++) {
-			action.form = form;
+			if(!action.form) {
+				action.form = form;
+			}
 			this.activateButton(action);
 		}
 		if(form._debug_init) {
@@ -2924,7 +2926,7 @@ u.f.addAction = function(node, _options) {
 		}
 	}
 	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
-	if(!u.hc(p_ul, "actions")) {
+	if(!p_ul || !u.hc(p_ul, "actions")) {
 		p_ul = u.ae(node, "ul", {"class":"actions"});
 	}
 	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, {"include":"li"});
@@ -4764,13 +4766,13 @@ if(u.a.vendor() == "ms") {
 				++this.translate_progress;
 				var new_x = (Number(this.x_start) + Number(this.translate_progress * this.x_change));
 				var new_y = (Number(this.y_start) + Number(this.translate_progress * this.y_change));
-				this.style[this.vendor("Transform")] = "translate("+ new_x + "px, " + new_y +"px)";
+				this.style[u.a.vendor("Transform")] = "translate("+ new_x + "px, " + new_y +"px)";
 				this.offsetHeight;
 				if(this.translate_progress < this.translate_transitions) {
 					this.t_translate_transition = u.t.setTimer(this, this.translate_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "translate("+ this._x + "px, " + this._y +"px)";
+					this.style[u.a.vendor("Transform")] = "translate("+ this._x + "px, " + this._y +"px)";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -4802,7 +4804,7 @@ if(u.a.vendor() == "ms") {
 					this.t_rotate_transition = u.t.setTimer(this, this.rotate_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "rotate("+ this._rotation + "deg)";
+					this.style[u.a.vendor("Transform")] = "rotate("+ this._rotation + "deg)";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -4827,13 +4829,13 @@ if(u.a.vendor() == "ms") {
 			node.scale_transitionTo = function(event) {
 				++this.scale_progress;
 				var new_scale = (Number(this.scale_start) + Number(this.scale_progress * this.scale_change));
-				this.style[this.vendor("Transform")] = "scale("+ new_scale +")";
+				this.style[u.a.vendor("Transform")] = "scale("+ new_scale +")";
 				this.offsetHeight;
 				if(this.scale_progress < this.scale_transitions) {
 					this.t_scale_transition = u.t.setTimer(this, this.scale_transitionTo, update_frequency);
 				}
 				else {
-					this.style[this.vendor("Transform")] = "scale("+ this._scale +")";
+					this.style[u.a.vendor("Transform")] = "scale("+ this._scale +")";
 					if(typeof(this.transitioned) == "function") {
 						this.transitioned(event);
 					}
@@ -5119,6 +5121,97 @@ if(u.a.vendor() == "ms") {
 }
 
 
+/*u-navigation.js*/
+u.navigation = function(_options) {
+	var callback_navigate = "navigate";
+	var navigation_node = page;
+	if(typeof(_options) == "object") {
+		var argument;
+		for(argument in _options) {
+			switch(argument) {
+				case "callback"       : callback_navigate      = _options[argument]; break;
+				case "node"           : navigation_node        = _options[argument]; break;
+			}
+		}
+	}
+	navigation_node._nav_path = navigation_node._nav_path ? navigation_node._nav_path : u.h.getCleanUrl(location.href, 1);
+	navigation_node._nav_history = navigation_node._nav_history ? navigation_node._nav_history : [];
+	navigation_node._navigate = function(url) {
+		url = u.h.getCleanUrl(url);
+		navigation_node._nav_history.unshift(url);
+		u.stats.pageView(url);
+		if(!this._nav_path || ((this._nav_path != u.h.getCleanHash(location.hash, 1) && !u.h.popstate) || (this._nav_path != u.h.getCleanUrl(location.href, 1) && u.h.popstate))) {
+			if(this.cN && typeof(this.cN.navigate) == "function") {
+				this.cN.navigate(url);
+			}
+		}
+		else {
+			if(this.cN.scene && this.cN.scene.parentNode && typeof(this.cN.scene.navigate) == "function") {
+				this.cN.scene.navigate(url);
+			}
+			else if(this.cN && typeof(this.cN.navigate) == "function") {
+				this.cN.navigate(url);
+			}
+		}
+		if(!u.h.popstate) {
+			this._nav_path = u.h.getCleanHash(location.hash, 1);
+		}
+		else {
+			this._nav_path = u.h.getCleanUrl(location.href, 1);
+		}
+	}
+	navigation_node.navigate = function(url, node) {
+		this.history_node = node ? node : false;
+		if(u.h.popstate) {
+			history.pushState({}, url, url);
+			navigation_node._navigate(url);
+		}
+		else {
+			location.hash = u.h.getCleanUrl(url);
+		}
+	}
+	if(location.hash.length && location.hash.match(/^#!/)) {
+		location.hash = location.hash.replace(/!/, "");
+	}
+	if(!u.h.popstate) {
+		if(location.hash.length < 2) {
+			navigation_node.navigate(location.href, page);
+			navigation_node._nav_path = u.h.getCleanUrl(location.href);
+			u.init(navigation_node.cN);
+		}
+		else if(u.h.getCleanHash(location.hash) != u.h.getCleanUrl(location.href) && location.hash.match(/^#\//)) {
+			navigation_node._nav_path = u.h.getCleanUrl(location.href);
+			navigation_node._navigate(u.h.getCleanHash(location.hash), page);
+		}
+		else {
+			u.init(navigation_node.cN);
+		}
+	}
+	else {
+		if(u.h.getCleanHash(location.hash) != u.h.getCleanUrl(location.href) && location.hash.match(/^#\//)) {
+			navigation_node._nav_path = u.h.getCleanHash(location.hash);
+			navigation_node.navigate(u.h.getCleanHash(location.hash), page);
+		}
+		else {
+			u.init(navigation_node.cN);
+		}
+	}
+	navigation_node._initHistory = function() {
+		u.h.catchEvent(page, {"callback":"_navigate"});
+	}
+	u.t.setTimer(page, navigation_node._initHistory, 100);
+	navigation_node.historyBack = function() {
+		if(this._nav_history.length > 1) {
+			this._nav_history.shift();
+			return this._nav_history.shift();
+		}
+		else {
+			return "/";
+		}
+	}
+}
+
+
 /*u-form-htmleditor.js*/
 Util.Form.customInit["html"] = function(form, field) {
 	field._input = u.qs("textarea", field);
@@ -5328,6 +5421,12 @@ u.f.textEditor = function(field) {
 	field.update = function() {
 		this.updateViewer();
 		this.updateContent();
+		if(this._input.form && typeof(this._input.form.updated) == "function") {
+			this._input.form.updated(this._input);
+		}
+		if(this._input.form && typeof(this._input.form.changed) == "function") {
+			this._input.form.changed(this._input);
+		}
 	}
 	field.updateViewer = function() {
 		var tags = u.qsa("div.tag", this);
@@ -6576,10 +6675,110 @@ Util.Form.geoLocation = function(field) {
 }
 
 
+/*u-form-builder.js*/
+u.f.addForm = function(node, _options) {
+	var form_name = "js_form";
+	var form_action = "#";
+	var form_method = "post";
+	var form_class = "";
+	if(typeof(_options) == "object") {
+		var _argument;
+		for(_argument in _options) {
+			switch(_argument) {
+				case "name"			: form_name				= _options[_argument]; break;
+				case "action"		: form_action			= _options[_argument]; break;
+				case "method"		: form_method			= _options[_argument]; break;
+				case "class"		: form_class			= _options[_argument]; break;
+			}
+		}
+	}
+	var form = u.ae(node, "form", {"class":form_class, "name": form_name, "action":form_action, "method":form_method});
+	return form;
+}
+u.f.addFieldset = function(node) {
+	return u.ae(node, "fieldset");
+}
+u.f.addField = function(node, _options) {
+	var field_type = "string";
+	var field_label = "Value";
+	var field_name = "js_name";
+	var field_value = "";
+	var field_class = "";
+	if(typeof(_options) == "object") {
+		var _argument;
+		for(_argument in _options) {
+			switch(_argument) {
+				case "type"			: field_type			= _options[_argument]; break;
+				case "label"		: field_label			= _options[_argument]; break;
+				case "name"			: field_name			= _options[_argument]; break;
+				case "value"		: field_value			= _options[_argument]; break;
+				case "class"		: field_class			= _options[_argument]; break;
+			}
+		}
+	}
+	var input_id = "input_"+field_type+"_"+field_name;
+	var field = u.ae(node, "div", {"class":"field "+field_type+" "+field_class});
+	if(field_type == "string") {
+		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
+		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":"text"});
+	}
+	else if(field_type == "email" || field_type == "number" || field_type == "tel") {
+		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
+		var input = u.ae(field, "input", {"id":input_id, "value":field_value, "name":field_name, "type":field_type});
+	}
+	else if(field_type == "checkbox") {
+		var input = u.ae(field, "input", {"id":input_id, "value":"true", "name":field_name, "type":field_type});
+		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
+	}
+	else if(field_type == "text") {
+		var label = u.ae(field, "label", {"for":input_id, "html":field_label});
+		var input = u.ae(field, "textarea", {"id":input_id, "html":field_value, "name":field_name});
+	}
+	else if(field_type == "select") {
+		u.bug("Select not implemented yet")
+	}
+	else {
+		u.bug("input type not implemented yet")
+	}
+	return field;
+}
+u.f.addAction = function(node, _options) {
+	var action_type = "submit";
+	var action_name = "js_name";
+	var action_value = "";
+	var action_class = "";
+	if(typeof(_options) == "object") {
+		var _argument;
+		for(_argument in _options) {
+			switch(_argument) {
+				case "type"			: action_type			= _options[_argument]; break;
+				case "name"			: action_name			= _options[_argument]; break;
+				case "value"		: action_value			= _options[_argument]; break;
+				case "class"		: action_class			= _options[_argument]; break;
+			}
+		}
+	}
+	var p_ul = node.nodeName.toLowerCase() == "ul" ? node : u.pn(node, {"include":"ul"});
+	if(!p_ul || !u.hc(p_ul, "actions")) {
+		p_ul = u.ae(node, "ul", {"class":"actions"});
+	}
+	var p_li = node.nodeName.toLowerCase() == "li" ? node : u.pn(node, {"include":"li"});
+	if(!p_li || p_ul != p_li.parentNode) {
+		p_li = u.ae(p_ul, "li", {"class":action_name});
+	}
+	else {
+		p_li = node;
+	}
+	var action = u.ae(p_li, "input", {"type":action_type, "class":action_class, "value":action_value, "name":action_name})
+	return action;
+}
+
+
 /*i-page.js*/
 u.bug_console_only = true;
 Util.Objects["page"] = new function() {
 	this.init = function(page) {
+		u.bug("init page:" + page)
 		var i, node;
 		page.hN = u.qs("#header", page);
 		page.cN = u.qs("#content", page);
@@ -6603,9 +6802,15 @@ Util.Objects["page"] = new function() {
 				this.is_ready = true;
 				u.e.addEvent(window, "resize", page.resized);
 				u.e.addEvent(window, "scroll", page.scrolled);
+				page.initHeader();
 				u.notifier(page);
-				u.navigation(page);
+				u.navigation();
 			}
+		}
+		page.initHeader = function() {
+			var janitor = u.ie(this.hN, "ul", {"class":"janitor"});
+			u.ae(janitor, u.qs(".servicenavigation .front", page.hN));
+			u.ae(page, u.qs(".servicenavigation", page.hN))
 		}
 		page.svgIcon = function(icon) {
 			var path;
@@ -7021,11 +7226,51 @@ Util.Objects["defaultEdit"] = new function() {
 			location.href = this.url;
 		}
 		form.submitted = function(iN) {
+			u.t.resetTimer(page.t_autosave);
 			this.response = function(response) {
 				page.notify(response);
 			}
 			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this, {"send_as":"formdata"})});
 		}
+		form.updated = function() {
+			this.change_state = true;
+			u.t.resetTimer(page.t_autosave);
+			if(!page.autosave_disabled) {
+				page.t_autosave = u.t.setTimer(this, "autosave", page._autosave_interval);
+			}
+		}
+		form.autosave = function() {
+			if(!page.autosave_disabled && this.change_state) {
+				for(name in this.fields) {
+					if(this.fields[name].field) {
+						if(!this.fields[name].used) {
+							if(u.hc(this.fields[name].field, "required") && !this.fields[name].val()) {
+								return false;
+							}
+						}
+						else {
+							u.f.validate(this.fields[name]);
+						}
+					}
+				}
+				if(!u.qs(".field.error", this)) {
+					this.change_state = false;
+					this.submitted();
+				}
+			}
+			else {
+			}
+		}
+		form.change_state = false;
+		page._autosave_node = form;
+		page._autosave_interval = 3000;
+		page.t_autosave = u.t.setTimer(form, "autosave", page._autosave_interval);
+		form.cancelBackspace = function(event) {
+			if(event.keyCode == 8 && !u.qsa(".field.focus").length) {
+				u.e.kill(event);
+			}
+		}
+		u.e.addEvent(document.body, "keydown", form.cancelBackspace);
 	}
 }
 
@@ -7103,26 +7348,27 @@ Util.Objects["defaultEditStatus"] = new function() {
 /*i-defaulteditactions.js*/
 Util.Objects["defaultEditActions"] = new function() {
 	this.init = function(node) {
+		u.bug("defaultEditActions:" + u.nodeId(node));
 		node._item_id = u.cv(node, "item_id");
 		node.csrf_token = node.getAttribute("data-csrf-token");
-		var cancel = u.qs("li.cancel a");
-		var action = u.qs("li.delete");
-		if(action && cancel && cancel.href) {
-			if(!action.childNodes.length) {
-				action.delete_item_url = action.getAttribute("data-item-delete");
-				if(action.delete_item_url) {
-					form = u.f.addForm(action, {"action":action.delete_item_url, "class":"delete"});
+		var bn_cancel = u.qs("li.cancel a", node);
+		var bn_delete = u.qs("li.delete", node);
+		if(bn_delete && bn_cancel && bn_cancel.href) {
+			if(!bn_delete.childNodes.length) {
+				bn_delete.delete_item_url = bn_delete.getAttribute("data-item-delete");
+				if(bn_delete.delete_item_url) {
+					form = u.f.addForm(bn_delete, {"action":bn_delete.delete_item_url, "class":"delete"});
 					u.ae(form, "input", {"type":"hidden","name":"csrf-token", "value":node.csrf_token});
 					form.node = node;
 					bn_delete = u.f.addAction(form, {"value":"Delete", "class":"button delete", "name":"delete"});
 				}
 			}
 			else {
-				form = u.qs("form", action);
+				form = u.qs("form", bn_delete);
 			}
 			if(form) {
 				u.f.init(form);
-				form.cancel_url = cancel.href;
+				form.cancel_url = bn_cancel.href;
 				form.restore = function(event) {
 					this.actions["delete"].value = "Delete";
 					u.rc(this.actions["delete"], "confirm");
@@ -7881,6 +8127,116 @@ Util.Objects["addMediaSingle"] = new function() {
 	}
 }
 
+/*i-defaultcomments.js*/
+Util.Objects["defaultComments"] = new function() {
+	this.init = function(div) {
+		div.item_id = u.cv(div, "item_id");
+		div._comments_form = u.qs("form", div);
+		div._comments_form.div = div;
+		u.f.init(div._comments_form);
+		div.csrf_token = div._comments_form.fields["csrf-token"].value;
+		div.add_comment_url = div._comments_form.action;
+		div.delete_comment_url = div.getAttribute("data-comment-delete");
+		div.update_comment_url = div.getAttribute("data-comment-update");
+		div._comments_form.list = u.qs("ul.comments", div);
+		div.initComment = function(node) {
+			node.div = this;
+			if(this.delete_comment_url || this.update_comment_url) {
+				var actions = u.ae(node, "ul", {"class":"actions"});
+				var li;
+				if(this.update_comment_url) {
+					li = u.ae(actions, "li", {"class":"edit"});
+					bn_edit = u.ae(li, "a", {"html":"Edit", "class":"button edit"});
+					bn_edit.node = node;
+					u.ce(bn_edit);
+					bn_edit.clicked = function() {
+						var actions, bn_cancel, bn_update, form;
+						form = u.f.addForm(this.node, {"action":this.node.div.update_comment_url+"/"+this.node.div.item_id+"/"+u.cv(this.node, "comment_id"), "class":"edit"});
+						u.ae(form, "input", {"type":"hidden","name":"csrf-token", "value":this.node.div.csrf_token});
+						u.f.addField(form, {"type":"text", "name":"comment", "value": u.qs("p.comment", this.node).innerHTML});
+						form.node = node;
+						actions = u.ae(form, "ul", {"class":"actions"});
+						bn_update = u.f.addAction(actions, {"value":"Update", "class":"button primary update", "name":"update"});
+						bn_cancel = u.f.addAction(actions, {"value":"Cancel", "class":"button cancel", "type":"button", "name":"cancel"});
+						u.f.init(form);
+						form.submitted = function() {
+							this.response = function(response) {
+								page.notify(response);
+								if(response.cms_status == "success") {
+									u.qs("p.comment", this.node).innerHTML = this.fields["comment"].val();
+									this.parentNode.removeChild(this);
+								}
+							}
+							u.request(this, this.action, {"method":"post", "params":u.f.getParams(this)});
+						}
+						u.ce(bn_cancel);
+						bn_cancel.clicked = function(event) {
+							u.e.kill(event);
+							this.form.parentNode.removeChild(this.form);
+						}
+					}
+				}
+				if(this.delete_comment_url) {
+					li = u.ae(actions, "li", {"class":"delete"});
+					var form = u.f.addForm(li, {"action":this.delete_comment_url+"/"+this.item_id+"/"+u.cv(node, "comment_id"), "class":"delete"});
+					u.ae(form, "input", {"type":"hidden","name":"csrf-token", "value":this.csrf_token});
+					form.node = node;
+					bn_delete = u.f.addAction(form, {"value":"Delete", "class":"button delete", "name":"delete"});
+					u.f.init(form);
+					form.restore = function(event) {
+						this.actions["delete"].value = "Delete";
+						u.rc(this.actions["delete"], "confirm");
+					}
+					form.submitted = function() {
+						if(!u.hc(this.actions["delete"], "confirm")) {
+							u.ac(this.actions["delete"], "confirm");
+							this.actions["delete"].value = "Confirm";
+							this.t_confirm = u.t.setTimer(this, this.restore, 3000);
+						}
+						else {
+							u.t.resetTimer(this.t_confirm);
+							this.response = function(response) {
+								page.notify(response);
+								if(response.cms_status == "success") {
+									if(response.cms_object && response.cms_object.constraint_error) {
+										this.value = "Delete";
+										u.ac(this, "disabled");
+									}
+									else {
+										this.node.parentNode.removeChild(this.node);
+									}
+								}
+							}
+							u.request(this, this.action, {"method":"post", "params":u.f.getParams(this)});
+						}
+					}
+				}
+			}
+		}
+		div._comments_form.submitted = function(iN) {
+			this.response = function(response) {
+				page.notify(response);
+				if(response.cms_status == "success" && response.cms_object) {
+					var comment_li = u.ae(this.list, "li", {"class":"comment comment_id:"+response.cms_object["id"]});
+					var info = u.ae(comment_li, "ul", {"class":"info"});
+					u.ae(info, "li", {"class":"user", "html":response.cms_object["nickname"]});
+					u.ae(info, "li", {"class":"created_at", "html":response.cms_object["created_at"]});
+					u.ae(comment_li, "p", {"class":"comment", "html":response.cms_object["comment"]})
+					this.div.initComment(comment_li);
+					this.fields["comment"].val("");
+				}
+			}
+			u.request(this, this.action, {"method":"post", "params" : u.f.getParams(this)});
+		}
+		div.comments = u.qsa("li.comment", div._comments_form.list);
+		var i, node;
+		for(i = 0; node = div.comments[i]; i++) {
+			div.initComment(node);
+		}
+	}
+}
+
+
 /*i-navigations.js*/
 Util.Objects["navigationNodes"] = new function() {
 	this.init = function(div) {
@@ -8300,13 +8656,11 @@ u.notifier = function(node) {
 			}
 		}
 		var output;
-		u.bug("message:" + typeof(response) + "; JSON: " + response.isJSON + "; HTML: " + response.isHTML);
 		if(typeof(response) == "object" && response.isJSON) {
 			var message = response.cms_message;
 			var cms_status = response.cms_status;
 			if(typeof(message) == "object") {
 				for(type in message) {
-					u.bug("typeof(message[type]:" + typeof(message[type]) + "; " + type);
 					if(typeof(message[type]) == "string") {
 						output = u.ae(this.notifications, "div", {"class":class_name+" "+cms_status, "html":message[type]});
 					}
@@ -8325,6 +8679,9 @@ u.notifier = function(node) {
 		else if(typeof(response) == "object" && response.isHTML) {
 			var login = u.qs(".scene.login", response);
 			if(login) {
+				if(page.t_autosave) {
+					u.t.resetTimer(page.t_autosave);
+				}
 				var overlay = u.ae(document.body, "div", {"id":"login_overlay"});
 				u.ae(overlay, login);
 				u.as(document.body, "overflow", "hidden");
@@ -8357,6 +8714,9 @@ u.notifier = function(node) {
 							}
 							this.overlay.parentNode.removeChild(this.overlay);
 							u.as(document.body, "overflow", "auto");
+							if(page._autosave_node && page._autosave_interval) {
+								u.t.setTimer(page._autosave_node, "autosave", page._autosave_interval);
+							}
 						}
 						else {
 							alert("login error")

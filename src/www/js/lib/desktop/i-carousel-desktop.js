@@ -1,98 +1,76 @@
 Util.Objects["carousel"] = new function() {
 	this.init = function(list) {
 
-		// resize list
-		list.resized = function() {
-//			u.bug("list.resized:" + u.nodeId(this));
 
-			// refresh dom
-			//this.offsetHeight;
-		}
-
-		// check fold on scroll
-		list.scrolled = function() {
-//			u.bug("scrolled")
-		}
-
-
-		list.ready = function() {
-//			u.bug("list.ready:" + u.nodeId(this));
-			
-			//u.bug("doctrines");
-			this.container = u.we(this, "div", {"class": "container"})
-			this.slides = u.qsa('li.item', this);
-			this.current_slide_num = 0;
-			this.current_node = this.slides[0];
-			this.next_node;
-			
-			this._previous = u.ae(this.container, "div", {"class": "next", "html": "Næste"});
-			this._next = u.ae(this.container, "div", {"class": "previous", "html": "Forrige"});
-			// u.qs('ul.actions li.previous', this);
-			// this._next = u.qs('ul.actions li.next', this);
-			//list._indexes = u.ae(list.container, "ul", {"class": "indexes"});
-
-			var i, node;
-			for(i = 0; node = this.slides[i]; i++) {
-				
-				// list._index = u.ae(list._indexes, "li", {"class": "index", "html": i+1})
-				// list._index._id = i;
-				// u.e.click(list._index);
-				// list._index.clicked = function(event) {
-				// 	u.bug("go to: " + this._id);
-				// 	list.hide(list.current_node);
-				// 	list.show(list.slides[this._id]);
-				// }
-
-				// // CLICK
-				u.e.click(this._next);
-				u.e.click(this._previous);
-				this._next.clicked = this._previous.clicked = function(event) {
-
-					if (u.hc(event.target, "next")) {
-						if (list.current_slide_num == list.slides.length-1) {
-							list.current_slide_num = 0;	
-						} else {
-							list.current_slide_num++;
-						}
-						list.hide(list.current_node);
-						list.show(list.slides[list.current_slide_num]);
-					}
-
-					if (u.hc(event.target, "previous")) {
-						if (list.current_slide_num != 0) {
-							list.current_slide_num--;
-						} else {
-							list.current_slide_num = list.slides.length-1;
-						}
-						list.hide(list.current_node);
-						list.show(list.slides[list.current_slide_num]);
-					}
-				}
-
-				if (i == 0) {
-					u.as(node, "display", "block");
-				} else {
-					u.as(node, "display", "none");
-				}
-			}
-			
-			//page.cN.ready();
-		}
-		
 		list.hide = function(node) {
 			u.as(node, "display", "none");
 		}
 
 		list.show = function(node) {
 			// show
-			u.as(node, "display", "block");
+
+			u.as(node, "display", node.default_display);
 			// remember current node
-			list.current_node = node;
+			this.current_node = node;
 		}
 
-    	
-		// callback to list ready
-		list.ready();
+
+		list.container = u.we(list, "div", {"class": "container"})
+		list.slides = u.qsa('li.item', list);
+		list.current_slide_num = 0;
+		list.current_node = list.slides[0];
+		list.next_node;
+
+		if(list.slides.length > 1) {
+
+			// add prev/next buttons
+			list._previous = u.ae(list.container, "div", {"class": "next", "html": "Næste"});
+			list._previous.list = list;
+
+			list._next = u.ae(list.container, "div", {"class": "previous", "html": "Forrige"});
+			list._next.list = list;
+
+			var i, node;
+			for(i = 0; node = list.slides[i]; i++) {
+
+				node.default_display = u.gcs(node, "display");
+
+				// // CLICK
+				u.e.click(list._next);
+				u.e.click(list._previous);
+				list._next.clicked = list._previous.clicked = function(event) {
+
+					// next was clicked
+					if(u.hc(event.target, "next")) {
+						if(this.list.current_slide_num == this.list.slides.length-1) {
+							this.list.current_slide_num = 0;	
+						}
+						else {
+							this.list.current_slide_num++;
+						}
+						this.list.hide(this.list.current_node);
+						this.list.show(this.list.slides[this.list.current_slide_num]);
+					}
+					// previous was clicked
+					else if(u.hc(event.target, "previous")) {
+						if(this.list.current_slide_num != 0) {
+							this.list.current_slide_num--;
+						} 
+						else {
+							this.list.current_slide_num = this.list.slides.length-1;
+						}
+						this.list.hide(this.list.current_node);
+						this.list.show(this.list.slides[this.list.current_slide_num]);
+					}
+				}
+
+				// only show first element to begin with
+				if(i != 0) {
+					u.as(node, "display", "none");
+				}
+			}
+		}
+		
 
 	}
 }

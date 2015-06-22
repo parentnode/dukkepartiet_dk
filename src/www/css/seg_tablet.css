@@ -1,6 +1,41 @@
 
 /*seg_tablet_include.css*/
 
+/*s-fonts.css*/
+@font-face {
+	font-family: 'Roboto';
+	src: url('/css/fonts/Roboto-Black-webfont.woff') format('woff'),
+		 url('/css/fonts/Roboto-Black-webfont.ttf') format('truetype'),
+		 url('/css/fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
+	font-weight: 900;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url('/css/fonts/Roboto-BlackItalic-webfont.woff') format('woff'),
+		 url('/css/fonts/Roboto-BlackItalic-webfont.ttf') format('truetype'),
+		 url('/css/fonts/Roboto-BlackItalic-webfont.svg#robotoblack_italic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'RobotoCondensed';
+	src: url('/css/fonts/RobotoCondensed-Bold-webfont.woff') format('woff'),
+		 url('/css/fonts/RobotoCondensed-Bold-webfont.ttf') format('truetype'),
+		 url('/css/fonts/RobotoCondensed-Bold-webfont.svg#roboto_condensedbold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'RobotoCondensed';
+	src: url('/css/fonts/RobotoCondensed-BoldItalic-webfont.woff') format('woff'),
+		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.ttf') format('truetype'),
+		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.svg#roboto_condensedbold_italic') format('svg');
+	font-weight: 700;
+	font-style: italic;
+}
+
+
 /*s-page-desktop.css*/
 * {font-family: Arial, sans-serif; color: #000000;
 	-webkit-text-size-adjust: none;
@@ -56,10 +91,10 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 #content {position: relative;}
 #content .scene {position: relative;}
 #content .scene h1 {text-align: center; padding: 50px 0; font-size: 50px; 
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #content .scene h2 {text-align: center; padding: 50px 0 40px 0; text-transform: uppercase; font-size:55px;
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #content .scene h3 {text-align: center; padding: 10px 0; text-transform: uppercase; font-size:16px;
 	font-family: Arial;
@@ -71,7 +106,7 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 #content .scene.blue {background-color: #00027a;}
 #content .scene .next,
 #content .scene .previous {position:absolute; width:100px; padding: 10px 0; top: 50%; cursor: pointer; margin-top: -25px; text-align: center; font-size:18px; text-transform: uppercase; letter-spacing: 1px;
-	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700; font-style: italic;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -110,18 +145,24 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 #footer {padding: 70px 0 80px; width: 100%;}
 #footer .social {display: none;}
 #footer .about {width:740px; margin:0 auto;}
-#footer .about p {text-align: center; font-size: 26px; font-family: Arial, sans-serif; font-weight: bold; font-style:italic;}
+#footer .about p {text-align: center; font-size: 26px; font-weight: bold; font-style: italic;
+	font-family: Arial, sans-serif;
+}
 #footer .about ul.contacts {display:block; width:100%; font-size: 1rem; text-align: center;}
 #footer .about ul.contacts li.contact {text-align:center; margin:50px auto 0; width:360px;}
 #footer .about ul.contacts li.contact .press {}
 #footer .about ul.contacts li.contact h4 {padding-bottom: 4px;}
-#footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size:20px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;}
-#footer .about ul.contacts li.contact p {font-weight: normal; font-style:normal; padding-bottom: 4px; font-size: 14px; line-height: 1em; font-family: Arial, sans-serif;}
+#footer .about ul.contacts li.contact h5 {padding-bottom: 24px; font-size: 20px; text-transform: uppercase; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
+#footer .about ul.contacts li.contact p {font-weight: normal; font-style:normal; padding-bottom: 4px; font-size: 14px; line-height: 1em; 
+	font-family: Arial, sans-serif;
+}
 #footer .about ul.contacts li.contact p a {font-weight: bold; padding:0 4px;}
 #footer.red {background-color:#ee191b; }
 #footer.red .about p {color: #00027a;}
 #footer.red .about ul.contacts li.contact * {color: #00027a;}
-#footer.red .about ul.contacts li.contact p a:hover {background-color: a; color: #ee191b;}
+#footer.red .about ul.contacts li.contact p a:hover {background-color: #00027a; color: #ee191b;}
 #footer.blue {background-color:#00027a; }
 #footer.blue .about p {color: #ee191b;}
 #footer.blue .about ul.contacts li.contact * {color: #ee191b;}
@@ -150,7 +191,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header.open #navigation ul.primary {display: block; position: relative;}
 #header.open #navigation ul.primary li {display: block; text-align: center;}
 #header.open #navigation ul.primary li a {font-size: 38px; width: 50%; display: block; margin:20px auto; text-transform: uppercase;
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #header #navigation ul.servicenavigation {margin:16px auto 0; text-align: center;}
 #header #navigation ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
@@ -161,7 +202,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header #navigation .social {display: none;}
 #header.open #navigation .social {display: block; position: absolute; bottom: 40px; left: 50%; width: 420px; margin-left: -210px; }
 #header.open #navigation .social h4 {text-align:center; text-transform: uppercase; font-size: 16px; padding-bottom: 10px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #header.open #navigation .social ul {}
 #header.open #navigation .social ul li a {display: block; background-repeat: no-repeat; background-position: bottom left; height: 40px; margin:0 5px;}
@@ -240,23 +281,18 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 
 
 /*s-front-desktop.css*/
-#content .scene.front h1 {color: #00027a; padding-bottom: 20px;}
-#content .scene.front h2 {color: #ee191b; padding-top: 0; padding-bottom: 0; font-size: 75px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+#content .scene.front h1 {display: none;
+	color: #00027a; padding-bottom: 20px;}
+#content .scene.front h2 {color: #00027a; padding: 70px 70px 0; font-size: 75px;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
-#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
-#content .scene.front h2 span {display: inline-block; padding: 5px 7px 5px 8px; background: #00027a; margin: 0 3px;}
-#content .scene.front .logo {width:412px; height: 192px; left:50%; margin-left:-206px; position:absolute; padding-top:70px; z-index:10;
+#content .scene.front .logo {z-index:10; width: 412px; height: 192px; left: 50%; margin-left: -206px; position: absolute; padding-top: 70px;
 	background: url("/img/gx_logo_front.png") no-repeat bottom center;
 }
-#content .scene.front .logo.fixed {position: fixed; }
+#content .scene.front .logo.fixed {position: fixed;}
 #content .scene.front .container {position: absolute; top:0; left:0; width: 100%; height: 100%; z-index:1;}
-#content .scene.front .container ul.items {}
-#content .scene.front .container ul.items li.item {margin:0 auto 140px; }
-#content .scene.front .container ul.items li.item p,
-#content .scene.front .container ul.items li.item a {display: none;}
-#content .scene.front .container ul.items li.item .image {position: absolute; top:0; left:0; width: 100%; height: 100%;}
-#content .scene.front .container ul.items li.item .image img {width: 100%; height:100%;}
+#content .scene.front .container ul.items {display: table; height: 100%;}
+#content .scene.front .container ul.items li.item {display: table-cell; vertical-align: middle; height: 100%;}
 #content .scene.front .container ul.items li.item.link {cursor: pointer;}
 .no_menu #content .scene.front ul.servicenavigation {display:block; position: absolute; bottom:42px; width: 100%; text-align: center; z-index: 10;}
 .no_menu #content .scene.front ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
@@ -271,14 +307,15 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 /*s-video-desktop.css*/
 #content .scene.video {padding-bottom: 60px; padding-top: 80px;}
 #content .scene.video h2 {color: #ee191b; display: none;
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #content .scene.video ul.items {width:960px; margin:0 auto;}
 #content .scene.video ul.items li {display:inline-block; vertical-align:top; width:280px; height:300px; padding:10px; font-size: 1em; margin:0 10px 20px;}
 #content .scene.video ul.items li.item {background-color: #ee191b;}
 #content .scene.video ul.items li.more {padding: 0; width: 300px; height: 320px;}
 #content .scene.video ul.items li.item h3 {font-size:21px; color: #00027a; padding:10px 0; text-align: center;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; }
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
 #content .scene.video ul.items li.item p {font-size:16px; color: #00027a; text-align: center;
 	font-family: Arial, sans-serif;
 }
@@ -286,7 +323,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.video ul.items li.item .image {position: relative; background-color: #00027a; height: 157px; overflow: hidden;}
 #content .scene.video ul.items li.item .image .play_bn {position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #ee191b; cursor: pointer;}
 #content .scene.video ul.items li.item .image .play_bn p {color: #00027a; font-size:21px; text-transform: uppercase; margin-top: 20px; cursor: pointer;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -304,14 +341,15 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 /*s-action-desktop.css*/
 #content .scene.action {padding-bottom: 60px;}
 #content .scene.action h2 {color: #00027a; 
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #content .scene.action ul.items {width:960px; margin:0 auto;}
 #content .scene.action ul.items li {display:inline-block; vertical-align:top; width:280px; height:300px; padding:10px; font-size: 1em; margin:0 10px 20px;}
 #content .scene.action ul.items li.item {background-color: #00027a;}
 #content .scene.action ul.items li.more {padding: 0; width: 300px; height: 320px;}
 #content .scene.action ul.items li.item h3 {font-size:21px; color: #ee191b; padding:10px 0; text-align: center;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; }
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
 #content .scene.action ul.items li.item p {font-size:16px; color: #ee191b; text-align: center;
 	font-family: Arial, sans-serif;
 }
@@ -319,7 +357,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.action ul.items li.item .image {position: relative; background-color: #00027a; height: 157px; overflow: hidden;}
 #content .scene.action ul.items li.item .image .play_bn {position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #ee191b; cursor: pointer;}
 #content .scene.action ul.items li.item .image .play_bn p {color: #00027a; font-size:21px; text-transform: uppercase; margin-top: 20px; cursor: pointer;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -337,12 +375,12 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 /*s-program-desktop.css*/
 #content .scene.program {padding-bottom: 70px; height: 270px;}
 #content .scene.program h2 {color: #00027a; 
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #content .scene.program ul.items {display:block; font-size: 1rem;}
 #content .scene.program ul.items li.item {text-align:center; padding:0 20px; margin:0 auto; width:740px; background-color: #ee191b; }
 #content .scene.program ul.items li.item p {display: inline; background-color:#00027a; padding:4px; font-size: 35px; color: #ee191b; line-height: 55px;	box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a; margin-top:80px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; 
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 
 /*s-events-desktop.css*/
@@ -351,13 +389,13 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.events ul.items {display:block; width:960px; font-size: 0; margin: 0 auto;}
 #content .scene.events ul.items li.item {width: 280px; height: 130px; padding: 0 10px 10px; margin:0 10px 30px; text-align: center; cursor: pointer;}
 #content .scene.events ul.items li.item h3 {font-size: 18px; color:#00027a; padding-bottom:4px;
-	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700; font-style: italic;
 }
 #content .scene.events ul.items li.item dl {}
 #content .scene.events ul.items li.item dl dt {display: none;}
 #content .scene.events ul.items li.item dl dd {display:block;}
 #content .scene.events ul.items li.item dl dd.published_at {font-size: 36px; color:#00027a; padding-bottom:4px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #content .scene.events ul.items li.item dl dd.location {font-size: 16px; color:#00027a; line-height: 1.2em; font-style: italic; padding-top:4px;}
 #content .scene.events ul.items li.item .description {display: none;}
@@ -417,10 +455,10 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.support .container dl dt,
 #content .scene.support .container dl dd {display: block; color: #ee191b;}
 #content .scene.support .container dl dt {font-size: 24px; padding-bottom:10px; 
-	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700; font-style: italic;
 }
 #content .scene.support .container dl dd {font-size: 40px; padding-bottom:40px; 
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #content .scene.support .container p {color: #ee191b;}
 #content .scene.support .container p.intro {font-size: 18px; padding:30px 0;}
@@ -437,18 +475,18 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.help .container h1 {color: #00027a; font-size: 50px; padding:0 10px; text-transform: uppercase;}
 #content .scene.help .container h2 {color: #00027a; font-size: 40px; padding-top:0;}
 #content .scene.help .container h3 {color: #00027a; font-size: 40px; margin:40px 0;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #content .scene.help .container p {color: #00027a; font-size: 14px; line-height: 20px;}
 #content .scene.help .container p.intro {font-size: 18px; padding:30px 0; line-height: 26px; margin-bottom: 20px;}
 #content .scene.help .container p.download a {color: #ee191b; background-color: #00027a; padding:10px; font-size: 24px; text-transform: uppercase; line-height: 3rem; box-shadow: 10px 0 0 #00027a, -10px 0 0 #00027a;
-	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700; font-style: italic;
 }
 #content .scene.help .container dl {width: 350px; margin: 0 auto;}
 #content .scene.help .container dl dt,
 #content .scene.help .container dl dd {display: block; font-size: 18px; color: #00027a;}
 #content .scene.help .container dl dt {
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #content .scene.help .container dl dd {padding:6px 0 30px; text-transform: none; line-height: 24px;}
 .help_us #page #header,
@@ -458,23 +496,23 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 /*s-primeminister-desktop.css*/
 #content .scene.primeminister {padding: 100px 0 60px;}
 #content .scene.primeminister h2 {color: #00027a; line-height:1em; 
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
 }
 #content .scene.primeminister h3 {font-size:32px; color:#00027a; padding:10px 0; text-align: center;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 #content .scene.primeminister .introduction {width:600px; margin:0 auto; text-align: center;}
 #content .scene.primeminister .introduction p {color: #00027a;}
 #content .scene.primeminister .introduction p a {text-decoration:underline;}
 #content .scene.primeminister .introduction p.send a {background-color: #00027a; color: #ee191b; padding:0 4px; font-size: 30px; text-transform:uppercase; text-decoration:none; 
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 #content .scene.primeminister .introduction p.send a:hover {background-color: #ee191b; color: #00027a;}
 #content .scene.primeminister ul.items {width:960px; margin:0 auto; text-align: center;}
 #content .scene.primeminister ul.items li {display:inline-block; vertical-align:top; width:280px; height:240px; padding:10px; font-size: 1em; margin:0 10px 20px;}
 #content .scene.primeminister ul.items li.item {background-color: #ee191b; cursor: pointer;}
 #content .scene.primeminister ul.items li.item h3 {font-size:21px; color:#00027a; padding:10px 0 5px; text-align: center;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 #content .scene.primeminister ul.items li.item p {font-size:16px; color:#00027a; text-align: center;
 	font-family: Arial, sans-serif;
@@ -484,7 +522,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.primeminister ul.items li.item .image .play_bn {display:none; position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #00027a;}
 #content .scene.primeminister ul.items li.item .image:hover .play_bn {display:block;}
 #content .scene.primeminister ul.items li.item .image .play_bn p {color: #ee191b; font-size:21px; text-transform: uppercase; margin-top: 20px; cursor: pointer;
-	font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -498,23 +536,34 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 
 /*s-interview-desktop.css*/
 #content .scene.interview {padding: 100px 0 60px;}
-#content .scene.interview h2 {color: #ee191b; line-height:1em; font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;}
-#content .scene.interview h3 {font-size:32px; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; color:#ee191b; padding:10px 0; text-align: center;}
+#content .scene.interview h2 {color: #ee191b; line-height:1em; 
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
+}
+#content .scene.interview h3 {font-size:32px; color:#ee191b; padding:10px 0; text-align: center;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
 #content .scene.interview .introduction {width:600px; margin:0 auto; text-align: center; padding-bottom:40px;}
 #content .scene.interview .introduction p {color: #ee191b;}
 #content .scene.interview .introduction p a {text-decoration:underline;}
-#content .scene.interview .introduction p.send a {background-color: #ee191b; color: #00027a; padding:0 4px; font-size: 30px; text-transform:uppercase; text-decoration:none; font-family:'HelveticaNeueW01-77BdCn 692722';}
+#content .scene.interview .introduction p.send a {background-color: #ee191b; color: #00027a; padding:0 4px; font-size: 30px; text-transform:uppercase; text-decoration:none; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
 #content .scene.interview .introduction p.send a:hover {background-color: #00027a; color: #ee191b;}
 #content .scene.interview ul.items {width:960px; margin:0 auto; text-align: center;}
 #content .scene.interview ul.items li {display:inline-block; vertical-align:top; width:280px; height:240px; padding:10px; font-size: 1em; margin:0 20px 20px 0;}
 #content .scene.interview ul.items li.item {background-color: #00027a; cursor: pointer;}
-#content .scene.interview ul.items li.item h3 {font-size:21px; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; color:#ee191b; padding:10px 0 5px; text-align: center;}
-#content .scene.interview ul.items li.item p {font-size:16px; font-family: Arial, sans-serif; color:#ee191b; text-align: center;}
+#content .scene.interview ul.items li.item h3 {font-size: 21px; color:#ee191b; padding:10px 0 5px; text-align: center;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
+#content .scene.interview ul.items li.item p {font-size: 16px; color: #ee191b; text-align: center;
+	font-family: Arial, sans-serif;
+}
 #content .scene.interview ul.items li.item .image {position: relative; background-color: #00027a; height:157px; overflow: hidden;}
 #content .scene.interview ul.items li.item .image img {margin-top:-27px;}
 #content .scene.interview ul.items li.item .image .play_bn {display:none; position: absolute; width:70px; height:70px; top: 50%; left: 50%; margin: -35px; border-radius: 35px; background: #ee191b;}
 #content .scene.interview ul.items li.item .image:hover .play_bn {display:block;}
-#content .scene.interview ul.items li.item .image .play_bn p {color: #00027a; font-size:21px; text-transform: uppercase; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif; margin-top: 20px; cursor: pointer;
+#content .scene.interview ul.items li.item .image .play_bn p {color: #00027a; font-size:21px; text-transform: uppercase; margin-top: 20px; cursor: pointer;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;
@@ -522,15 +571,21 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 	        user-select: none;
 }
 #content .scene.interview ul.items li.item .image img {width: 100%;}
-#content .scene.interview ul.items li.more a {display:block; background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; background-size: 100% auto; cursor: pointer; height: 300px;}
+#content .scene.interview ul.items li.more a {display: block; background-size: 100% auto; cursor: pointer; height: 300px;
+	background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; 
+}
 #content .scene.interview ul.items li.item .youtube {width:100%; height:100%;}
-#content .scene.interview .youtube {display:none; position:absolute; width:720px; background-color: #ee191b; left: 50%; margin-left: -414px; padding:44px; z-index:99;}
+#content .scene.interview .youtube {z-index: 99; display:none; position:absolute; width:720px; background-color: #ee191b; left: 50%; margin-left: -414px; padding:44px;}
 #content .scene.interview .youtube iframe {}
 #content .scene.interview .youtube h3,
 #content .scene.interview .youtube p {display: inline-block; vertical-align: top; width:49%; color: #00027a;}
-#content .scene.interview .youtube h3 {text-align: left; font-size:21px; font-family:'HelveticaNeueW01-77BdCn 692722', Arial, sans-serif;}
+#content .scene.interview .youtube h3 {text-align: left; font-size:21px; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+}
 #content .scene.interview .youtube p {padding: 10px 0; text-align: right;}
-#content .scene.interview .youtube .close {display:block; width:24px; height:22px; position: absolute; padding:10px; right:0px; top:0px; cursor: pointer; background: url("/img/gx_nav_icon_close_blue.png") no-repeat center; z-index: 101;}
+#content .scene.interview .youtube .close {z-index: 101; display:block; width:24px; height:22px; position: absolute; padding:10px; right:0px; top:0px; cursor: pointer; 
+	background: url("/img/gx_nav_icon_close_blue.png") no-repeat center;
+}
 #content .scene.interview p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #ee191b; padding-bottom: 80px;}
 
 /*s-declaration-desktop.css*/
@@ -538,11 +593,11 @@ body.declaration {background: #ffffff;}
 body.declaration #header {display: none;}
 body.declaration #content .scene a {text-decoration: underline;}
 body.declaration #content .scene {width: 737px; padding: 50px 0 70px; margin: 0 auto; position: relative;}
-body.declaration #content .scene h1 {padding: 0 0 10px; font-size: 20px;
-	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
+body.declaration #content .scene h1 {padding: 0 0 10px; font-size: 20px; text-transform: uppercase;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
-body.declaration #content .scene h2 {padding: 0 0 10px; font-size: 20px;
-	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
+body.declaration #content .scene h2 {padding: 0 0 10px; font-size: 20px; text-transform: uppercase;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 body.declaration #content .scene .vcard {font-size: 0; padding: 0 0 30px; text-align: center;}
 body.declaration #content .scene .vcard .name {font-size: 58px; padding: 0 0 6px;}
@@ -586,12 +641,12 @@ body.declaration #content .scene input {border-radius: 0;
 	-webkit-appearance: none;
 	-moz-appearance: textfield;
 }
-body.declaration #content .scene .actions input {border: 1px solid #000000; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 18px; cursor: pointer;
-	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase;
+body.declaration #content .scene .actions input {border: 1px solid #000000; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 18px; cursor: pointer; text-transform: uppercase;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 body.declaration #content .scene .actions input:hover {background: #ffffff; color: #000000; border: 1px solid #000000;}
-body.declaration #content .scene .back {position: relative; z-index:100; top: -30px; background: #000000; color: #ffffff; padding: 6px 20px; font-size: 14px; display: inline-block; cursor: pointer;
-	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif; text-transform: uppercase; border: 1px solid #000000;
+body.declaration #content .scene .back {position: relative; z-index:100; top: -30px; background: #000000; color: #ffffff; padding: 6px 20px; font-size: 14px; display: inline-block; cursor: pointer; text-transform: uppercase; border: 1px solid #000000;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 body.declaration #content .scene .back:hover {background: #ffffff; color: #000000; border: 1px solid #000000;}
 body.declaration #content .scene .close {position: fixed; top: 0; right: 0;}
@@ -624,7 +679,7 @@ body.declaration #content .scene.signature {padding-bottom: 40px;}
 #content .scene.signature div.signatureform {height: 201px;}
 #content .scene.signature p {padding: 0 0 30px; font-size: 13px; text-align: center;}
 body.declaration #content .scene ul.actions li.reset {background: #000000; color: #ffffff; padding: 8px 20px; font-size: 14px; display: inline-block; cursor: pointer; text-transform: uppercase; margin-right: 10px; border: 1px solid #000000;
-	font-family: 'HelveticaNeueW01-77BdCn 692722',Arial,sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
 }
 @media all and (-webkit-min-device-pixel-ratio:0) {
 	body.declaration #content .scene ul.actions li.reset {line-height: 12px;}

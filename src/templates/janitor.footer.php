@@ -2,7 +2,7 @@
 
 	<div id="navigation">
 		<ul>
-			<?= $HTML->link("Forside", "/janitor/counter/list", array("wrapper" => "li.counter")) ?>
+			<?= $HTML->link("Forside", "/janitor/introduction/list", array("wrapper" => "li.introduction")) ?>
 			<?= $HTML->link("Videoer", "/janitor/video/list", array("wrapper" => "li.video")) ?>
 
 			<?= $HTML->link("Aktioner", "/janitor/action/list", array("wrapper" => "li.action")) ?>

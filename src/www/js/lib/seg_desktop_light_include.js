@@ -5,7 +5,7 @@ document.write('<script type="text/javascript" src="/js/manipulator/v0_9/src/u-t
 
 document.write('<script type="text/javascript" src="/js/lib/desktop_light/i-page-desktop_light.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-footer-desktop.js"></script>');
-document.write('<script type="text/javascript" src="/js/lib/desktop/i-fonts-desktop.js"></script>');
+//document.write('<script type="text/javascript" src="/js/lib/desktop/i-fonts-desktop.js"></script>');
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-scene-desktop.js"></script>');
 
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-front-desktop.js"></script>');

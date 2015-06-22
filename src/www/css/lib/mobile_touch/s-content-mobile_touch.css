@@ -1,10 +1,4 @@
 /*
-font-family:'HelveticaNeueW02-77BdCn 694069';			Condensed Bold Oblique
-font-family:'HelveticaNeueW02-97Blac';					Condensed Black
-font-family:'HelveticaNeueW01-77BdCn 692722';			Condensed Bold
-font-family:'HelveticaNeueW02-BlackC';					Condensed Black Oblique
-
-
 blue: #00027a;
 red:  #ee191b;
 */
@@ -23,10 +17,12 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 	/*	width:100%; */
 }
 #content .scene h1 {text-align: center; padding: 50px 0; font-size: 30px; 
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
+/*	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;*/
 }
 #content .scene h2 {text-align: center; padding: 50px 0 40px 0; text-transform: uppercase; font-size:25px;
-	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
+/*	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;*/
 }
 #content .scene h3 {text-align: center; padding: 10px 0; text-transform: uppercase; font-size:16px;
 	font-family: Arial;
@@ -45,7 +41,8 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 
 #content .scene .next,
 #content .scene .previous {position: absolute; top: 20px; padding: 15px 0 10px; font-size: 16px; text-transform: uppercase;
-	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700; font-style: italic;
+/*	font-family:'HelveticaNeueW02-77BdCn 694069', Arial, sans-serif;*/
 	-webkit-user-select: none;
 	 -khtml-user-select: none;
 	   -moz-user-select: none;

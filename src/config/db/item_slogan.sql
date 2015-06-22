@@ -6,8 +6,6 @@ CREATE TABLE `SITE_DB`.`item_slogan` (
   `url` varchar(255) NOT NULL,
   `position` int(11) DEFAULT '0',
 
-  `files` text NOT NULL,
-
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `item_id` (`item_id`),

@@ -1,10 +1,4 @@
 /*
-font-family:'HelveticaNeueW02-77BdCn 694069';			Condensed Bold Oblique
-font-family:'HelveticaNeueW02-97Blac';					Condensed Black
-font-family:'HelveticaNeueW01-77BdCn 692722';			Condensed Bold
-font-family:'HelveticaNeueW02-BlackC';					Condensed Black Oblique
-
-
 blue: #00027a;
 red:  #ee191b;
 */
@@ -15,13 +9,18 @@ red:  #ee191b;
 /*	background: url(/img/mobile/bg_front.png) no-repeat top left; background-size:100% auto;*/
 }
 
-#content .scene.front h1 {color: #00027a; padding-bottom: 20px;}
-#content .scene.front h2 {color: #ee191b; padding-top: 0; padding-bottom: 0; font-size: 45px;
-	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;
+#content .scene.front h1 {display: none;
+	color: #00027a; padding-bottom: 20px;}
+#content .scene.front h2 {color: #00027a; padding: 70px 30px 0; font-size: 40px;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
+/*	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;*/
 }
-#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
 
+/* counter
+#content .scene.front p {color: #00027a; padding-bottom: 20px; text-align: center;}
 #content .scene.front h2 span {display: inline-block; padding: 5px 7px 5px 8px; background: #00027a; margin: 0 3px;}
+*/
+
 #content .scene.front .logo {width: 312px; height: 172px; left:50%; margin-left:-156px; position:absolute; padding-top: 0px; z-index:10;
 	background: url("/img/gx_logo_front.png") no-repeat bottom center;
 	background-size: 100% auto;
@@ -30,7 +29,12 @@ red:  #ee191b;
 
 #content .scene.front .container {display: none;}
 
-#content .scene.front ul.items {overflow: hidden;}
-#content .scene.front ul.items li.item {height: 100%;}
+#content .scene.front ul.items {overflow: hidden; display: table; height: 100%;}
+#content .scene.front ul.items li.item {height: 100%; display: none; height: 100%; vertical-align: middle;}
+
+#content .scene.front ul.items li.item:first-child {display: table-cell;}
+
+/* slogan
 #content .scene.front ul.items li.item div.image {height: 100%; font-size: 0; text-align: center;}
 #content .scene.front li.item img {height: 100%; display: inline-block; vertical-align: top;}
+*/

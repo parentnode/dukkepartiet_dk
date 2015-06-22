@@ -4843,11 +4843,6 @@ Util.Objects["footer"] = new function() {
 	}
 }
 
-/*i-fonts-desktop.js*/
-var fonts_com_url = '<script type="text/javascript" src="https://fast.fonts.net/jsapi/013abfcd-c15e-468e-aebc-4b44edca5e9f.js"></script>';
-document.write(fonts_com_url);
-
-
 /*i-front-mobile_touch.js*/
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
@@ -4896,65 +4891,6 @@ Util.Objects["front"] = new function() {
 	}
 }
 
-
-/*i-carousel-mobile_touch.js*/
-Util.Objects["carousel"] = new function() {
-	this.init = function(list) {
-		list.resized = function() {
-		}
-		list.scrolled = function() {
-		}
-		list.ready = function() {
-			this.container = u.we(this, "div", {"class": "container"})
-			this.slides = u.qsa('li.item', this);
-			this.current_slide_num = 0;
-			this.current_node = this.slides[0];
-			this.next_node;
-			this._pagination = u.ae(this.container, "div", {"class": "pagination"});
-			this._previous = u.ae(this._pagination, "div", {"class": "next", "html": "Næste"});
-			this._next = u.ae(this._pagination, "div", {"class": "previous", "html": "Forrige"});
-			var i, node;
-			for(i = 0; node = this.slides[i]; i++) {
-				// 
-				u.e.click(this._next);
-				u.e.click(this._previous);
-				this._next.clicked = this._previous.clicked = function(event) {
-					if (u.hc(event.target, "next")) {
-						if (list.current_slide_num == list.slides.length-1) {
-							list.current_slide_num = 0;	
-						} else {
-							list.current_slide_num++;
-						}
-						list.hide(list.current_node);
-						list.show(list.slides[list.current_slide_num]);
-					}
-					if (u.hc(event.target, "previous")) {
-						if (list.current_slide_num != 0) {
-							list.current_slide_num--;
-						} else {
-							list.current_slide_num = list.slides.length-1;
-						}
-						list.hide(list.current_node);
-						list.show(list.slides[list.current_slide_num]);
-					}
-				}
-				if (i == 0) {
-					u.as(node, "display", "block");
-				} else {
-					u.as(node, "display", "none");
-				}
-			}
-		}
-		list.hide = function(node) {
-			u.as(node, "display", "none");
-		}
-		list.show = function(node) {
-			u.as(node, "display", "block");
-			list.current_node = node;
-		}
-		list.ready();
-	}
-}
 
 /*i-declaration-mobile_touch.js*/
 u.bug_force = true;

@@ -13,7 +13,7 @@ red:  #ee191b;
 #content .scene.reform ul.items {display:block; width:100%; font-size: 1rem;}
 #content .scene.reform ul.items li.item {text-align:center; padding:0 20px; margin:0 auto; width:480px; background-color: #00027a; }
 
-#content .scene.reform ul.items li.item p {display: inline; background-color:#ee191b; padding:4px;
-	font-size: 26px; color: #00027a; font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif; line-height: 42px;
-	box-shadow: 10px 0 0 #ee191b, -10px 0 0 #ee191b; margin-top:80px;
+#content .scene.reform ul.items li.item p {display: inline; background-color: #ee191b; padding:4px; font-size: 26px; color: #00027a; line-height: 42px; box-shadow: 10px 0 0 #ee191b, -10px 0 0 #ee191b; margin-top:80px;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
+/*	font-family:'HelveticaNeueW02-97Blac', Arial, sans-serif;*/
 }

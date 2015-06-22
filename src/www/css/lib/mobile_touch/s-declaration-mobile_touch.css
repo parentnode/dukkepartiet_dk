@@ -24,7 +24,8 @@ body.declaration #content .scene input {border-radius: 0;
 body.declaration #content .scene ul.actions {padding: 10px 0 0; position: relative; height: 36px;}
 body.declaration #content .scene ul.actions li {display: block; margin-bottom: 10px;}
 body.declaration #content .scene ul.actions input {border: 1px solid #000000; background: #000000; color: #ffffff; padding: 5px 20px; line-height: 18px; cursor: pointer; text-transform: uppercase;
-	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+/*	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif;*/
 }
 
 body.declaration #content .scene ul.actions input:active {background: #ffffff; color: #000000; border: 1px solid #000000;}
@@ -35,7 +36,8 @@ body.declaration #content .scene ul.actions input.disabled:active {background: #
 
 /* BACK */
 body.declaration #content .scene .back {position: relative; z-index:100; background: #999999; color: #ffffff; padding: 10px 20px; font-size: 14px; cursor: pointer; text-transform: uppercase; text-align: center;
-	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif;
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+/*	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif;*/
 }
 body.declaration #content .scene .back:active {background: #000000; color: #ffffff;}
 
@@ -118,7 +120,8 @@ body.declaration #content .scene.signature canvas.signature.correct {border: 2px
 body.declaration #content .scene.signature form {padding-bottom: 20px; border-bottom: 1px solid #dedede; margin-bottom: 20px;}
 body.declaration #content .scene.signature ul.actions li.preview {position: absolute; top: 10px; right: 0;}
 body.declaration #content .scene.signature ul.actions li.reset {background: #999999; color: #ffffff; padding: 10px 20px; font-size: 14px; display: inline-block; cursor: pointer; text-transform: uppercase; margin-right: 10px;
-	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif; 
+	font-family:'RobotoCondensed', Arial, sans-serif; font-weight: 700;
+/*	font-family: 'HelveticaNeueW01-77BdCn 692722', Arial,sans-serif;*/
 }
 body.declaration #content .scene.signature ul.actions li.reset:active {background: #fd0000; color: #ffffff;}
 

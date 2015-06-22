@@ -1,3 +1,6 @@
+/* INTRODUCTION */
+#content .defaultList.introductionList ul.items > li h3 {padding-bottom: 16px;}
+
 /* COUNTER */
 #content .defaultList.counterList ul.items > li h3 {padding-bottom: 16px;}
 
@@ -48,6 +51,7 @@
 
 
 /* NAVIGATION */
+body.introduction #navigation .introduction a,
 body.counter #navigation .counter a,
 body.video #navigation .video a,
 body.slogan #navigation .slogan a,

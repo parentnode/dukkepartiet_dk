@@ -1,13 +1,10 @@
 <?php
 global $action;
-
 $IC = new Items();
 $itemtype = "counter";
-
 $items = $IC->getItems(array("itemtype" => $itemtype, "status" => 1, "extend" => true, "limit" => 1));
 if($items) {
 	$item = $items[0];
-
 }
 ?>
 <div class="scene front i:front red">

@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('/css/fonts/Roboto-Black-webfont.woff') format('woff'),
+		 url('/css/fonts/Roboto-Black-webfont.ttf') format('truetype'),
+		 url('/css/fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
+	font-weight: 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/css/fonts/Roboto-BlackItalic-webfont.woff') format('woff'),
+		 url('/css/fonts/Roboto-BlackItalic-webfont.ttf') format('truetype'),
+		 url('/css/fonts/Roboto-BlackItalic-webfont.svg#robotoblack_italic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'RobotoCondensed';
+	src: url('/css/fonts/RobotoCondensed-Bold-webfont.woff') format('woff'),
+		 url('/css/fonts/RobotoCondensed-Bold-webfont.ttf') format('truetype'),
+		 url('/css/fonts/RobotoCondensed-Bold-webfont.svg#roboto_condensedbold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'RobotoCondensed';
+	src: url('/css/fonts/RobotoCondensed-BoldItalic-webfont.woff') format('woff'),
+		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.ttf') format('truetype'),
+		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.svg#roboto_condensedbold_italic') format('svg');
+	font-weight: 700;
+	font-style: italic;
+}
