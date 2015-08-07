@@ -6,8 +6,8 @@ document.write('<script type="text/javascript" src="/js/lib/mobile_touch/i-foote
 
 document.write('<script type="text/javascript" src="/js/lib/mobile_touch/i-front-mobile_touch.js"></script>');
 //document.write('<script type="text/javascript" src="/js/lib/mobile_touch/i-carousel-mobile_touch.js"></script>');
-document.write('<script type="text/javascript" src="/js/lib/mobile_touch/i-declaration-mobile_touch.js"></script>');
-document.write('<script type="text/javascript" src="/js/lib/desktop/u-form-custom.js"></script>');
+//document.write('<script type="text/javascript" src="/js/lib/mobile_touch/i-declaration-mobile_touch.js"></script>');
+//document.write('<script type="text/javascript" src="/js/lib/desktop/u-form-custom.js"></script>');
 
 
 document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');

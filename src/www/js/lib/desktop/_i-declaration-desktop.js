@@ -39,11 +39,12 @@ Util.Objects["signature"] = new function() {
 
 
 			this._signatureform = u.qs("div.signatureform", this);
-
+//			this._slug = u.qs("#slug").value;
+//			this._approved_input = u.qs("#approved")
 
 			// inject help text
 			u.ae(this, "h2", {"html":"Underskriv vælgererklæringen"});
-			u.ae(this, "p", {"html":"Både dato og underskrift skal skrives med hånden/musen.<br />Klik på de røde felter i formularen ovenfor, for at vælge hvilket felt du vil skrive i."});
+			u.ae(this, "p", {"html":"Både DAGS DATO og UNDERSKRIFT skal skrives med hånden/musen.<br />Klik på de røde felter i formularen ovenfor, for at vælge hvilket felt du vil skrive i."});
 
 
 			// signature input
@@ -54,7 +55,7 @@ Util.Objects["signature"] = new function() {
 			this.canvas_signature.width = this.canvas_signature.offsetWidth;
 			this.canvas_signature.height = this.canvas_signature.offsetHeight;
 			this.canvas_signature._context = this.canvas_signature.getContext("2d");
-			this.canvas_signature._context.strokeStyle = "#ee191b";
+			this.canvas_signature._context.strokeStyle = "#000000";
 			this.canvas_signature._context.lineWidth = 0.5;
 			this.canvas_signature.scene = this;
 			this.canvas_signature.paths = {"x_paths":[], "y_paths":[], "paths":[]};
@@ -91,7 +92,7 @@ Util.Objects["signature"] = new function() {
 			this.canvas_date.width = this.canvas_date.offsetWidth;
 			this.canvas_date.height = this.canvas_date.offsetHeight;
 			this.canvas_date._context = this.canvas_date.getContext("2d");
-			this.canvas_date._context.strokeStyle = "#ee191b";
+			this.canvas_date._context.strokeStyle = "#000000";
 			this.canvas_date._context.lineWidth = 0.5;
 			this.canvas_date.scene = this;
 			this.canvas_date.paths = {"x_paths":[], "y_paths":[], "paths":[]};
@@ -149,7 +150,7 @@ Util.Objects["signature"] = new function() {
 					this.canvas_input.width = 733;
 					this.canvas_input.height = 121;
 					this.canvas_input._context = this.canvas_input.getContext("2d");
-					this.canvas_input._context.strokeStyle = "#ee191b";
+					this.canvas_input._context.strokeStyle = "#000000";
 					this.canvas_input._context.lineWidth = 2;
 					this.canvas_input.scene = this;
 
@@ -340,6 +341,7 @@ Util.Objects["signature"] = new function() {
 				}
 				else {
 
+//					this.scene._approved_input.value = 1;
 					this.scene._form.submit();
 				}
 
@@ -352,7 +354,10 @@ Util.Objects["signature"] = new function() {
 
 			u.e.click(this.bn_back);
 			this.bn_back.clicked = function(event) {
+//				this.scene._approved_input.value = 0;
+
 				this.scene._form.action = "/vaelgererklaering";
+//				this.scene._form.action = "/"+this.scene._slug;
 				this.scene._form.submit();
 			}
 
@@ -406,6 +411,7 @@ Util.Objects["preview"] = new function() {
 
 			this._signatureform = u.qs("div.signatureform", this);
 			this._form = u.qs("form", this);
+			this._approved_input = u.qs("#approved")
 
 			// signature input
 			this.div_signature = u.ae(this._signatureform, "div", {"class":"signature"});
@@ -415,10 +421,10 @@ Util.Objects["preview"] = new function() {
 			this.canvas_signature.width = this.canvas_signature.offsetWidth;
 			this.canvas_signature.height = this.canvas_signature.offsetHeight;
 			this.canvas_signature._context = this.canvas_signature.getContext("2d");
-			this.canvas_signature._context.strokeStyle = "#ee191b";
+			this.canvas_signature._context.strokeStyle = "#000000";
 			this.canvas_signature._context.lineWidth = 0.5;
 			this.canvas_signature.scene = this;
-			this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").value).replace(/\\/g, ""));
+			this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").innerHTML).replace(/\\/g, ""));
 			
 
 
@@ -430,10 +436,10 @@ Util.Objects["preview"] = new function() {
 			this.canvas_date.width = this.canvas_date.offsetWidth;
 			this.canvas_date.height = this.canvas_date.offsetHeight;
 			this.canvas_date._context = this.canvas_date.getContext("2d");
-			this.canvas_date._context.strokeStyle = "#ee191b";
+			this.canvas_date._context.strokeStyle = "#000000";
 			this.canvas_date._context.lineWidth = 0.5;
 			this.canvas_date.scene = this;
-			this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").value).replace(/\\/g, ""));
+			this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").innerHTML).replace(/\\/g, ""));
 
 
 
@@ -499,6 +505,7 @@ Util.Objects["preview"] = new function() {
 
 			u.e.click(this.bn_back);
 			this.bn_back.clicked = function(event) {
+				this.scene._approved_input.value = 0;
 				this.scene._form.action = "/vaelgererklaering/signature";
 				this.scene._form.submit();
 			}
@@ -510,4 +517,32 @@ Util.Objects["preview"] = new function() {
 	}
 }
 
-u.e.addDOMReadyEvent(u.init);
+Util.Objects["upload"] = new function() {
+	this.init = function(scene) {
+
+		scene.ready = function() {
+
+			this._form = u.qs("form", this);
+			this._form.div = this;
+			u.f.init(this._form);
+
+			this._form.p = u.ae(this._form.fields["declaration"].field, "p", {"html":"Træk din vælgererklæring her,<br />eller klik for at vælge den fra din computer"});
+			this._form.fields["declaration"].changed = function() {
+				u.f.validate(this);
+				this.form.p.innerHTML = this.files[0].name;
+			}
+
+			this._form.submitted = function() {
+//				if(!u.qsa(".field.error", this)) {
+					u.ac(this.actions["send"], "wait");
+					this.actions["send"].value = "Vent";
+					this.DOMsubmit();
+//				}
+			}
+
+		}
+
+		scene.ready();
+
+	}
+}

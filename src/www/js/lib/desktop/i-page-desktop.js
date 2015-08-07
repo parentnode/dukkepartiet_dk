@@ -24,7 +24,7 @@ Util.Objects["page"] = new function() {
 
 			// global resize handler 
 			page.resized = function() {
-				u.bug("page resized");
+//				u.bug("page resized");
 
 				page.browser_h = u.browserHeight();
 				page.browser_w = u.browserWidth();
@@ -63,7 +63,7 @@ Util.Objects["page"] = new function() {
 
 			// global scroll handler 
 			page.scrolled = function() {
-				u.bug("page scrolled" + page.scenes.length);
+//				u.bug("page scrolled" + page.scenes.length);
 
 				page.scroll_y = u.scrollY();
 
@@ -102,7 +102,7 @@ Util.Objects["page"] = new function() {
 
 			// Page is ready - called from several places, evaluates when page is ready to be shown
 			page.ready = function() {
-				u.bug("page ready")
+//				u.bug("page ready")
 
 				// page is ready to be shown - only initalize if not already shown
 				if(!this.is_ready) {

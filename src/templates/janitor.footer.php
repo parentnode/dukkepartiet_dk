@@ -16,8 +16,8 @@
 			<?//= $HTML->link("Doktriner/Program", "/janitor/doctrine/list", array("wrapper" => "li.doctrine")) ?>
 			<?//= $HTML->link("Kandidater (print maske)", "/janitor/candidate/list", array("wrapper" => "li.candidate")) ?>
 
-			<li class="declaration"><a href="/janitor/declaration/list">Nye eklæringer</a></li>
-			<li class="approved"><a href="/janitor/approved/list">Godkendte eklæringer</a></li>
+			<!--li class="declaration"><a href="/janitor/declaration/list">Nye eklæringer</a></li-->
+			<!--li class="approved"><a href="/janitor/approved/list">Godkendte eklæringer</a></li-->
 
 			<?//= $HTML->link("Tags", "/janitor/admin/tag/list", array("wrapper" => "li.tags")) ?>
 		</ul>

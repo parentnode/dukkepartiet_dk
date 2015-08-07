@@ -6984,14 +6984,12 @@ Util.Objects["scene"] = new function() {
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			u.bug("scene.resized:" + u.nodeId(this));
 			u.as(this, "height", page.browser_h+"px", false);
 			if(this._h1) {
 				u.as(this._h1, "paddingTop", (page.browser_h/2)+"px", false);
 			}
 		}
 		scene.scrolled = function() {
-			u.bug("scene.scrolled:" + u.nodeId(this));
 			if(page.scroll_y > page.browser_h) {
 				if(u.hc(page, "no_logo")) {
 					u.rc(page, "no_logo");
