@@ -3,8 +3,8 @@ CREATE TABLE `SITE_DB`.`item_introduction` (
   `item_id` int(11) NOT NULL,
 
   `name` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  `url` varchar(255) NOT NULL,
+  `text` text NOT NULL DEFAULT '',
+  `url` varchar(255) NOT NULL DEFAULT '',
   `position` int(11) DEFAULT '0',
 
   PRIMARY KEY (`id`),

@@ -3,7 +3,7 @@ CREATE TABLE `SITE_DB`.`item_counter` (
   `item_id` int(11) NOT NULL,
 
   `name` varchar(255) NOT NULL,
-  `text` text NOT NULL,
+  `text` text NOT NULL DEFAULT '',
 
   `counter` int(11) DEFAULT '0',
 

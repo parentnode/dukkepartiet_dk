@@ -3,7 +3,7 @@ CREATE TABLE `SITE_DB`.`item_vision` (
   `item_id` int(11) NOT NULL,
 
   `name` varchar(255) NOT NULL,
-  `vision` text NOT NULL,
+  `vision` text NOT NULL DEFAULT '',
 
   `position` int(11) DEFAULT '0',
 

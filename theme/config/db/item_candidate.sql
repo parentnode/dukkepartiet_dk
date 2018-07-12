@@ -3,14 +3,14 @@ CREATE TABLE `SITE_DB`.`item_candidate` (
   `item_id` int(11) NOT NULL,
 
   `name` varchar(255) NOT NULL,
-  `area` varchar(255) NOT NULL,
-  `link` varchar(255) NOT NULL,
-  `responsibilities` text NOT NULL,
-  `background` text NOT NULL,
+  `area` varchar(255) NOT NULL DEFAULT '',
+  `link` varchar(255) NOT NULL DEFAULT '',
+  `responsibilities` text NOT NULL DEFAULT '',
+  `background` text NOT NULL DEFAULT '',
   
   `position` int(11) DEFAULT '0',
 
-  `files` text NOT NULL,
+  `files` text NOT NULL DEFAULT '',
 
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
