@@ -1,0 +1,63 @@
+ /* HOVERS*/
+
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+/* Top menu */
+#header.open #navigation.red ul.primary li a:active {background-color:#ee191b; color:#00027a;}
+#header.open #navigation.blue ul.primary li a:active {background-color:#00027a; color:#ee191b;}
+#header #navigation.red .nav_icon:active {background-image: url("/img/gx_nav_icon_red.png"); background-color:#00027a;}
+#header.open #navigation.red .nav_icon:active {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color:#ee191b;}
+#header #navigation.blue .nav_icon:active {background-image: url("/img/gx_nav_icon_blue.png"); background-color:#ee191b;}
+#header.open #navigation.blue .nav_icon:active {background-image: url("/img/gx_nav_icon_close_red.png"); background-color:#00027a;}
+#header #navigation.red ul.servicenavigation li.help_us a:active {background-image: url("/img/bn_help_us_blue.png");}
+#header #navigation.red ul.servicenavigation li.support_us a:active {background-image: url("/img/bn_support_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.help_us a:active {background-image: url("/img/bn_help_us_red.png");}
+#header #navigation.blue ul.servicenavigation li.support_us a:active {background-image: url("/img/bn_support_us_red.png");}
+	/* front nav */
+#content .scene.front ul.servicenavigation li.support_us a:active {background-image: url("/img/bn_support_us_blue.png");}
+#content .scene.front ul.servicenavigation li.help_us a:active {background-image: url("/img/bn_help_us_blue.png");}
+
+	/* social */
+#header #navigation.blue .social ul li.facebook a:active {background-image: url("/img/bn_fb_red.png");}
+#header #navigation.blue .social ul li.youtube a:active {background-image: url("/img/bn_yt_red.png");}
+#header #navigation.blue .social ul li.twitter a:active {background-image: url("/img/bn_tw_red.png");}
+#header #navigation.blue .social ul li.instagram a:active {background-image: url("/img/bn_ig_red.png");}
+#header #navigation.red .social ul li.facebook a:active {background-image: url("/img/bn_fb_blue.png");}
+#header #navigation.red .social ul li.youtube a:active {background-image: url("/img/bn_yt_blue.png");}
+#header #navigation.red .social ul li.twitter a:active {background-image: url("/img/bn_tw_blue.png");}
+#header #navigation.red .social ul li.instagram a:active {background-image: url("/img/bn_ig_blue.png");}
+
+
+/* BACK BN */
+#content .scene.red .close a:active {background-color: #00027a;
+	background-image: url("/img/gx_nav_icon_back_red.png");
+}
+#content .scene.blue .close a:active {background-color: #ee191b;
+	background-image: url("/img/gx_nav_icon_back_blue.png");
+}
+
+/* YOUTUBE CLOSE */
+body #youtube .close:active {background-color: #ee191b;
+	background-image: url("/img/gx_nav_icon_close_blue.png");
+}
+
+
+#content .scene.help .container p.download a:active {color: #00027a; background-color: #ee191b; box-shadow: 10px 0 0 #ee191b, -10px 0 0 #ee191b;}
+
+
+/* prev/next */
+#content .scene.red .next:active,
+#content .scene.red .previous:active {color: #ee191b; background-color: #00027a;}
+#content .scene.blue .next:active,
+#content .scene.blue .previous:active {color: #00027a; background-color: #ee191b;}
+
+
+/* events */
+.events #content .scene.events ul.items li.item:active {background-color: #00027a;}
+.events #content .scene.events ul.items li.item:active h3 {color:#ee191b;}
+.events #content .scene.events ul.items li.item:active dl dd.published_at {color:#ee191b;}
+.events #content .scene.events ul.items li.item:active dl dd.location {color:#ee191b;}
+

@@ -1,0 +1,24 @@
+@import url(/css/lib/s-fonts.css);
+
+@import url(/css/lib/desktop/s-page.css);
+@import url(/css/lib/desktop/s-content.css);
+@import url(/css/lib/desktop/s-footer.css);
+@import url(/css/lib/desktop/s-header.css);
+
+@import url(/css/lib/desktop/s-front.css);
+@import url(/css/lib/desktop/s-video.css);
+@import url(/css/lib/desktop/s-action.css);
+@import url(/css/lib/desktop/s-program.css);
+@import url(/css/lib/desktop/s-events.css);
+@import url(/css/lib/desktop/s-bill.css);
+@import url(/css/lib/desktop/s-mask.css);
+@import url(/css/lib/desktop/s-vision.css);
+@import url(/css/lib/desktop/s-support.css);
+@import url(/css/lib/desktop/s-help.css);
+@import url(/css/lib/desktop/s-primeminister.css);
+@import url(/css/lib/desktop/s-interview.css);
+
+/*@import url(/css/lib/desktop/s-declaration.css);*/
+
+@import url(/css/lib/desktop/s-mediaquery.css);
+@import url(/css/lib/tablet/s-active.css);
