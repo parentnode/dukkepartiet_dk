@@ -49,7 +49,7 @@ Util.Objects["dataform"] = new function() {
 
 Util.Objects["signature"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 		
 		// resize scene
 		scene.resized = function() {
@@ -446,16 +446,20 @@ Util.Objects["signature"] = new function() {
 
 Util.Objects["preview"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 		
 		// resize scene
 		scene.resized = function() {
 			
 			// adjust preview to screen
-			u.a.origin(this._preview, 0, 0);
-			u.a.scale(this._preview, (this._form.offsetWidth / this._preview.offsetWidth));
+			u.ass(this._preview, { 
+				"transform-origin":"0 0",
+				"transform":"scale("+(this._form.offsetWidth / this._preview.offsetWidth)+")"
+			});
 
-			u.a.setHeight(this._preview_wrapper, this._preview.offsetHeight * (this._form.offsetWidth / this._preview.offsetWidth));
+			u.ass(this._preview_wrapper, { 
+				"height":this._preview.offsetHeight * (this._form.offsetWidth / this._preview.offsetWidth) + "px"
+			});
 
 		}
 

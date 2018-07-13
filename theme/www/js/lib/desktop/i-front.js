@@ -1,10 +1,10 @@
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 		
 		// resize scene
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+//			u.bug("scene.resized:", this);
 
 			// front height
 			u.as(this, "height", page.browser_h+"px", false);
@@ -16,7 +16,7 @@ Util.Objects["front"] = new function() {
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scene.scrolled:" + u.nodeId(this));
+//			u.bug("scene.scrolled:", this);
 
 //			u.bug("scroll_y: " + scroll_y);
 			// hide logo
@@ -66,7 +66,7 @@ Util.Objects["front"] = new function() {
 
 
 		scene.ready = function() {
-//			u.bug("scene.ready:" + u.nodeId(this));
+//			u.bug("scene.ready:", this);
 
 
 			// after loading all scenes

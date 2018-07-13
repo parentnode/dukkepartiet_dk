@@ -23,8 +23,8 @@ document.write('<script type="text/javascript" src="/js/lib/desktop/i-interview.
 document.write('<script type="text/javascript" src="/js/lib/desktop/i-vision.js"></script>');
 
 
-//document.write('<script type="text/javascript" src="/js/lib/desktop/i-declaration-desktop.js"></script>');
-//document.write('<script type="text/javascript" src="/js/lib/desktop/u-form-custom.js"></script>');
+// document.write('<script type="text/javascript" src="/js/lib/desktop/i-declaration.js"></script>');
+// document.write('<script type="text/javascript" src="/js/lib/desktop/u-form-custom.js"></script>');
 
 document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');
 document.write('<script type="text/javascript" src="/js/manipulator/v0_9_2-dukkepartiet_dk/src/u-googleanalytics.js"></script>');

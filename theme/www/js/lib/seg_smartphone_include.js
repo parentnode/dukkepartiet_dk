@@ -5,10 +5,9 @@ document.write('<script type="text/javascript" src="/js/lib/smartphone/i-footer.
 
 document.write('<script type="text/javascript" src="/js/lib/smartphone/i-front.js"></script>');
 
-//document.write('<script type="text/javascript" src="/js/lib/smartphone/i-carousel.js"></script>');
 
-//document.write('<script type="text/javascript" src="/js/lib/smartphone/i-declaration.js"></script>');
-//document.write('<script type="text/javascript" src="/js/lib/desktop/u-form-custom.js"></script>');
+// document.write('<script type="text/javascript" src="/js/lib/smartphone/i-declaration.js"></script>');
+// document.write('<script type="text/javascript" src="/js/lib/desktop/u-form-custom.js"></script>');
 
 
 document.write('<script type="text/javascript" src="/js/lib/ga.js"></script>');

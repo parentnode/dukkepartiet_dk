@@ -24,8 +24,10 @@ session()->value("dev", $dev);
 	<p>Husk at sende den til os hurtigst muligt!</p>
 	<p>
 		Du gør det meget hurtigt og nemt ved at tage et foto af den med din smartphone og uploade den til os: 
-		<a href="<?= SITE_URL ?>/upload"><?= SITE_URL ?>/upload</a>.
 	</p>
+	<ul class="actions">
+		<li class="preview"><input type="button" value="Upload vælgererklæring" onclick="location.href='/upload'" /></li>
+	</ul>
 
 	<p class="regards">Med venlig hilsen</p>
 	<h2>Dukkepartiet</h2>

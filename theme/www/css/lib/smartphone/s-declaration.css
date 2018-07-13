@@ -185,6 +185,7 @@ body.declaration #content .scene.preview ul.actions {padding: 0; text-align: rig
 body.declaration #content .scene.receipt p {text-align: center;}
 body.declaration #content .scene.receipt p.regards {padding: 27px 0 9px;}
 body.declaration #content .scene.receipt h2 {font-weight: 800;}
+body.declaration #content .scene.receipt .actions {text-align: center;}
 
 body.declaration #content .scene.receipt .actions li a {font-size: 16px; text-decoration: underline;}
 

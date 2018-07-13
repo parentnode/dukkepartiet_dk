@@ -3,7 +3,7 @@ Util.Objects["event"] = new function() {
 
 		// resize scene
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+//			u.bug("scene.resized:", this);
 
 			// adjust height of event view
 			u.as(this, "height", page.browser_h+"px");
@@ -13,11 +13,11 @@ Util.Objects["event"] = new function() {
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scene.scrolled:" + u.nodeId(this));
+//			u.bug("scene.scrolled:", this);
 		}
 
 		scene.ready = function() {
-//			u.bug("scene.ready:" + u.nodeId(this));
+//			u.bug("scene.ready:", this);
 
 			page.scenes.push(this);
 			this.ul = u.qs("ul.items", this);

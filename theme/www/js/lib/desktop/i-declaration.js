@@ -11,7 +11,7 @@ Util.Objects["dataform"] = new function() {
 
 Util.Objects["signature"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 		
 		// resize scene
 		scene.resized = function() {
@@ -403,7 +403,7 @@ Util.Objects["signature"] = new function() {
 
 Util.Objects["preview"] = new function() {
 	this.init = function(scene) {
-//		u.bug("scene init:" + u.nodeId(scene))
+		// u.bug("scene init:", scene);
 		
 
 		scene.ready = function() {

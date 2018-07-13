@@ -3,17 +3,17 @@ Util.Objects["mask"] = new function() {
 
 		// resize scene
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+//			u.bug("scene.resized:", this);
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scene.scrolled:" + u.nodeId(this));
+//			u.bug("scene.scrolled:", this);
 		}
 
 
 		scene.ready = function() {
-//			u.bug("scene.ready:" + u.nodeId(this));
+//			u.bug("scene.ready:", this);
 
 			page.scenes.push(this);
 

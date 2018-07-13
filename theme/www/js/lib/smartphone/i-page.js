@@ -53,7 +53,7 @@ Util.Objects["page"] = new function() {
 
 			// global scroll handler 
 			page.scrolled = function() {
-				u.bug("page scrolled" + page.scenes.length);
+				u.bug("page scrolled: " + page.scenes.length);
 
 				page.scroll_y = u.scrollY();
 

@@ -3769,7 +3769,7 @@ Util.Objects["page"] = new function() {
 				page.offsetHeight;
 			}
 			page.scrolled = function() {
-				u.bug("page scrolled" + page.scenes.length);
+				u.bug("page scrolled: " + page.scenes.length);
 				page.scroll_y = u.scrollY();
 				if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
 					page.cN.scene.scrolled();
@@ -3853,7 +3853,7 @@ Util.Objects["footer"] = new function() {
 Util.Objects["front"] = new function() {
 	this.init = function(scene) {
 		scene.resized = function() {
-			u.bug("scene.resized:" + u.nodeId(this));
+			u.bug("scene.resized:", this);
 			u.as(this, "height", page.browser_h+"px", false);
 			if(this._h1) {
 				u.as(this._h1, "paddingTop", (this.logo.offsetHeight + 30)+"px", false);

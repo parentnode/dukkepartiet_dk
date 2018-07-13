@@ -3,12 +3,12 @@ Util.Objects["action"] = new function() {
 
 		// resize scene
 		scene.resized = function() {
-//			u.bug("scene.resized:" + u.nodeId(this));
+//			u.bug("scene.resized:", this);
 		}
 
 		// check fold on scroll
 		scene.scrolled = function() {
-//			u.bug("scene.scrolled:" + u.nodeId(this));
+//			u.bug("scene.scrolled:", this);
 		}
 
 

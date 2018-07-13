@@ -3,7 +3,7 @@ Util.Objects["carousel"] = new function() {
 
 		// resize list
 		list.resized = function() {
-//			u.bug("list.resized:" + u.nodeId(this));
+			// u.bug("list.resized:", scene);
 
 			// refresh dom
 			//this.offsetHeight;
@@ -16,7 +16,7 @@ Util.Objects["carousel"] = new function() {
 
 
 		list.ready = function() {
-//			u.bug("list.ready:" + u.nodeId(this));
+			// u.bug("list.ready:", scene);
 			
 			//u.bug("doctrines");
 			this.container = u.we(this, "div", {"class": "container"})

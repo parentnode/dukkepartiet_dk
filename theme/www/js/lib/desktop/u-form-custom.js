@@ -1,6 +1,6 @@
 
 // custom initializations
-Util.Form.customInit["postalcity"] = function(form, field) {
+Util.Form.customInit["postalcity"] = function(_form, field) {
 
 	u.bug("fisk")
 	field._input = u.qs("input.postal", field);
@@ -9,10 +9,13 @@ Util.Form.customInit["postalcity"] = function(form, field) {
 	field._input.field = field;
 	field._input_city.field = field;
 
+	field._input._form = _form;
+	field._input_city._form = _form;
+
 
 	// add input to fields array
-	form.fields[field._input.name] = field._input;
-	form.fields[field._input_city.name] = field._input_city;
+	_form.fields[field._input.name] = field._input;
+	_form.fields[field._input_city.name] = field._input_city;
 
 	u.bug("fisk2")
 
@@ -47,7 +50,7 @@ Util.Form.customInit["postalcity"] = function(form, field) {
 
 
 // custom initializations
-Util.Form.customInit["cpr"] = function(form, field) {
+Util.Form.customInit["cpr"] = function(_form, field) {
 
 	field._input = u.qs("input.cpr1", field);
 
@@ -66,9 +69,12 @@ Util.Form.customInit["cpr"] = function(form, field) {
 	field._input.field = field;
 	field._input_cpr2.field = field;
 
+	field._input._form = _form;
+	field._input_cpr2._form = _form;
+
 	// add input to fields array
-	form.fields[field._input.name] = field._input;
-	form.fields[field._input_cpr2.name] = field._input_cpr2;
+	_form.fields[field._input.name] = field._input;
+	_form.fields[field._input_cpr2.name] = field._input_cpr2;
 
 	// get input label (only label for first input)
 	field._input._label = u.qs("label[for="+field._input.id+"]", field);
