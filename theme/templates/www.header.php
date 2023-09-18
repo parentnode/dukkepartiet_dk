@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?= $this->language() ?>">
 <head>
-	<!-- (c) & (p) think.dk, 2015-2018 //-->
+	<!-- (c) & (p) think.dk, parentnode.dk, 2015-2023 //-->
 	<!-- All material protected by copyrightlaws, as if you didn't know //-->
 	<title><?= $this->pageTitle() ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

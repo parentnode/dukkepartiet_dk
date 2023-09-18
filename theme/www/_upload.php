@@ -44,7 +44,7 @@ if(count($action) == 1 && $action[0] == "send") {
 			copy($temp_file, $declaration_file);
 
 
-			// $page->mail(array(
+			// mailer()->send(array(
 			// 	"recipients" => $slug_email,
 			// 	"subject" => "GODKENT VÆLGERERKLÆRING",
 			// 	"message" => "Godkendt vælgererklæring fra ".SITE_URL,

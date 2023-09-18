@@ -12,7 +12,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "order" => "published_at D
 		<?= $JML->listNew(array("label" => "New event")) ?>
 	</ul>
 
-	<div class="all_items i:defaultList filters"<?= $JML->jsData() ?>>
+	<div class="all_items i:defaultList filters"<?= $HTML->jsData() ?>>
 <?		if($items): ?>
 		<ul class="items">
 <?			foreach($items as $item): ?>

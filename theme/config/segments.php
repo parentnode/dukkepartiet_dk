@@ -4,12 +4,12 @@
 $segments_config["www"] = array(
 	
 	"desktop"       => "desktop",
-	"desktop_ie11"  => "desktop",
-	"desktop_ie10"  => "desktop",
 
 	"smartphone"    => "smartphone",
 
 	"desktop_ie9"   => "unsupported",
+	"desktop_ie11"  => "unsupported",
+	"desktop_ie10"  => "unsupported",
 	"desktop_light" => "unsupported",
 	"tv"            => "unsupported",
 

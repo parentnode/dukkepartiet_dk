@@ -9,6 +9,9 @@
 class TypeSlogan extends Itemtype {
 
 
+	public $db;
+
+
 	/**
 	* Init, set varnames, validation rules
 	*/
@@ -37,7 +40,8 @@ class TypeSlogan extends Itemtype {
 			"type" => "string",
 			"label" => "Url",
 			"required" => false,
-			"hint_message" => "This slogan can link to a subpage"
+			"hint_message" => "This slogan can link to a subpage",
+			"error_message" => "Url is invalid.",
 		));
 
 		// Files

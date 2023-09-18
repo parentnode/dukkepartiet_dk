@@ -12,7 +12,7 @@ $items = $IC->getItems(array("itemtype" => $itemtype, "extend" => true));
 		<?= $JML->listNew(array("label" => "New counter")) ?>
 	</ul>
 
-	<div class="all_items i:defaultList filters sortable"<?= $JML->jsData() ?>>
+	<div class="all_items i:defaultList filters sortable"<?= $HTML->jsData() ?>>
 <?		if($items): ?>
 		<ul class="items">
 <?			foreach($items as $item): 

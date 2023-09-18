@@ -10,6 +10,9 @@
 class TypeCandidate extends Itemtype {
 
 
+	public $db;
+
+
 	/**
 	* Init, set varnames, validation rules
 	*/
@@ -39,7 +42,8 @@ class TypeCandidate extends Itemtype {
 			"label" => "Work area",
 			"required" => false,
 			"hint_message" => "Where does the candidate operate?", 
-			//"error_message" => "Name must be filled out"
+			//"error_message" => "Name must be filled out",
+			"error_message" => "Area is invalid.",
 		));
 
 		// Link
@@ -48,7 +52,8 @@ class TypeCandidate extends Itemtype {
 			"label" => "Online profile",
 			"required" => false,
 			"hint_message" => "Link to online profile", 
-			//"error_message" => "Name must be filled out"
+			//"error_message" => "Name must be filled out",
+			"error_message" => "Link is invalid.",
 		));
 
 

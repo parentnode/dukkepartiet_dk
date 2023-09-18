@@ -9,6 +9,9 @@
 class TypeIntroduction extends Itemtype {
 
 
+	public $db;
+
+
 	/**
 	* Init, set varnames, validation rules
 	*/
@@ -45,7 +48,8 @@ class TypeIntroduction extends Itemtype {
 		$this->addToModel("url", array(
 			"type" => "string",
 			"label" => "Url",
-			"hint_message" => "This text can link to a subpage"
+			"hint_message" => "This text can link to a subpage",
+			"error_message" => "Url is invalid.",
 		));
 
 	}
