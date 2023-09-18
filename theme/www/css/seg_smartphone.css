@@ -1,36 +1,39 @@
+/*
+asset-builder @ 2023-09-18 17:48:19
+*/
 
 /*seg_smartphone_include.css*/
 
 /*s-fonts.css*/
 @font-face {
 	font-family: 'Roboto';
-	src: url('/css/fonts/Roboto-Black-webfont.woff') format('woff'),
-		 url('/css/fonts/Roboto-Black-webfont.ttf') format('truetype'),
-		 url('/css/fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
+	src: url('fonts/Roboto-Black-webfont.woff') format('woff'),
+		 url('fonts/Roboto-Black-webfont.ttf') format('truetype'),
+		 url('fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
 	font-weight: 900;
 	font-style: italic;
 }
 @font-face {
 	font-family: 'Roboto';
-	src: url('/css/fonts/Roboto-BlackItalic-webfont.woff') format('woff'),
-		 url('/css/fonts/Roboto-BlackItalic-webfont.ttf') format('truetype'),
-		 url('/css/fonts/Roboto-BlackItalic-webfont.svg#robotoblack_italic') format('svg');
+	src: url('fonts/Roboto-BlackItalic-webfont.woff') format('woff'),
+		 url('fonts/Roboto-BlackItalic-webfont.ttf') format('truetype'),
+		 url('fonts/Roboto-BlackItalic-webfont.svg#robotoblack_italic') format('svg');
 	font-weight: 900;
 	font-style: italic;
 }
 @font-face {
 	font-family: 'RobotoCondensed';
-	src: url('/css/fonts/RobotoCondensed-Bold-webfont.woff') format('woff'),
-		 url('/css/fonts/RobotoCondensed-Bold-webfont.ttf') format('truetype'),
-		 url('/css/fonts/RobotoCondensed-Bold-webfont.svg#roboto_condensedbold') format('svg');
+	src: url('fonts/RobotoCondensed-Bold-webfont.woff') format('woff'),
+		 url('fonts/RobotoCondensed-Bold-webfont.ttf') format('truetype'),
+		 url('fonts/RobotoCondensed-Bold-webfont.svg#roboto_condensedbold') format('svg');
 	font-weight: 700;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'RobotoCondensed';
-	src: url('/css/fonts/RobotoCondensed-BoldItalic-webfont.woff') format('woff'),
-		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.ttf') format('truetype'),
-		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.svg#roboto_condensedbold_italic') format('svg');
+	src: url('fonts/RobotoCondensed-BoldItalic-webfont.woff') format('woff'),
+		 url('fonts/RobotoCondensed-BoldItalic-webfont.ttf') format('truetype'),
+		 url('fonts/RobotoCondensed-BoldItalic-webfont.svg#roboto_condensedbold_italic') format('svg');
 	font-weight: 700;
 	font-style: italic;
 }
@@ -86,10 +89,10 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 	display: none;
 }
 #header div.logo {z-index: 10; height: 60px; 
-	background: url("/img/gx_logo_front.png") no-repeat bottom center; background-size: auto 100%;
+	background: url("../img/gx_logo_front.png") no-repeat bottom center; background-size: auto 100%;
 }
 #header > ul.servicenavigation li.navigation {position: absolute; top: 0; right: 0; width: 50px; height: 50px; background-repeat: no-repeat; background-position: center center;
-	background-image: url("/img/gx_nav_icon_blue.png");
+	background-image: url("../img/gx_nav_icon_blue.png");
 }
 #navigation {display: none; position: absolute; top: 70px; width: 100%; z-index: 99; padding: 10px 0; background-color: #00027a;}
 #navigation ul.primary li {display: block; text-align: center;}
@@ -99,8 +102,8 @@ dt {display: inline-block; vertical-align: top; text-transform: uppercase; color
 #navigation ul.servicenavigation {margin: 15px 0;}
 #navigation ul.servicenavigation li {display: block; padding: 10px 0;}
 #navigation ul.servicenavigation li a {display: block; height: 40px; background-repeat:no-repeat; background-position: center center;}
-#navigation ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
-#navigation ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
+#navigation ul.servicenavigation li.help_us a {background-image: url("../img/bn_help_us_blue.png");}
+#navigation ul.servicenavigation li.support_us a {background-image: url("../img/bn_support_us_blue.png");}
 
 
 /*s-content.css*/
@@ -108,7 +111,7 @@ body #youtube {z-index: 101; display: none; width: 100%; position: fixed; backgr
 body #youtube div.player {background: #000000; position: absolute; top: 0; left: 50%; margin-left: -360px; width: 720px;}
 body #youtube iframe {display: block; width: 720; height: 405px;}
 body #youtube .close {z-index: 102; display: block; width:24px; height:22px; position: absolute; padding:10px; left: 50%; margin-left: 360px; cursor: pointer; 
-	background: url("/img/gx_nav_icon_close_red.png") no-repeat center;
+	background: url("../img/gx_nav_icon_close_red.png") no-repeat center;
 }
 #content {position: relative;}
 #content .scene {position: relative; 
@@ -146,10 +149,10 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 #content .scene .close {position: fixed; top: 0; left: 0;}
 #content .scene .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; left:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center;}
 #content .scene.red .close a {
-	background-image: url("/img/gx_nav_icon_back_blue.png");
+	background-image: url("../img/gx_nav_icon_back_blue.png");
 }
 #content .scene.blue .close a {
-	background-image: url("/img/gx_nav_icon_back_red.png");
+	background-image: url("../img/gx_nav_icon_back_red.png");
 }
 #footer {position: relative;}
 .page_missing #content .scene {padding: 60px 0;}
@@ -181,10 +184,10 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 }
 #footer ul.servicenavigation li {display: inline-block; vertical-align: top; padding: 10px 0; margin: 0 10px;}
 #footer ul.servicenavigation li a {display: block; height: 40px; background-repeat:no-repeat; background-position: center center;}
-#footer.blue ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
-#footer.blue ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
-#footer.red ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_red.png");}
-#footer.red ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_red.png");}
+#footer.blue ul.servicenavigation li.help_us a {background-image: url("../img/bn_help_us_blue.png");}
+#footer.blue ul.servicenavigation li.support_us a {background-image: url("../img/bn_support_us_blue.png");}
+#footer.red ul.servicenavigation li.help_us a {background-image: url("../img/bn_help_us_red.png");}
+#footer.red ul.servicenavigation li.support_us a {background-image: url("../img/bn_support_us_red.png");}
 #footer ul.servicenavigation li.help_us a {width:122px;}
 #footer ul.servicenavigation li.support_us a {width:92px;}
 #footer.red {background-color:#ee191b; }
@@ -210,7 +213,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #content .scene.front .logo {width: 312px; height: 172px; left:50%; margin-left:-156px; position:absolute; padding-top: 0px; z-index:10;
-	background: url("/img/gx_logo_front.png") no-repeat bottom center;
+	background: url("../img/gx_logo_front.png") no-repeat bottom center;
 	background-size: 100% auto;
 }
 #content .scene.front .container {display: none;}

@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 define("VERSION", "0.7.9.2");
 
-define("UI_BUILD", "DUK");
+define("UI_BUILD", "20230918-174834");
 
 define("SITE_UID", "DUK");
 define("SITE_NAME", "Dukkepartiet");

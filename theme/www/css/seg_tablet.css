@@ -1,36 +1,39 @@
+/*
+asset-builder @ 2023-09-18 17:48:19
+*/
 
 /*seg_tablet_include.css*/
 
 /*s-fonts.css*/
 @font-face {
 	font-family: 'Roboto';
-	src: url('/css/fonts/Roboto-Black-webfont.woff') format('woff'),
-		 url('/css/fonts/Roboto-Black-webfont.ttf') format('truetype'),
-		 url('/css/fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
+	src: url('fonts/Roboto-Black-webfont.woff') format('woff'),
+		 url('fonts/Roboto-Black-webfont.ttf') format('truetype'),
+		 url('fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
 	font-weight: 900;
 	font-style: italic;
 }
 @font-face {
 	font-family: 'Roboto';
-	src: url('/css/fonts/Roboto-BlackItalic-webfont.woff') format('woff'),
-		 url('/css/fonts/Roboto-BlackItalic-webfont.ttf') format('truetype'),
-		 url('/css/fonts/Roboto-BlackItalic-webfont.svg#robotoblack_italic') format('svg');
+	src: url('fonts/Roboto-BlackItalic-webfont.woff') format('woff'),
+		 url('fonts/Roboto-BlackItalic-webfont.ttf') format('truetype'),
+		 url('fonts/Roboto-BlackItalic-webfont.svg#robotoblack_italic') format('svg');
 	font-weight: 900;
 	font-style: italic;
 }
 @font-face {
 	font-family: 'RobotoCondensed';
-	src: url('/css/fonts/RobotoCondensed-Bold-webfont.woff') format('woff'),
-		 url('/css/fonts/RobotoCondensed-Bold-webfont.ttf') format('truetype'),
-		 url('/css/fonts/RobotoCondensed-Bold-webfont.svg#roboto_condensedbold') format('svg');
+	src: url('fonts/RobotoCondensed-Bold-webfont.woff') format('woff'),
+		 url('fonts/RobotoCondensed-Bold-webfont.ttf') format('truetype'),
+		 url('fonts/RobotoCondensed-Bold-webfont.svg#roboto_condensedbold') format('svg');
 	font-weight: 700;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'RobotoCondensed';
-	src: url('/css/fonts/RobotoCondensed-BoldItalic-webfont.woff') format('woff'),
-		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.ttf') format('truetype'),
-		 url('/css/fonts/RobotoCondensed-BoldItalic-webfont.svg#roboto_condensedbold_italic') format('svg');
+	src: url('fonts/RobotoCondensed-BoldItalic-webfont.woff') format('woff'),
+		 url('fonts/RobotoCondensed-BoldItalic-webfont.ttf') format('truetype'),
+		 url('fonts/RobotoCondensed-BoldItalic-webfont.svg#roboto_condensedbold_italic') format('svg');
 	font-weight: 700;
 	font-style: italic;
 }
@@ -86,7 +89,7 @@ body #youtube {z-index: 101; display: none; width: 100%; position: fixed; backgr
 body #youtube div.player {background: #000000; position: absolute; top: 0; left: 50%; margin-left: -360px; width: 720px;}
 body #youtube iframe {display: block; width: 720; height: 405px;}
 body #youtube .close {z-index: 102; display: block; width:24px; height:22px; position: absolute; padding:10px; left: 50%; margin-left: 360px; cursor: pointer; 
-	background: url("/img/gx_nav_icon_close_red.png") no-repeat center;
+	background: url("../img/gx_nav_icon_close_red.png") no-repeat center;
 }
 #content {position: relative;}
 #content .scene {position: relative;}
@@ -130,10 +133,10 @@ body #youtube .close {z-index: 102; display: block; width:24px; height:22px; pos
 #content .scene .close {position: fixed; top: 0; left: 0;}
 #content .scene .close a {display:block; width:24px; height:22px; position: absolute; padding:10px; left:10px; top:10px; cursor: pointer; text-indent: -9999px; z-index: 101; background-repeat:no-repeat; background-position: center center;}
 #content .scene.red .close a {
-	background-image: url("/img/gx_nav_icon_back_blue.png");
+	background-image: url("../img/gx_nav_icon_back_blue.png");
 }
 #content .scene.blue .close a {
-	background-image: url("/img/gx_nav_icon_back_red.png");
+	background-image: url("../img/gx_nav_icon_back_red.png");
 }
 #footer {position: relative;}
 .page_missing #content .scene {padding: 60px 0;}
@@ -211,72 +214,72 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #header.open #navigation .social ul li.instagram a,
 #header.open #navigation .social ul li.youtube a {width: 100px;}
 #header #navigation.red .logo {
-	background-image: url("/img/gx_fixed_logo_blue.png");
+	background-image: url("../img/gx_fixed_logo_blue.png");
 }
 #header #navigation.red .nav_icon {background-color: #ee191b;
-	background-image: url("/img/gx_nav_icon_blue.png");
+	background-image: url("../img/gx_nav_icon_blue.png");
 }
 #header #navigation.red ul.servicenavigation li.help_us a {
-	background-image: url("/img/bn_help_us_red.png");
+	background-image: url("../img/bn_help_us_red.png");
 }
 #header #navigation.red ul.servicenavigation li.support_us a {
-	background-image: url("/img/bn_support_us_red.png");
+	background-image: url("../img/bn_support_us_red.png");
 }
 #header #navigation.red ul.servicenavigation li.facebook a {
-	background-image: url("/img/bn_fb_blue.png");
+	background-image: url("../img/bn_fb_blue.png");
 }
 #header.open #navigation.red {background: #00027a;}
 #header.open #navigation.red ul.primary li a {color:#ee191b;}
 #header.open #navigation.red .nav_icon {background-color: #00027a;
-	background-image: url("/img/gx_nav_icon_close_red.png");
+	background-image: url("../img/gx_nav_icon_close_red.png");
 }
 #header.open #navigation.red ul.primary li a.active {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.red .social h4 {color:#ee191b;}
 #header.open #navigation.red .social ul li.facebook a {
-	background-image: url("/img/bn_fb_red.png");
+	background-image: url("../img/bn_fb_red.png");
 }
 #header.open #navigation.red .social ul li.youtube a {
-	background-image: url("/img/bn_yt_red.png");
+	background-image: url("../img/bn_yt_red.png");
 }
 #header.open #navigation.red .social ul li.twitter a {
-	background-image: url("/img/bn_tw_red.png");
+	background-image: url("../img/bn_tw_red.png");
 }
 #header.open #navigation.red .social ul li.instagram a {
-	background-image: url("/img/bn_ig_red.png");
+	background-image: url("../img/bn_ig_red.png");
 }
 #header #navigation.blue .logo {
-	background-image: url("/img/gx_fixed_logo_red.png");
+	background-image: url("../img/gx_fixed_logo_red.png");
 }
 #header #navigation.blue .nav_icon {background-color: #00027a;
-	background-image: url("/img/gx_nav_icon_red.png");
+	background-image: url("../img/gx_nav_icon_red.png");
 }
 #header #navigation.blue ul.servicenavigation li.help_us a {
-	background-image: url("/img/bn_help_us_blue.png");
+	background-image: url("../img/bn_help_us_blue.png");
 }
 #header #navigation.blue ul.servicenavigation li.support_us a {
-	background-image: url("/img/bn_support_us_blue.png");
+	background-image: url("../img/bn_support_us_blue.png");
 }
 #header #navigation.blue ul.servicenavigation li.facebook a {
-	background-image: url("/img/bn_fb_red.png");
+	background-image: url("../img/bn_fb_red.png");
 }
 #header.open #navigation.blue {background: #ee191b;}
 #header.open #navigation.blue .nav_icon {background-color: #ee191b;
-	background-image: url("/img/gx_nav_icon_close_blue.png");
+	background-image: url("../img/gx_nav_icon_close_blue.png");
 }
 #header.open #navigation.blue ul.primary li a {color:#00027a;}
 #header.open #navigation.blue ul.primary li a.active {background-color:#00027a; color:#ee191b;}
 #header.open #navigation.blue .social h4 {color:#00027a;}
 #header.open #navigation.blue .social ul li.facebook a {
-	background-image: url("/img/bn_fb_blue.png");
+	background-image: url("../img/bn_fb_blue.png");
 }
 #header.open #navigation.blue .social ul li.youtube a {
-	background-image: url("/img/bn_yt_blue.png");
+	background-image: url("../img/bn_yt_blue.png");
 }
 #header.open #navigation.blue .social ul li.twitter a {
-	background-image: url("/img/bn_tw_blue.png");
+	background-image: url("../img/bn_tw_blue.png");
 }
 #header.open #navigation.blue .social ul li.instagram a {
-	background-image: url("/img/bn_ig_blue.png");
+	background-image: url("../img/bn_ig_blue.png");
 }
 
 
@@ -287,7 +290,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 	font-family:'Roboto', Arial, sans-serif; font-weight: 900;
 }
 #content .scene.front .logo {z-index:10; width: 412px; height: 192px; left: 50%; margin-left: -206px; position: absolute; padding-top: 70px;
-	background: url("/img/gx_logo_front.png") no-repeat bottom center;
+	background: url("../img/gx_logo_front.png") no-repeat bottom center;
 }
 #content .scene.front .logo.fixed {position: fixed;}
 #content .scene.front .container {position: absolute; top:0; left:0; width: 100%; height: 100%; z-index:1;}
@@ -297,10 +300,10 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 .no_menu #content .scene.front ul.servicenavigation {display:block; position: absolute; bottom:42px; width: 100%; text-align: center; z-index: 10;}
 .no_menu #content .scene.front ul.servicenavigation li a {display:block; height:40px; margin: 0 5px; background-repeat:no-repeat; background-position: center center;}
 .no_menu #content .scene.front ul.servicenavigation li.help_us a {width:122px; 
-	background-image: url("/img/bn_help_us_red.png");
+	background-image: url("../img/bn_help_us_red.png");
 }
 .no_menu #content .scene.front ul.servicenavigation li.support_us a {width:92px; 
-	background-image: url("/img/bn_support_us_red.png");
+	background-image: url("../img/bn_support_us_red.png");
 }
 #content .scene.front ul.servicenavigation {display: none;}
 
@@ -334,7 +337,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.video ul.items li.item .image .play_bn:hover p {color: #ee191b;}
 #content .scene.video ul.items li.item .image img {width: 100%; opacity: 0.6;}
 #content .scene.video ul.items li.more a {display:block; background-size: 100% auto; cursor: pointer; height: 320px;
-	background: url("/img/gx_vise_fler_filmer.png") no-repeat center center;
+	background: url("../img/gx_vise_fler_filmer.png") no-repeat center center;
 }
 #content .scene.video p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #ee191b; padding-bottom: 80px;}
 
@@ -368,7 +371,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 #content .scene.action ul.items li.item .image .play_bn:hover p {color: #ee191b;}
 #content .scene.action ul.items li.item .image img {width: 100%; opacity: 0.6;}
 #content .scene.action ul.items li.more a {display:block; background-size: 100% auto; cursor: pointer; height: 320px;
-	background: url("/img/gx_vise_fler_filmer.png") no-repeat center center;
+	background: url("../img/gx_vise_fler_filmer.png") no-repeat center center;
 }
 #content .scene.action p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #ee191b; padding-bottom: 80px;}
 
@@ -530,7 +533,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 	        user-select: none;
 }
 #content .scene.primeminister ul.items li.more a {display:block; background-size: 100% auto; cursor: pointer; height: 300px;
-	background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; 
+	background: url("../img/gx_vise_fler_filmer.png") no-repeat center center; 
 }
 #content .scene.primeminister p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #00027a; padding-bottom: 80px;}
 
@@ -572,7 +575,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 }
 #content .scene.interview ul.items li.item .image img {width: 100%;}
 #content .scene.interview ul.items li.more a {display: block; background-size: 100% auto; cursor: pointer; height: 300px;
-	background: url("/img/gx_vise_fler_filmer.png") no-repeat center center; 
+	background: url("../img/gx_vise_fler_filmer.png") no-repeat center center; 
 }
 #content .scene.interview ul.items li.item .youtube {width:100%; height:100%;}
 #content .scene.interview .youtube {z-index: 99; display:none; position:absolute; width:720px; background-color: #ee191b; left: 50%; margin-left: -414px; padding:44px;}
@@ -584,7 +587,7 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 }
 #content .scene.interview .youtube p {padding: 10px 0; text-align: right;}
 #content .scene.interview .youtube .close {z-index: 101; display:block; width:24px; height:22px; position: absolute; padding:10px; right:0px; top:0px; cursor: pointer; 
-	background: url("/img/gx_nav_icon_close_blue.png") no-repeat center;
+	background: url("../img/gx_nav_icon_close_blue.png") no-repeat center;
 }
 #content .scene.interview p.no_videos {text-align: center; font-size: 24px; font-weight: bold; color: #ee191b; padding-bottom: 80px;}
 
@@ -616,32 +619,32 @@ body.declaration #footer .about ul.contacts li.contact p a:hover {background-col
 /*s-active.css*/
 #header.open #navigation.red ul.primary li a:active {background-color:#ee191b; color:#00027a;}
 #header.open #navigation.blue ul.primary li a:active {background-color:#00027a; color:#ee191b;}
-#header #navigation.red .nav_icon:active {background-image: url("/img/gx_nav_icon_red.png"); background-color:#00027a;}
-#header.open #navigation.red .nav_icon:active {background-image: url("/img/gx_nav_icon_close_blue.png"); background-color:#ee191b;}
-#header #navigation.blue .nav_icon:active {background-image: url("/img/gx_nav_icon_blue.png"); background-color:#ee191b;}
-#header.open #navigation.blue .nav_icon:active {background-image: url("/img/gx_nav_icon_close_red.png"); background-color:#00027a;}
-#header #navigation.red ul.servicenavigation li.help_us a:active {background-image: url("/img/bn_help_us_blue.png");}
-#header #navigation.red ul.servicenavigation li.support_us a:active {background-image: url("/img/bn_support_us_blue.png");}
-#header #navigation.blue ul.servicenavigation li.help_us a:active {background-image: url("/img/bn_help_us_red.png");}
-#header #navigation.blue ul.servicenavigation li.support_us a:active {background-image: url("/img/bn_support_us_red.png");}
-#content .scene.front ul.servicenavigation li.support_us a:active {background-image: url("/img/bn_support_us_blue.png");}
-#content .scene.front ul.servicenavigation li.help_us a:active {background-image: url("/img/bn_help_us_blue.png");}
-#header #navigation.blue .social ul li.facebook a:active {background-image: url("/img/bn_fb_red.png");}
-#header #navigation.blue .social ul li.youtube a:active {background-image: url("/img/bn_yt_red.png");}
-#header #navigation.blue .social ul li.twitter a:active {background-image: url("/img/bn_tw_red.png");}
-#header #navigation.blue .social ul li.instagram a:active {background-image: url("/img/bn_ig_red.png");}
-#header #navigation.red .social ul li.facebook a:active {background-image: url("/img/bn_fb_blue.png");}
-#header #navigation.red .social ul li.youtube a:active {background-image: url("/img/bn_yt_blue.png");}
-#header #navigation.red .social ul li.twitter a:active {background-image: url("/img/bn_tw_blue.png");}
-#header #navigation.red .social ul li.instagram a:active {background-image: url("/img/bn_ig_blue.png");}
+#header #navigation.red .nav_icon:active {background-image: url("../img/gx_nav_icon_red.png"); background-color:#00027a;}
+#header.open #navigation.red .nav_icon:active {background-image: url("../img/gx_nav_icon_close_blue.png"); background-color:#ee191b;}
+#header #navigation.blue .nav_icon:active {background-image: url("../img/gx_nav_icon_blue.png"); background-color:#ee191b;}
+#header.open #navigation.blue .nav_icon:active {background-image: url("../img/gx_nav_icon_close_red.png"); background-color:#00027a;}
+#header #navigation.red ul.servicenavigation li.help_us a:active {background-image: url("../img/bn_help_us_blue.png");}
+#header #navigation.red ul.servicenavigation li.support_us a:active {background-image: url("../img/bn_support_us_blue.png");}
+#header #navigation.blue ul.servicenavigation li.help_us a:active {background-image: url("../img/bn_help_us_red.png");}
+#header #navigation.blue ul.servicenavigation li.support_us a:active {background-image: url("../img/bn_support_us_red.png");}
+#content .scene.front ul.servicenavigation li.support_us a:active {background-image: url("../img/bn_support_us_blue.png");}
+#content .scene.front ul.servicenavigation li.help_us a:active {background-image: url("../img/bn_help_us_blue.png");}
+#header #navigation.blue .social ul li.facebook a:active {background-image: url("../img/bn_fb_red.png");}
+#header #navigation.blue .social ul li.youtube a:active {background-image: url("../img/bn_yt_red.png");}
+#header #navigation.blue .social ul li.twitter a:active {background-image: url("../img/bn_tw_red.png");}
+#header #navigation.blue .social ul li.instagram a:active {background-image: url("../img/bn_ig_red.png");}
+#header #navigation.red .social ul li.facebook a:active {background-image: url("../img/bn_fb_blue.png");}
+#header #navigation.red .social ul li.youtube a:active {background-image: url("../img/bn_yt_blue.png");}
+#header #navigation.red .social ul li.twitter a:active {background-image: url("../img/bn_tw_blue.png");}
+#header #navigation.red .social ul li.instagram a:active {background-image: url("../img/bn_ig_blue.png");}
 #content .scene.red .close a:active {background-color: #00027a;
-	background-image: url("/img/gx_nav_icon_back_red.png");
+	background-image: url("../img/gx_nav_icon_back_red.png");
 }
 #content .scene.blue .close a:active {background-color: #ee191b;
-	background-image: url("/img/gx_nav_icon_back_blue.png");
+	background-image: url("../img/gx_nav_icon_back_blue.png");
 }
 body #youtube .close:active {background-color: #ee191b;
-	background-image: url("/img/gx_nav_icon_close_blue.png");
+	background-image: url("../img/gx_nav_icon_close_blue.png");
 }
 #content .scene.help .container p.download a:active {color: #00027a; background-color: #ee191b; box-shadow: 10px 0 0 #ee191b, -10px 0 0 #ee191b;}
 #content .scene.red .next:active,
